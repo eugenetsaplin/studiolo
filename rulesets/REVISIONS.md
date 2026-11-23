@@ -191,3 +191,47 @@ Reason: an editorial decision. **No rule changes: the game plays exactly as in r
 2. An internal code of ours is removed from two source lines of Venticinque for two.
 
 **Count of marks** (not counting the lists of «not played»): unchanged — 545 [D], 232 [R], 122 [S], 899 rules in all.
+
+## Revision 5 — 23 November 2026, tag `rules-r5`
+
+<!-- files r5
+bagattultimo.json sha256:8f94b70ca813a51e997cab04dbc7caa271ce0e507646d62268d8584eecf9050b
+baronetti.json sha256:5de211b7fdcff8d92296c157446bcacd110ab12d53762f9ab0697caa053271a0
+chiamare_il_re.json sha256:16edb6155addf208449b561fa012ee1024f83a7c22bc220e87c7e8d32b8a609f
+consiglio.json sha256:3b6e85e1c48bff858d113e8b753dc9eea01345f8188b44a47f0542c93f01dd4d
+dottore.json sha256:6fc28bd07ae8582e9e42bce59f41c35dde58b330147ae44a70c585991efb33fb
+meno.json sha256:4b420624235a1bfea52fc0ea651c750fd1fa10505cf41219a49f425c603a3fc3
+mitigati_2.json sha256:ed6672668360ac38c59f3eb1c2bf1b25f8bfacc7f52f9a19a6ac0f5ddd0f6bc8
+morto.json sha256:efadc6227af5ca874dc4a7eead13079723e621b0434bf6297e1218b2ca221817
+partita_3.json sha256:bfc0dedc5d26ee5c73970dad6b248520e82f8e4adc1c53f876b782e2701c03f1
+partita_4.json sha256:df1c7092e7c3ae3ae090e3c32db6c06b4e77004b8cc8b168903b6b02faacaa90
+permesso_3.json sha256:e552b3aba74e451bea1b106761f522db4d8efb61fb7ae686ce8281b547c4d408
+permesso_4.json sha256:c9596040661c807db4d746191f72e3171717fc581fa6dab57960653092c7c8cb
+permesso_5.json sha256:3b8e2162306195941da8e3b2052c93c76979b2b9fc531e787c21e6ce94f3739b
+permesso_6.json sha256:798f5dca01e70e3a9d2fca4d79f10a97e211984100c0a03a175922c470dc0010
+permesso_7.json sha256:9e8324c5af5c24345bb8dcefb1778eb2e33d1b8d1788dd505137022ce8343c3b
+sedici_2.json sha256:902e235fb073a2f15370e1981a88c657e4a667b858928803c172968b6e4dee4d
+sedici_3.json sha256:f1616230abdb79d103cd63d9dfef125f8fc43e3aa16587172b59b85cc43e7299
+sedici_4.json sha256:470e914337ae6438f0a919e34f783b74d937823dd9f919a94a9ebeee375dc5c5
+trentuno.json sha256:dd0e98665d18178707f5a50dbbf528ae86d0fb536e66ed273edaefc48674f1ca
+venticinque.json sha256:d4db4754f735b175d7a4ee055ae8caa20b349e685854d625d4b06f59a1bf8245
+venticinque_3.json sha256:c44ca901817546f45667b7dc827215393336437d242f0c4714847cfa6d66cdd9
+-->
+
+Reason: five stake games had no end of a match. Partita for three and for four, Consiglio, Dottore and Meno kept their accounts «until the players leave»; the table showed no final result and could not offer a new match. The sources were read again for the length of a match and its payment. Torino [1846], part I, p. 36 ends Partita for four «in quattro scarti», so that each player discards in turn. The book of 1787, p. 97 counts Consiglio's second custom over a «giro» of four deals. For Partita for three, Dottore and Meno no source names a length. **The game changes: a match now ends.** Settlement does not change.
+
+**What changes for the player.**
+1. A stake match ends after one round of dealers: every player deals once. Partita for four and Consiglio: four deals. Partita for three: three. Dottore: five. Meno: as many deals as players.
+2. The marche are settled after every deal, as before. The result of the match is the balance of the marche: the greatest balance wins, equal balances are a draw («pace»).
+3. Recorded as other versions, not played: Partita for four and Consiglio decided by the sum of the points of the four deals with one stake at the end (Torino [1846], part I, pp. 35-36; Prammatica [1846], p. 15; 1787, p. 97) — it waits for the format to pay at the end of a match (point 54 in `docs/FORMAT_OPEN_POINTS.md`). For Meno, a race to a set number of points, not less than five (by analogy with Sedici and Trent'uno, Prammatica [1846], pp. 11-13). For all five, two or three rounds by agreement.
+
+**What changed in the files.**
+1. The format: a new key `match.dealer_rounds` (`docs/GAME_FILE_FORMAT.md`, section 12).
+2. Partita for four: `match.dealer_rounds` 1 [D] (Torino [1846], part I, p. 36); `match.kind` now [R]. Variant «four deals»: the tie-break source no longer cites the Consiglio page and says that the marche are still paid after every deal.
+3. Consiglio: `match.dealer_rounds` 1 [R] (1787, p. 97). Variant «sum of four deals»: the number of deals stays [D], the order of dealers is marked as our reading, the tie-break source is rewritten as for Partita, a wrong cross-reference is corrected.
+4. Partita for three, Dottore, Meno: `match.dealer_rounds` 1 [S], with questions 23 and 24 in the list of open questions; `match.kind` sources rewritten.
+5. Dottore: the words quoted from Dummett 1980, p. 263 are corrected to what the page prints, «There is no information about the system of scoring».
+6. Venticinque for three, no change of play: the «da fuori» duty is credited to Torino [1846], part I, p. 34 and Prammatica [1846], p. 14 as well as Dummett; the penalty for failing it is paid to each opponent, not received from each; the running total of differences from 26 is credited to Dummett's account, not to Prammatica, p. 14. Dummett's quotation of the rules of 1830 (p. 260, note 2) is word for word Prammatica, p. 14.
+7. The format documents: section 12 of `GAME_FILE_FORMAT.md` now says that the greatest positive total wins at Venticinque for three, as the core plays it (Torino [1846], part I, p. 34); points 13 and 33 of `FORMAT_OPEN_POINTS.md` are corrected.
+
+**Count of marks** (not counting the lists of «not played»): 546 [D], 236 [R], 122 [S] — 904 rules in all.

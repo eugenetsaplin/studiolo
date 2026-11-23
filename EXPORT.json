@@ -1,20 +1,20 @@
 {
-  "revision": 4,
-  "tag": "rules-r4",
-  "commit": "ab2b5626e7cad5c8f60e5699b9fb5d4f2647b5b9",
-  "commit_date": "2026-11-23T17:32:11+01:00",
+  "revision": 5,
+  "tag": "rules-r5",
+  "commit": "32e4170aae2dc25becc487b5ab16b0c79949fc9e",
+  "commit_date": "2026-11-23T22:05:42+01:00",
   "tool": "export-open 1",
   "trial": false,
   "files": [
     {
       "path": "docs/FORMAT_OPEN_POINTS.md",
-      "sha256": "ca05b828149fae686123c89571f946944ad92b1af512524184cd472b781b6175",
-      "bytes": 36327
+      "sha256": "b9f80709ec8537711c3cf9323daf275b36e7fc09e83a88365c1125d013e84908",
+      "bytes": 36659
     },
     {
       "path": "docs/GAME_FILE_FORMAT.md",
-      "sha256": "a021961a6550a3b3e8ef6fa519f8920eda54d5c168ae810f44271d7c94ae9c08",
-      "bytes": 62359
+      "sha256": "66d1f8cfb86c907072ba8b52d3dea49e7d3e7ebd1a1d94ce5bfa40184fd5a598",
+      "bytes": 62865
     },
     {
       "path": "rules/README.md",
@@ -38,18 +38,18 @@
     },
     {
       "path": "rules/consiglio.md",
-      "sha256": "fba43a3fbb9b3388d34e3116d3ce3979ac5ad82ad7fc70f0597f728680832d62",
-      "bytes": 12693
+      "sha256": "678cb8b6f476025e3d3f5a00786607ec0c152c7125678d811e304dd0b1d132ee",
+      "bytes": 13647
     },
     {
       "path": "rules/dottore.md",
-      "sha256": "28c5b73220b0f2e2af17d07f45a77080cd545a2619c9a1198925a9880f73b556",
-      "bytes": 9602
+      "sha256": "a9e8e62380c8b5398ba2b57829b3fdad0644cffa12dd95c00acbd2829a610c36",
+      "bytes": 10277
     },
     {
       "path": "rules/meno.md",
-      "sha256": "879937e986c1244bbf553219d82391963b9f8a86709695457f4608d9b5970147",
-      "bytes": 7792
+      "sha256": "f8d34cd0893b3a0ede6f213d41466cbbc6ee1c5d4c438db28a1131aff68ac6a0",
+      "bytes": 8467
     },
     {
       "path": "rules/mitigati_2.md",
@@ -63,13 +63,13 @@
     },
     {
       "path": "rules/partita_3.md",
-      "sha256": "27967cdeebb5acfd75fa8f1f23e27ac2d58ef8f73e3681b10656416f4238afda",
-      "bytes": 9674
+      "sha256": "d9d837729314c51c35dbf18c556eb10d0f5b5eda40a8347444c500b333a6c006",
+      "bytes": 10349
     },
     {
       "path": "rules/partita_4.md",
-      "sha256": "b71dd4e0bbd93e6a6d4bfbeaa70a061c17b63199fc05af8dd5d4f91c78102c92",
-      "bytes": 10365
+      "sha256": "fc0ee57ba0beaa79684b9eb1074baf2fc777058cf6b1c500a519e48f697048c9",
+      "bytes": 11060
     },
     {
       "path": "rules/permesso_3.md",
@@ -123,18 +123,18 @@
     },
     {
       "path": "rules/venticinque_3.md",
-      "sha256": "d9639de237bb54e8ed2f96af4e189e020705171852c228b09a3467b0000f22fd",
-      "bytes": 10136
+      "sha256": "23b64355ab961c99d5dbfc1b1f84f510bb13390a41ede52303e3bfa2e4237bca",
+      "bytes": 10533
     },
     {
       "path": "rulesets/OPEN_QUESTIONS.md",
-      "sha256": "8af8e7945bcca17f228972a2d08c624761be40ac1f1405f77b69b6458ee94887",
-      "bytes": 10579
+      "sha256": "054d554b9e854e7b60d65b512e86d7c9adaed5cf19cde03a5ce2aa63770632da",
+      "bytes": 12572
     },
     {
       "path": "rulesets/REVISIONS.md",
-      "sha256": "7c69987011e2b3ce25ff3ee06b460df459651c2ece88e01fb53adee14b9850bd",
-      "bytes": 19635
+      "sha256": "8b283a7aa282c9ab705bd2aaf9d6b4971c35d62e457a1391357fb1828a04e7a7",
+      "bytes": 24785
     },
     {
       "path": "rulesets/bagattultimo.json",
@@ -153,18 +153,18 @@
     },
     {
       "path": "rulesets/consiglio.json",
-      "sha256": "3210ed6b40f71251c287ab28a05775340ad128733da2d431108fe88240776ec4",
-      "bytes": 3435
+      "sha256": "3b6e85e1c48bff858d113e8b753dc9eea01345f8188b44a47f0542c93f01dd4d",
+      "bytes": 4611
     },
     {
       "path": "rulesets/dottore.json",
-      "sha256": "c09144a24e875e6c694861f49f3f502cede8311fa27ce9d7e4590b74ef9e9083",
-      "bytes": 13219
+      "sha256": "6fc28bd07ae8582e9e42bce59f41c35dde58b330147ae44a70c585991efb33fb",
+      "bytes": 13929
     },
     {
       "path": "rulesets/meno.json",
-      "sha256": "9974f9a24a3660f2674b219bc5162c31fae216d4411e703516ead55eeb114bb3",
-      "bytes": 12379
+      "sha256": "4b420624235a1bfea52fc0ea651c750fd1fa10505cf41219a49f425c603a3fc3",
+      "bytes": 13087
     },
     {
       "path": "rulesets/mitigati_2.json",
@@ -178,13 +178,13 @@
     },
     {
       "path": "rulesets/partita_3.json",
-      "sha256": "1e05cc3a690648960492ea7225eb7279c55815832740441cbe1261ddda3da806",
-      "bytes": 13583
+      "sha256": "bfc0dedc5d26ee5c73970dad6b248520e82f8e4adc1c53f876b782e2701c03f1",
+      "bytes": 14275
     },
     {
       "path": "rulesets/partita_4.json",
-      "sha256": "dc625bd88d436131b6422dec10515cfcc9d0f1cf0c7aed2167961893c69d2f46",
-      "bytes": 15856
+      "sha256": "df1c7092e7c3ae3ae090e3c32db6c06b4e77004b8cc8b168903b6b02faacaa90",
+      "bytes": 17421
     },
     {
       "path": "rulesets/permesso_3.json",
@@ -213,8 +213,8 @@
     },
     {
       "path": "rulesets/schema/game.schema.json",
-      "sha256": "678649a5a672d6b56154dfc23fc4601360a443d3d91ad2f6e9d6868964631f6e",
-      "bytes": 34287
+      "sha256": "890c2f77fb4964fcae314312ce1dd82ff7dcd5049fc7764d489d87d5502c67b9",
+      "bytes": 34409
     },
     {
       "path": "rulesets/schema/texts.schema.json",
@@ -248,8 +248,8 @@
     },
     {
       "path": "rulesets/venticinque_3.json",
-      "sha256": "b35924cd069e7b4d593ea163574a02530fc9c70079803abc499bfea6bc7eeba9",
-      "bytes": 15183
+      "sha256": "c44ca901817546f45667b7dc827215393336437d242f0c4714847cfa6d66cdd9",
+      "bytes": 15854
     }
   ]
 }

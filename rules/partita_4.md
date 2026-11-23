@@ -1,6 +1,6 @@
 # Partita for four (Partita)
 
-4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 5.
 
 Partita, two against two (Torino 1787, «Del giuocare in Partita», pp. 88-90), the game the book calls the proper one of four players: two fixed pairs, partners sit face to face, the cards are cut, dealt and discarded as in Permesso for four (19 cards to each, the dealer puts two away), no one may ever go alone («andar a solo mai e poi mai»), the two partners' points are one heap and the part with more points wins, even by a single unpaired card (pp. 88-90). The Bagatto and the kings may not be put away, the Fool is shown (p. 90). Each winner collects the agreed sum from one of the opponents (p. 90). The sum, the count by four or by two, the lead and who deals first («Chi coppa meglio») are our readings. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -95,7 +95,8 @@ This step: *Documented: from the book, p. 89.*
 
 ### The match
 
-- The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- The match is kept as a ledger of hands. *Our reading: book, p. 90.* Open question 24: could be settled by a document in which the rule is printed or a trial with live players (one stake at the end of the partita, or the marche after every deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. *Documented: from Torino [1846], part I, p. 36.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -115,4 +116,4 @@ This step: *Documented: from the book, p. 89.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 
-Generated from `rulesets/partita_4.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/partita_4.json`, rules revision 5. Do not edit: change the game file.

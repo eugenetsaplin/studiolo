@@ -649,7 +649,8 @@
 				"crawford": {"$ref": "#/$defs/r_bool"},
 				"double_window_cards": {"$ref": "#/$defs/r_int"},
 				"round_target": {"$ref": "#/$defs/r_num"},
-				"rounds": {"$ref": "#/$defs/r_int"}
+				"rounds": {"$ref": "#/$defs/r_int"},
+				"dealer_rounds": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "integer", "minimum": 1}}}]}
 			}
 		},
 		"penalty": {

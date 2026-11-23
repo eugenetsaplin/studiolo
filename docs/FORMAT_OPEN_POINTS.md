@@ -96,8 +96,8 @@ Page numbers and quotations come from the first reading of the games; I did not 
 
 ### 13. Dottore (pp. 75-76)
 
-- **fuzzy.** «Chi è ultimo a prendere giuoca il primo, come sopra si è detto al Trent'uno» (p. 75): the last to take a trick in the previous hand, or the last to receive cards. `tricks.first_leader: previous_last_taker` `[R]`; the first reading proposes `dealer_right` for the first trick.
-- **fuzzy.** «purchè tutti contino sull'istesso metodo» (p. 75): counting by one, two or three as agreed: `count.group: "option:group"` with an option; the payment is not printed (Dummett, p. 263: «no system of payment in PE»).
+- **fuzzy.** «Chi è ultimo a prendere giuoca il primo», «come si è detto del giuoco Trent'uno» (p. 75): the last to take a trick in the previous hand, or the last to receive cards. `tricks.first_leader: previous_last_taker` `[R]`; the first reading proposes `dealer_right` for the first trick.
+- **fuzzy.** «purchè tutti contino sull'istesso metodo» (p. 75): counting by one, two or three as agreed: `count.group: "option:group"` with an option; the payment is not printed (Dummett, p. 263: «There is no information about the system of scoring»).
 
 ### 14. Meno (pp. 78-79)
 
@@ -189,7 +189,7 @@ The format 2 engine stores card values «less one» in half-points; format 3 wri
 
 ### 33. The match around the book's hands
 
-The book describes hands and stakes, not matches. Every `match` of these games is `[S]`; for stake games the format offers `kind: ledger` (the table keeps accounts until the players leave).
+The 1787 book describes hands and stakes. It also knows longer units: a partita «fissata» to a number of points (p. 99, under «Marcio») and Consiglio's «giro» of four deals (p. 97); Torino [1846], part I, p. 36 ends Partita «in quattro scarti». Since rules revision 5 a stake game is `kind: ledger` with `dealer_rounds` (the match ends after that many rounds of dealers; the greatest balance wins, equal balances are a draw). One stake paid at the end of a match waits for point 54.
 
 ### 34. New leaves of the converted files
 

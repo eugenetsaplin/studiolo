@@ -3,7 +3,7 @@
 	"id": "meno",
 	"status": "playable_with_decisions",
 	"about": "Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 3,
+	"revision": 5,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -134,7 +134,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita») and prints no payment; the marche are settled after every deal, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 78-79 are silent on the length of a match and on payment. Ours: one round of dealers, as many deals as players. Other version, for the forms of four and eight cards: a race to a set number of points, «non meno di cinque», as Prammatica [1846], pp. 11-13 has it for Sedici and Trent'uno (an analogy; it is not said of Meno). The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
 	},
 	"penalties": [
 		{

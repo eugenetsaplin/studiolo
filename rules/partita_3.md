@@ -1,6 +1,6 @@
 # Partita for three (Partita)
 
-3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 5.
 
 Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -90,6 +90,7 @@ This step: *Documented: from the book, p. 88.*
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -104,4 +105,4 @@ This step: *Documented: from the book, p. 88.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 
-Generated from `rulesets/partita_3.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/partita_3.json`, rules revision 5. Do not edit: change the game file.

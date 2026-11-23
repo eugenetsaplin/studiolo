@@ -1,6 +1,6 @@
 # Council (Consiglio)
 
-4 players. In the book of 1787: p. 97. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+4 players. In the book of 1787: p. 97. Status: playable, with decisions of ours where the book is silent. Rules revision 5.
 
 This game is written as [Partita for four](partita_4.md) with differences.
 
@@ -100,7 +100,8 @@ This step: *Documented: from the book, p. 89.*
 
 ### The match
 
-- The match is kept as a ledger of hands. *Sources silent, our decision.* Same as in [Partita for four](partita_4.md). <!-- rule: match.kind -->
+- The match is kept as a ledger of hands. *Our reading: book, p. 90.* Open question 24: could be settled by a document in which the rule is printed or a trial with live players (one stake at the end of the partita, or the marche after every deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Partita for four](partita_4.md). <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. *Our reading: book, p. 97.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. Open question 24: could be settled by a document in which the rule is printed or a trial with live players (one stake at the end of the partita, or the marche after every deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Partita for four](partita_4.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -120,4 +121,4 @@ This step: *Documented: from the book, p. 89.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 
-Generated from `rulesets/consiglio.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/consiglio.json`, rules revision 5. Do not edit: change the game file.

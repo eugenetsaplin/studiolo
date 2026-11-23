@@ -1,6 +1,6 @@
 # Doctor (Dottore)
 
-5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 5.
 
 Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The payment, the value of each card, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.
 
@@ -92,6 +92,7 @@ This step: *Documented: from the book, p. 75.*
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -110,4 +111,4 @@ This step: *Documented: from the book, p. 75.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 
-Generated from `rulesets/dottore.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/dottore.json`, rules revision 5. Do not edit: change the game file.

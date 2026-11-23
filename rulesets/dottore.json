@@ -4,7 +4,7 @@
 	"family": "dottore",
 	"status": "playable_with_decisions",
 	"about": "Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The payment, the value of each card, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.",
-	"revision": 3,
+	"revision": 5,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -115,7 +115,7 @@
 				"id": "settle",
 				"module": "settle",
 				"settings": {
-					"unit": {"value":"stake","source":"[S] Torino 1787, pp. 75-76: no payment is printed (Dummett 1980, p. 263: «no system of payment in PE»); the agreed stake.","by":"dummett1980"},
+					"unit": {"value":"stake","source":"[S] Torino 1787, pp. 75-76: no payment is printed (Dummett 1980, p. 263: «There is no information about the system of scoring»); the agreed stake.","by":"dummett1980"},
 					"mode": {"value":"losers_pay_winner","source":"[S] Torino 1787, p. 75: not said; ours: each of the four others pays the winner (as Sedici for three, p. 43)."},
 					"amount": {"value":{"stake":"agreed"},"source":"[S] Torino 1787, p. 75: not said; the simple stake agreed before the deal (general rule, p. 21)."}
 				}
@@ -123,7 +123,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand; the table keeps accounts until the players leave."}
+		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and prints no payment; the marche are settled after every deal, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 75-76 are silent on the length of a match. Torino [1846], part I, p. 46 («come al Venticinque in tre») and Prammatica [1846], p. 22 («simile al Venticinque del n° 6») liken the game to Venticinque for three but name no number of deals. Ours: one round of dealers, five deals. The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
 	},
 	"penalties": [
 		{

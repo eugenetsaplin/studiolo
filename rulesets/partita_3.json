@@ -4,7 +4,7 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 3,
+	"revision": 5,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -121,7 +121,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand; the table keeps accounts until the players leave."}
+		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and prints no payment; the marche are settled after every deal, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 87-88 are silent on the length of a match, and Torino [1846] has no Partita for three. Ours, by analogy with Venticinque for three, which is dealt the same way (25, 25, 28) and whose partita is made «in tre scarti» (Torino [1846], part I, p. 34): three deals, each player dealing once. The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
 	},
 	"penalties": [
 		{

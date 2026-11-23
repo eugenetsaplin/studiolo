@@ -594,7 +594,7 @@ The match wraps the hand. Format 2 keys keep their names.
 
 | key | type | values | default |
 |---|---|---|---|
-| `kind` | enum | `single_hand`; `fixed_hands` (`hands` hands); `race` (to `target` game points); `running_total` (Venticinque for three by RI: `rounds` rounds, each seat scores its points less `round_target`, the first positive total wins: Dummett 1980, p. 260); `ledger` (stakes accumulate hand after hand, the table ends when the players leave) | from `hands`: 0 → `race`, N → `fixed_hands`; no match section → `single_hand` |
+| `kind` | enum | `single_hand`; `fixed_hands` (`hands` hands); `race` (to `target` game points); `running_total` (Venticinque for three by RI: `rounds` rounds, each seat scores its points less `round_target`, the greatest total wins if it is above zero (Torino [1846], part I, p. 34: «Vince chi ha … un maggior numero di punti»), as the core plays it; Dummett 1980, p. 260 has the first player to reach a positive total in the last round); `ledger` (stakes accumulate hand after hand; with `dealer_rounds` the match ends after that many rounds of dealers, the greatest balance wins and equal balances are a draw, «pace»; without it the table ends the match when the players leave) | from `hands`: 0 → `race`, N → `fixed_hands`; no match section → `single_hand` |
 | `target` | number | format 2 | `5` |
 | `hands` | integer | format 2 (0 = race) | — |
 | `tiebreak` | enum | format 2: `none`, `card_points` | `none` |
@@ -603,6 +603,7 @@ The match wraps the hand. Format 2 keys keep their names.
 | `max_stake`, `crawford`, `double_window_cards` | | format 2 (Duello's doubling; must be 1, false, any for the book's games) | |
 | `round_target` | number | `running_total`: 26 | none |
 | `rounds` | integer | `running_total`: 3 | none |
+| `dealer_rounds` | integer | `ledger`: the match ends after this many rounds of dealers (deals = rounds x seats); without the key a ledger match never ends | none |
 
 The dealer changes by `seats.dealer_rotation`.
 

@@ -1,6 +1,6 @@
 # Twenty-five cards for three (Venticinque)
 
-3 players. In the book of 1787: no chapter of its own. Status: taken from a later source: the 1787 book has no chapter on this game. Rules revision 3.
+3 players. In the book of 1787: no chapter of its own. Status: taken from a later source: the 1787 book has no chapter on this game. Rules revision 5.
 
 Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. Not played by the engine for lack of a format key: the payment of the match and the «fuora» play (FORMAT_OPEN_POINTS point 6). Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -92,7 +92,7 @@ This step: *Documented: from Dummett (1980), p. 260.*
 ## Not played yet
 
 - **Match payment.** Format gap, not silence: The format has no settle mode that reads running totals at the end of a match (FORMAT_OPEN_POINTS point 6, proposal match.payout); the payment is not played until it has. *Documented: Dummett 1980, p. 260 (after RI): if both others have zero or less each pays the winner 1 game point; if one of them has a plus he neither pays nor receives and the third pays the winner 2. Torino [1846], part I, p. 34 says only who wins and who loses: «come perde chi ne ha fatto un numero minore».* <!-- left_out: match_payment -->
-- **Fuora declaration.** Format gap, not silence: An intention, not a checkable rule of the cards (FORMAT_OPEN_POINTS point 6): no card becomes illegal; a bot.play leaf and a hint carry it. *Documented: Dummett 1980, p. 260 (after RI): after two rounds a player whose total is above 26 cannot lose and says «Fuora» at the end of the deal; he also wins when in the last round a player has reached a sure positive total.* <!-- left_out: fuora_declaration -->
+- **Fuora declaration.** Format gap, not silence: An intention, not a checkable rule of the cards (FORMAT_OPEN_POINTS point 6): no card becomes illegal; a bot.play leaf and a hint carry it. *Documented: Torino [1846], part I, p. 34: «Chi è fuori, ossia non può più perdere» must play «da fuori» without harming the other two; if he still holds trumps «è obbligato a trionfare». Prammatica [1846], p. 14 prints the same duty for the last deal and its penalty, an onoranza of five points to each opponent. Dummett 1980, p. 260 (after RI): after two rounds a player whose total is above 26 cannot lose and says «Fuora» at the end of the deal; he also wins when in the last round a player has reached a sure positive total. Dummett's quotation of RI (p. 260, note 2) is word for word Prammatica [1846], p. 14.* <!-- left_out: fuora_declaration -->
 
 ## Sources
 
@@ -104,4 +104,4 @@ This step: *Documented: from Dummett (1980), p. 260.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846] | held |
 
-Generated from `rulesets/venticinque_3.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/venticinque_3.json`, rules revision 5. Do not edit: change the game file.
