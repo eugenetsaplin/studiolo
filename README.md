@@ -50,7 +50,7 @@ The rules engine and simple robots will follow, so that anyone can repeat our nu
 
 In revision 1 we misread rule 38 of the book (p. 34). No honour may be discarded, *«eccetto che Bagatto sia solo, senza il Folle»*. We took this to mean "unless the hand holds no Fool". It means: unless the Bagatto is the only trump in the hand and there is no Fool. That is how Michael Dummett reads the rule (*The Game of Tarot*, 1980, p. 259). Revision 2 corrects it. The journal keeps both readings and the reason for the change.
 
-Revision 5 corrects nine wrong or doubtful attributions of sources that a second reading of the pages found. One of them was a penalty written the wrong way round: at Venticinque for three the offender pays each opponent, he does not receive from them (Prammatica [1846], p. 14). The journal lists all nine.
+Revision 5 corrects nine wrong or doubtful attributions of sources that a second reading of the pages found. One of them was a penalty written the wrong way round: at Venticinque for three the offender pays each opponent, he does not receive from them (Prammatica [1846], p. 14). The journal lists them.
 
 ## How you can help
 
