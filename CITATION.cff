@@ -24,3 +24,11 @@ license: CC-BY-4.0
 repository-code: "https://github.com/eugenetsaplin/studiolo"
 version: "1 (rules revision 4)"
 date-released: "2026-11-23"
+doi: "10.5281/zenodo.24476760"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24476760"
+    description: "All releases. Always resolves to the latest one."
+  - type: doi
+    value: "10.5281/zenodo.24476761"
+    description: "Release 1, rules revision 4."

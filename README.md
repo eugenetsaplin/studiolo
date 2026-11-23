@@ -4,6 +4,8 @@
 
 **An open notebook on restoring the tarot card games of the 1787 Turin rulebook.**
 
+[![DOI](https://zenodo.org/badge/1469096534.svg)](https://doi.org/10.5281/zenodo.24476760)
+
 Tarot cards were made for play. In 1787 the Turin printer Soffietti published *Primi elementi e regole del giuoco de' tarocchi*: a hundred pages of rules for the tarot games then played in Piedmont, for two to seven players. The pages do not say everything.
 
 Studiolo is our attempt to make every game of that book playable again, and to show our working while we do it.
@@ -86,6 +88,6 @@ Our own texts and rule files are under [CC BY 4.0](LICENSE): use them freely, na
 
 Two things are not ours to license. The quotations from the sources belong to their authors and publishers. The cards in the banner are «Cary-Yale Visconti tarocchi, Milan, 1440s. Beinecke Library, Yale University (open access)».
 
-Suggested citation: Tsaplin, E. (2026). *Studiolo: the tarot games of the 1787 Turin rulebook*, rules revision N. Petri Games. See [`CITATION.cff`](CITATION.cff).
+Suggested citation: Tsaplin, E. (2026). *Studiolo: the tarot games of the 1787 Turin rulebook* (release 1, rules revision 4). Zenodo. <https://doi.org/10.5281/zenodo.24476761>. See [`CITATION.cff`](CITATION.cff).
 
-Each release will be archived at Zenodo and get its own DOI; one permanent DOI will always lead to the latest release. Both will be added here with the first release. The engine, when it is published, will carry its own licence.
+Each release is archived at Zenodo under its own DOI: name the release and the rules revision you used. One permanent DOI always leads to the latest release: <https://doi.org/10.5281/zenodo.24476760>. The engine, when it is published, will carry its own licence.
