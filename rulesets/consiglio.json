@@ -1,0 +1,65 @@
+{
+	"format": 3,
+	"id": "consiglio",
+	"extends": "partita_4",
+	"family": "partita",
+	"status": "playable_with_decisions",
+	"about": "Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two.",
+	"revision": 3,
+	"seats": {
+		"count": {"value":4,"source":"[D] Torino 1787, p. 97: «giuocasi in quattro persone, come in Partita»."},
+		"seating": {"value":"partners_adjacent","source":"[D] Torino 1787, p. 97: «le due persone, che sono insieme, seggono vicine»."}
+	},
+	"sides": {
+		"mode": {"value":"fixed_pairs","source":"[D] Torino 1787, p. 97: as in Partita, two against two."},
+		"partners_share_hands": {"value":true,"source":"[D] Torino 1787, p. 97: «mostransi il giuoco»."},
+		"partners_talk": {"value":true,"source":"[D] Torino 1787, p. 97: «si consultano liberamente»."}
+	},
+	"cards": {
+		"deck": {"value":"full78","source":"[D] Torino 1787, p. 97: «Del rimanente tutto è simile al giuoco di Partita in quattro»: the same deal, 4 × 19 + 2 = 78."}
+	},
+	"hand": {
+		"phases": [
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value":"threshold","source":"[R] Torino 1787, p. 97: «Per vincere basta presso … contare quarantasei punti; … in tutto il giro»: the first custom is the base, the second a variant; the table must agree beforehand («fa ancor mestiere d'intendersela prima di giuocare»).","alt":"more_points"},
+					"target": {"value":46,"source":"[D] Torino 1787, p. 97: «quarantasei punti»."}
+				}
+			}
+		]
+	},
+	"variants": [
+		{
+			"id": "sum_of_four_deals",
+			"source": "[D] Torino 1787, p. 97: «presso altri è chi fa più punti … le carte tutte quattro le volte»: the part with more points over four deals wins.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "result",
+							"module": "result",
+							"settings": {
+								"winner": {"value":"more_points","source":"[D] Torino 1787, p. 97: the part that makes more points over the round wins; each hand only adds its points."}
+							}
+						}
+					]
+				},
+				"match": {
+					"kind": {"value":"fixed_hands","source":"[R] Torino 1787, p. 97: a round of four deals; in this format `fixed_hands` counts game points per hand, the book counts the points of all four deals together (FORMAT_OPEN_POINTS, F2)."},
+					"hands": {"value":4,"source":"[D] Torino 1787, p. 97: «tutte quattro le volte»: four deals, each player dealing once."},
+					"tiebreak": {"value":"card_points","source":"[S] Torino 1787, p. 97 does not say what equal totals are worth; ours: decided by the card points of all four hands together, else a draw."}
+				}
+			}
+		}
+	],
+	"view": {
+		"partners_hands": "shown"
+	},
+	"bot": {
+		"play": [
+			{"value":{"advice":"partner_may_suggest_card","partner_shares_hand":true},"source":"[D] Torino 1787, p. 97: partners «si consultano liberamente»; a bot partner shares its hand and plays a legal card the human partner suggests ([S] our rule for the bot)."}
+		]
+	}
+}

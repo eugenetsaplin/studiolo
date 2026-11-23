@@ -1,0 +1,179 @@
+{
+	"format": 3,
+	"id": "permesso_6",
+	"extends": "permesso_5",
+	"family": "permesso",
+	"status": "playable_with_decisions",
+	"about": "Sestilio, Permesso for six (Torino 1787, «Del giuoco di Permesso in sei persone, o sia Sestilio», pp. 76-77), a game the book calls «inusitato»: 13 cards to each of the six players, the dealer too, and no discard (p. 76); whoever wants to go alone asks «Permesso» as before. The book offers «giuoco sciolto» instead, played by the rules of Dottore without a discard, where the most points wins (pp. 76-77); here it is the variant «sciolto_chosen», and the outcome of a general pass in Dummett (1980, p. 267) is the variant «all_pass_sciolto». The payments of both are not printed. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 3,
+	"sources": {
+		"dummett1980": {
+			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		},
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value":6,"source":"[D] Torino 1787, p. 76: «Del giuoco di Permesso in sei persone, o sia Sestilio»."}
+	},
+	"sides": {
+		"mode": {"value":"by_contract","source":"[D] Torino 1787, p. 76: «chi vuole andar a solo chiamerà Permesso, come è stato detto di sopra»: one against the rest; the giuoco sciolto makes each play for himself (contract sciolto)."}
+	},
+	"cards": {
+		"deck": {"value":"full78","source":"[D] Torino 1787, p. 76: 6 × 13 = 78 («tredici carte ad ogni giuocatore, e per se tredici»); the sum is not printed."}
+	},
+	"contracts": [
+		{"id":"three","rank":1,"exchange":3,"onoranza":2,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 60, 67: «Permesso» asks to call three cards and put three away; «Chi va a tre carte, guadagna l'Onoranza di due»."},
+		{"id":"two","rank":2,"exchange":2,"onoranza":3,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 62, 67: «A due»; «chi va a due carte guadagna l'Onoranza di tre»."},
+		{"id":"one","rank":3,"exchange":1,"onoranza":4,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 63, 67: «io vado ad una»; «chi va a una carta sola, guadagna l'Onoranza di quattro»."},
+		{"id":"sans_prendre","rank":4,"exchange":0,"onoranza":5,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 64, 67: «aller sans prendre», no card changed; «chi va a sans prendre, guadagna l'Onoranza di cinque»."},
+		{"id":"sciolto","rank":0,"exchange":0,"sides":"each_for_self","source":"[D] Torino 1787, pp. 76-77: «giuoco sciolto, in cui chi fa più punti guadagna la partita»; rules of the Dottore, without discard."}
+	],
+	"variants": [
+		{
+			"id": "sciolto_chosen",
+			"source": "[D] Torino 1787, p. 76: «Per giuocar però meglio in sei persone … Permesso, potrassi giuocare a giuoco sciolto»: the table agrees before the deal to play giuoco sciolto instead of Permesso.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "bidding",
+							"module": "bidding",
+							"settings": {
+								"contracts": {"value":["sciolto"],"source":"[D] Torino 1787, p. 76: only giuoco sciolto is played; nobody asks «Permesso»."},
+								"all_pass": {"value":"contract:sciolto","source":"[D] Torino 1787, p. 76: the table plays «a giuoco sciolto» as agreed."}
+							}
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": "all_pass_sciolto",
+			"source": "[R] Dummett 1980, p. 267 (not printed in the Turin book): if all six pass, the cards are not thrown in but «giuoco sciolto» is played; the book itself (p. 76) offers it as a choice, not as the end of a general pass.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "bidding",
+							"module": "bidding",
+							"settings": {
+								"all_pass": {"value":"contract:sciolto","source":"[R] Dummett 1980, p. 267: a general pass leads to giuoco sciolto; the book says only that it may be played (p. 76).","by":"dummett1980"}
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"hand_size": {"value":13,"source":"[D] Torino 1787, p. 76: «darà tredici carte ad ogni giuocatore»."},
+					"dealer_extra": {"value":0,"source":"[D] Torino 1787, p. 76: «e per se tredici ne piglierà altresì, nessuna quindi scartandone»: the dealer has 13 like the rest."},
+					"dead": {"value":"none","source":"[R] Torino 1787, p. 76: 6 × 13 = 78; nothing is left over (the sum is not printed)."}
+				}
+			},
+			{
+				"id": "discard",
+				"module": "discard",
+				"remove": true
+			},
+			{
+				"id": "bidding",
+				"module": "bidding",
+				"settings": {
+					"all_pass": {"value": "redeal_next_dealer", "source": "[S] Torino 1787, pp. 76-77 say nothing of a hand in which everyone passes; ours as in Permesso for three. Other reading: Dummett 1980, p. 267 makes it giuoco sciolto (variant all_pass_sciolto).", "by": "dummett1980", "alt": "contract:sciolto", "replace": {"with": ["document"], "what": "the bidding of the dealer and a general pass", "q": 22}}
+				}
+			},
+			{
+				"id": "exchange",
+				"module": "exchange",
+				"when": {
+					"contract": ["three","two","one","sans_prendre"]
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"when": {
+					"contract": ["three","two","one","sans_prendre"]
+				}
+			},
+			{
+				"id": "tricks_sciolto",
+				"module": "tricks",
+				"when": {
+					"contract": ["sciolto"]
+				},
+				"after": "tricks",
+				"settings": {
+					"first_leader": {"value": "previous_last_taker", "source": "[R] Torino 1787, pp. 75, 77: giuoco sciolto follows «le regole date di sopra al giuoco del Dottore», and the Dottore says «Chi è ultimo a prendere giuoca il primo, come si è detto del giuoco Trent'uno»; read as the taker of the last trick of the previous hand (p. 37); other reading: the last to be dealt cards. The lead of the first hand is not printed.", "alt": "dealer_right", "replace": {"with": ["expert"], "what": "who leads first: «Chi è ultimo a prendere giuoca il primo»", "q": 20}},
+					"next_leader": {"value":"trick_winner","source":"[D] Torino 1787, p. 37: «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare»."},
+					"follow_suit": {"value":true,"source":"[D] Torino 1787, p. 35: «debbon rispondere con carte della medesima sequenza»."},
+					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it.", "by": "torino1846"},
+					"must_overtrump": {"value":false,"source":"[R] Torino 1787, pp. 36-37: no duty to beat the trump on the table."},
+					"fool_may_lead": {"value":true,"source":"[S] Ours: as in the other games; the Fool is only shown (p. 77)."}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"when": {
+					"contract": ["three","two","one","sans_prendre"]
+				}
+			},
+			{
+				"id": "result_sciolto",
+				"module": "result",
+				"when": {
+					"contract": ["sciolto"]
+				},
+				"after": "result",
+				"settings": {
+					"winner": {"value":"more_points","source":"[D] Torino 1787, pp. 76-77: «in cui chi fa più punti guadagna la partita»."},
+					"tie": {"value":"no_game_points","source":"[S] Torino 1787, p. 76 does not say what equal points are worth; ours: no payment, the hand is replayed by the next dealer."},
+					"game_points": {"value":"none","source":"[R] Torino 1787, p. 76: only «guadagna la partita»; the hand is settled in stakes at once."}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"when": {
+					"contract": ["three","two","one","sans_prendre"]
+				}
+			},
+			{
+				"id": "settle_sciolto",
+				"module": "settle",
+				"when": {
+					"contract": ["sciolto"]
+				},
+				"after": "settle",
+				"settings": {
+					"unit": {"value":"stake","source":"[S] Torino 1787, p. 76 gives no payment for the giuoco sciolto; ours: the agreed stake."},
+					"mode": {"value":"losers_pay_winner","source":"[S] Torino 1787, p. 76 does not say who pays; ours: every other player pays the winner (Dummett 1980, p. 267, one from each, his own reading).","by":"dummett1980"},
+					"amount": {"value":{"stake":"agreed"},"source":"[S] Torino 1787, p. 76: nothing is printed; the simple stake agreed before the deal (p. 21)."}
+				}
+			}
+		]
+	},
+	"options": [
+		{"id":"stake","choices":[1,2,5,10],"default":1,"source":"[S] Torino 1787, p. 76: the giuoco sciolto has no printed payment; the stake is agreed before the deal (p. 21); the choices are ours.","affects":["hand.settle.amount"]}
+	],
+	"bot": {
+		"play": [
+			{"value":{"advice":"six_player_permesso_unusual"},"source":"[D] Torino 1787, p. 76: «Il giuoco di Permesso in sei persone è un giuoco inusitato»."}
+		]
+	}
+}

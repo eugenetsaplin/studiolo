@@ -1,0 +1,184 @@
+{
+	"format": 3,
+	"id": "mitigati_2",
+	"family": "mitigati",
+	"status": "playable_with_decisions",
+	"about": "Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan (check of 2 November 2026, image of p. 85 seen again for this file): the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards up to thirteen cards and his opponent twelve (honours never), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25), the other reading (39 and 39) is in the source text. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 3,
+	"sources": {
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		},
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		},
+		"dummett1980": {
+			"cite": "M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		},
+		"prammatica1846": {
+			"cite": "L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846]",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value": 2, "source": "[D] Torino 1787, p. 85: «Anche fra due persone usasi di giuocare con tutto il mazzo dei Tarocchi»: two players."},
+		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right; with two players the direction changes nothing."},
+		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first."},
+		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies."},
+		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value": "alternate", "source": "[R] Torino 1787, p. 41 (Sedici for two): the pack goes to the other player.", "by": "ours"}
+	},
+	"sides": {
+		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, pp. 85, 87: two persons, the one who makes forty-six points wins and the opponent pays him: each for himself."}
+	},
+	"cards": {
+		"deck": {"value": "full78", "source": "[D] Torino 1787, p. 85: «con tutto il mazzo dei Tarocchi»: «settant'otto Tarocchi» (see also pp. 9-10)."},
+		"trump_order": {"value": "torino_1787", "source": "[D] Torino 1787, p. 13: «l'Angelo, il quale è il XX., appresso noi prende il Mondo»: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); the Fool stands outside the order."},
+		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5; the World and the other cards carry no value of their own. Values are the book's numbers (a king with a plain card is 5, p. 52)."},
+		"sets": {
+			"honours": {"value": ["rank:K", "T20", "T0", "T1"], "source": "[D] Torino 1787, pp. 34, 85: «mai non si scartino Re, nè altri Onori, che vagliano cinque punti»; the honours are the five-point cards, the kings, the Angel XX, the Fool and Bagatto (p. 34, rule 38)."}
+		},
+		"fool": {"value": "excuse", "source": "[D] Torino 1787, pp. 54, 87: «Il rimanente è come al giuoco semplice di Venticinque carte»; there «Il Folle non vien preso mai da alcun Trionfo, o cartaccia, ma solamente si mostra»."},
+		"fool_exchange": {"value": true, "source": "[D] Torino [1846], part I, p. 39: the card deducted is the one «che dassi in compenso del Folle».", "by": "torino1846"},
+		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino 1787, p. 52: «qualunque gli piaccia»; it applies here through «Il rimanente è come ...» (p. 87)."},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[D] Torino [1846], part I, p. 33: to «chi ha presa o coperta la mano».", "by": "torino1846"},
+		"fool_last_trick": {"value": "kept", "source": "[D] Torino 1787, pp. 50, 54: the Fool is never taken, in the last trick as in every other."},
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Torino [1846], part I, p. 33: «non si può perdere».", "by": "torino1846", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+	},
+	"options": [
+		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]},
+		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's.", "affects": ["hand.settle.unit"]}
+	],
+	"hand": {
+		"phases": [
+			{"id": "deal_first", "module": "deal", "source": "[R] Torino 1787, p. 85: «(date che siansi, e ricevute le carte tutte)» says the cards are dealt and received before the first discard; how many each receives is not printed (left_out «silent_first_deal»).", "settings": {"hand_size": {"value": {"by_role": {"dealer": 26, "non_dealer": 25}}, "source": "[S] Torino 1787, p. 85 and Torino [1846], part I, p. 50 print no number; ours: Dummett 1980, pp. 262-263 (26/25, discards 13 and 12). Other reading: all 78 dealt, 39 each (check of 2 November 2026).", "by": "dummett1980", "replace": {"with": ["document", "math", "bots"], "what": "the size of the first deal", "q": 5}}, "dealer_extra": {"value": 0, "source": "[S] Ours after Dummett 1980, pp. 262-263: the first deal gives the dealer 26, written in hand_size.", "by": "dummett1980"}}},
+			{
+				"id": "discard_first",
+				"module": "discard",
+				"source": "[D] Torino 1787, p. 85: «chi dà, ne scarta … di tredici, e … ricevette ne scarta dodici».",
+				"settings": {
+					"who": {"value": "each", "source": "[D] Torino 1787, p. 85: both players discard, the dealer and «chi le ricevette»."},
+					"count": {"value": {"by_role": {"dealer": 13, "non_dealer": 12}}, "source": "[D] Torino 1787, p. 85: the dealer «sino al numero di tredici», the other «dodici»: «ognuno cioè secondo le sue convenienze»."},
+					"count_mode": {"value": "up_to", "source": "[R] Torino 1787, p. 85: «sino al numero di» reads as a maximum for the dealer, while the other's «ne scarta dodici» reads as exactly twelve; one setting cannot say both (FORMAT_OPEN_POINTS, F1 item on count_mode by role). Other reading: both discard exactly the number named.", "alt": "exact"},
+					"discard_honours_barred": {"value": true, "source": "[D] Torino 1787, p. 85: «mai non si scartino Re, nè altri Onori, che vagliano cinque punti»; no exception is named here (the two of p. 34 are left out)."},
+					"counts_for": {"value": "discarder", "alt": "discarder_unless_no_tricks", "source": "[R] Torino 1787, p. 21 (rule 10, for every game) speaks of a player without tricks «avendo o il Folle, o lo scarto»: the discard stays his. Prammatica [1846], pp. 24-25 takes both discards from him («perde i punti dei due scarti»); not followed, see OPEN_QUESTIONS.md, question 1.", "by": "ours", "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}}
+				}
+			},
+			{
+				"id": "deal_second",
+				"module": "deal",
+				"source": "[D] Torino 1787, pp. 85-86: «di bel nuovo, chi ha dato, ritorna … rimaste, del mazzo, metà per uno».",
+				"settings": {
+					"hand_size": {"value": "half_rest", "source": "[D] Torino 1787, p. 86: «metà per uno»: half of the cards that remain to each player."},
+					"dealer_extra": {"value": 3, "source": "[D] Torino 1787, p. 86: «riserbandosene novellamente tre di più del suo compagno»: the dealer keeps three more."},
+					"dead": {"value": "none", "source": "[D] Torino 1787, p. 85: the dealer deals «tutte le carte, che son rimaste»: nothing is left over."},
+					"from": {"value": "rest", "source": "[S] Torino 1787, pp. 85-86: «tutte le carte, che son rimaste, del mazzo»; ours: the cards not yet dealt, as Dummett 1980, p. 263.", "by": "dummett1980"}
+				}
+			},
+			{
+				"id": "discard_second",
+				"module": "discard",
+				"source": "[D] Torino 1787, p. 86: the three cards are for «nuovo, ma solito, ed usato scarto, ch'egli per se debbe fare».",
+				"settings": {
+					"who": {"value": "dealer", "source": "[D] Torino 1787, p. 86: the discard is the dealer's («ch'egli per se debbe fare»)."},
+					"count": {"value": 3, "source": "[D] Torino 1787, p. 86: the three cards he reserved «debbono servire per ... scarto»; the usual dealer's discard of Venticinque is three (p. 53)."},
+					"discard_honours_barred": {"value": true, "source": "[D] Torino 1787, p. 85: «mai non si scartino Re, nè altri Onori, che vagliano cinque punti»."},
+					"counts_for": {"value": "discarder", "alt": "discarder_unless_no_tricks", "source": "[R] Torino 1787, p. 21 (rule 10, for every game) speaks of a player without tricks «avendo o il Folle, o lo scarto»: the discard stays his. Prammatica [1846], pp. 24-25 takes both discards from him («perde i punti dei due scarti»); not followed, see OPEN_QUESTIONS.md, question 1.", "by": "ours", "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}}
+				}
+			},
+			{
+				"id": "declarations",
+				"module": "declarations",
+				"settings": {
+					"window": {"value": "before_first_trick_covered", "source": "[D] Torino 1787, p. 86: «prima dee accusarli, che coperta siasi la prima mano, o prima base»."},
+					"kinds": {"value": [{"id": "onori", "of": "set:honours", "min": 3, "show": "announce_count", "pays": {"table": {"by": "count", "rows": {"3": 10, "4": 15, "5": 20}, "beyond": {"every": 1, "add": 5}}}}, {"id": "trionfi", "of": "trumps", "min": 10, "show": "announce_count", "pays": {"table": {"by": "trumps", "rows": {}, "same_as_count": true}}}, {"id": "mitigati", "of": {"any": ["T20", "T1", "T0"]}, "min": 3, "all_of": true, "show": "announce", "pays": 10}], "source": "[R] Torino 1787, pp. 86, 93-95: «ognuno conta gli Onori, che ha, e gli accusa»; ten or more trumps are declared and as many are paid as are declared («tanti, quanti tu ne accuserai»); Mitigati, the Angel, Bagatto and the Fool («Chi avrà Angelo, Bagatto, e Folle, accuserà Mitigati», p. 93), «sarà pagato a parte» (p. 86). The tariff is that of the three-player text, to which the references «come a pagina 98» point (p. 98 is the vocabulary; the tariff stands on pp. 93-95): honours 3 → 10, 4 → 15, 5 → 20 and five more for each (p. 94), trumps one marca each from ten (p. 95), Mitigati 10 (p. 94, paid on top of the 10 for its three honours). Readings of ours: the threshold of three honours is that tariff's first row, the two-player text names none; the trumps are announced, not laid out (the lay-out is p. 93, three players). Other reading: honours from one.", "alt": [{"id": "onori", "of": "set:honours", "min": 1, "show": "announce_count", "pays": {"table": {"by": "count", "rows": {"3": 10, "4": 15, "5": 20}, "beyond": {"every": 1, "add": 5}}}}, {"id": "trionfi", "of": "trumps", "min": 10, "show": "announce_count", "pays": {"table": {"by": "trumps", "rows": {}, "same_as_count": true}}}, {"id": "mitigati", "of": {"any": ["T20", "T1", "T0"]}, "min": 3, "all_of": true, "show": "announce", "pays": 10}]},
+					"late": {"value": "right_lost", "source": "[R] Torino 1787, pp. 86, 95: p. 86 requires the declaration before the first trick is covered; the forfeit of a late one is printed in the three-player text (p. 95), carried over."},
+					"mode": {"value": "manual", "source": "[R] Torino 1787, pp. 86, 93, 95: declaring is an obligation («debbonsi accusare») and a late player loses his right: the player declares. Other reading: the engine declares for him.", "alt": "auto"},
+					"paid": {"value": "at_once", "source": "[R] Torino 1787, pp. 86, 94: the tariff is that of the three-player text, paid «subito, e non sul fine della partita»."},
+					"paid_by": {"value": "each_other", "source": "[R] Torino 1787, pp. 86, 94: the opponent pays; with a single opponent «da ambi i compagni» (p. 94, each or both together) makes no difference."}
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"settings": {
+					"first_leader": {"value": "non_dealer", "source": "[D] Torino 1787, pp. 54, 87: «Il rimanente è come al giuoco semplice di Venticinque carte»; there «l'altro compagno comincia a giuocare»: the dealer's opponent leads."},
+					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 50: «Chi prende giuoca sempre il primiero»; it applies here through p. 87."},
+					"follow_suit": {"value": true, "source": "[D] Torino 1787, pp. 49, 87: the answer in the suit asked, «senza mai rinegare», as in Venticinque."},
+					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it.", "by": "torino1846"},
+					"must_overtrump": {"value": false, "source": "[R] Torino 1787, p. 49: the book states no duty to beat a trump on the table."}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"settings": {
+					"group": {"value": 2, "source": "[D] Torino 1787, p. 87: «le carte contansi a due a due»."},
+					"count_unit": {"value": "half_point", "source": "[D] Torino 1787, pp. 52, 87: the pair count of Baronetti; a card is worth its points and a half."},
+					"odd_card": {"value": "half_point", "source": "[R] Torino 1787, pp. 54-55, 87: «Una carta sola, ancorchè scompagnata» counts in Venticinque, to which p. 87 sends. Other reading: the odd card is dropped.", "alt": "drop"},
+					"fool_card": {"value": "counted", "source": "[D] Torino [1846], part I, p. 39: the 46 are counted after the compensation card is given.", "by": "torino1846"},
+					"trick_multipliers": {"value": false, "source": "[R] Torino 1787: the count is the one the section names; the book prints no trick multiplier and no war in these games (x2 and x4 are Duello's own)."},
+					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787: the book prints no bonus for the last trick (the +5 is Duello's own)."}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value": "threshold", "source": "[D] Torino 1787, p. 87: «per guadagnare la partita di Mitigati in due persone, debbonsi fare quarantasei punti»."},
+					"target": {"value": 46, "source": "[D] Torino 1787, p. 87: «quarantasei punti, dedotta la carta del Folle»."},
+					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 85-87: the hand is paid in marche and stake; the book names no game points."},
+					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, p. 87: 45½ each is not mentioned; ours as Venticinque, p. 54: «faremo eguali».", "by": "ours", "replace": {"with": ["document"], "what": "equal points, 45½ each", "q": 14}}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"settings": {
+					"unit": {"value": "marca", "source": "[D] Torino 1787, pp. 86-87, 93: the declarations are paid in marche and the ficcia is ten marche; «siasi conchiuso di quanto vaglia la marca»."},
+					"mode": {"value": "loser_pays_winner", "source": "[R] Torino 1787, p. 87: with two players the loser pays «la partita»; the sum is not printed."},
+					"amount": {"value": {"stake": "simple"}, "source": "[D] Torino 1787, p. 21: «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»; the book names no payment of its own for Mitigati for two."},
+					"payments": [{"id": "bagatto_last", "on": "last_trick_won_with:T1", "from": "each_other", "to": "event_seat", "amount": 30, "alt": "together", "source": "[R] Torino [1846], part I, p. 51: «Il rimanente come nell'altro Mitigati ed al Bagatto ultimo»; amounts p. 53."}, {"id": "bagatto_lost_last", "on": "lost_in_last_trick:T1", "from": "event_seat", "to": "each_other", "amount": 30, "source": "[R] Torino [1846], part I, p. 51: «Il rimanente come nell'altro Mitigati ed al Bagatto ultimo»; amounts p. 53."}, {"id": "bagatto_lost", "on": "lost_before_last_trick:T1", "from": "event_seat", "to": "each_other", "amount": 5, "source": "[R] Torino [1846], part I, p. 51: «Il rimanente come nell'altro Mitigati ed al Bagatto ultimo»; amounts p. 53."}]
+				}
+			}
+		]
+	},
+	"match": {
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+	},
+	"penalties": [
+		{
+			"id": "ficcia",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": 10, "unit": "marca"}, "source": "[D] Torino 1787, p. 87: «Chi finalmente rinega, o … compagno dieci marche, … comunemente dicesi una ficcia». The book says «al compagno»: the opponent. Torino [1846], part I, p. 57: «Ficcia, lo stesso che marca, e si fa valere più o meno, secondo si è convenuto»: there a ficcia is one marca of agreed worth."}
+		},
+		{
+			"id": "ficcia_misdeal",
+			"offence": "misdeal",
+			"enforce": "prevent",
+			"hand": "redeal",
+			"effect": {"value": {"pays": 10, "unit": "marca"}, "source": "[D] Torino 1787, p. 87: «dà giuoco fallo» (a card more or fewer than due, p. 18) costs the same ten marche, «una ficcia»."}
+		}
+	],
+	"view": {
+		"piles": {"rest": "face_down_count", "discard": "owner_only"},
+		"score_panel": {"live_points": "hidden", "after_hand": ["pairs", "odd_card", "fool_card", "declarations", "payments"]}
+	},
+	"left_out": [
+		{"id": "dummett_payment", "source": "[D] Dummett 1980, p. 263 (his guess, not PE): the winner receives 10 game points, or 20 if the loser has less than 23 card points, plus the amount by which he exceeds 46.", "why": "A reconstruction by Dummett, not a source; not written."}
+	]
+}

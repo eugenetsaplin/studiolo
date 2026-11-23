@@ -1,0 +1,22 @@
+title: "[Reading] "
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Game and rule
+      description: For example «Partita for three, the discard» or the number of an open question.
+    validations:
+      required: true
+  - type: textarea
+    id: passage
+    attributes:
+      label: The passage
+      description: Source, page, and the line as the book has it, in its own language.
+    validations:
+      required: true
+  - type: textarea
+    id: reading
+    attributes:
+      label: How you read it, and why
+    validations:
+      required: true

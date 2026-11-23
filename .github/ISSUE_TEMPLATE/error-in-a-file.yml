@@ -1,0 +1,25 @@
+name: An error in a file
+description: A wrong page number, a quotation that does not match the book, a broken link, a slip in the text.
+labels: ["error"]
+body:
+  - type: input
+    id: file
+    attributes:
+      label: File
+      description: For example rulesets/partita_3.json or rules/partita_3.md
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Quote the line as it stands now.
+    validations:
+      required: true
+  - type: textarea
+    id: should
+    attributes:
+      label: What it should say
+      description: With the source and the page, when there is one. Quote the book in its own language.
+    validations:
+      required: true

@@ -1,0 +1,209 @@
+{
+	"format": 3,
+	"id": "bagattultimo",
+	"family": "mitigati",
+	"status": "playable_with_decisions",
+	"about": "Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 3,
+	"sources": {
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		},
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		},
+		"dummett1980": {
+			"cite": "M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value": 3, "source": "[D] Torino 1787, p. 91: «Mitigati giuocasi comunemente in tre persone»."},
+		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
+		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first. General rule of the book, not repeated in the section."},
+		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies. General rule of the book, not repeated in the section."},
+		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value": "right", "source": "[S] Torino 1787, pp. 91-96 do not say who deals next; ours after Torino [1846], part I, p. 18: «si rimette il mazzo a chi vien dopo a destra».", "by": "torino1846"}
+	},
+	"sides": {
+		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, pp. 94-96: «voi altri due compagni mi pagherete»: every player against the other two; each who makes twenty-six points wins."}
+	},
+	"cards": {
+		"deck": {"value": "full78", "source": "[D] Torino 1787, p. 91: 25 + 25 + 28 is the whole pack of 78 (the sum is ours)."},
+		"trump_order": {"value": "torino_1787", "source": "[D] Torino 1787, p. 13: «l'Angelo, il quale è il XX., appresso noi prende il Mondo»: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); the Fool stands outside the order. The section has no chapter on the order of the cards (pp. 91-96); the general rule applies."},
+		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5; the World and the other cards carry no value of their own. Values are the book's numbers (a king with a plain card is 5, p. 52)."},
+		"sets": {
+			"honours": {"value": ["rank:K", "T20", "T0", "T1"], "source": "[D] Torino 1787, p. 34 (rule 38): «Nessun onore, cioè nessun Re, nè l'Angelo, nè il Folle, nè Bagatto»: the honours are the four kings, the Angel XX, the Fool and Bagatto. On p. 94 «Angelo, Bagatto, e Re di Coppe» are three honours; the Fool is the third of Mitigati (p. 93)."}
+		},
+		"fool": {"value": "excuse", "source": "[R] Torino 1787, pp. 91-96: the section says nothing of the Fool in a trick. Read after Venticinque, dealt the same way (25 and 28), where «Il Folle non vien preso mai» (p. 54), and Dummett 1980, p. 259 (the Excuse in every game but Sedici and Trent'uno). Other reading: an ordinary trionfo.", "alt": "trump"},
+		"fool_exchange": {"value": true, "source": "[R] Torino 1787, pp. 52, 54: the owner of the Fool gives a plain card; carried over from Baronetti and Venticinque, the section does not repeat it."},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three, «come nei giuochi posteriori»): the plain card goes to «chi ha presa o coperta la mano».", "by": "torino1846"},
+		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino [1846], part I, p. 33: «dare in compenso un'altra cartuccia qualunque»; Torino 1787, p. 52: «qualunque gli piaccia».", "by": "torino1846"},
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+	},
+	"options": [
+		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]},
+		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's.", "affects": ["hand.settle.unit"]}
+	],
+	"variants": [
+		{
+			"id": "packets_10_5_10",
+			"source": "[D] Torino 1787, p. 92: «oppure dieci, e poi cinque, e poi dieci»: the rounds of the deal may also be 10, 5, 10, provided the dealer says so before the cut.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "deal",
+							"settings": {
+								"packets": {"value": [10, 5, 10], "source": "[D] Torino 1787, p. 92: «oppure dieci, e poi cinque, e poi dieci»; «purchè avvisi i compagni, prima che siano i Tarocchi coppati»."}
+							}
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": "mitigati_thirty",
+			"source": "[D] Torino 1787, p. 96 («Eccettuazione»): «V'è in alcun luogo, in cui Mitigati pagasi di trenta marche»; [S] the honours are paid there «più o meno» than the tariff and the book gives no number, so the patch changes Mitigati only.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "declarations",
+							"settings": {
+								"kinds": {"value": [{"id": "onori", "of": "set:honours", "min": 3, "show": "announce_count", "pays": {"table": {"by": "count", "rows": {"3": 10, "4": 15, "5": 20}, "beyond": {"every": 1, "add": 5}}}}, {"id": "trionfi", "of": "trumps", "min": 10, "show": "expose", "pays": {"table": {"by": "trumps", "rows": {}, "same_as_count": true}}}, {"id": "mitigati", "of": {"any": ["T20", "T1", "T0"]}, "min": 3, "all_of": true, "show": "announce", "pays": 30}], "source": "[D] Torino 1787, p. 96: Mitigati is paid thirty marche in some places; the other kinds keep the tariff of pp. 94-95 (the local tariff for honours is not printed)."}
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"hand_size": {"value": 25, "source": "[D] Torino 1787, p. 91: «venticinque carte a ciascuno de' giuocatori»."},
+					"dealer_extra": {"value": 3, "source": "[D] Torino 1787, p. 91: the dealer takes «tre di più di quelle date agli … lo scarto, onde ne prenderà ventiotto»."},
+					"packets": {"value": [5, 10, 10], "source": "[D] Torino 1787, pp. 91-92: «debbonsi queste dare in tre volte; tale è l'uso»: five cards first, then ten, then ten."},
+					"packets_announced": {"value": true, "source": "[D] Torino 1787, p. 92: another method is allowed «purchè avvisi i compagni, prima che siano i Tarocchi coppati»."},
+					"order": {"value": "from_right", "source": "[D] Torino 1787, pp. 91-92: «cinque carte in prima … destra, cinque a … prendere cinque per te»."},
+					"dead": {"value": "none", "source": "[D] Torino 1787, p. 91: 25 + 25 + 28 is the whole pack (the sum is ours); nothing is left over."},
+					"extra_when": {"value": "last", "source": "[S] Torino 1787, pp. 91-92 and Torino [1846], part I, p. 51 do not say when the dealer takes his three; ours: the last three, as Dummett 1980, p. 260 and Nice 1930, p. 284.", "by": "dummett1980"}
+				}
+			},
+			{
+				"id": "discard",
+				"module": "discard",
+				"settings": {
+					"who": {"value": "dealer", "source": "[D] Torino 1787, pp. 91, 95: the dealer discards and says «Ho scartato» before the declarations."},
+					"count": {"value": 3, "source": "[R] Torino 1787, p. 91: «Scarterà a suo piacimento» names no number; three is 28 less 25."},
+					"discard_honours_barred": {"value": true, "source": "[R] Torino 1787, pp. 34, 85: no honour is discarded (the general rule; at Mitigati for two «mai»); the section does not repeat it. The two exceptions of p. 34 are left out."},
+					"announce": {"value": "ho_scartato", "source": "[D] Torino 1787, p. 95: «dovrà avere scartato colui, che diede le … importerà nulla, e si pagherà nulla»."}
+				}
+			},
+			{
+				"id": "declarations",
+				"module": "declarations",
+				"settings": {
+					"window": {"value": "after_discard_before_first_card", "source": "[D] Torino 1787, p. 95: after «Ho scartato» of the dealer and before «siasi giuocata la prima carta»."},
+					"kinds": {"value": [{"id": "onori", "of": "set:honours", "min": 3, "show": "announce_count", "pays": {"table": {"by": "count", "rows": {"3": 10, "4": 15, "5": 20}, "beyond": {"every": 1, "add": 5}}}}, {"id": "trionfi", "of": "trumps", "min": 10, "show": "expose", "pays": {"table": {"by": "trumps", "rows": {}, "same_as_count": true}}}, {"id": "mitigati", "of": {"any": ["T20", "T1", "T0"]}, "min": 3, "all_of": true, "show": "announce", "pays": 10}], "source": "[D] Torino 1787, pp. 93-95: honours 3 → 10, 4 → 15, 5 → 20 marche; ten trumps or more, «tante saranno le marche»; Mitigati 10. [D] for six and more: Torino [1846], part I, p. 49: «sempre accrescendosi cinque marche … ogniqualvolta si accuserà un Onore».", "by": "torino1846"},
+					"late": {"value": "right_lost", "source": "[D] Torino 1787, p. 95: «Chi non avrà accusato … sarà più in … di pretendere nulla affatto»: he can claim nothing any more, even with Mitigati and all the honours (second reading: «più» here means «no longer»)."},
+					"mode": {"value": "manual", "source": "[R] Torino 1787, pp. 93, 95: declaring is an obligation («sarà obbligato ad accusarli») and a late player loses it: the player declares. Other reading: the engine declares for him (the table may prefer it).", "alt": "auto"},
+					"paid": {"value": "at_once", "source": "[D] Torino 1787, p. 94: «e subito, e non sul fine della partita»."},
+					"paid_by": {"value": "each_other", "source": "[D] Torino [1846], part I, p. 52: «pagheranno dieci marche per ciascuno»; Torino 1787, p. 94 «da ambi» reads the same.", "by": "torino1846"}
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"settings": {
+					"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, pp. 91-96 do not say who leads; the general rule is «Chi è a destra di chi dà, comincia» (p. 35). Other reading: as at two players, the player after the dealer."},
+					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 50: «Chi prende giuoca sempre il primiero»."},
+					"follow_suit": {"value": true, "source": "[R] Torino 1787, pp. 35-38, 49: the general duty to answer in the suit asked; the section does not repeat it."},
+					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it.", "by": "torino1846"},
+					"must_overtrump": {"value": false, "source": "[R] Torino 1787, p. 49: the book states no duty to beat a trump on the table."}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"settings": {
+					"group": {"value": 3, "source": "[D] Torino 1787, p. 96: «le carte si contano a tre a tre»."},
+					"trick_multipliers": {"value": false, "source": "[R] Torino 1787: the count is the one the section names; the book prints no trick multiplier and no war in these games (x2 and x4 are Duello's own)."},
+					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787: the book prints no bonus for the last trick (the +5 is Duello's own)."},
+					"odd_card": {"value": "as_group", "source": "[S] Torino 1787, p. 96 and Torino [1846], part I, p. 52 say only «a tre a tre»; ours: one or two cards left over are counted as a short group.", "by": "ours"},
+					"fool_card": {"value": "counted", "source": "[R] Torino 1787, pp. 91-96 do not deduct the Fool's card; the compensation card is counted by its receiver (Torino [1846], part I, p. 33).", "by": "torino1846"}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value": "threshold", "source": "[D] Torino 1787, pp. 95-96: «Per guadagnar la partita convien fare ventisei punti»."},
+					"target": {"value": 26, "source": "[D] Torino 1787, pp. 95-96: «ventisei punti»; 26 is a third of the 78 points of the pack counted in threes (the 78 is not printed)."},
+					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 91-96: the book names no game points; the declarations and Bagatto are paid in marche."}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"settings": {
+					"unit": {"value": "marca", "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: the game is paid in marche."},
+					"amount": {"value": 10, "source": "[S] Torino 1787, pp. 91-96 name no payment of their own for the game. Ours after Dummett 1980, p. 262 (three-handed Mitigati, after the rules of 1830): «the remaining player pays each of them 10 game points»: ten marche from each player under 26 to each who reached it. Revision 1 played the simple stake of p. 21.", "alt": {"stake": "simple"}, "by": "dummett1980", "replace": {"with": ["document"], "what": "the payment for the game at 26 points", "q": 7}},
+					"payments": [
+						{"id": "bagatto_last", "on": "last_trick_won_with:T1", "from": "each_other", "to": "event_seat", "amount": 30, "alt": "together", "source": "[D] Torino 1787, p. 96: «Chi farà Bagatto l'ultima carta della mano, ritirerà dai compagni trenta marche». [R] From each of the two or thirty in all; read as from each (the same page says «pagherà trenta a ciascuno» for the loser). Other reading: thirty from the two together."},
+						{"id": "bagatto_lost_last", "on": "lost_in_last_trick:T1", "from": "event_seat", "to": "each_other", "amount": 30, "source": "[D] Torino 1787, p. 96: «chi l'ultima mano se lo lascierà prendere dall'uno degli avversarj, ne pagherà trenta a ciascuno»."},
+						{"id": "bagatto_lost", "on": "lost_before_last_trick:T1", "from": "event_seat", "to": "each_other", "amount": 5, "source": "[D] Torino 1787, p. 96: «chi se lo lascierà prendere fra la partita, perderà cinque marche per ciascuno»; to take Bagatto in the course of the game pays nothing and wins nothing («importerà nulla, pagherà nulla»)."}
+					],
+					"mode": {"value": "winners_from_losers", "source": "[S] Torino 1787, pp. 91-96 and Torino [1846], part I, pp. 51-53 name no payment for 26 points; ours after Dummett 1980, p. 262: every player under 26 pays every player who reached 26.", "by": "dummett1980", "replace": {"with": ["document"], "what": "the payment for the game at 26 points", "q": 7}}
+				}
+			}
+		]
+	},
+	"match": {
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+	},
+	"penalties": [
+		{
+			"id": "ficcia",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": 10, "unit": "marca"}, "source": "[D] Torino 1787, p. 87: «Chi finalmente rinega, o … compagno dieci marche, … comunemente dicesi una ficcia». The book says «al compagno»; with two opponents to whom the ten marche go is not said (FORMAT_OPEN_POINTS point 5). Torino [1846], part I, p. 57: «Ficcia, lo stesso che marca, e si fa valere più o meno, secondo si è convenuto»: there a ficcia is one marca of agreed worth."}
+		},
+		{
+			"id": "ficcia_misdeal",
+			"offence": "misdeal",
+			"enforce": "prevent",
+			"hand": "redeal",
+			"effect": {"value": {"pays": 10, "unit": "marca"}, "source": "[D] Torino 1787, p. 87: «dà giuoco fallo» (a card more or fewer than due, p. 18) costs the same ten marche, «una ficcia»."}
+		},
+		{
+			"id": "faced_card",
+			"offence": "faced_card",
+			"enforce": "prevent",
+			"hand": "redeal",
+			"effect": {"value": {"redeal_for_all": true, "only_before_cards_seen": true}, "source": "[D] Torino 1787, p. 92: the player to whom a card was turned by the dealer «avrà dritto di farti dare altra volta le carte a tutti»; if he has seen his cards, even in part, «se le dovrà prendere, e tacere»; «L'istesso debbe sottointendersi a qualunque altro giuoco di Tarocchi»."}
+		}
+	],
+	"view": {
+		"piles": {"rest": "face_down_count", "discard": "owner_only"},
+		"declarations": "cards",
+		"score_panel": {"live_points": "hidden", "after_hand": ["groups", "declarations", "payments"]}
+	},
+	"left_out": [
+		{"id": "bagatto_ultimo_declaration", "source": "[D] Dummett 1980, p. 262 (after RI 1830, «not allowed for in PE»): a player may announce that he will take the last trick with Bagatto; ghinghetta, a pool for it; a counter-announcement to take Bagatto, 60 marche. Torino [1846], part I, p. 53 requires the declaration («quando l'abbia per tale dichiarato»); Torino 1787, p. 96 does not, and wins.", "why": "RI 1830 only, not the book of 1787; not written."}
+	]
+}

@@ -1,0 +1,149 @@
+{
+	"format": 3,
+	"id": "meno",
+	"status": "playable_with_decisions",
+	"about": "Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 3,
+	"sources": {
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		},
+		"dummett1980": {
+			"cite": "M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		},
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		},
+		"prammatica1846": {
+			"cite": "L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846]",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value": [2, 3, 4, 5, 6, 7], "source": "[D] Torino 1787, p. 78: the table of hands runs from «in due persone» to «con undici carte in sette persone»."},
+		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
+		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first. General rule of the book, not repeated in the section."},
+		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies. General rule of the book, not repeated in the section."},
+		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value": "right", "source": "[S] Torino 1787, pp. 78-79 do not say who deals next; ours after Torino [1846], part I, p. 18: «a chi vien dopo a destra».", "by": "torino1846"}
+	},
+	"sides": {
+		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, p. 78: «sempre vince colui, che di tutti gli altri compagni fa meno punti»: no partners, the player with the fewest points of all the others wins."}
+	},
+	"cards": {
+		"deck": {"value": "full78", "source": "[R] Torino 1787, p. 78: the section does not name the pack; the hands of 25 cards for two and for three players and of 11 for seven presuppose the whole pack of 78 (pp. 9-10)."},
+		"trump_order": {"value": "torino_1787", "source": "[D] Torino 1787, p. 13: «l'Angelo, il quale è il XX., appresso noi prende il Mondo»: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); the Fool stands outside the order. The Meno section gives no order of its own; the general rule applies."},
+		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
+		"card_points": {"value": "honours_4_angel", "source": "[S] Torino 1787, pp. 78-79 do not say how Meno is counted; ours: the values of pp. 13-14 in pairs, as Dummett 1980, p. 269.", "by": "dummett1980", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}},
+		"fool": {"value": "excuse", "source": "[S] Torino 1787, pp. 78-79 do not mention the Fool; ours: the excuse, as in the other long games of the book.", "by": "ours"}
+	},
+	"options": [
+		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]}
+	],
+	"variants": [
+		{
+			"id": "four_cards",
+			"source": "[D] Torino 1787, p. 78: «si può giuocare con quattro carte, come al Sedici»: four cards to each player. [R] Read as the number of cards only; whether the deals are repeated as at Sedici and when the game ends is not said.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "deal",
+							"settings": {
+								"hand_size": {"value": 4, "source": "[D] Torino 1787, p. 78: «con quattro carte, come al Sedici»."}
+							}
+						},
+						{"id": "count", "settings": {"group": {"value": 1, "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»); counted singly, Fool an ordinary trionfo.", "by": "ours"}, "plain_value": {"value": 0, "source": "[S] Ours as Sedici, after Dummett 1980, p. 269: plain cards 0.", "by": "dummett1980", "alt": 1, "replace": {"with": ["document", "bots"], "what": "the value of a plain card counted singly", "q": 9}}}}
+					]
+				},
+				"cards": {"card_points": {"value": "book_1787_short", "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»); counted singly, Fool an ordinary trionfo.", "by": "ours"}, "fool": {"value": "trump", "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»); counted singly, Fool an ordinary trionfo.", "by": "ours"}}
+			}
+		},
+		{
+			"id": "eight_cards",
+			"source": "[D] Torino 1787, p. 78: «con otto carte, come al Trent'uno»: eight cards to each player. [R] Read as the number of cards only; whether the deals are repeated as at Trent'uno and when the game ends is not said.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "deal",
+							"settings": {
+								"hand_size": {"value": 8, "source": "[D] Torino 1787, p. 78: «con otto carte, come al Trent'uno»."}
+							}
+						},
+						{"id": "count", "settings": {"group": {"value": 1, "source": "[D] Torino [1846], part I, pp. 30-31: «le carte si contano ad una ad una».", "by": "torino1846"}, "plain_value": {"value": 0, "source": "[S] Ours as Sedici, after Dummett 1980, p. 269: plain cards 0.", "by": "dummett1980", "alt": 1, "replace": {"with": ["document", "bots"], "what": "the value of a plain card counted singly", "q": 9}}}}
+					]
+				},
+				"cards": {"card_points": {"value": "book_1787_short", "source": "[D] Torino [1846], part I, p. 31: «I punti si contano precisamente come a Trent'uno al più».", "by": "torino1846"}, "fool": {"value": "trump", "source": "[D] Prammatica [1846], p. 6: in Trent'uno al meno «il Matto è considerato come semplice tarocco».", "by": "prammatica1846"}}
+			}
+		}
+	],
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"hand_size": {"value": {"by_seats": {"2": 25, "3": 25, "4": 19, "5": 15, "6": 13, "7": 11}}, "source": "[D] Torino 1787, p. 78: «con venticinque carte in … con venticinque carte … carte in sette persone»."},
+					"face": {"value": "down", "source": "[R] Torino 1787, p. 78: not said; the general rule of the long games is covered cards (p. 59)."},
+					"dealer_extra": {"value": 0, "source": "[S] Torino 1787, p. 78 does not say what is done with undealt cards; ours: none extra, no discard, as Dummett 1980, p. 269.", "by": "dummett1980"},
+					"dead": {"value": "out", "source": "[S] Ours after Dummett 1980, p. 269: the undealt cards lie out of play.", "by": "dummett1980"}
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"settings": {
+					"follow_suit": {"value": true, "source": "[D] Torino 1787, pp. 78-79: «se io giuocherò Bastoni, tu mi risponderai … risponder Trionfo, e non mai rinegare»: the answer is in the suit asked, a trionfo on a trionfo."},
+					"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, p. 35 (general): «Chi è a destra di chi dà, comincia».", "by": "ours", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}},
+					"next_leader": {"value": "trick_winner", "source": "[R] Torino 1787, p. 37 (general): «Colui, che or ultimo ha preso la mano … deve essere il primo».", "by": "ours"},
+					"must_trump": {"value": true, "source": "[R] Torino [1846], part I, p. 36 prints the duty for Partita and the games after it: «si risponderà e prenderà con un Trionfo»; carried back to this game.", "by": "torino1846"},
+					"must_overtrump": {"value": false, "source": "[S] Torino 1787, pp. 78-79 are silent; ours: no duty, as Nice 1930, p. 283 and Piedicavallo 2008, p. 13.", "by": "ours"}
+				}
+			},
+			{"id": "count", "module": "count", "settings": {"group": {"value": 2, "source": "[S] Ours after Dummett 1980, p. 269: counted in pairs (forms of 25, 19, 15, 13, 11 cards).", "by": "dummett1980", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}}},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value": "fewest_points", "source": "[D] Torino 1787, p. 78: «guadagna chi fa meno punti»; «sempre vince colui, che di tutti gli altri compagni fa meno punti»."},
+					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 78-79: the book names no game points and no payment; the stake of the simple game is agreed for every game (p. 21)."},
+					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, pp. 78-79: a tie for the fewest points is not mentioned; ours: replayed.", "by": "ours", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"settings": {
+					"unit": {"value": "stake", "source": "[D] Torino 1787, p. 21: the simple game is paid in the stake agreed before the deal, «qualunque sia il giuoco, che facciasi»."},
+					"amount": {"value": {"stake": "simple"}, "source": "[D] Torino 1787, p. 21: «quanto si giuochi la partita semplice, qualunque sia il giuoco».", "by": "ours"},
+					"mode": {"value": "losers_pay_winner", "source": "[S] Torino 1787, pp. 78-79 name no payment; ours: each other player pays the one with fewest points.", "by": "ours", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}
+				}
+			}
+		]
+	},
+	"match": {
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+	},
+	"penalties": [
+		{
+			"id": "revoke",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": "simple_game", "to": "each_other", "while_trick_open": "change_card"}, "source": "[D] Torino 1787, p. 79: «Le leggi però, che militan pe' trasgressori … ancora per chi giuoca al Meno»; the penalty of a revoke is the simple game to all (pp. 33-34, 38)."}
+		}
+	],
+	"view": {"piles": {"rest": "face_down_count"}, "score_panel": {"live_points": "hidden", "after_hand": ["groups"]}}
+}

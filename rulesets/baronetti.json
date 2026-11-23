@@ -1,0 +1,149 @@
+{
+	"format": 3,
+	"id": "baronetti",
+	"status": "playable_with_decisions",
+	"about": "Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described. Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.",
+	"revision": 3,
+	"sources": {
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value": 2, "source": "[D] Torino 1787, p. 47: «suolsi solamente giuocare fra due persone»: Baronetti is played only by two."},
+		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right; with two players the direction changes nothing."},
+		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first."},
+		"cut_by": {"value": "left", "source": "[D] Torino 1787, p. 48: «tu coppi il mazzo»: the dealer's opponent cuts and, as the next sentence says, receives «l'avvantaggio della mano», the first lead."},
+		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value": "alternate", "source": "[R] Torino 1787, p. 41 (Sedici for two): the pack goes to the other player, who deals.", "by": "ours"}
+	},
+	"sides": {
+		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, pp. 47, 51: two persons, each counts his own points and «convien poter contare quarantasei punti» to win the hand."}
+	},
+	"cards": {
+		"deck": {"value": "full78", "source": "[D] Torino 1787, p. 48: «Essendo tutti i Tarocchi in numero di settant'otto»: the whole pack is dealt into the eight piles (see also pp. 9-10)."},
+		"trump_order": {"value": "torino_1787", "source": "[D] Torino 1787, p. 13: «l'Angelo, il quale è il XX., appresso noi prende il Mondo»: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); the Fool stands outside the order."},
+		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5; the World and the other cards carry no value of their own. Values are the book's numbers (a king with a plain card is 5, p. 52). Baronetti repeats the five points of Bagatto and of the Fool on p. 47."},
+		"fool": {"value": "excuse", "source": "[D] Torino 1787, pp. 47, 50: «nè Bagatto può prendere il Folle, nè il Folle può prendere Bagatto» and «non sarò io obbligato a dartelo mai, ma solo mi basterà mostrarlo»: the Fool takes nothing and is not taken, it is shown and laid among the owner's points."},
+		"fool_exchange": {"value": true, "source": "[D] Torino 1787, p. 52: «Chi avrà avuto il Folle, e l'avrà … di dare al compagno una cartaccia»."},
+		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»: the owner chooses the plain card he gives, the other has no right to say «Voglio quella»."},
+		"fool_exchange_to": {"value": "opponent_side", "source": "[D] Torino 1787, p. 52: the card is given «al compagno», in this game the opponent. The trick-taker wording belongs to pp. 77-78 (Permesso for five to seven), not to Baronetti."},
+		"fool_last_trick": {"value": "kept", "source": "[D] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»: the Fool is never lost; the book makes no exception for the last trick."},
+		"fool_show_any_time": {"value": true, "source": "[R] Torino 1787, p. 50: the Fool lying open on a pile may be shown «quando mi vada in acconcio» whatever card the opponent plays, and then put among one's points; read as: at any moment of the game. Other reading: only in place of an answer inside a trick (compare pp. 77-78, «si mostra, quando cada in acconcio, non volendo noi giuocar altra carta»).", "alt": false},
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; an owner without a plain card gives nothing.", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+	},
+	"options": [
+		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]}
+	],
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"piles": {"value": [10, 10, 10, 9], "source": "[D] Torino 1787, pp. 48-49: ten cards face down «principiando dalla prima carta, che sta sopra il mazzo», then two more piles of ten, and the last eighteen cards as two piles of nine: «ne do solo nove a te, e l'ultime nove le prendo per me». Each player has four piles, 10, 10, 10, 9. The book has no hand outside the piles."},
+					"pile_top": {"value": "up", "source": "[D] Torino 1787, pp. 48-49: «scoprendoti solo quella, che ultima del mucchietto ti diedi»; the last card of the last pile is turned for both («voltando l'ultima sempre ad ambidue»)."},
+					"order": {"value": "opponent_first", "source": "[D] Torino 1787, p. 48: the dealer lays the first pile in front of his opponent, then takes one for himself: «Altrettante carte ... prendo io per me», and so on pile by pile."},
+					"face": {"value": "down", "source": "[D] Torino 1787, p. 48: «dieci carte coperte»: all cards of a pile lie face down but the top one."},
+					"dead": {"value": "none", "source": "[D] Torino 1787, pp. 48-49: 3 x 10 + 9 for each player is 39 and 39, the whole pack of 78 (the sum is ours); nothing is left over."}
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"settings": {
+					"first_leader": {"value": "non_dealer", "source": "[D] Torino 1787, p. 48: «ti do l'avvantaggio della mano»: the dealer's opponent leads the first trick."},
+					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 50: «Chi prende giuoca sempre il primiero»: the taker leads, «un grande avvantaggio»."},
+					"play_from": {"value": "pile_tops", "source": "[D] Torino 1787, p. 49: «tu giuochi quella carta scoperta, che a te pare e piace»: only open cards are played; the covered cards may not even be looked at (p. 52)."},
+					"follow_suit": {"value": true, "source": "[D] Torino 1787, p. 49: «ti rispondo senza mai rinegare con una carta della medesima sequenza»; the book keeps all duties to the open cards, our reading, since covered cards may not be looked at."},
+					"must_trump": {"value": true, "source": "[D] Torino 1787, p. 49: «se non ho carte della medesima sequenza prendo con Trionfi»; with no trump the card is thrown away."},
+					"must_overtrump": {"value": false, "source": "[R] Torino 1787, p. 49: «Se tu giuochi Trionfo, io rispondo Trionfo, … il Trionfo maggiore, prende la mano»: a trump is answered by a trump and the higher takes; the book states no duty to beat it."},
+					"fool_may_lead": {"value": true, "source": "[S] Torino 1787, p. 50 shows the Fool «quando mi vada in acconcio»; ours: it may be led, as in Venticinque; so Nice 1930, p. 279 and Piedicavallo 2008, p. 13.", "by": "ours"}
+				}
+			},
+			{
+				"id": "piles",
+				"module": "open_piles",
+				"during": "tricks",
+				"source": "[D] Torino 1787, pp. 49-50: «tutti due volgeremo subito la nostra carta coperta una sola per volta».",
+				"settings": {
+					"reveal": {"value": "after_trick", "source": "[D] Torino 1787, p. 50: the covered card is turned «non prima di aver giuocato, e risposto»: after both cards of the trick are played, one card each, at once. [R] That it is the next card of the pile just played from is our reading; the book says «la nostra carta coperta»."},
+					"empty_pile": {"value": "play_from_others", "source": "[R] Torino 1787, pp. 49-50: not addressed (check of 2 November 2026, unclear point 6); since only open cards may be played (p. 49), a player whose pile is used up can play only from his other piles."}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"settings": {
+					"group": {"value": 2, "source": "[D] Torino 1787, pp. 51-52: «ogni carta dee essere accompagnata con un'altra carta»; not «una carta sola per volta» as at Sedici and Trent'uno."},
+					"count_unit": {"value": "half_point", "source": "[D] Torino 1787, p. 52: a king with a plain card is worth 5, a queen 4, a knight 3, a jack 2, two plain cards 1: a card is worth its points and a half."},
+					"odd_card": {"value": "half_point", "source": "[R] Torino 1787: an unpaired card at the end is not addressed in Baronetti (check of 2 November 2026, unclear point 5); read after Venticinque, whose count is «come al giuoco de' Baronetti» (p. 56) and where «Una carta sola, ancorchè scompagnata» counts (pp. 54-55). Other reading: the odd card is dropped.", "alt": "drop"},
+					"trick_multipliers": {"value": false, "source": "[R] Torino 1787: the count is the one the section names; the book prints no trick multiplier and no war in these games (x2 and x4 are Duello's own)."},
+					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787: the book prints no bonus for the last trick (the +5 is Duello's own)."}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value": "threshold", "source": "[D] Torino 1787, p. 51: «Per guadagnare la partita convien poter contare quarantasei punti»."},
+					"target": {"value": 46, "source": "[D] Torino 1787, p. 51: «quarantasei punti»; 46 is a majority of the 91 points of the pack counted in pairs (the 91 is not printed)."},
+					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 51, 53: the hand is paid as a stake («pagare la partita»), the book names no game points; settle holds the payment."},
+					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, pp. 51-52: 45½ each is not mentioned; ours as Venticinque, p. 54: «faremo eguali».", "by": "ours", "replace": {"with": ["document"], "what": "equal points, 45½ each", "q": 14}}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"settings": {
+					"unit": {"value": "stake", "source": "[D] Torino 1787, pp. 21, 53: the simple game is paid in the stake agreed before the deal; «Le altre regole si potranno riferire ai numeri antecedenti»."},
+					"mode": {"value": "loser_pays_winner", "source": "[R] Torino 1787, p. 51: «la partita» is paid by the loser; with two players there is no other reading."},
+					"amount": {"value": {"stake": "simple"}, "source": "[D] Torino 1787, p. 21: «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»."}
+				}
+			}
+		]
+	},
+	"match": {
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+	},
+	"penalties": [
+		{
+			"id": "revoke",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": "simple_game", "to": "each_other", "while_trick_open": "change_card"}, "source": "[D] Torino 1787, pp. 33-34 (rule 35): «pagare a tutti i compagni la partita semplice»; while the cards of the trick are still on the table the card is changed, once the trick is turned and put among the points there is «non vi sarà più remissione»."}
+		},
+		{
+			"id": "open_two",
+			"offence": "open_two",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"first": "warning", "second": {"pays": "simple_game", "forfeits_winnings": true}}, "source": "[D] Torino 1787, pp. 50-51: «Chi volterà due carte per volta, primieramente sarà avvisato di non più farlo»; the second time he pays the game «e se anche la guadagna, non potrà più esigere il suo guadagno». The engine turns the cards itself."}
+		},
+		{
+			"id": "peek_pile",
+			"offence": "peek_pile",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": "double_game", "if_inadvertent": "simple_game"}, "source": "[D] Torino 1787, pp. 52-53: looking at a covered card, the opponent's or one's own, «pagherà la partita doppia, eccetto che ... inavvertentemente», then «la pagherà semplice»."}
+		},
+		{
+			"id": "deal_card_by_card",
+			"offence": "wrong_deal_method",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": "game_as_agreed"}, "source": "[D] Torino 1787, p. 53: the piles must be dealt «di seguito, e non una per ciascuno alternativamente»; «Chi farà diverso, pagherà la partita secondo l'accordo»."}
+		}
+	],
+	"view": {"piles": {"seat_piles": "tops_up"}, "score_panel": {"live_points": "hidden", "after_hand": ["pairs", "odd_card", "fool_card"]}},
+	"bot": {
+		"play": [
+			{"value": "keep the four piles level and keep all four as long as possible", "source": "[D] Torino 1787, p. 51: «Regola è sempre di tenere i mucchietti eguali, per non essere presto al fine d'uno»: advice of the book; it never binds a human player."}
+		]
+	}
+}

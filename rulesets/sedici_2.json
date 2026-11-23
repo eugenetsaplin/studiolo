@@ -1,0 +1,150 @@
+{
+	"format": 3,
+	"id": "sedici_2",
+	"family": "sedici",
+	"status": "playable_with_decisions",
+	"about": "Sedici for two players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 0 (Dummett 1980, p. 269; our decision); when the pack runs out before anybody has said «fuora» the hand ends with no payment (the first of the two guesses of Dummett 1980, p. 269). Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 3,
+	"sources": {
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		},
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		},
+		"dummett1980": {
+			"cite": "M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value": 2, "source": "[D] Torino 1787, pp. 14-15: the teacher and the reader «faremo pertanto una partita al Sedici», two players; the first deal is drawn as in the example of p. 16."},
+		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right; with two players the direction changes nothing."},
+		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first."},
+		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies."},
+		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value": "winner_passes_to_companion", "source": "[D] Torino 1787, p. 41: «Guadagnato che abbi, rimetterai le carte tutte … sull'istesso metodo, che tu hai fatto»."}
+	},
+	"sides": {
+		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, pp. 35, 39-41: each player makes his own points and the first to sixteen says «fuora»; the winner is paid by the others."}
+	},
+	"cards": {
+		"deck": {"value": "full78", "source": "[D] Torino 1787, pp. 9-10: «Settant'otto Tarocchi si richiedono»: twenty-two trionfi (the Fool is n. 0 among them) and fourteen cards in each of the four suits."},
+		"trump_order": {"value": ["T20", "T21", "T19", "T18", "T17", "T16", "T15", "T14", "T13", "T12", "T11", "T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2", "T1", "T0"], "source": "[D] Torino 1787, pp. 13, 37, 38-39: the Angel XX is «preso da alcuno» by none and takes the World XXI («appresso noi prende il Mondo»), the other trionfi rank by number, and the Fool is the lowest, taken by Bagatto («viene preso assolutamente da Bagatto», p. 14); the Fool takes nothing of the trionfi (p. 38: «non prenderà mai Bagatto»). The list is highest first."},
+		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
+		"card_points": {"value": {"rank:K": 5, "rank:Q": 4, "rank:N": 3, "rank:J": 2, "T20": 5, "T1": 5, "T0": 1}, "source": "[D] Torino 1787, pp. 13-14, 38: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, and the Fool «conta un sol punto» at Sedici and Trent'uno; the World has no value of its own. A plain card is worth count.plain_value."},
+		"fool": {"value": "trump", "source": "[D] Torino 1787, pp. 36, 38: the Fool takes a trick as a trionfo («prende con un Trionfo qualunque siasi, con Bagatto per esempio, col Folle, coll'Angelo») and a lone Fool must be played to answer a trionfo («siamo obbligati a darlo per non rinegare»); it is not the excuse of the long games. Bagatto takes it (pp. 14, 38-39)."}
+	},
+	"options": [
+		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]}
+	],
+	"hand": {
+		"phases": [
+			{
+				"id": "rounds",
+				"module": "repeat",
+				"until": "fuora",
+				"source": "[D] Torino 1787, p. 39: «Seguiterai pertanto tu, che … darne quattro a … vuol dire partita guadagnata».",
+				"phases": [
+					{
+						"id": "deal",
+						"module": "deal",
+						"settings": {
+							"hand_size": {"value": 4, "source": "[D] Torino 1787, pp. 17-18, 35: «Al giuoco del Sedici se ne danno quattro per ciascuno»."},
+							"packets": {"value": "dealer_choice", "source": "[D] Torino 1787, pp. 18, 41-42: «io do tutte quattro … a due a … a tre ed una»; p. 41 adds «a tre a tre, a quattro a quattro» and «ad una e tre»: one, two, three or four at a time, three and one, one and three, as the dealer pleases."},
+							"packets_announced": {"value": true, "source": "[D] Torino 1787, pp. 17-18, 42: the dealer says before the cut how he will deal; whoever changes without saying so pays the simple game to all (p. 42, rule 43)."},
+							"face": {"value": "down", "source": "[D] Torino 1787, p. 41: «quattro carte coperte prese di sopra al mazzo senza vederle»."},
+							"dead": {"value": "stock", "source": "[R] Torino 1787, pp. 39, 41: «a darne quattro a tutti» again from the same pack; the cards of the earlier rounds go back into the pack only when the game is won («rimetterai le carte tutte in mazzo», p. 41). Other reading: the pack is shuffled again for each round."}
+						}
+					},
+					{
+						"id": "tricks",
+						"module": "tricks",
+						"settings": {
+							"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, p. 35: «Chi è a destra di chi dà, comincia a giuocarne una, qual più gli piace»; printed for the first deal. For the later rounds of the same game the book says only that the dealer goes on dealing (p. 39). Other reading: the last taker of the round before leads («Colui, che or ultimo ha preso la mano ... deve essere il primo a giuocare», p. 37).", "alt": "previous_last_taker"},
+							"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 37: «Colui, che or ultimo ha preso la … deve essere il primo a giuocare»."},
+							"follow_suit": {"value": true, "source": "[D] Torino 1787, p. 35: «gli altri sempre a destra procedendo debbon rispondere con carte della medesima sequenza»."},
+							"must_trump": {"value": true, "source": "[R] Torino [1846], part I, p. 36 prints the duty for Partita and the games after it: «si risponderà e prenderà con un Trionfo»; carried back to this game.", "by": "torino1846"},
+							"must_overtrump": {"value": false, "source": "[R] Torino 1787, pp. 36-37: a higher trionfo takes, but the book states no duty to beat the trionfo on the table (second reading: [S])."}
+						}
+					}
+				]
+			},
+			{
+				"id": "fuora",
+				"module": "fuora",
+				"during": "tricks",
+				"source": "[D] Torino 1787, pp. 35, 39-41: the player who has made sixteen points says «fuora» and wins.",
+				"settings": {
+					"target": {"value": 16, "source": "[D] Torino 1787, p. 35: «Per guadagnare una partita al Sedici ti basterà far sedici punti»."},
+					"claim_when": {"value": "after_trick", "source": "[R] Torino 1787, pp. 39-40: «Non ti chiamerai però fuora, finchè sii certo di aver fatti i sedici punti»; «qual carta possi giuocar tu per andar fuora prima del tuo compagno»: points come only with a taken trick, so the claim is read as made when a trick is taken. Other reading: at any moment.", "alt": "any_time"},
+					"false_claim": {"value": [{"below": 8, "pays": {"stake": "marcia"}, "to": "each_other"}, {"from": 8, "pays": {"stake": "simple"}, "to": "each_other"}], "source": "[D] Torino 1787, p. 39 (rule 41): a player who says «fuora» without being out «sarai tenuto a pagar … se non avrai … condannato a pagarla semplice». [R] With exactly eight points neither condition is met; read as simple (second reading, correction 2). Other reading: double. To whom it is paid is not said. Paid to each other player: [S] ours, as the general penalty of p. 38 («a tutti i giuocatori»).", "alt": [{"below": 9, "pays": {"stake": "marcia"}}, {"from": 9, "pays": {"stake": "simple"}}]},
+					"after_first_out": {"value": "hand_ends", "source": "[D] Torino 1787, pp. 40-41: «Guadagnata la partita, deporrai le tue carte»: the game is won, the winner counts his points aloud and is paid."},
+					"stock_empty": {"value": "hand_ends_no_winner", "source": "[S] Torino 1787, p. 39 and Torino [1846], part I, p. 26: «finchè alcuno si chiami fuora»; an empty pack is not mentioned. Ours after Dummett 1980, p. 269, who names two guesses: the hand is given up without payment, or all the cards are dealt again; the first is played. Revision 1 gathered the untaken cards and dealt on, which cannot be done: too few cards are left for another round.", "by": "dummett1980", "replace": {"with": ["document", "bots"], "what": "the pack runs out and nobody has said «fuora»", "q": 10}}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"settings": {
+					"group": {"value": 1, "source": "[D] Torino 1787, p. 51: the Sedici count is not the pair count of the long games: «come al Sedici, ed al Trent'uno una carta sola per volta»."},
+					"trick_multipliers": {"value": false, "source": "[R] Torino 1787: the count is the one the section names; the book prints no trick multiplier and no war in these games (x2 and x4 are Duello's own)."},
+					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787: the book prints no bonus for the last trick (the +5 is Duello's own)."},
+					"plain_value": {"value": 0, "source": "[S] Torino 1787, pp. 13-14, 51 and Torino [1846], part I, p. 30 give no value to a plain card counted singly; ours: 0, as Dummett 1980, p. 269. A rough model (revision 2): with 0 the pack runs out before anyone has 16 in 0 % of games for two and three, 2.5 % for four. Other reading: 1 (Dummett, p. 269: it is possible).", "by": "dummett1980", "alt": 1, "replace": {"with": ["document", "bots"], "what": "the value of a plain card counted singly", "q": 9}}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value": "first_out", "source": "[D] Torino 1787, p. 39: «finchè alcuno si chiami fuora, che vuol dir partita guadagnata»: the first to be out wins."},
+					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 39-41: the game is paid as a stake («secondo fu convenuta la partita»); the book names no game points."}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"settings": {
+					"unit": {"value": "stake", "source": "[D] Torino 1787, pp. 21, 41: «sarai pagato secondo fu convenuta la partita»: the winner is paid the stake agreed before the deal."},
+					"mode": {"value": "loser_pays_winner", "source": "[D] Torino 1787, p. 41: the winner «sarai pagato secondo fu convenuta la partita» by his one opponent."},
+					"amount": {"value": {"stake": "simple"}, "source": "[D] Torino 1787, p. 41: «secondo fu convenuta la partita»; the amount is the agreed simple game (p. 21)."}
+				}
+			}
+		]
+	},
+	"match": {
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+	},
+	"penalties": [
+		{
+			"id": "revoke",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": "simple_game", "to": "each_other", "while_trick_open": "change_card"}, "source": "[D] Torino 1787, pp. 33-34, 38: a player who does not answer in the suit asked, or who keeps a lone Bagatto or Fool when a trionfo is led, «nella pena accennata al num. 35. di … partita a tutti i giuocatori compagni» (rule 35 lets the card be changed while the trick is still on the table)."}
+		},
+		{
+			"id": "deal_other_way",
+			"offence": "wrong_deal_method",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value": {"pays": "simple_game", "to": "each_other"}, "source": "[D] Torino 1787, p. 42 (rule 43): a dealer who changes his method of dealing without timely notice «sarà tenuto ... a pagar la partita semplice a tutti i compagni giuocatori»; so for a card announced one way and dealt another (p. 18)."}
+		},
+		{
+			"id": "misdeal",
+			"offence": "misdeal",
+			"enforce": "prevent",
+			"hand": "redeal",
+			"effect": {"value": {"pays": "game"}, "source": "[D] Torino 1787, pp. 18-19: «Pagherai similmente la partita, se darai giuoco … carta di più, o di meno»; if the fault is found at the end the dealer pays all the players the simple game (p. 19)."}
+		}
+	],
+	"view": {"piles": {"rest": "face_down_count"}, "score_panel": {"live_points": "own", "after_hand": ["groups", "payments"]}}
+}

@@ -1,0 +1,255 @@
+{
+  "revision": 4,
+  "tag": "rules-r4",
+  "commit": "ab2b5626e7cad5c8f60e5699b9fb5d4f2647b5b9",
+  "commit_date": "2026-11-23T17:32:11+01:00",
+  "tool": "export-open 1",
+  "trial": false,
+  "files": [
+    {
+      "path": "docs/FORMAT_OPEN_POINTS.md",
+      "sha256": "ca05b828149fae686123c89571f946944ad92b1af512524184cd472b781b6175",
+      "bytes": 36327
+    },
+    {
+      "path": "docs/GAME_FILE_FORMAT.md",
+      "sha256": "a021961a6550a3b3e8ef6fa519f8920eda54d5c168ae810f44271d7c94ae9c08",
+      "bytes": 62359
+    },
+    {
+      "path": "rules/README.md",
+      "sha256": "acca05f9d2c684803ec64b621002ce54e310f0ae4386a77535e63ce3d81923bd",
+      "bytes": 3564
+    },
+    {
+      "path": "rules/bagattultimo.md",
+      "sha256": "1e45f2235796815cc8bacedfaeba54bc4573d8d0b195198f8d049907c2291e47",
+      "bytes": 11410
+    },
+    {
+      "path": "rules/baronetti.md",
+      "sha256": "07764b4b64ba9ab5e0d0bce09374d144867256013d735077f6fb6b2c9e6ead23",
+      "bytes": 9206
+    },
+    {
+      "path": "rules/chiamare_il_re.md",
+      "sha256": "83183fb3eda22c73f4ecba60128b1699671185ae74d199d284b2e93db8bed151",
+      "bytes": 13845
+    },
+    {
+      "path": "rules/consiglio.md",
+      "sha256": "fba43a3fbb9b3388d34e3116d3ce3979ac5ad82ad7fc70f0597f728680832d62",
+      "bytes": 12693
+    },
+    {
+      "path": "rules/dottore.md",
+      "sha256": "28c5b73220b0f2e2af17d07f45a77080cd545a2619c9a1198925a9880f73b556",
+      "bytes": 9602
+    },
+    {
+      "path": "rules/meno.md",
+      "sha256": "879937e986c1244bbf553219d82391963b9f8a86709695457f4608d9b5970147",
+      "bytes": 7792
+    },
+    {
+      "path": "rules/mitigati_2.md",
+      "sha256": "dd68052a7b43c9dd0650486d54ca5d0e9f67c81d6ac7ed60c781f6aa1be80bed",
+      "bytes": 12812
+    },
+    {
+      "path": "rules/morto.md",
+      "sha256": "6e5c8dde641a350cc2765b2323368622945ece1fb440c4665923ce6044651d80",
+      "bytes": 9251
+    },
+    {
+      "path": "rules/partita_3.md",
+      "sha256": "27967cdeebb5acfd75fa8f1f23e27ac2d58ef8f73e3681b10656416f4238afda",
+      "bytes": 9674
+    },
+    {
+      "path": "rules/partita_4.md",
+      "sha256": "b71dd4e0bbd93e6a6d4bfbeaa70a061c17b63199fc05af8dd5d4f91c78102c92",
+      "bytes": 10365
+    },
+    {
+      "path": "rules/permesso_3.md",
+      "sha256": "2f322854f1662e7752a3a7cc67167e83f963d77306258f6a29b6dd1cf415d2d4",
+      "bytes": 15695
+    },
+    {
+      "path": "rules/permesso_4.md",
+      "sha256": "0b01f4f79f01242e879efb4b331f460ad1fc1530913936552a3d0ca72c6a7d34",
+      "bytes": 17241
+    },
+    {
+      "path": "rules/permesso_5.md",
+      "sha256": "31b06456c3d76e9da55a509553799154677aedf57cbdf9c47521fdf253f31bf8",
+      "bytes": 18203
+    },
+    {
+      "path": "rules/permesso_6.md",
+      "sha256": "7cd36b934485c613124c5b442377cfafac77da6ed1e524648bb6873a87faca35",
+      "bytes": 20445
+    },
+    {
+      "path": "rules/permesso_7.md",
+      "sha256": "a6134a0e22aba2129ecddfbd54d6a97935e98cc8e9d754fcee07840326e2fba5",
+      "bytes": 19032
+    },
+    {
+      "path": "rules/sedici_2.md",
+      "sha256": "e0222aca1a202cd617ce26c03f12db69e47eae5c72f4b0b5aa592af833dc2a17",
+      "bytes": 8614
+    },
+    {
+      "path": "rules/sedici_3.md",
+      "sha256": "639a92638fc93518096fd4d6eda04824d5f8499103144e1056e0117b36e19286",
+      "bytes": 8929
+    },
+    {
+      "path": "rules/sedici_4.md",
+      "sha256": "753f222cdc66eb37c906b063b4b2823a2fbc68d3f99477c8069a581565385387",
+      "bytes": 8783
+    },
+    {
+      "path": "rules/trentuno.md",
+      "sha256": "76a36e32bac606e99bf637033434c738fd3943bcfe6ce6b03905b33128817f31",
+      "bytes": 8719
+    },
+    {
+      "path": "rules/venticinque.md",
+      "sha256": "d15c483c4b7a6a48159104ebc320886698472e1df3fd67ef74b40538deec9130",
+      "bytes": 8758
+    },
+    {
+      "path": "rules/venticinque_3.md",
+      "sha256": "d9639de237bb54e8ed2f96af4e189e020705171852c228b09a3467b0000f22fd",
+      "bytes": 10136
+    },
+    {
+      "path": "rulesets/OPEN_QUESTIONS.md",
+      "sha256": "8af8e7945bcca17f228972a2d08c624761be40ac1f1405f77b69b6458ee94887",
+      "bytes": 10579
+    },
+    {
+      "path": "rulesets/REVISIONS.md",
+      "sha256": "7c69987011e2b3ce25ff3ee06b460df459651c2ece88e01fb53adee14b9850bd",
+      "bytes": 19635
+    },
+    {
+      "path": "rulesets/bagattultimo.json",
+      "sha256": "8f94b70ca813a51e997cab04dbc7caa271ce0e507646d62268d8584eecf9050b",
+      "bytes": 19875
+    },
+    {
+      "path": "rulesets/baronetti.json",
+      "sha256": "5de211b7fdcff8d92296c157446bcacd110ab12d53762f9ab0697caa053271a0",
+      "bytes": 15103
+    },
+    {
+      "path": "rulesets/chiamare_il_re.json",
+      "sha256": "16edb6155addf208449b561fa012ee1024f83a7c22bc220e87c7e8d32b8a609f",
+      "bytes": 19799
+    },
+    {
+      "path": "rulesets/consiglio.json",
+      "sha256": "3210ed6b40f71251c287ab28a05775340ad128733da2d431108fe88240776ec4",
+      "bytes": 3435
+    },
+    {
+      "path": "rulesets/dottore.json",
+      "sha256": "c09144a24e875e6c694861f49f3f502cede8311fa27ce9d7e4590b74ef9e9083",
+      "bytes": 13219
+    },
+    {
+      "path": "rulesets/meno.json",
+      "sha256": "9974f9a24a3660f2674b219bc5162c31fae216d4411e703516ead55eeb114bb3",
+      "bytes": 12379
+    },
+    {
+      "path": "rulesets/mitigati_2.json",
+      "sha256": "ed6672668360ac38c59f3eb1c2bf1b25f8bfacc7f52f9a19a6ac0f5ddd0f6bc8",
+      "bytes": 20184
+    },
+    {
+      "path": "rulesets/morto.json",
+      "sha256": "efadc6227af5ca874dc4a7eead13079723e621b0434bf6297e1218b2ca221817",
+      "bytes": 15405
+    },
+    {
+      "path": "rulesets/partita_3.json",
+      "sha256": "1e05cc3a690648960492ea7225eb7279c55815832740441cbe1261ddda3da806",
+      "bytes": 13583
+    },
+    {
+      "path": "rulesets/partita_4.json",
+      "sha256": "dc625bd88d436131b6422dec10515cfcc9d0f1cf0c7aed2167961893c69d2f46",
+      "bytes": 15856
+    },
+    {
+      "path": "rulesets/permesso_3.json",
+      "sha256": "e552b3aba74e451bea1b106761f522db4d8efb61fb7ae686ce8281b547c4d408",
+      "bytes": 24586
+    },
+    {
+      "path": "rulesets/permesso_4.json",
+      "sha256": "c9596040661c807db4d746191f72e3171717fc581fa6dab57960653092c7c8cb",
+      "bytes": 5014
+    },
+    {
+      "path": "rulesets/permesso_5.json",
+      "sha256": "3b8e2162306195941da8e3b2052c93c76979b2b9fc531e787c21e6ce94f3739b",
+      "bytes": 4513
+    },
+    {
+      "path": "rulesets/permesso_6.json",
+      "sha256": "798f5dca01e70e3a9d2fca4d79f10a97e211984100c0a03a175922c470dc0010",
+      "bytes": 9078
+    },
+    {
+      "path": "rulesets/permesso_7.json",
+      "sha256": "9e8324c5af5c24345bb8dcefb1778eb2e33d1b8d1788dd505137022ce8343c3b",
+      "bytes": 4541
+    },
+    {
+      "path": "rulesets/schema/game.schema.json",
+      "sha256": "678649a5a672d6b56154dfc23fc4601360a443d3d91ad2f6e9d6868964631f6e",
+      "bytes": 34287
+    },
+    {
+      "path": "rulesets/schema/texts.schema.json",
+      "sha256": "0e1b46cb7f0615b56cf0903a635cf29f76b15bcb62c18a733fd8602bc4e3d7d7",
+      "bytes": 3097
+    },
+    {
+      "path": "rulesets/sedici_2.json",
+      "sha256": "902e235fb073a2f15370e1981a88c657e4a667b858928803c172968b6e4dee4d",
+      "bytes": 14367
+    },
+    {
+      "path": "rulesets/sedici_3.json",
+      "sha256": "f1616230abdb79d103cd63d9dfef125f8fc43e3aa16587172b59b85cc43e7299",
+      "bytes": 16391
+    },
+    {
+      "path": "rulesets/sedici_4.json",
+      "sha256": "470e914337ae6438f0a919e34f783b74d937823dd9f919a94a9ebeee375dc5c5",
+      "bytes": 14857
+    },
+    {
+      "path": "rulesets/trentuno.json",
+      "sha256": "dd0e98665d18178707f5a50dbbf528ae86d0fb536e66ed273edaefc48674f1ca",
+      "bytes": 13995
+    },
+    {
+      "path": "rulesets/venticinque.json",
+      "sha256": "d4db4754f735b175d7a4ee055ae8caa20b349e685854d625d4b06f59a1bf8245",
+      "bytes": 14468
+    },
+    {
+      "path": "rulesets/venticinque_3.json",
+      "sha256": "b35924cd069e7b4d593ea163574a02530fc9c70079803abc499bfea6bc7eeba9",
+      "bytes": 15183
+    }
+  ]
+}

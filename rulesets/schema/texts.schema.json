@@ -1,0 +1,71 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://studiolo.petrigames.com/schema/texts-3.schema.json",
+	"title": "Studiolo texts file, format 3",
+	"description": "The words of one game, kept apart from its rules: name, the ninety-second version, memo lines, hints, lesson steps, overrides of the module sentences of the full rules page. One file per game, every language inside. Numbers of the rules never stand in a text: they come from the game file through placeholders {path}. See docs/GAME_FILE_FORMAT.md, sections «Texts file» and «Rules page».",
+	"type": "object",
+	"required": ["format", "kind", "game", "ru", "en"],
+	"additionalProperties": false,
+	"properties": {
+		"format": {"const": 3},
+		"kind": {"const": "texts"},
+		"game": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+		"ru": {"$ref": "#/$defs/lang"},
+		"en": {"$ref": "#/$defs/lang"}
+	},
+	"patternProperties": {
+		"^[a-z]{2}$": {"$ref": "#/$defs/lang"}
+	},
+	"$defs": {
+		"path": {"type": "string", "pattern": "^(seats|sides|cards|match|view|options|hand\\.[a-z][a-z0-9_]*)(\\.[a-z0-9_]+)*$"},
+		"line": {
+			"type": "object",
+			"required": ["text", "rules"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+				"text": {"type": "string", "minLength": 1},
+				"rules": {"type": "array", "items": {"$ref": "#/$defs/path"}},
+				"phase": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"}
+			}
+		},
+		"lang": {
+			"type": "object",
+			"required": ["name", "short", "memo"],
+			"additionalProperties": false,
+			"properties": {
+				"name": {"type": "string", "minLength": 1},
+				"subtitle": {"type": "string"},
+				"tagline": {"type": "string"},
+				"short": {"type": "array", "minItems": 1, "maxItems": 8, "items": {"$ref": "#/$defs/line"}},
+				"memo": {"type": "array", "items": {"$ref": "#/$defs/line"}},
+				"hints": {"type": "array", "items": {"$ref": "#/$defs/line"}},
+				"lesson": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": ["id", "title", "text", "rules"],
+						"additionalProperties": false,
+						"properties": {
+							"id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+							"title": {"type": "string"},
+							"text": {"type": "string"},
+							"rules": {"type": "array", "items": {"$ref": "#/$defs/path"}},
+							"setup": {"type": "object", "description": "A fixed position for the step: hands as card ids, whose turn."},
+							"expect": {"type": "string", "description": "The action the step waits for, e.g. play:T20."}
+						}
+					}
+				},
+				"rule_text": {
+					"type": "object",
+					"description": "Sentence for one rule path on the full rules page, replacing the module's own sentence.",
+					"propertyNames": {"$ref": "#/$defs/path"},
+					"additionalProperties": {"type": "string"}
+				},
+				"terms": {"type": "object", "additionalProperties": {"type": "string"}},
+				"variant_names": {"type": "object", "additionalProperties": {"type": "string"}},
+				"option_names": {"type": "object", "additionalProperties": {"type": "string"}}
+			}
+		}
+	}
+}

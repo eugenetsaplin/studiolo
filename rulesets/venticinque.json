@@ -1,0 +1,114 @@
+{
+	"format": 3,
+	"id": "venticinque",
+	"status": "playable_with_decisions",
+	"about": "Venticinque is a family of Piedmontese games (Dummett 1980: for three players p. 260, for two players p. 261); this file is the game for two as the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, «Del giuoco di venticinque carte in due persone», pp. 53-56) gives it, read on its scan, on the 78-card deck: 25 cards to the dealer's opponent, 28 to the dealer who discards 3 (p. 53), the other 25 cards out of play, covered on the table (p. 57), 25 tricks, the cards counted in pairs (p. 52). The rules are the book's: the trionfi rank by their printed numbers with the Angel XX above the World XXI (pp. 9-10, 13), the Angel is the honour that may not be discarded (pp. 14, 34, 54), the Fool is never taken and its owner gives one plain card at the end of the hand (pp. 50, 52, 54), the discard counts for the dealer (p. 55), the hand is won by more points (p. 54) and has no dry premium, the premiums are agreed before the deal (pp. 21, 55, 99). Ours, where the book is silent: the Fool may be led, the engine chooses the card the Fool's owner gives, and the match of four hands around the hand. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"versions": {"big_rules": 2, "match_rules": 4},
+	"revision": 4,
+	"converted_from": {
+		"format": 2,
+		"file": "TRIONFI, our game on Steam: core/rulesets/venticinque.json",
+		"note": "Format 2 keys keep their names, values and sources and move into the module that reads them. Added in format 3 (sources from our reading of 22 November 2026, not re-read on the scan here): seats, sides, the discard settings who/count/announce, tricks.fool_may_lead, view."
+	},
+	"seats": {
+		"count": {"value": 2, "source": "[D] Torino 1787, p. 53: «Del giuoco di venticinque carte in due persone»: two players."},
+		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right; with two players the direction changes nothing."},
+		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first."},
+		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-18: the player on the dealer's left cuts (if he declines, the next on the left; if all decline, the dealer deals as the pack lies); with two players that is the opponent."},
+		"cut_min": {"value": 2, "source": "[D] Torino 1787, pp. 16-18: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value": "alternate", "alt": "loser_deals", "source": "[S] Ours, as the format 2 «match.hands» source has it: the deal alternates. [R] Torino 1787, p. 41 (said in Sedici): the winner hands the cards to his companion, who shuffles and deals; with two players the loser of a hand would deal the next one."}
+	},
+	"sides": {
+		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, pp. 53-54: two persons, and «Chi fa dei punti più dell'altro compagno» wins: each plays for himself."}
+	},
+	"cards": {
+		"deck": {"value": "full78", "source": "[D] Torino 1787, pp. 9-10: «Settant'otto Tarocchi si richiedono», twenty-two trionfi (the Fool is n. 0 among them) and fourteen cards in each of the four suits; the game for two is played with the whole pack."},
+		"trump_order": {"value": "torino_1787", "source": "[D] Torino 1787, pp. 9-10, 13: the trionfi rank by their printed numbers («Il Trionfo maggiore prende sempre il Trionfo minore»), with one exception, the Angel XX takes the World XXI («l'usanza, che in questo caso fa legge»); the Fool stands outside the order."},
+		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins the ace takes the two ... up to the ten but not a court, and the king takes the queen, the knight and the jack, the queen the knight and the jack, the knight the jack: the courts stand above every numeral in the order King, Queen, Knight, Jack."},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: every king counts 5, queen 4, knight 3, jack 2, the Angel 5, the Bagatto 5, the Fool 5 (the World is not among them); our points are the book's less one, because a card is worth its points and a half (a king with a plain card is 5, p. 52)."},
+		"fool": {"value": "excuse", "source": "[D] Torino 1787, p. 54: «Il Folle non vien preso mai da alcun Trionfo»: the Fool is shown, takes nothing and is taken by nothing."},
+		"fool_exchange": {"value": true, "source": "[D] Torino 1787, p. 52: «sarà in obbligo di dare al compagno una cartaccia» (the Baronetti rule to which p. 54 sends); the count on p. 54, «darai a me la carta del Folle», settles it at the end of the hand: the owner keeps the Fool among his points and gives one plain card to the other side then."},
+		"fool_exchange_card": {"value": "cheapest", "source": "[S] Ours: Torino 1787, p. 52 lets the owner choose any plain card («qualunque gli piaccia»); the engine gives the cheapest card of the cards he has won, the Fool left out (fewest points, then the lowest card number: any plain card is worth the same half point), and an owner who has won no other card gives none, the book being silent there.", "alt": "owner_choice", "replace": {"with": ["bots", "people"], "what": "who chooses the card given for the Fool", "q": 18}},
+		"fool_last_trick": {"value": "kept", "source": "[D] Torino 1787, pp. 50, 54: «non sarò io obbligato a dartelo mai» and «non vien preso mai»: the Fool is never lost, in the last trick as in every other; the book makes no exception for it."}
+	},
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"hand_size": {"value": 25, "source": "[D] Torino 1787, p. 53: «Del giuoco di venticinque carte in due persone»: the player who does not deal receives 25 cards."},
+					"dealer_extra": {"value": 3, "source": "[D] Torino 1787, p. 53: «tre di più, le quali diconsi di scarto»: the dealer receives 28 cards and puts 3 away."},
+					"pile_count": {"value": 0, "source": "[R] Torino 1787, p. 53: the cards are dealt «come più aggrada a chi dà», announced before the cut, and the section names no piles (the piles are Baronetti's, pp. 47-49): the engine deals one shuffled pack."},
+					"pile_size": {"value": 3, "source": "[S] Ours: unused, there are no piles; the Pagat value, kept so that the file lists every rule.", "unused": true},
+					"dead": {"value": "out", "source": "[D] Torino 1787, p. 57: the 25 cards left over lie «sul tavoliere non distribuito, e coperto» (named there for Morto, which is played as Venticinque): out of play and unknown to both players."}
+				}
+			},
+			{
+				"id": "discard",
+				"module": "discard",
+				"source": "[D] Torino 1787, p. 53: «tre di più, le quali diconsi di scarto».",
+				"settings": {
+					"who": {"value": "dealer", "source": "[D] Torino 1787, p. 53: the dealer takes «tre di più, le quali diconsi di scarto»."},
+					"count": {"value": 3, "source": "[D] Torino 1787, pp. 53-54: «ne scarterà bensì tre secondo suo piacimento»: any three, not necessarily the last three dealt."},
+					"announce": {"value": "ho_scartato", "source": "[D] Torino 1787, p. 54: after the dealer has said «io ho scartato», «l'altro compagno comincia a giuocare»."},
+					"discard_honours_barred": {"value": true, "source": "[D] Torino 1787, p. 54: «Gli Onori, ho già detto, che non si scartano mai»; the honours are the kings, the Angel XX, the Fool and the Bagatto, the five-point cards (p. 34, rule 38); the queens, the knights, the jacks and the World are none. The two exceptions of rule 38 (the Bagatto alone without the Fool, the Fool for a sure vola) are left out."}
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"settings": {
+					"first_leader": {"value": "non_dealer", "source": "[D] Torino 1787, pp. 50, 54: p. 54 «l'altro compagno comincia a giuocare una carta, o Trionfo»: the dealer's opponent leads the first trick; p. 50 «Chi prende giuoca sempre il primiero»: who takes leads the next."},
+					"follow_suit": {"value": true, "source": "[D] Torino 1787, p. 49: «ti rispondo senza mai rinegare con una carta della medesima sequenza»; to revoke costs the game (rule 35, p. 33)."},
+					"must_trump": {"value": true, "source": "[D] Torino 1787, p. 49: «se non ho carte della medesima sequenza prendo con Trionfi»."},
+					"must_overtrump": {"value": false, "source": "[R] Torino 1787, p. 49: «Se tu giuochi Trionfo, io rispondo Trionfo»: a trump is answered with a trump and the higher takes; the book states no duty to beat it."},
+					"fool_may_lead": {"value": true, "source": "[S] Ours, as the format 2 «about» has it: «Ours, where the book is silent: the Fool may be led»."}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"settings": {
+					"count_unit": {"value": "half_point", "source": "[D] Torino 1787, pp. 52, 56: «ogni carta dee essere accompagnata con un'altra carta»: a king with a plain card is worth 5, a plain card with a plain card 1; so a card is worth its points and a half. Two counting cards together are worth their points less one, our reading."},
+					"odd_card": {"value": "half_point", "source": "[D] Torino 1787, pp. 54-55: «Una carta sola, ancorchè scompagnata»: an unpaired card counts, as a half point with its points."},
+					"trick_multipliers": {"value": false, "source": "[R] Torino 1787, pp. 52, 56: the count is the pairs alone; the book knows no trick multiplier and no war (the x2 and x4 are Duello's own)."},
+					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787, pp. 54, 56: the book names no bonus for the last trick (the +5 is Duello's own)."},
+					"dealer_forfeit": {"value": false, "source": "[R] Torino 1787, p. 55: «L'avvantaggio di questo giuoco ordinariamente è di chi scarta»: the discard is the dealer's; the book does not take it from a dealer who wins no trick (rule 10, p. 21, lets a player without tricks still hold his discard).", "alt": true, "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value": "more_points", "source": "[D] Torino 1787, p. 54: «Chi fa dei punti più dell'altro compagno»."},
+					"tie": {"value": "no_game_points", "source": "[D] Torino 1787, p. 54: equal points, «faremo eguali; nè l'uno, nè l'altro avrà guadagnato». Our count cannot tie in Venticinque: 53 cards are dealt, an odd number of half points; the value is kept so that the file lists every rule."},
+					"game_points": {"value": "one", "source": "[R] Torino 1787, p. 54: a hand is won («guadagna la partita») by the player with more points, and nothing more; the premiums, vola, marcio, triplice, quadriplice, are played only «purchè si voglia, e dicasi avanti in termini chiari» (p. 55; also pp. 21, 99). The dry hand of two game points was ours and is gone: a won hand is one game point."},
+					"shut_num": {"value": 1, "source": "[S] Ours, from Duello, unused in Venticinque (game_points is \"one\"): the dry line is at most a third of the winner's points; kept so that the file lists every rule.", "unused": true},
+					"shut_den": {"value": 3, "source": "[S] Ours, from Duello, unused in Venticinque (game_points is \"one\"): the dry line is at most a third of the winner's points; kept so that the file lists every rule.", "unused": true}
+				}
+			}
+		]
+	},
+	"match": {
+		"target": {"value": 5, "source": "[S] Ours: the book gives no target for a match; the race to 5 game points of Duello, which counts only when `hands` is 0 (here a match is a fixed number of hands).", "unused": true},
+		"max_stake": {"value": 1, "source": "[S] Ours: no Raddoppio, the book knows no doubling."},
+		"crawford": {"value": false, "source": "[S] Ours: without doubling there is no Crawford rule.", "unused": true},
+		"tie_replay": {"value": true, "source": "[S] Ours: in a race (`hands` 0) a tied hand is dealt again by the same dealer, as in Duello; with a fixed number of hands a tied hand would count as played (it cannot tie in Venticinque: 53 cards are an odd number of half points).", "unused": true},
+		"max_hands": {"value": 60, "source": "[S] Ours: a safety cap on the hands of a match, as in Duello.", "unused": true},
+		"double_window_cards": {"value": 1, "source": "[S] Ours: unused without doubling; the Duello value.", "unused": true},
+		"hands": {"value": 4, "source": "[S] Ours: a match is four hands, each player deals twice, the dealer alternating, and each hand gives its winner one game point. The book describes the hand alone: a game won, the cards go back to the opponent, who shuffles and deals (p. 41). 0 would be a race to `target`.", "replace": {"with": ["bots", "people"], "what": "the length of a match", "q": 6}},
+		"tiebreak": {"value": "card_points", "source": "[S] Ours: equal game points over the four hands (2 : 2) are decided by the card points of all four hands together (counted in half-points, the dealer's discard and the Fool's card in); if those are equal too the match is a draw.", "replace": {"with": ["bots", "people"], "what": "the length of a match", "q": 6}}
+	},
+	"view": {
+		"piles": {"rest": "face_down_count", "discard": "owner_only"},
+		"score_panel": {
+			"live_points": "hidden",
+			"after_hand": ["pairs", "odd_card", "fool_card", "discard"]
+		}
+	},
+	"left_out": [
+		{"id": "vola", "source": "[D] Torino 1787, pp. 21, 55, 100: «Vola, dicesi del fare tutte le basi»: a premium for taking every trick, played «purchè si voglia, e dicasi avanti in termini chiari», that is by agreement before the deal; and the Fool may be put away for a sure vola (rule 38, p. 34).", "why": "A premium agreed in advance for all the tricks is a stake of the table, not a bid or a rule of the hand: the engine plays no premium."},
+		{"id": "bagatto_discard", "source": "[D] Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.", "why": "The Venticinque section says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred)."}
+	]
+}

@@ -1,0 +1,70 @@
+{
+	"format": 3,
+	"id": "permesso_5",
+	"extends": "permesso_3",
+	"family": "permesso",
+	"status": "playable_with_decisions",
+	"about": "Permesso for five («Quintilio», Torino 1787, «Del Permesso in cinque persone», pp. 74-75, and the Fool of pp. 77-78): 15 cards to each of the five players, 18 to the dealer, who puts away any three (p. 74); the rest as in Permesso for three. The book advises the lone player to hold at least four of the greatest trumps (p. 74). The payment against four is not printed. The Fool is only shown, and its card goes to the taker of that trick (pp. 77-78).",
+	"revision": 3,
+	"sources": {
+		"dummett1980": {
+			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		},
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value":5,"source":"[D] Torino 1787, p. 74: «Del Permesso in cinque persone»."}
+	},
+	"sides": {
+		"mode": {"value":"by_contract","source":"[D] Torino 1787, p. 74: «Il restante è come sopra al giuoco di Permesso in tre persone»: one against the rest."}
+	},
+	"cards": {
+		"deck": {"value":"full78","source":"[D] Torino 1787, p. 74: 5 × 15 + 3 = 78 («quindici … dieciotto»); the sum is not printed."},
+		"fool": {"value":"excuse","source":"[D] Torino 1787, p. 77: «Il Folle a questi tre giuochi solamente … non volendo noi giuocar altra carta»: shown instead of a card, it takes nothing (Quintilio, Sestilio, Settilio)."},
+		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà … quando il Folle è stato giuocato»; read as the card given in place of the Fool (p. 52, p. 54), one plain card. Other reading: the Fool itself goes to the taker of that trick (no format key: FORMAT_OPEN_POINTS, F2).","alt":false},
+		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»; carried over to the three games of pp. 77-78."},
+		"fool_exchange_to": {"value":"trick_winner","source":"[D] Torino 1787, pp. 77-78: «dovrà sempre dare a chi ha preso … quando il Folle è stato giuocato»: to the taker of the trick in which the Fool was shown."},
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+	},
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"hand_size": {"value":15,"source":"[D] Torino 1787, p. 74: «quindici carte per ciascun giuocatore»."},
+					"dealer_extra": {"value":3,"source":"[D] Torino 1787, p. 74: «chi scarta se ne piglia dieciotto, l'ultime tre delle quali sono per iscartare»."},
+					"dead": {"value":"none","source":"[R] Torino 1787, p. 74: 5 × 15 + 3 = 78; nothing is left over (the sum is not printed)."}
+				}
+			},
+			{
+				"id": "discard",
+				"module": "discard",
+				"settings": {
+					"count": {"value":3,"source":"[D] Torino 1787, p. 74: three of the eighteen are for the discard."},
+					"count_mode": {"value":"exact","source":"[D] Torino 1787, p. 74: «ma sta in sua libertà lo scartare quelle tre, che più gli aggradano»: exactly three, any three he likes."}
+				}
+			},
+			{
+				"id": "settle",
+				"module": "settle",
+				"settings": {
+					"mode": {"value":"declarer_vs_each","source":"[R] Torino 1787, p. 74: «Il restante è come sopra»; for four the loser pays «come fosse egli tre giuocatori in un solo» (p. 74): carried over as the lone player against four. [S] the sum paid to each of the four is not printed; the formula of Permesso for three is used for each."}
+				}
+			}
+		]
+	},
+	"bot": {
+		"play": [
+			{"value":{"advice":"lone_player_needs_four_high_trumps","trumps_min":4},"source":"[D] Torino 1787, p. 74: «chi va solo, giuocando … in cinque, sia … almeno quattro de' maggiori»; [S] which trumps are «maggiori». [R] pp. 74-75: «Tre mani, che si lasci egli prendere, posson decidere benissimo della partita»: the three tricks the lone player lets go may decide the game."}
+		]
+	}
+}

@@ -1,0 +1,727 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://studiolo.petrigames.com/schema/game-3.schema.json",
+	"title": "Studiolo game file, format 3",
+	"description": "One game of the Studiolo lab as data: seats and sides, cards, the phases of a hand as module instances, the match, penalties, what the table shows, bot settings. Every rule is a rule leaf {value, source}. The specification is docs/GAME_FILE_FORMAT.md; the keys of this schema are described there one by one.",
+	"type": "object",
+	"required": ["format", "id", "about", "seats", "sides", "cards", "hand"],
+	"additionalProperties": false,
+	"properties": {
+		"format": {"const": 3},
+		"id": {"$ref": "#/$defs/ident"},
+		"extends": {"$ref": "#/$defs/ident"},
+		"family": {"$ref": "#/$defs/ident"},
+		"status": {"enum": ["documented", "playable_with_decisions", "from_later_source", "draft"]},
+		"about": {"type": "string", "minLength": 1},
+		"versions": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+		"revision": {"type": "integer", "minimum": 1},
+		"converted_from": {
+			"type": "object",
+			"required": ["format", "file"],
+			"additionalProperties": false,
+			"properties": {
+				"format": {"type": "integer"},
+				"file": {"type": "string"},
+				"note": {"type": "string"}
+			}
+		},
+		"sources": {
+			"type": "object",
+			"description": "Bibliography keys a rule leaf may name in `by`.",
+			"patternProperties": {"^[a-z][a-z0-9_]*$": {"$ref": "#/$defs/bib"}},
+			"additionalProperties": false
+		},
+		"seats": {"$ref": "#/$defs/seats"},
+		"sides": {"$ref": "#/$defs/sides"},
+		"cards": {"$ref": "#/$defs/cards"},
+		"options": {"type": "array", "items": {"$ref": "#/$defs/option"}},
+		"variants": {"type": "array", "items": {"$ref": "#/$defs/variant"}},
+		"hand": {
+			"type": "object",
+			"required": ["phases"],
+			"additionalProperties": false,
+			"properties": {
+				"phases": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/phase"}}
+			}
+		},
+		"contracts": {"type": "array", "items": {"$ref": "#/$defs/contract"}},
+		"match": {"$ref": "#/$defs/match"},
+		"penalties": {"type": "array", "items": {"$ref": "#/$defs/penalty"}},
+		"view": {"$ref": "#/$defs/view"},
+		"bot": {"$ref": "#/$defs/bot"},
+		"left_out": {"type": "array", "items": {"$ref": "#/$defs/left_out"}},
+		"texts": {"type": "string", "description": "Path of the texts file; default texts/<id>.texts.json."}
+	},
+	"$defs": {
+		"ident": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+		"source": {
+			"type": "string",
+			"pattern": "^\\[(D|R|S)\\] ",
+			"description": "Starts with one of the three marks, a space, then the source in words: book and page and a short quotation for [D]; the two readings for [R]; what is missing for [S]."
+		},
+		"bib": {
+			"type": "object",
+			"required": ["cite"],
+			"additionalProperties": false,
+			"properties": {
+				"cite": {"type": "string"},
+				"short_ru": {"type": "string"},
+				"short_en": {"type": "string"},
+				"held": {"type": "boolean"}
+			}
+		},
+		"by_seats": {
+			"type": "object",
+			"required": ["by_seats"],
+			"additionalProperties": false,
+			"properties": {
+				"by_seats": {
+					"type": "object",
+					"minProperties": 1,
+					"patternProperties": {"^[2-7]$": {}},
+					"additionalProperties": false
+				}
+			}
+		},
+		"rule": {
+			"type": "object",
+			"required": ["value", "source"],
+			"additionalProperties": false,
+			"properties": {
+				"value": {},
+				"source": {"$ref": "#/$defs/source"},
+				"alt": {"description": "The other reading of a [R] rule, as a value of the same type."},
+				"pages": {"type": "array", "items": {"type": "integer", "minimum": 1}},
+				"by": {"$ref": "#/$defs/ident"},
+				"note": {"type": "string"},
+				"unused": {"type": "boolean", "description": "The file keeps this setting, but the game does not use it; it is never shown as a rule."},
+				"replace": {
+					"type": "object",
+					"description": "What would replace this placeholder: only on an [S] or [R] leaf (the validator checks the mark). `q` is the number of the question in rulesets/OPEN_QUESTIONS.md.",
+					"required": ["with", "what", "q"],
+					"additionalProperties": false,
+					"properties": {
+						"with": {"type": "array", "minItems": 1, "items": {"enum": ["document", "expert", "math", "bots", "people"]}},
+						"what": {"type": "string", "minLength": 1},
+						"q": {"type": "integer", "minimum": 1}
+					}
+				}
+			}
+		},
+		"r_any": {"$ref": "#/$defs/rule"},
+		"r_bool": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"type": "boolean"}, {"$ref": "#/$defs/by_seats"}]}}}]},
+		"r_int": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"type": "integer"}, {"$ref": "#/$defs/by_seats"}]}}}]},
+		"r_num": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"type": "number"}, {"$ref": "#/$defs/by_seats"}]}}}]},
+		"r_str": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"type": "string"}, {"$ref": "#/$defs/by_seats"}]}}}]},
+		"r_obj": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "object"}}}]},
+		"r_list": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array"}}}]},
+		"r_amount": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"$ref": "#/$defs/amount"}}}]},
+		"r_selectors": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"$ref": "#/$defs/selector_list"}}}]},
+		"r_count_by_role": {
+			"allOf": [
+				{"$ref": "#/$defs/rule"},
+				{"properties": {"value": {"anyOf": [
+					{"type": "integer", "minimum": 0},
+					{"enum": ["half_rest", "all_rest"]},
+					{"$ref": "#/$defs/by_seats"},
+					{"$ref": "#/$defs/by_role"}
+				]}}}
+			]
+		},
+		"by_role": {
+			"type": "object",
+			"required": ["by_role"],
+			"additionalProperties": false,
+			"properties": {
+				"by_role": {
+					"type": "object",
+					"minProperties": 1,
+					"additionalProperties": false,
+					"properties": {
+						"dealer": {"type": ["integer", "string"]},
+						"non_dealer": {"type": ["integer", "string"]},
+						"declarer": {"type": ["integer", "string"]},
+						"others": {"type": ["integer", "string"]}
+					}
+				}
+			}
+		},
+		"card_id": {
+			"type": "string",
+			"pattern": "^(T([0-9]|1[0-9]|2[01])|(cups|coins|swords|batons):(10|[1-9]|J|N|Q|K))$"
+		},
+		"selector": {
+			"anyOf": [
+				{
+					"type": "string",
+					"pattern": "^(T([0-9]|1[0-9]|2[01])|(cups|coins|swords|batons):(10|[1-9]|J|N|Q|K)|rank:(10|[1-9]|J|N|Q|K)|suit:(cups|coins|swords|batons)|trumps|suits|plain|counters|all|set:[a-z][a-z0-9_]*)$"
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"minProperties": 1,
+					"properties": {
+						"any": {"$ref": "#/$defs/selector_list"},
+						"all": {"$ref": "#/$defs/selector_list"},
+						"not": {"$ref": "#/$defs/selector"},
+						"if": {"$ref": "#/$defs/condition"}
+					}
+				}
+			]
+		},
+		"selector_list": {"type": "array", "items": {"$ref": "#/$defs/selector"}},
+		"condition": {
+			"type": "object",
+			"minProperties": 1,
+			"additionalProperties": false,
+			"description": "All the keys given must hold.",
+			"properties": {
+				"seats": {"type": "array", "items": {"type": "integer", "minimum": 2, "maximum": 7}},
+				"contract": {"type": "array", "items": {"$ref": "#/$defs/ident"}},
+				"all_passed": {"type": "boolean"},
+				"option": {"type": "object", "additionalProperties": {"type": ["string", "number", "boolean"]}},
+				"hand_has": {"$ref": "#/$defs/selector"},
+				"hand_lacks": {"$ref": "#/$defs/selector"},
+				"hand_count": {
+					"type": "object",
+					"required": ["of"],
+					"additionalProperties": false,
+					"properties": {
+						"of": {"$ref": "#/$defs/selector"},
+						"min": {"type": "integer"},
+						"max": {"type": "integer"}
+					}
+				},
+				"declared": {"$ref": "#/$defs/ident"}
+			}
+		},
+		"amount": {
+			"description": "A sum of payment units, as data. See the specification, section «Amounts».",
+			"anyOf": [
+				{"type": "number"},
+				{
+					"type": "object",
+					"minProperties": 1,
+					"maxProperties": 2,
+					"additionalProperties": false,
+					"properties": {
+						"stake": {"enum": ["simple", "double", "marcia", "onoranza", "agreed"]},
+						"contract": {"type": "string", "description": "A field of the winning contract, e.g. onoranza."},
+						"option": {"$ref": "#/$defs/ident"},
+						"per_points": {
+							"type": "object",
+							"required": ["of", "from", "every", "unit"],
+							"additionalProperties": false,
+							"properties": {
+								"of": {"enum": ["declarer_side", "winner", "seat", "margin"]},
+								"from": {"type": "number"},
+								"every": {"type": "number", "exclusiveMinimum": 0},
+								"unit": {"type": "number"},
+								"round": {"enum": ["down", "up", "nearest_half_down", "nearest_half_up", "none"]},
+								"direction": {"enum": ["above", "below", "both"]}
+							}
+						},
+						"table": {
+							"type": "object",
+							"required": ["by", "rows"],
+							"additionalProperties": false,
+							"properties": {
+								"by": {"enum": ["count", "trumps", "honours"]},
+								"rows": {"type": "object", "patternProperties": {"^[0-9]+$": {"type": "number"}}, "additionalProperties": false},
+								"beyond": {
+									"type": "object",
+									"required": ["every", "add"],
+									"additionalProperties": false,
+									"properties": {"every": {"type": "integer"}, "add": {"type": "number"}}
+								},
+								"same_as_count": {"type": "boolean"}
+							}
+						},
+						"sum": {"type": "array", "items": {"$ref": "#/$defs/amount"}},
+						"times": {
+							"type": "array",
+							"prefixItems": [{"$ref": "#/$defs/amount"}, {"type": "number"}],
+							"minItems": 2,
+							"maxItems": 2
+						},
+						"note": {"type": "string"}
+					}
+				}
+			]
+		},
+		"seats": {
+			"type": "object",
+			"required": ["count"],
+			"additionalProperties": false,
+			"properties": {
+				"count": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"type": "integer", "minimum": 2, "maximum": 7},
+					{"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 2, "maximum": 7}}
+				]}}}]},
+				"direction": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["right", "left"]}}}]},
+				"first_dealer": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["draw_trump", "draw_high", "best_cut", "random", "host"]}}}]},
+				"cut_by": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["left", "right", "none"]}}}]},
+				"cut_min": {"$ref": "#/$defs/r_int"},
+				"dealer_rotation": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["right", "left", "alternate", "loser_deals", "winner_passes_to_companion", "same"]}}}]},
+				"seating": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["free", "partners_opposite", "partners_adjacent", "draw_high_pairs"]}}}]}
+			}
+		},
+		"sides": {
+			"type": "object",
+			"required": ["mode"],
+			"additionalProperties": false,
+			"properties": {
+				"mode": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"enum": ["each_for_self", "fixed_pairs", "declarer_vs_rest", "called_partner", "by_contract"]},
+					{"$ref": "#/$defs/by_seats"}
+				]}}}]},
+				"pool": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["seat", "side"]}}}]},
+				"partners_share_hands": {"$ref": "#/$defs/r_bool"},
+				"partners_talk": {"$ref": "#/$defs/r_bool"},
+				"signals": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["forbidden", "free"]}}}]}
+			}
+		},
+		"cards": {
+			"type": "object",
+			"required": ["deck"],
+			"additionalProperties": false,
+			"properties": {
+				"deck": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"enum": ["full78"]},
+					{
+						"type": "object",
+						"additionalProperties": false,
+						"minProperties": 1,
+						"properties": {
+							"include": {"$ref": "#/$defs/selector_list"},
+							"exclude": {"$ref": "#/$defs/selector_list"}
+						}
+					}
+				]}}}]},
+				"trump_order": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"enum": ["torino_1787", "printed", "pavia_c"]},
+					{"type": "array", "minItems": 2, "items": {"type": "string", "pattern": "^T([0-9]|1[0-9]|2[01])$"}}
+				]}}}]},
+				"suit_order": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"enum": ["italian", "straight"]},
+					{
+						"type": "object",
+						"additionalProperties": false,
+						"properties": {
+							"cups": {"type": "array", "items": {"type": "string"}},
+							"coins": {"type": "array", "items": {"type": "string"}},
+							"swords": {"type": "array", "items": {"type": "string"}},
+							"batons": {"type": "array", "items": {"type": "string"}}
+						}
+					}
+				]}}}]},
+				"card_points": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"enum": ["honours_4", "honours_4_angel", "book_1787", "book_1787_short"]},
+					{"type": "object", "propertyNames": {"$ref": "#/$defs/selector"}, "additionalProperties": {"type": "number"}}
+				]}}}]},
+				"sets": {
+					"type": "object",
+					"patternProperties": {"^[a-z][a-z0-9_]*$": {"$ref": "#/$defs/r_selectors"}},
+					"additionalProperties": false
+				},
+				"fool": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["excuse", "low_trump", "high_trump", "trump"]}}}]},
+				"fool_exchange": {"$ref": "#/$defs/r_bool"},
+				"fool_exchange_card": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["cheapest", "owner_choice"]}}}]},
+				"fool_exchange_to": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["opponent_side", "trick_winner"]}}}]},
+				"fool_no_tricks": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["give_none", "give_fool"]}}}]},
+				"fool_last_trick": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["kept", "lost"]}}}]},
+				"fool_show_any_time": {"$ref": "#/$defs/r_bool"}
+			}
+		},
+		"option": {
+			"type": "object",
+			"required": ["id", "choices", "default", "source"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"choices": {"type": "array", "minItems": 1},
+				"default": {},
+				"source": {"$ref": "#/$defs/source"},
+				"affects": {"type": "array", "items": {"type": "string"}}
+			}
+		},
+		"variant": {
+			"type": "object",
+			"required": ["id", "source", "patch"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"source": {"$ref": "#/$defs/source"},
+				"patch": {"type": "object"},
+				"label_key": {"type": "string"}
+			}
+		},
+		"contract": {
+			"type": "object",
+			"required": ["id", "source"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"source": {"$ref": "#/$defs/source"},
+				"sides": {"enum": ["each_for_self", "fixed_pairs", "declarer_vs_rest", "called_partner"]},
+				"exchange": {"type": "integer", "minimum": 0},
+				"rank": {"type": "integer", "description": "Higher rank overcalls lower."},
+				"onoranza": {"type": "number"},
+				"pays": {"type": "object", "additionalProperties": {"type": "number"}}
+			}
+		},
+		"phase": {
+			"type": "object",
+			"required": ["id", "module"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"module": {"enum": ["deal", "discard", "a_monte", "bidding", "exchange", "call_partner", "declarations", "tricks", "prize_stock", "open_piles", "fuora", "count", "result", "settle", "repeat"]},
+				"source": {"$ref": "#/$defs/source"},
+				"when": {"$ref": "#/$defs/condition"},
+				"during": {"$ref": "#/$defs/ident"},
+				"after": {"$ref": "#/$defs/ident"},
+				"remove": {"type": "boolean"},
+				"until": {"enum": ["fuora", "stock_empty", "fuora_or_stock_empty"]},
+				"phases": {"type": "array", "items": {"$ref": "#/$defs/phase"}},
+				"settings": {"type": "object"}
+			},
+			"allOf": [
+				{"if": {"properties": {"module": {"const": "deal"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_deal"}}}},
+				{"if": {"properties": {"module": {"const": "discard"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_discard"}}}},
+				{"if": {"properties": {"module": {"const": "a_monte"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_a_monte"}}}},
+				{"if": {"properties": {"module": {"const": "bidding"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_bidding"}}}},
+				{"if": {"properties": {"module": {"const": "exchange"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_exchange"}}}},
+				{"if": {"properties": {"module": {"const": "call_partner"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_call_partner"}}}},
+				{"if": {"properties": {"module": {"const": "declarations"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_declarations"}}}},
+				{"if": {"properties": {"module": {"const": "tricks"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_tricks"}}}},
+				{"if": {"properties": {"module": {"const": "prize_stock"}}}, "then": {"required": ["during"], "properties": {"settings": {"$ref": "#/$defs/m_prize_stock"}}}},
+				{"if": {"properties": {"module": {"const": "open_piles"}}}, "then": {"required": ["during"], "properties": {"settings": {"$ref": "#/$defs/m_open_piles"}}}},
+				{"if": {"properties": {"module": {"const": "fuora"}}}, "then": {"required": ["during"], "properties": {"settings": {"$ref": "#/$defs/m_fuora"}}}},
+				{"if": {"properties": {"module": {"const": "count"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_count"}}}},
+				{"if": {"properties": {"module": {"const": "result"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_result"}}}},
+				{"if": {"properties": {"module": {"const": "settle"}}}, "then": {"properties": {"settings": {"$ref": "#/$defs/m_settle"}}}},
+				{"if": {"properties": {"module": {"const": "repeat"}}}, "then": {"required": ["until", "phases"]}}
+			]
+		},
+		"m_deal": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"hand_size": {"$ref": "#/$defs/r_count_by_role"},
+				"dealer_extra": {"$ref": "#/$defs/r_int"},
+				"extra_to": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["dealer", "declarer"]}}}]},
+				"extra_when": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["first", "last", "any"]}}}]},
+				"packets": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [
+					{"type": "array", "items": {"type": "integer", "minimum": 1}},
+					{"enum": ["dealer_choice", "one_by_one"]},
+					{"$ref": "#/$defs/by_seats"}
+				]}}}]},
+				"packets_announced": {"$ref": "#/$defs/r_bool"},
+				"order": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["from_right", "from_left", "opponent_first"]}}}]},
+				"pile_count": {"$ref": "#/$defs/r_int"},
+				"pile_size": {"$ref": "#/$defs/r_int"},
+				"piles": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"type": "integer", "minimum": 1}}}}]},
+				"pile_top": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["up", "down"]}}}]},
+				"dead": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["out", "prize", "none", "stock", "dealer"]}}}]},
+				"from": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["deck", "stock", "rest"]}}}]},
+				"face": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["down", "up"]}}}]}
+			}
+		},
+		"m_discard": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"who": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["dealer", "declarer", "each", "dealer_then_other"]}}}]},
+				"count": {"$ref": "#/$defs/r_count_by_role"},
+				"count_mode": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["exact", "up_to"]}}}]},
+				"discard_honours_barred": {"$ref": "#/$defs/r_bool"},
+				"barred": {"$ref": "#/$defs/r_selectors"},
+				"allowed_exceptions": {"$ref": "#/$defs/r_selectors"},
+				"counts_for": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["discarder", "dealer", "nobody", "discarder_unless_no_tricks"]}}}]},
+				"announce": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["ho_scartato", "none"]}}}]},
+				"face": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["down", "up"]}}}]}
+			}
+		},
+		"m_a_monte": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"consent": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["unanimous"]}}}]},
+				"what": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["redeal", "replace_some", "either"]}}}]},
+				"windows": {"$ref": "#/$defs/r_list"}
+			}
+		},
+		"m_bidding": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"contracts": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/ident"}}}}]},
+				"opens": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["dealer_right", "dealer", "non_dealer"]}}}]},
+				"dealer_speaks": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["in_turn", "last", "first"]}}}]},
+				"tie": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["earlier_seat", "challenger", "dealer"]}}}]},
+				"pass_is_final": {"$ref": "#/$defs/r_bool"},
+				"all_pass": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "string", "pattern": "^(redeal|redeal_next_dealer|contract:[a-z][a-z0-9_]*)$"}}}]},
+				"bid_binds": {"$ref": "#/$defs/r_bool"},
+				"lay_down_fewer": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["plays_at_laid", "forbidden"]}}}]}
+			}
+		},
+		"m_exchange": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"count": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"type": "integer", "minimum": 0}, {"const": "contract"}]}}}]},
+				"lay_down_first": {"$ref": "#/$defs/r_bool"},
+				"face": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["down", "up"]}}}]},
+				"callable": {"$ref": "#/$defs/r_selectors"},
+				"card_not_held": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["from_discard", "lost", "forbidden"]}}}]}
+			}
+		},
+		"m_call_partner": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"caller": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["dealer", "declarer"]}}}]},
+				"ladder": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"enum": ["K", "Q", "N", "J"]}}}}]},
+				"step_down": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["caller_holds_all_of_rank"]}}}]},
+				"secret": {"$ref": "#/$defs/r_bool"},
+				"own_card": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["plays_alone", "forbidden", "plays_alone_unless_forgiven"]}}}]},
+				"card_in_discard": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["forbidden", "plays_alone"]}}}]}
+			}
+		},
+		"m_declarations": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"kinds": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/declaration_kind"}}}}]},
+				"window": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["after_discard_before_first_card", "before_first_trick_covered"]}}}]},
+				"late": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["right_lost"]}}}]},
+				"mode": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["auto", "manual"]}}}]},
+				"paid": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["at_once", "end_of_hand"]}}}]},
+				"paid_by": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["each_other", "others_together"]}}}]}
+			}
+		},
+		"declaration_kind": {
+			"type": "object",
+			"required": ["id", "of", "min", "show", "pays"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"of": {"$ref": "#/$defs/selector"},
+				"min": {"type": "integer", "minimum": 1},
+				"all_of": {"type": "boolean", "description": "true: the set must be held whole (Mitigati)."},
+				"show": {"enum": ["announce_count", "announce", "expose"]},
+				"pays": {"$ref": "#/$defs/amount"}
+			}
+		},
+		"m_tricks": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"first_leader": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["non_dealer", "dealer_right", "declarer", "previous_last_taker"]}}}]},
+				"next_leader": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["trick_winner"]}}}]},
+				"follow_suit": {"$ref": "#/$defs/r_bool"},
+				"must_trump": {"$ref": "#/$defs/r_bool"},
+				"must_overtrump": {"$ref": "#/$defs/r_bool"},
+				"play_from": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["hand", "pile_tops"]}}}]},
+				"fool_may_lead": {"$ref": "#/$defs/r_bool"},
+				"tricks": {"$ref": "#/$defs/r_int"}
+			}
+		},
+		"m_prize_stock": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"stock": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["rest"]}}}]},
+				"per_trick": {"$ref": "#/$defs/r_int"},
+				"take": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["top"]}}}]},
+				"show_to": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["opponents", "all", "nobody"]}}}]},
+				"goes_to": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["won_pile", "hand"]}}}]},
+				"fool_trick": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["trick_winner", "fool_owner", "nobody"]}}}]}
+			}
+		},
+		"m_open_piles": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"reveal": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["after_trick", "after_own_play"]}}}]},
+				"empty_pile": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["play_from_others"]}}}]}
+			}
+		},
+		"m_fuora": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"target": {"$ref": "#/$defs/r_num"},
+				"claim_when": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["any_time", "after_trick", "own_turn"]}}}]},
+				"false_claim": {"$ref": "#/$defs/r_list"},
+				"after_first_out": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["hand_ends", "others_continue"]}}}]},
+				"stock_empty": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["reshuffle_untaken", "hand_ends_most_points", "hand_ends_no_winner"]}}}]}
+			}
+		},
+		"m_count": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"count_unit": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["half_point"]}}}]},
+				"group": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"enum": [1, 2, 3, 4]}, {"type": "string", "pattern": "^option:[a-z][a-z0-9_]*$"}]}}}]},
+				"plain_value": {"$ref": "#/$defs/r_num"},
+				"odd_card": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["half_point", "drop", "as_group"]}}}]},
+				"trick_multipliers": {"$ref": "#/$defs/r_bool"},
+				"last_trick_bonus": {"$ref": "#/$defs/r_num"},
+				"dealer_forfeit": {"$ref": "#/$defs/r_bool"},
+				"fool_card": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["counted", "deducted"]}}}]}
+			}
+		},
+		"m_result": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"winner": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["more_points", "threshold", "fewest_points", "first_out", "declarer_threshold"]}}}]},
+				"target": {"$ref": "#/$defs/r_num"},
+				"tie": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["no_game_points", "redeal_next_dealer", "declarer_loses", "draw"]}}}]},
+				"bands": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/band"}}}}]},
+				"game_points": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["one", "one_or_two_dry", "none"]}}}]},
+				"shut_num": {"$ref": "#/$defs/r_int"},
+				"shut_den": {"$ref": "#/$defs/r_int"}
+			}
+		},
+		"band": {
+			"type": "object",
+			"required": ["outcome"],
+			"additionalProperties": false,
+			"properties": {
+				"min": {"type": "number"},
+				"max": {"type": "number"},
+				"outcome": {"enum": ["win", "loss", "draw"]},
+				"pays": {"enum": ["full", "onoranza_only", "nothing"]}
+			}
+		},
+		"m_settle": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"unit": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["stake", "marca", "soldo", "game_point"]}}}]},
+				"mode": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["loser_pays_winner", "declarer_vs_each", "losers_pay_winner", "pair_split", "a_scaricare", "winners_from_losers"]}}}]},
+				"amount": {"$ref": "#/$defs/r_amount"},
+				"premiums": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/premium"}}}}]},
+				"payments": {"type": "array", "items": {"$ref": "#/$defs/payment"}}
+			}
+		},
+		"premium": {
+			"type": "object",
+			"required": ["id", "when", "effect"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"when": {"enum": ["vola", "loser_below_fraction", "winner_times_loser"]},
+				"fraction": {"type": "number"},
+				"times": {"type": "number"},
+				"effect": {"type": "object", "additionalProperties": false, "properties": {"multiply": {"type": "number"}, "add": {"$ref": "#/$defs/amount"}}},
+				"option": {"$ref": "#/$defs/ident"}
+			}
+		},
+		"payment": {
+			"type": "object",
+			"required": ["id", "on", "from", "to", "amount", "source"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"on": {"type": "string", "pattern": "^(declaration:[a-z][a-z0-9_]*|last_trick_won_with:T([0-9]|1[0-9]|2[01])|lost_in_last_trick:T([0-9]|1[0-9]|2[01])|lost_before_last_trick:T([0-9]|1[0-9]|2[01])|reached_target|penalty:[a-z][a-z0-9_]*)$"},
+				"from": {"enum": ["each_other", "event_seat", "losers", "each_loser"]},
+				"to": {"enum": ["event_seat", "each_other", "winners", "each_winner"]},
+				"amount": {"$ref": "#/$defs/amount"},
+				"source": {"$ref": "#/$defs/source"},
+				"alt": {}
+			}
+		},
+		"match": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"kind": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["single_hand", "fixed_hands", "race", "running_total", "ledger"]}}}]},
+				"target": {"$ref": "#/$defs/r_num"},
+				"hands": {"$ref": "#/$defs/r_int"},
+				"tiebreak": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["none", "card_points"]}}}]},
+				"tie_replay": {"$ref": "#/$defs/r_bool"},
+				"max_hands": {"$ref": "#/$defs/r_int"},
+				"max_stake": {"$ref": "#/$defs/r_int"},
+				"crawford": {"$ref": "#/$defs/r_bool"},
+				"double_window_cards": {"$ref": "#/$defs/r_int"},
+				"round_target": {"$ref": "#/$defs/r_num"},
+				"rounds": {"$ref": "#/$defs/r_int"}
+			}
+		},
+		"penalty": {
+			"type": "object",
+			"required": ["id", "offence", "enforce", "effect"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"offence": {"enum": ["revoke", "misdeal", "faced_card", "wrong_deal_method", "wrong_discard_count", "change_discard", "peek_stock", "peek_pile", "open_two", "signal", "talk", "show_cards", "false_fuora", "refuse_bid", "call_without_laying", "call_own_card", "hint_partner", "a_monte_retract", "take_others_points", "deal_out_of_turn"]},
+				"enforce": {"enum": ["prevent", "apply", "text_only"]},
+				"effect": {"$ref": "#/$defs/r_any"},
+				"hand": {"enum": ["continues", "ends", "redeal"]}
+			}
+		},
+		"view": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"piles": {
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"rest": {"enum": ["hidden", "face_down_count", "face_down"]},
+						"discard": {"enum": ["owner_only", "hidden", "all_after_hand"]},
+						"seat_piles": {"enum": ["tops_up"]},
+						"exchange": {"enum": ["face_down"]}
+					}
+				},
+				"stock_draw": {"enum": ["show_to_all_then_cover", "show_to_taker"]},
+				"declarations": {"enum": ["count_only", "cards"]},
+				"last_trick": {"enum": ["hidden", "until_next_lead", "always"]},
+				"partners_hands": {"enum": ["hidden", "shown"]},
+				"score_panel": {
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"live_points": {"enum": ["hidden", "own", "all", "side"]},
+						"after_hand": {"type": "array", "items": {"enum": ["pairs", "groups", "odd_card", "fool_card", "discard", "stock_cards", "declarations", "premiums", "bands", "payments", "running_total"]}},
+						"ledger": {"type": "boolean"}
+					}
+				}
+			}
+		},
+		"bot": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"profile": {"type": "string"},
+				"bid": {"type": "array", "items": {
+					"type": "object",
+					"required": ["contract", "when", "source"],
+					"additionalProperties": false,
+					"properties": {
+						"contract": {"$ref": "#/$defs/ident"},
+						"when": {"$ref": "#/$defs/condition"},
+						"source": {"$ref": "#/$defs/source"}
+					}
+				}},
+				"call": {"$ref": "#/$defs/r_any"},
+				"discard": {"$ref": "#/$defs/r_any"},
+				"play": {"type": "array", "items": {"$ref": "#/$defs/r_any"}}
+			}
+		},
+		"left_out": {
+			"type": "object",
+			"required": ["id", "source", "why"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {"$ref": "#/$defs/ident"},
+				"source": {"$ref": "#/$defs/source"},
+				"why": {"type": "string"}
+			}
+		}
+	}
+}

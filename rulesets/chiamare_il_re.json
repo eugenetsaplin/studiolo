@@ -1,0 +1,241 @@
+{
+	"format": 3,
+	"id": "chiamare_il_re",
+	"family": "chiamare_il_re",
+	"status": "playable_with_decisions",
+	"about": "Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S].",
+	"revision": 3,
+	"sources": {
+		"dummett1980": {
+			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		},
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		},
+		"ours": {
+			"cite": "Studiolo decision; not a source",
+			"short_ru": "наше решение",
+			"short_en": "our decision",
+			"held": true
+		}
+	},
+	"seats": {
+		"count": {"value":4,"source":"[D] Torino 1787, p. 79: «Siffatto giuoco usasi giuocare in quattro persone»."},
+		"direction": {"value":"right","source":"[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
+		"first_dealer": {"value":"draw_trump","source":"[R] Torino 1787, p. 16 (general rule): cards are turned up and «se viene prima da questa parte un Trionfo, mischierò io»; the game sections themselves do not repeat who deals first, so the general rule is carried over."},
+		"cut_by": {"value":"left","source":"[R] Torino 1787, p. 58 (Permesso, said before the deal): «ed a sinistra coppati»; who cuts is not named. Read with the general rule of pp. 16-18 as the player on the dealer's left; other reading: only the direction of the cut is meant."},
+		"cut_min": {"value":2,"source":"[D] Torino 1787, p. 17: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"dealer_rotation": {"value":"right","source":"[R] Torino 1787, p. 70: after a hand that «si deve ripigliar da capo» «tocca al compagno appresso a mischiare, e dar i Tarocchi»: the next player deals; the book names no other change of dealer, and «appresso» is read in the direction of play (to the right).","alt":"left"}
+	},
+	"sides": {
+		"mode": {"value":"by_contract","source":"[D] Torino 1787, pp. 80-83: with a called king two against two («di due giuocatori contra altri due»); alone, one against three («gli altri tre compagni tuoi uniti insieme»)."},
+		"pool": {"value":"side","source":"[D] Torino 1787, pp. 81-83: «conteranno insieme i loro punti»; the three against the lone player «conteranno tra loro tre i loro punti unitamente»."},
+		"signals": {"value":"forbidden","source":"[D] Torino 1787, p. 73: knocks and signs are barred «a chiamare il Re»."}
+	},
+	"cards": {
+		"deck": {"value":"full78","source":"[R] Torino 1787, p. 79: dealt «come a pag. 71»; 4 × 19 + 2 = 78 (the numbers are not printed on p. 79)."},
+		"trump_order": {"value":"torino_1787","source":"[D] Torino 1787, pp. 9-10, 13: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); checked on the scan on 2 November 2026."},
+		"suit_order": {"value":"italian","source":"[D] Torino 1787, pp. 11-13: swords and batons run 10 down to 1, cups and coins 1 up to 10, the courts above every numeral in the order King, Queen, Knight, Jack; checked on the scan on 2 November 2026."},
+		"card_points": {"value":"honours_4_angel","source":"[D] Torino 1787, pp. 13-14, 51: king 5, queen 4, knight 3, jack 2, the Angel, the Bagatto and the Fool 5, every other card 1 in the book's numbers; checked on the scan on 2 November 2026."},
+		"fool": {"value":"excuse","source":"[S] Torino 1787, pp. 79-84 do not say how the Fool plays; ours: as in the other games of the book (it is shown, takes nothing)."},
+		"fool_exchange": {"value": true, "source": "[D] Torino [1846], part I, p. 39: the card deducted is the one «che dassi in compenso del Folle».", "by": "torino1846"},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[D] Torino [1846], part I, p. 33: to «chi ha presa o coperta la mano».", "by": "torino1846"},
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+	},
+	"options": [
+		{"id":"stake","choices":[1,2,5,10],"default":1,"source":"[D] Torino 1787, p. 83: «secondo il convenuto»; the sums are settled before the deal as in the general rule of p. 21 («Tutto questo si dee concludere chiaramente prima di dare le carte»); the choices offered here are ours, the book names no figure.","affects":["hand.settle.amount"]}
+	],
+	"contracts": [
+		{"id":"call_king","rank":1,"exchange":0,"sides":"called_partner","source":"[D] Torino 1787, pp. 80-81: the dealer calls a king; its holder is his partner: «affinchè egli abbia un compagno»."},
+		{"id":"one","rank":2,"exchange":1,"sides":"declarer_vs_rest","source":"[D] Torino 1787, p. 82: «andar solo, chiamando una carta, e dandone via un'altra coperta in tavola»; «ad una»."},
+		{"id":"sans_prendre","rank":3,"exchange":0,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 82, 84: «Io vado à sans prendre»; «O si vada ad una, od a sans prendre»."}
+	],
+	"hand": {
+		"phases": [
+			{
+				"id": "deal",
+				"module": "deal",
+				"settings": {
+					"hand_size": {"value":19,"source":"[R] Torino 1787, p. 79: «Dansi eguali carte a ciascuno de' giuocatori, come a pag. 71.»: 19 to each (p. 71 «dieciannove»)."},
+					"dealer_extra": {"value":2,"source":"[R] Torino 1787, pp. 71, 79: «scartansi pure, come ivi dicemmo, due sole carte»: the dealer has two over (4 × 19 + 2 = 78; his 21 is not printed)."},
+					"packets": {"value":"dealer_choice","source":"[R] Torino 1787, p. 59 (Permesso): the way of dealing is the dealer's, announced before the cut."},
+					"packets_announced": {"value":true,"source":"[R] Torino 1787, p. 59: announced before the cut; this game sends to p. 71 for the deal."},
+					"dead": {"value":"none","source":"[R] Torino 1787, p. 71: 4 × 19 + 2 = 78."}
+				}
+			},
+			{
+				"id": "discard",
+				"module": "discard",
+				"source": "[D] Torino 1787, pp. 79-80: «scartansi pure … due sole carte»; «chi mischia, e dà le carte, ha un doppio vantaggio, cioè quello dello scarto».",
+				"settings": {
+					"who": {"value":"dealer","source":"[D] Torino 1787, p. 80: the discard is the dealer's advantage."},
+					"count": {"value":2,"source":"[D] Torino 1787, p. 79: «due sole carte»."},
+					"count_mode": {"value":"exact","source":"[R] Torino 1787, p. 79: «due sole carte»: exactly two. Other reading: at most two, as p. 71 («non può scartarne più di due»).","alt":"up_to"},
+					"discard_honours_barred": {"value":true,"source":"[R] Torino 1787, p. 34 (general rule 38): the honours are not put away; the Re pages (79-84) do not repeat it.","alt":false},
+					"allowed_exceptions": {"value": [{"if": {"hand_lacks": "T0", "hand_count": {"of": "trumps", "max": 1}}, "any": ["T1"]}], "source": "[R] Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: «solo» is read as the only trump of the hand, as Dummett 1980, p. 259 reads this rule («neither the Folle nor any other trump»). Revision 1 read it as «holding no Fool». Other reading: no exception, as the rules of 1830 have it (Dummett, p. 259).", "alt": []},
+					"counts_for": {"value": "discarder", "source": "[S] Torino 1787, pp. 79-84 do not say whose points the discard joins; ours: the dealer's side, as in Venticinque (p. 55).", "alt": "discarder_unless_no_tricks", "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}},
+					"announce": {"value":"ho_scartato","source":"[R] Torino 1787, pp. 60, 72 (Permesso): «Ho scartato» is said before the calling."}
+				}
+			},
+			{
+				"id": "bidding",
+				"module": "bidding",
+				"source": "[D] Torino 1787, pp. 80-82: after the discard the dealer calls a king, or goes alone; another player may answer «Ad una vado io».",
+				"settings": {
+					"contracts": {"value":["one","sans_prendre"],"source":"[D] Torino 1787, p. 84: «O si vada ad una, od a sans prendre»: two or three cards may not be called, «diversamente egli è subito il giuoco di Permesso»."},
+					"opens": {"value":"dealer","source":"[D] Torino 1787, pp. 80, 82: only the dealer calls and may go alone: «chi mischia, e dà le carte»."},
+					"dealer_speaks": {"value":"first","source":"[D] Torino 1787, pp. 80-82: «chiamasi un Re solamente da chi ha date le carte»; the others answer his declaration."},
+					"tie": {"value":"challenger","source":"[R] Torino 1787, p. 82: «Se un altro tuo compagno poi ti … pare: Io vado à sans prendre»: the dealer has only these two ways out, so on an equal bid the other player goes (the second reading takes it as [D]); other reading: the dealer keeps his equal bid.","alt":"dealer"},
+					"all_pass": {"value":"contract:call_king","source":"[D] Torino 1787, p. 80: if nobody goes alone the dealer «chiama qualunque Re, il quale più gli piaccia, e convenga»."}
+				}
+			},
+			{
+				"id": "call_partner",
+				"module": "call_partner",
+				"when": {
+					"contract": ["call_king"]
+				},
+				"source": "[D] Torino 1787, pp. 80-83: the dealer calls a king after the discard.",
+				"settings": {
+					"caller": {"value":"dealer","source":"[D] Torino 1787, p. 80: «chiamasi un Re solamente da chi ha date le carte»."},
+					"ladder": {"value":["K","Q","N","J"],"source":"[D] Torino 1787, pp. 81-82: all four kings → a queen; kings and queens → a knight; kings, queens and knights → a jack: «potrà chiamare una Donna, … non mai un … Donne insieme coi Re»."},
+					"step_down": {"value":"caller_holds_all_of_rank","source":"[D] Torino 1787, pp. 81-82: only when he holds all four of the rank below."},
+					"secret": {"value":true,"source":"[D] Torino 1787, p. 80: the holder «starà ben cheto, e non darà indizio veruno di averlo»."},
+					"own_card": {"value":"plays_alone_unless_forgiven","source":"[D] Torino 1787, p. 83: «Chi venisse a chiamare … se non gli … solo senza altra chiamata»."},
+					"card_in_discard": {"value": "forbidden", "source": "[R] Torino 1787, pp. 80-81 do not say what happens when the called king lies in the dealer's own discard. By rule 38 (p. 34: «Nessun onore, cioè nessun Re … si potrà scartare»; the same in Torino [1846], part I, p. 16) no king is put away, so the case does not arise: not allowed. Other reading: he plays alone.", "alt": "plays_alone", "replace": {"with": ["document"], "what": "the payment when a King is called; a called King in the discard", "q": 8}}
+				}
+			},
+			{
+				"id": "exchange",
+				"module": "exchange",
+				"when": {
+					"contract": ["one"]
+				},
+				"source": "[D] Torino 1787, p. 82: «Farai insomma un cambio d'una carta sola sulle regole del Permesso».",
+				"settings": {
+					"count": {"value":"contract","source":"[D] Torino 1787, p. 82: one card."},
+					"lay_down_first": {"value":true,"source":"[R] Torino 1787, p. 82: «sulle regole del Permesso» (pp. 64-66): the card is laid down before the calling."},
+					"face": {"value":"down","source":"[D] Torino 1787, p. 82: «dandone via un'altra coperta in tavola»."},
+					"callable": {"value":["all"],"source":"[R] Torino 1787, p. 82: «chiamando una carta»: any card, as at Permesso."},
+					"card_not_held": {"value":"from_discard","source":"[S] Torino 1787, p. 82 does not say what happens when the called card is in the dealer's discard; ours as in Permesso for three.","alt":"forbidden"}
+				}
+			},
+			{
+				"id": "tricks",
+				"module": "tricks",
+				"settings": {
+					"first_leader": {"value":"dealer_right","source":"[S] Torino 1787, pp. 79-84 do not say who leads. Ours: the player on the dealer's right, by the general rule of p. 35; other reading: the lone player leads.","alt":"declarer"},
+					"next_leader": {"value":"trick_winner","source":"[D] Torino 1787, p. 37: «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare»."},
+					"follow_suit": {"value":true,"source":"[D] Torino 1787, p. 35: «debbon rispondere con carte della medesima sequenza»."},
+					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it.", "by": "torino1846"},
+					"must_overtrump": {"value":false,"source":"[R] Torino 1787, pp. 36-37: no duty to beat the trump on the table."},
+					"fool_may_lead": {"value":true,"source":"[S] Ours: the book does not say whether the Fool may be led."}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"settings": {
+					"count_unit": {"value":"half_point","source":"[D] Torino 1787, pp. 51-52: «ogni carta dee essere accompagnata con un'altra carta»; 46 points of 91 (p. 81)."},
+					"group": {"value":2,"source":"[R] Torino 1787, p. 81: 46 points reads as the pairs of p. 52; the Re pages name no counting step."},
+					"odd_card": {"value":"half_point","source":"[R] Torino 1787, p. 54: an unpaired card counts, as at Venticinque."},
+					"fool_card": {"value": "counted", "source": "[D] Torino [1846], part I, p. 39: the 46 are counted after the compensation card is given.", "by": "torino1846"}
+				}
+			},
+			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"winner": {"value":"threshold","source":"[D] Torino 1787, p. 81: «i quali per guadagnar la partita debbono ascendere a quarantasei»."},
+					"target": {"value":46,"source":"[D] Torino 1787, p. 81: «quarantasei»."},
+					"tie": {"value":"declarer_loses","source":"[R] Torino 1787, pp. 74, 79: the game is dealt «come a pag. 71» and at four «non si può mai rifare per eguaglianza di punti»; ours: the side that does not make 46 loses, nothing is replayed. The 46 of a lone player against three is not printed (read the same)."},
+					"game_points": {"value":"none","source":"[S] Torino 1787, pp. 82-83: the hand is settled in stakes («secondo il convenuto»)."}
+				}
+			},
+			{
+				"id": "settle_pair",
+				"module": "settle",
+				"when": {
+					"contract": ["call_king"]
+				},
+				"settings": {
+					"unit": {"value":"stake","source":"[D] Torino 1787, p. 83: «secondo il convenuto»: the agreed sum."},
+					"mode": {"value":"pair_split","source":"[R] Torino 1787, p. 90 (Partita, two against two): each winner collects from one opponent; the Re pages name no mode for two against two; read the same."},
+					"amount": {"value": {"stake": "agreed"}, "source": "[S] Torino 1787, pp. 82-83 print the payment only for the lone player («secondo il convenuto»); for two against two it is not said; ours: the simple stake agreed before the deal.", "replace": {"with": ["document"], "what": "the payment when a King is called; a called King in the discard", "q": 8}}
+				}
+			},
+			{
+				"id": "settle_alone",
+				"module": "settle",
+				"when": {
+					"contract": ["one","sans_prendre"]
+				},
+				"settings": {
+					"unit": {"value":"stake","source":"[D] Torino 1787, p. 83: «secondo il convenuto»: the agreed sum."},
+					"mode": {"value":"declarer_vs_each","source":"[D] Torino 1787, pp. 82-83: «tu sarai obbligato a pagarli tutti, secondo … a pagar te, secondo il convenuto»: to and from each of the three."},
+					"amount": {"value":{"stake":"agreed"},"source":"[D] Torino 1787, p. 83: «secondo il convenuto»; the book names no figure. The simple stake agreed before the deal (option stake). Dummett 1980, p. 269 (a conjecture, page 268 is missing in our scan): 1 for «a due», 2 for «ad una», and 1 for each five points beyond 45.","by":"dummett1980"}
+				}
+			}
+		]
+	},
+	"match": {
+		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and its stakes; the table keeps accounts until the players leave."}
+	},
+	"penalties": [
+		{
+			"id": "call_own_card",
+			"offence": "call_own_card",
+			"enforce": "apply",
+			"hand": "continues",
+			"effect": {"value":{"plays_alone":true,"unless":"all_others_forgive_unanimously"},"source":"[D] Torino 1787, p. 83: «se non gli verrà da tutti il … ad andar solo senza altra chiamata»."}
+		},
+		{
+			"id": "hint_partner",
+			"offence": "hint_partner",
+			"enforce": "text_only",
+			"hand": "continues",
+			"effect": {"value":{"hinter_plays_alone":true,"unless":"hint_was_in_the_plain_way_of_play"},"source":"[R] Torino 1787, p. 83: «Chi desse al compagno un qualche indizio … semplice, e pura maniera del giuoco»; «questi» is the holder of the king who gave the hint (second reading); other reading: the dealer."}
+		},
+		{
+			"id": "signal",
+			"offence": "signal",
+			"enforce": "text_only",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other","then":"lone_player_may_stop"},"source":"[D] Torino 1787, p. 73: «costui pagherà la partita semplice a tutti … giuocare, o far cessare il giuoco»; named for Permesso for three, four and five and for Chiamare il Re (and «a qualunque altro giuoco di Tarocchi»). [R] who the offender may be is not said (any player); the table cannot see a knock, so only the rules page tells it."}
+		},
+		{
+			"id": "revoke",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other"},"source":"[D] Torino 1787, p. 38 (general rule 35, said for Sedici; p. 79 (Meno) and p. 90 (Partita) send to it): «incorrere nella pena accennata … num. 35. di … tutti i giuocatori compagni»; the engine refuses a card that does not follow suit."}
+		}
+	],
+	"view": {
+		"piles": {
+			"rest": "face_down_count",
+			"discard": "owner_only",
+			"exchange": "face_down"
+		},
+		"partners_hands": "hidden",
+		"score_panel": {
+			"live_points": "hidden",
+			"after_hand": ["groups","odd_card","fool_card","discard","payments"]
+		}
+	},
+	"bot": {
+		"bid": [
+			{"contract":"one","when":{"hand_count":{"of":"trumps","min":8}},"source":"[D] Torino 1787, p. 84: «Per andare a solo … almen otto Trionfi, … è facilissimo a perdere». This is a piece of advice; the condition holds only the first part (eight trumps), the format has room for one count (FORMAT_OPEN_POINTS, F2)."}
+		]
+	},
+	"left_out": [
+		{"id":"all_sixteen_courts","source":"[S] Torino 1787, pp. 81-82: nothing is said of a dealer who holds all kings, queens, knights and jacks.","why":"The ladder ends at the jack; the format has no value for an exhausted ladder (FORMAT_OPEN_POINTS, F2)."},
+		{"id":"onoranza_of_ad_una","source":"[R] Dummett 1980, p. 269 (a conjecture of his; our scan lacks page 268): a basic payment of 1 for «a due», 2 for «ad una», and 1 for calling a king.","why":"Not printed in the 1787 book; the payment is the agreed stake."}
+	]
+}

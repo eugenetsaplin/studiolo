@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use these rules or texts, please cite them as below and name the rules revision you used."
+title: "Studiolo: the tarot games of the 1787 Turin rulebook"
+type: dataset
+authors:
+  - family-names: "Tsaplin"
+    given-names: "Evgeny"
+    affiliation: "Petri Games"
+    orcid: "https://orcid.org/0000-0002-7231-483X"
+abstract: >-
+  Machine-readable and plain-English rules of the tarot card games of the Turin rulebook
+  «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787). Every rule carries its
+  source, its page and a mark: documented, our reading, or sources silent. With the journal of
+  revisions, the list of open questions and the method.
+keywords:
+  - tarot
+  - tarocchi
+  - card games
+  - trick-taking games
+  - history of games
+  - Piedmont
+  - rules reconstruction
+license: CC-BY-4.0
+repository-code: "https://github.com/eugenetsaplin/studiolo"
+version: "rules revision 4"

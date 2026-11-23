@@ -1,0 +1,22 @@
+title: "[Table] "
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where and with how many players
+      description: A town or a region is enough. No names of people, please.
+    validations:
+      required: true
+  - type: input
+    id: game
+    attributes:
+      label: The game, as you call it
+    validations:
+      required: true
+  - type: textarea
+    id: custom
+    attributes:
+      label: How your table rules it
+      description: The case the book leaves open, and what you do.
+    validations:
+      required: true

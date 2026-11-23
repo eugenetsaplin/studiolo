@@ -1,0 +1,23 @@
+name: A source we lack
+description: A book, an article, a manuscript or a library copy that bears on these games.
+labels: ["source"]
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: The source
+      description: Author, title, place, year; the pages that matter.
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where it can be read lawfully
+      description: A library and shelfmark, a publisher, an open digitisation. We do not use copies that someone had no right to share.
+    validations:
+      required: true
+  - type: textarea
+    id: bears
+    attributes:
+      label: What it bears on
+      description: The game, the rule, or the number of the open question (rulesets/OPEN_QUESTIONS.md).
