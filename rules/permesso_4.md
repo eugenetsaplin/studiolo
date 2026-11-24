@@ -1,6 +1,6 @@
 # Permesso for four (Permesso)
 
-4 players. In the book of 1787: pp. 71-74. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+4 players. In the book of 1787: pp. 71-74. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
 This game is written as [Permesso for three](permesso_3.md) with differences.
 
@@ -18,9 +18,9 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - Players at the table: 4. *Documented: from the book, p. 71.* <!-- rule: seats.count -->
 - Play passes to the right. *Documented: from the book, p. 35.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.direction -->
-- The first dealer is whoever first draws a trump from the cards turned up. *Our reading: book, p. 16.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.first_dealer -->
-- The player on the dealer's left cuts the pack. *Our reading: book, p. 58.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 17.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.cut_min -->
+- The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.first_dealer -->
+- The player on the dealer's left cuts the pack. *Documented: from the book, p. 17.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.cut_by -->
+- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. Same as in [Permesso for three](permesso_3.md). <!-- rule: seats.dealer_rotation -->
 - The sides form by the bid: the one who takes the bid plays against the others. *Documented: from the book, p. 71.* Same as in [Permesso for three](permesso_3.md). <!-- rule: sides.mode -->
 - Points are counted for the side, not for each player. *Documented: from the book, p. 62.* Same as in [Permesso for three](permesso_3.md). <!-- rule: sides.pool -->
@@ -67,7 +67,7 @@ This step: *Documented: from the book, p. 59.*
 
 - The dealer puts cards away. *Documented: from the book, p. 59.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.discard.who -->
 - Cards put away: 2. *Documented: from the book, p. 71.* <!-- rule: hand.discard.count -->
-- Exactly that many are put away. *Documented: from Torino [1846], part I, p. 36.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.discard.count_mode -->
+- Exactly that many are put away. *Documented: from Torino [1846], part I, pp. 40-41.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.discard.count_mode -->
 - Honours may not be put away. *Our reading: book, p. 34.* Other reading: Any card may be put away. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.discard.discard_honours_barred -->
 - There are exceptions to the ban, they depend on the hand. *Our reading: book, p. 34.* Other reading: . Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.discard.allowed_exceptions -->
 - The discard counts for the player who put it away. *Sources silent, our decision.* Other reading: The discard counts for its owner if he took at least one trick. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.discard.counts_for -->
@@ -79,7 +79,7 @@ This step: *Documented: from the book, pp. 60-66.*
 
 - The bids are: three, two, one, sans prendre. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.contracts -->
 - The player on the dealer's right opens the bidding. *Documented: from the book, p. 60.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.opens -->
-- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: The dealer speaks in his turn. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.dealer_speaks -->
+- The dealer speaks last. *Our reading: Torino [1846], part I, pp. 41-42.* Other reading: The dealer speaks in his turn. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.dealer_speaks -->
 - With equal bids the seat that speaks earlier wins. An earlier seat may match the bid of a later one; a later seat must bid higher. A pass is final. *Documented: from the book, pp. 63-64.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.tie -->
 - Whoever passes may not come back into the bidding. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.pass_is_final -->
 - If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), pp. 65-66.* Other reading: If everyone passes, the same dealer deals again. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.all_pass -->
@@ -121,7 +121,7 @@ This step: *Documented: from the book, pp. 60-61.*
 - The threshold is 46 points. *Documented: from the book, p. 68.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.target -->
 - If the points are equal, the declarer loses. *Sources silent, our decision.* Open question 14: could be settled by a document in which the rule is printed (equal points, 45½ each); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
 - The result follows bands of the declarer's points: a win, a draw or a loss; he pays all, the Onoranza alone, or nothing. *Our reading: book, pp. 66-67.* Other reading: min: 46; outcome: win; pays: full, min: 45.5; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 45; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. <!-- rule: hand.result.bands -->
-- A hand gives no game points. *Our reading: book, p. 64.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.game_points -->
+- A hand gives no game points. *Sources silent, our decision.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.game_points -->
 
 ### Settling
 
@@ -141,11 +141,13 @@ This step: *Documented: from the book, pp. 60-61.*
 - Offence «call without laying»: impossible at the table; penalty: pays: onoranza; to: each of the others; then: hand is played. *Documented: from the book, pp. 64-65.* <!-- rule: penalties.call_without_laying -->
 - Offence «refuse bid»: impossible at the table; penalty: pays: double onoranza; to: each of the others; marcio alt: marcia game. *Documented: from the book, p. 66.* <!-- rule: penalties.refuse_bid -->
 - Offence «signal»: text only; penalty: pays: simple game; to: each of the others; then: lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 38.* <!-- rule: penalties.revoke -->
+- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
 - **Exact 21.** Taken from the sum of the pack (78 − 76 = 2), not from a printed number. *Our reading: Torino 1787, p. 71: the dealer's 21 cards are not printed.* <!-- left_out: exact_21 -->
+- **Bagatto declared 1846.** The book of 1787 does not know it (Dummett 1980, p. 267: «also mentioned only in RI»). The engine cannot yet play a declaration by the lone player only, nor a payment that depends on it (question 17); a playable variant waits. *Documented: Torino [1846], part I, pp. 44-46 (pp. 44-45 read on the Academy's separate image of the «pagine mancanti»; also Prammatica [1846], pp. 20-21): the lone player may declare the Bagatto last, played «in tre, in quattro»: «oltre alla Partita gli altri giuocatori ti pagheranno trenta marche per caduno»; failing, he pays thirty to each, apart from the game.* <!-- left_out: bagatto_declared_1846 -->
+- **Permesso castrato.** A later custom of 1846, not in the book of 1787 (not in its index; Dummett 1980, p. 267: «mentioned only in RI»). Not played yet; a playable variant waits. *Documented: Torino [1846], part I, pp. 43-44; Prammatica [1846], p. 20: Permesso castrato, the pack without 24 small cards; for four 13 cards each, «e lo scarto sarà di sole due carte».* <!-- left_out: permesso_castrato -->
 
 ## Sources
 
@@ -155,5 +157,6 @@ This step: *Documented: from the book, pp. 60-61.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | RI 1830 (after Dummett) | [Carlo O…], Regole inalterabili per tutti i giuochi di Tarocco detti di commercio, Torino, 1830 (known to us only through Dummett 1980) | not held: known to us only through another source |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/permesso_4.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/permesso_4.json`, rules revision 8. Do not edit: change the game file.

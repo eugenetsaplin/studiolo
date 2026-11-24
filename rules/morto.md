@@ -1,6 +1,6 @@
 # Morto
 
-2 players. In the book of 1787: pp. 57-58. Status: playable, with decisions of ours where the book is silent. Rules revision 4.
+2 players. In the book of 1787: pp. 57-58. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
 Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -96,7 +96,7 @@ This step: *Documented: from the book, p. 57.*
 
 - **Premium scale.** Premiums by agreement are not played: a won hand is one game point, as in Venticinque. *Documented: Dummett and McLeod 2004, pp. 156-157: premiums beyond the single game point are agreed by the players; the authors suggest a scale of 1, 2, 3, 4 and 6.* <!-- left_out: premium_scale -->
 - **Vola.** A bid to take all the tricks is a contract the engine has no place for. *Documented: Dummett 1980, p. 259: the Fool may be discarded by a dealer who means to win every trick (vola).* <!-- left_out: vola -->
-- **Declarations 1846.** Torino 1787, p. 57 plays Morto as Venticinque, without declarations; the 1846 variant is not played. *Documented: Torino [1846], part I, pp. 48-49: honours, Mitigati, ten trionfi and Bagatto ultimo are declared in Morto.* <!-- left_out: declarations_1846 -->
+- **Declarations 1846.** Torino 1787, p. 57 plays Morto as Venticinque, without declarations; the 1846 variant is not played. *Documented: Torino [1846], part I, pp. 48-49: honours, Mitigati, ten trionfi and Bagatto ultimo are declared in Morto, under the rules of N° XII, pp. 44-46.* <!-- left_out: declarations_1846 -->
 
 ## Sources
 
@@ -104,4 +104,4 @@ This step: *Documented: from the book, p. 57.*
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 
-Generated from `rulesets/morto.json`, rules revision 4. Do not edit: change the game file.
+Generated from `rulesets/morto.json`, rules revision 8. Do not edit: change the game file.

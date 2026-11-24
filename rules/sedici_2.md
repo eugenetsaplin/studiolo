@@ -1,8 +1,8 @@
 # Sixteen for two (Sedici)
 
-2 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 6.
+2 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
-Sedici for two players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 0 (Dummett 1980, p. 269; our decision); when the pack runs out before anybody has said «fuora» the hand ends with no payment (the first of the two guesses of Dummett 1980, p. 269). A match is a race to five points: each game won is one point, as Prammatica [1846], p. 11 says that a partita at Sedici seldom ends at the first point; the number five is our reading of p. 13. Marks: [D] documented, [R] our reading, [S] sources silent.
+Sedici for two players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 0 (Dummett 1980, p. 269; our decision); when the pack runs out before anybody has said «fuora» the hand ends with no payment (the first of the two guesses of Dummett 1980, p. 269). A match is a race to five points: each game won is one point, as Prammatica [1846], p. 11 says that a partita at Sedici seldom ends at the first point; the number five is our reading of p. 13. Prammatica [1846], p. 12 says that Sedici «va soggetto a quasi tutte le regole» of Trent'uno al più; where the two books differ (the Fool and Bagatto), this file follows Torino 1787. Marks: [D] documented, [R] our reading, [S] sources silent.
 
 ## How to read the marks
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The winner hands the pack to his companion, who shuffles and deals. *Documented: from the book, p. 41.* <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 35.* <!-- rule: sides.mode -->
 
@@ -63,7 +63,7 @@ This step: *Documented: from the book, p. 35.*
 
 ### The count
 
-- Each card is counted alone. *Documented: from the book, p. 51.* <!-- rule: hand.count.group -->
+- Each card is counted alone. *Documented: from the book, pp. 51-52.* <!-- rule: hand.count.group -->
 - There are no multipliers for tricks. *Our reading: book.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book.* <!-- rule: hand.count.last_trick_bonus -->
 - A plain card is worth 0. *Sources silent, our decision, after Dummett (1980), pp. 13-14.* Other reading: A plain card is worth 1. Open question 9: could be settled by a document in which the rule is printed or statistics of games played by bots (the value of a plain card counted singly); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.plain_value -->
@@ -71,7 +71,7 @@ This step: *Documented: from the book, p. 35.*
 ### The result of a hand
 
 - Whoever gets rid of his cards first wins. *Documented: from the book, p. 39.* <!-- rule: hand.result.winner -->
-- The winner of a hand gains one game point. *Documented: from Prammatica [1846], p. 11.* <!-- rule: hand.result.game_points -->
+- The winner of a hand gains one game point. *Our reading: Prammatica [1846], p. 11.* <!-- rule: hand.result.game_points -->
 
 ### Settling
 
@@ -88,7 +88,7 @@ This step: *Documented: from the book, p. 35.*
 
 - Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 - Offence «wrong deal method»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
-- Offence «misdeal»: impossible at the table; penalty: pays: game. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
+- Offence «misdeal»: impossible at the table; penalty: pays: game; to: each of the others; then deal passes: to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
 
 ## Sources
 
@@ -97,6 +97,6 @@ This step: *Documented: from the book, p. 35.*
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
-| Prammatica [1846] | L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/sedici_2.json`, rules revision 6. Do not edit: change the game file.
+Generated from `rulesets/sedici_2.json`, rules revision 8. Do not edit: change the game file.

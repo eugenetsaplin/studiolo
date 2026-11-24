@@ -26,10 +26,10 @@ It is the restorer's rule applied to games: what we add must be recognisable as 
 
 ## Where we stand
 
-Rules revision 7, November 2026 (release 1, with its DOI, holds revision 4):
+Rules revision 8, November 2026 (release 1, with its DOI, holds revision 4):
 
 - 21 game files: one per game, and one per number of players where the deal differs.
-- 924 rules: 551 documented, 245 our readings, 128 where the sources are silent.
+- 913 rules: 556 documented, 249 our readings, 108 where the sources are silent.
 - 31 open questions, 29 of them still open.
 - The rules engine plays all 21 game files today.
 
@@ -53,6 +53,8 @@ In revision 1 we misread rule 38 of the book (p. 34). No honour may be discarded
 Revision 5 corrects nine wrong or doubtful attributions of sources that a second reading of the pages found. One of them was a penalty written the wrong way round: at Venticinque for three the offender pays each opponent, he does not receive from them (Prammatica [1846], p. 14). The journal lists them.
 
 Revisions 6 and 7 make the rest of the book playable. Sedici and Trent'uno become a race to five points, after Prammatica [1846], pp. 11-13. Permesso gets its auction and its exchange of called cards, Chiamare il Re its secret partner, Bagatt'ultimo and Mitigati their declarations. Where the pages are silent — who receives which laid card, what the dealer's pass means, how long a match lasts — the file carries a placeholder with its mark and the other reading, and the question stands in the list.
+
+Revision 8 is a second reading. The thirteen game files of revisions 6 and 7 were read again against the page images. Three scans sent by the Turin Academy of Sciences were read with them: the two pages missing from our copy of the book of [1846], the separate booklet of the *Prammatica*, and *La partia a taroch an quatr* (Turin, 1880). The reading found more than sixty points to correct. Two of them change who deals: at Baronetti the loser deals the next game (1787, pp. 41 and 47), and at Trent'uno for three and four the deal goes round to the right (pp. 19 and 42). Mitigati for two gains the words «Ho scartato» before the declarations, and Trent'uno a variant after the *Prammatica*, in which the Fool beats the Bagatto. The rest are pages, quotations and marks. The revision also corrects our own count: sixteen leaves kept only for comparison with an older format had been counted as rules where the sources are silent. Without them revision 7 had 908 rules, not 924.
 
 ## How you can help
 

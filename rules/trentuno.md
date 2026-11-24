@@ -1,6 +1,6 @@
 # Thirty-one (Trent’uno)
 
-2 to 4 players. In the book of 1787: pp. 45-46. Status: playable, with decisions of ours where the book is silent. Rules revision 6.
+2 to 4 players. In the book of 1787: pp. 45-46. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
 Trent'uno («Trent'uno»), pp. 45-46 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787): Sedici with eight covered cards to each player and thirty-one points to win (pp. 45-46: «Premesse tutte le sopradette regole»). Everything of Sedici applies unless said otherwise: the Fool is the lowest trionfo and counts one point, Bagatto takes it, the cards are counted singly, the dealer goes on dealing until somebody says «fuora» (pp. 36-41, 51). The section does not say how many play; it is read after Sedici, for two, three or four. A plain card is worth 1 (since revision 2, by calculation; Dummett 1980, p. 269, allows it), a false claim is paid double under 16 points, and when the pack runs out before anybody has said «fuora» the hand ends with no payment: our decisions, each leaf says whose reading. A match is a race to five points, each game won being one: Prammatica [1846], pp. 11-12 says it of Sedici, and Trent'uno «non differisce dal Sedici che nel numero»; the number five is our reading of p. 13. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -18,9 +18,11 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
-- The winner hands the pack to his companion, who shuffles and deals. *Our reading: book, p. 45.* Other reading: The deal passes to the right. <!-- rule: seats.dealer_rotation -->
-- Each player plays for himself. *Documented: from the book, pp. 45-46.* <!-- rule: sides.mode -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
+- This rule depends on the number of players. *Our reading: p. 45.* <!-- rule: seats.dealer_rotation -->
+ - With 2 players: The winner hands the pack to his companion, who shuffles and deals. Other reading: The deal passes to the right.
+ - With 3 or 4 players: The deal passes to the right. Other reading: The winner hands the pack to his companion, who shuffles and deals.
+- Each player plays for himself. *Our reading: book, p. 40.* <!-- rule: sides.mode -->
 
 ### The cards
 
@@ -33,6 +35,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### By agreement / Variants
 
 - stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- variant: Prammatica: the Fool takes Bagatto. *Documented: from Prammatica [1846], p. 12.* <!-- rule: variants.prammatica_1846 -->
 
 ### The deal
 
@@ -63,7 +66,7 @@ This step: *Documented: from the book, pp. 45-46.*
 
 ### The count
 
-- Each card is counted alone. *Documented: from the book, p. 51.* <!-- rule: hand.count.group -->
+- Each card is counted alone. *Documented: from the book, pp. 51-52.* <!-- rule: hand.count.group -->
 - There are no multipliers for tricks. *Our reading: book.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book.* <!-- rule: hand.count.last_trick_bonus -->
 - A plain card is worth 1. *Sources silent, our decision.* Other reading: A plain card is worth 0. Open question 9: could be settled by a document in which the rule is printed or statistics of games played by bots (the value of a plain card counted singly); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.plain_value -->
@@ -88,6 +91,7 @@ This step: *Documented: from the book, pp. 45-46.*
 
 - Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 - Offence «wrong deal method»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
+- Offence «misdeal»: impossible at the table; penalty: pays: game; to: each of the others; then deal passes: to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
 
 ## Not played yet
 
@@ -100,6 +104,6 @@ This step: *Documented: from the book, pp. 45-46.*
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
-| Prammatica [1846] | L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/trentuno.json`, rules revision 6. Do not edit: change the game file.
+Generated from `rulesets/trentuno.json`, rules revision 8. Do not edit: change the game file.

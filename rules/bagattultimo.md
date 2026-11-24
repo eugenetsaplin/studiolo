@@ -1,6 +1,6 @@
 # Bagatto last (Bagatt’ultimo)
 
-3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 7.
+3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
 Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -19,7 +19,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
-- The deal passes to the right. *Sources silent, our decision, after Torino [1846], part I, pp. 91-96.* <!-- rule: seats.dealer_rotation -->
+- The deal passes to the right. *Our reading: book, p. 70.* <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, pp. 94-96.* <!-- rule: sides.mode -->
 
 ### The cards
@@ -55,14 +55,14 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### The discard
 
 - The dealer puts cards away. *Documented: from the book, p. 91.* <!-- rule: hand.discard.who -->
-- Cards put away: 3. *Our reading: book, p. 91.* <!-- rule: hand.discard.count -->
+- Cards put away: 3. *Documented: from the book, p. 91.* <!-- rule: hand.discard.count -->
 - Honours may not be put away. *Our reading: book, p. 34.* <!-- rule: hand.discard.discard_honours_barred -->
 - The discard is announced with «ho scartato» and is final. *Documented: from the book, p. 95.* <!-- rule: hand.discard.announce -->
 
 ### Declarations
 
 - A declaration may be made after the discard and before the first card. *Documented: from the book, p. 95.* <!-- rule: hand.declarations.window -->
-- The kinds of declaration are listed in the game file. *Documented: from Torino [1846], part I, pp. 93-95.* <!-- rule: hand.declarations.kinds -->
+- The kinds of declaration are listed in the game file. *Documented: from the book, pp. 93-95.* <!-- rule: hand.declarations.kinds -->
 - Whoever declares late loses the right to declare. *Documented: from the book, p. 95.* <!-- rule: hand.declarations.late -->
 - The players make the declarations themselves. *Our reading: book, p. 93.* Other reading: The engine makes the declarations for the players. <!-- rule: hand.declarations.mode -->
 - Payment is made at once. *Documented: from the book, p. 94.* <!-- rule: hand.declarations.paid -->
@@ -72,7 +72,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - The player on the dealer's right leads first. *Our reading: book, pp. 91-96.* <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 50.* <!-- rule: hand.tricks.next_leader -->
-- You must follow suit if you can. *Our reading: book, pp. 35-38.* <!-- rule: hand.tricks.follow_suit -->
+- You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, p. 49.* <!-- rule: hand.tricks.must_overtrump -->
 
@@ -88,7 +88,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - Whoever reaches the threshold wins. *Documented: from the book, pp. 95-96.* <!-- rule: hand.result.winner -->
 - The threshold is 26 points. *Documented: from the book, pp. 95-96.* <!-- rule: hand.result.target -->
-- A hand gives no game points. *Our reading: book, pp. 91-96.* <!-- rule: hand.result.game_points -->
+- A hand gives no game points. *Sources silent, our decision.* <!-- rule: hand.result.game_points -->
 
 ### Settling
 
@@ -109,7 +109,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ## Not played yet
 
-- **Bagatto ultimo declaration.** RI 1830 only, not the book of 1787; not written. *Documented: Dummett 1980, p. 262 (after RI 1830, «not allowed for in PE»): a player may announce that he will take the last trick with Bagatto; ghinghetta, a pool for it; a counter-announcement to take Bagatto, 60 marche. Torino [1846], part I, p. 53 requires the declaration («quando l'abbia per tale dichiarato»); Torino 1787, p. 96 does not, and wins.* <!-- left_out: bagatto_ultimo_declaration -->
+- **Bagatto ultimo declaration.** The declaration is printed in Torino [1846], but Torino 1787, p. 96 pays Bagatto last without one, and the book of 1787 decides; not played (open question 17). *Documented: Torino [1846], part I, pp. 44-45 (read on the Academy's separate image of the missing pages): Bagatto last is declared, «ponendolo a tal uopo in tavola avanti di sè»; p. 53, Mitigati for three: «quando l'abbia per tale dichiarato». Dummett 1980, p. 262 (after RI 1830, «not allowed for in PE»): also ghinghetta, a pool for it, and a counter-announcement to take Bagatto, 60 marche.* <!-- left_out: bagatto_ultimo_declaration -->
 
 ## Sources
 
@@ -117,6 +117,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 
-Generated from `rulesets/bagattultimo.json`, rules revision 7. Do not edit: change the game file.
+Generated from `rulesets/bagattultimo.json`, rules revision 8. Do not edit: change the game file.

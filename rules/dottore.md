@@ -1,6 +1,6 @@
 # Doctor (Dottore)
 
-5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 5.
+5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
 Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The payment, the value of each card, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.
 
@@ -16,8 +16,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - Players at the table: 5. *Documented: from the book, p. 76.* <!-- rule: seats.count -->
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
-- The first dealer is whoever first draws a trump from the cards turned up. *Our reading: book, p. 16.* <!-- rule: seats.first_dealer -->
-- The player on the dealer's left cuts the pack. *Our reading: book, p. 58.* <!-- rule: seats.cut_by -->
+- The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
+- The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Documented: from the book, p. 17.* <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 75.* <!-- rule: sides.mode -->
@@ -28,7 +28,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The whole pack of 78 is used: 22 trumps (the Fool is among them as number 0) and 14 cards in each of four suits. *Our reading: book, p. 75.* <!-- rule: cards.deck -->
 - Trumps rank by their numbers, but the Angel (XX) takes the World (XXI). *Documented: from the book, pp. 9-10.* <!-- rule: cards.trump_order -->
 - In swords and batons the larger number is higher; in cups and coins it is the other way: the ace takes the two, up to the ten, and the king takes the queen, the knight and the jack. *Documented: from the book, pp. 11-13.* <!-- rule: cards.suit_order -->
-- Kings, the Angel, the Bagatto and the Fool are worth 5, queens 4, knights 3, jacks 2, every other card 1. *Our reading: book, pp. 13-14.* <!-- rule: cards.card_points -->
+- Kings, the Angel, the Bagatto and the Fool are worth 5, queens 4, knights 3, jacks 2, every other card 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Documented: from the book, p. 77.* <!-- rule: cards.fool -->
 - Whoever plays the Fool keeps it and gives another card in its place. *Our reading: book, pp. 75-78.* Other reading: Nothing is given for the Fool. <!-- rule: cards.fool_exchange -->
 - The owner of the Fool picks the card he gives. *Our reading: book, p. 52.* <!-- rule: cards.fool_exchange_card -->
@@ -110,5 +110,6 @@ This step: *Documented: from the book, p. 75.*
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/dottore.json`, rules revision 5. Do not edit: change the game file.
+Generated from `rulesets/dottore.json`, rules revision 8. Do not edit: change the game file.

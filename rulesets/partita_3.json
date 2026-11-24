@@ -4,7 +4,7 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 5,
+	"revision": 8,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -23,13 +23,19 @@
 			"short_ru": "Турин [1846], ч. I",
 			"short_en": "Torino [1846], part I",
 			"held": true
+		},
+		"prammatica1846": {
+			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
+			"held": true
 		}
 	},
 	"seats": {
 		"count": {"value":3,"source":"[D] Torino 1787, p. 87: «Anche fra tre persone giuocar puossi in Partita»."},
 		"direction": {"value":"right","source":"[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
-		"first_dealer": {"value":"draw_trump","source":"[R] Torino 1787, p. 16 (general rule): cards are turned up and «se viene prima da questa parte un Trionfo, mischierò io»; the game sections themselves do not repeat who deals first, so the general rule is carried over."},
-		"cut_by": {"value":"left","source":"[R] Torino 1787, p. 58 (Permesso, said before the deal): «ed a sinistra coppati»; who cuts is not named. Read with the general rule of pp. 16-18 as the player on the dealer's left; other reading: only the direction of the cut is meant."},
+		"first_dealer": {"value":"draw_trump","source":"[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first. General rule of the book, not repeated in the section."},
+		"cut_by": {"value":"left","source":"[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies. General rule of the book, not repeated in the section."},
 		"cut_min": {"value":2,"source":"[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
 		"dealer_rotation": {"value":"right","source":"[R] Torino 1787, p. 70: after a hand that «si deve ripigliar da capo» «tocca al compagno appresso a mischiare, e dar i Tarocchi»: the next player deals; the book names no other change of dealer, and «appresso» is read in the direction of play (to the right).","alt":"left"}
 	},
@@ -41,7 +47,7 @@
 		"deck": {"value":"full78","source":"[R] Torino 1787, p. 88: dealt «secondo le regole sovradette», i.e. as the three-player deal of p. 59 (25 + 25 + 28 = 78); the number is not printed in the Partita pages."},
 		"trump_order": {"value":"torino_1787","source":"[D] Torino 1787, pp. 9-10, 13: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); checked on the scan on 2 November 2026."},
 		"suit_order": {"value":"italian","source":"[D] Torino 1787, pp. 11-13: swords and batons run 10 down to 1, cups and coins 1 up to 10, the courts above every numeral in the order King, Queen, Knight, Jack; checked on the scan on 2 November 2026."},
-		"card_points": {"value": "honours_4_angel", "source": "[R] Torino 1787, pp. 13-14: king 5, queen 4, knight 3, jack 2, Angel, Bagatto, Fool 5; plain cards counted with a figure in pairs (p. 52), our reading.", "by": "ours"},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5. How the cards are grouped in the count is written in hand.count.group."},
 		"fool": {"value": "excuse", "source": "[R] Torino 1787, p. 90: «Il Folle si mostra», said for Partita of four; carried over to three.", "by": "ours"},
 		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 52, 90: «Il Folle si mostra» in the Partita pages; the card owed for the Fool (p. 52) is carried over from Venticinque, not printed in the Partita pages.","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»."},

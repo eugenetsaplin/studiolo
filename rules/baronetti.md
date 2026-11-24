@@ -1,8 +1,8 @@
 # Baronetti
 
-2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 6.
+2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
-Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described, and a match of one round of dealers (two games, each player dealing once) is our decision. Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.
+Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described, and a match of two games is our decision; the loser of a game deals the next (p. 41, through p. 47). Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.
 
 ## How to read the marks
 
@@ -18,8 +18,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, p. 48.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
-- The dealers alternate. *Our reading: book, p. 41.* <!-- rule: seats.dealer_rotation -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
+- The winner hands the pack to his companion, who shuffles and deals. *Our reading: book, p. 47.* Other reading: The dealers alternate. <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 47.* <!-- rule: sides.mode -->
 
 ### The cards
@@ -60,7 +60,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### Open piles (during: tricks)
 
-This step: *Documented: from the book, pp. 49-50.*
+This step: *Documented: from the book, p. 50.*
 
 - The next top card of a pile is turned up after a trick. *Documented: from the book, p. 50.* <!-- rule: hand.piles.reveal -->
 - When one of your piles is used up, you play from your other piles. *Our reading: book, pp. 49-50.* <!-- rule: hand.piles.empty_pile -->
@@ -77,7 +77,7 @@ This step: *Documented: from the book, pp. 49-50.*
 
 - Whoever reaches the threshold wins. *Documented: from the book, p. 51.* <!-- rule: hand.result.winner -->
 - The threshold is 46 points. *Documented: from the book, p. 51.* <!-- rule: hand.result.target -->
-- A hand gives no game points. *Our reading: book, p. 51.* <!-- rule: hand.result.game_points -->
+- A hand gives no game points. *Sources silent, our decision.* <!-- rule: hand.result.game_points -->
 - If the points are equal, nobody gains game points. *Sources silent, our decision.* Open question 14: could be settled by a document in which the rule is printed (equal points, 45½ each); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
 
 ### Settling
@@ -98,10 +98,16 @@ This step: *Documented: from the book, pp. 49-50.*
 - Offence «peek pile»: impossible at the table; penalty: pays: double game; if inadvertent: simple game. *Documented: from the book, pp. 52-53.* <!-- rule: penalties.peek_pile -->
 - Offence «wrong deal method»: impossible at the table; penalty: pays: game as agreed. *Documented: from the book, p. 53.* <!-- rule: penalties.deal_card_by_card -->
 
+## Not played yet
+
+- **General penalties.** The engine deals the piles itself, so a pile with a wrong number of cards cannot happen; nor can the other general offences of the deal and the cut. Only the revoke and the penalties of Baronetti's own pages are listed. *Documented: Torino 1787, p. 47: «Del rimanente osservansi tutte le regole generali dette di sopra»: the general penalties apply, among them a wrong number of cards dealt (pp. 18-19, rule 5: «Pagherai similmente la partita, se darai giuoco fallo»).* <!-- left_out: general_penalties -->
+
 ## Sources
 
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
+| Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
+| Piedicavallo (2008) | Zorio Prachin, Il gioco dei tarocchi in Alta Valle Cervo, Piedicavallo, S.O.M.S. and Pro Loco, 2008 | held |
 
-Generated from `rulesets/baronetti.json`, rules revision 6. Do not edit: change the game file.
+Generated from `rulesets/baronetti.json`, rules revision 8. Do not edit: change the game file.

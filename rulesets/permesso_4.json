@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Permesso for four («Quadrilio», Torino 1787, «Del Permesso in quattro persone», pp. 71-74): «lo stesso, che il Permesso in tre persone». 19 cards to each of the four players; the dealer, who holds two over, puts away two. One goes alone against the other three, who count together. There is no draw: one of the two parts must win «per eguaglianza di punti» never being replayed (p. 74). The 21 cards of the dealer, the exact or at most two put away and the lone player's payment (three players in one) are our readings, marked. Everything not written here is as in Permesso for three.",
-	"revision": 3,
+	"revision": 8,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -17,6 +17,12 @@
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
 			"short_ru": "Турин [1846], ч. I",
 			"short_en": "Torino [1846], part I",
+			"held": true
+		},
+		"prammatica1846": {
+			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
 			"held": true
 		}
 	},
@@ -36,7 +42,7 @@
 				"module": "deal",
 				"settings": {
 					"hand_size": {"value":19,"source":"[D] Torino 1787, p. 71: «ora se ne danno solamente più dieciannove»: 19 cards to each."},
-					"dealer_extra": {"value": 2, "source": "[D] Torino [1846], part I, pp. 40-41: «non se ne scartano che due»; Prammatica [1846], p. 28: «con due di scarto al distributore».", "by": "torino1846"},
+					"dealer_extra": {"value": 2, "source": "[D] Torino [1846], part I, pp. 40-41: «non se ne scartano che due»; Torino 1787, p. 71: «chi dà le carte non può scartarne più di due».", "by": "torino1846"},
 					"dead": {"value":"none","source":"[R] Torino 1787, p. 71: 4 × 19 + 2 = 78; nothing is left over (the sum is not printed)."}
 				}
 			},
@@ -45,7 +51,7 @@
 				"module": "discard",
 				"settings": {
 					"count": {"value":2,"source":"[D] Torino 1787, p. 71: «chi dà le carte non può scartarne più di due»: the dealer has two over."},
-					"count_mode": {"value": "exact", "source": "[D] Torino [1846], part I, pp. 36, 40-41: «Si scartano due sole carte»; «perchè due sole ne sovrabbondano».", "by": "torino1846"}
+					"count_mode": {"value": "exact", "source": "[D] Torino [1846], part I, pp. 40-41: «non se ne scartano che due, perchè due sole ne sovrabbondano».", "by": "torino1846"}
 				}
 			},
 			{
@@ -72,6 +78,8 @@
 		]
 	},
 	"left_out": [
-		{"id":"exact_21","source":"[R] Torino 1787, p. 71: the dealer's 21 cards are not printed.","why":"Taken from the sum of the pack (78 − 76 = 2), not from a printed number."}
+		{"id":"exact_21","source":"[R] Torino 1787, p. 71: the dealer's 21 cards are not printed.","why":"Taken from the sum of the pack (78 − 76 = 2), not from a printed number."},
+		{"id":"bagatto_declared_1846","source":"[D] Torino [1846], part I, pp. 44-46 (pp. 44-45 read on the Academy's separate image of the «pagine mancanti»; also Prammatica [1846], pp. 20-21): the lone player may declare the Bagatto last, played «in tre, in quattro»: «oltre alla Partita gli altri giuocatori ti pagheranno trenta marche per caduno»; failing, he pays thirty to each, apart from the game.","why":"The book of 1787 does not know it (Dummett 1980, p. 267: «also mentioned only in RI»). The engine cannot yet play a declaration by the lone player only, nor a payment that depends on it (question 17); a playable variant waits."},
+		{"id":"permesso_castrato","source":"[D] Torino [1846], part I, pp. 43-44; Prammatica [1846], p. 20: Permesso castrato, the pack without 24 small cards; for four 13 cards each, «e lo scarto sarà di sole due carte».","why":"A later custom of 1846, not in the book of 1787 (not in its index; Dummett 1980, p. 267: «mentioned only in RI»). Not played yet; a playable variant waits."}
 	]
 }

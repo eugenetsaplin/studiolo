@@ -3,7 +3,7 @@
 	"id": "meno",
 	"status": "playable_with_decisions",
 	"about": "Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 5,
+	"revision": 8,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -24,7 +24,7 @@
 			"held": true
 		},
 		"prammatica1846": {
-			"cite": "L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846]",
+			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
 			"short_ru": "Prammatica [1846]",
 			"short_en": "Prammatica [1846]",
 			"held": true
@@ -45,7 +45,7 @@
 		"deck": {"value": "full78", "source": "[R] Torino 1787, p. 78: the section does not name the pack; the hands of 25 cards for two and for three players and of 11 for seven presuppose the whole pack of 78 (pp. 9-10)."},
 		"trump_order": {"value": "torino_1787", "source": "[D] Torino 1787, p. 13: «l'Angelo, il quale è il XX., appresso noi prende il Mondo»: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); the Fool stands outside the order. The Meno section gives no order of its own; the general rule applies."},
 		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
-		"card_points": {"value": "honours_4_angel", "source": "[S] Torino 1787, pp. 78-79 do not say how Meno is counted; ours: the values of pp. 13-14 in pairs, as Dummett 1980, p. 269.", "by": "dummett1980", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5. How Meno is counted (pp. 78-79 do not say) is written in hand.count.group."},
 		"fool": {"value": "excuse", "source": "[S] Torino 1787, pp. 78-79 do not mention the Fool; ours: the excuse, as in the other long games of the book.", "by": "ours"}
 	},
 	"options": [
@@ -107,7 +107,7 @@
 				"settings": {
 					"follow_suit": {"value": true, "source": "[D] Torino 1787, pp. 78-79: «se io giuocherò Bastoni, tu mi risponderai … risponder Trionfo, e non mai rinegare»: the answer is in the suit asked, a trionfo on a trionfo."},
 					"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, p. 35 (general): «Chi è a destra di chi dà, comincia».", "by": "ours", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}},
-					"next_leader": {"value": "trick_winner", "source": "[R] Torino 1787, p. 37 (general): «Colui, che or ultimo ha preso la mano … deve essere il primo».", "by": "ours"},
+					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 37 (general rule of the book): «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare»."},
 					"must_trump": {"value": true, "source": "[R] Torino [1846], part I, p. 36 prints the duty for Partita and the games after it: «si risponderà e prenderà con un Trionfo»; carried back to this game.", "by": "torino1846"},
 					"must_overtrump": {"value": false, "source": "[S] Torino 1787, pp. 78-79 are silent; ours: no duty, as Nice 1930, p. 283 and Piedicavallo 2008, p. 13.", "by": "ours"}
 				}
@@ -118,7 +118,7 @@
 				"module": "result",
 				"settings": {
 					"winner": {"value": "fewest_points", "source": "[D] Torino 1787, p. 78: «guadagna chi fa meno punti»; «sempre vince colui, che di tutti gli altri compagni fa meno punti»."},
-					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 78-79: the book names no game points and no payment; the stake of the simple game is agreed for every game (p. 21)."},
+					"game_points": {"value": "none", "source": "[S] Torino 1787, pp. 78-79: the book names no game points and no payment; the stake of the simple game is agreed for every game (p. 21)."},
 					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, pp. 78-79: a tie for the fewest points is not mentioned; ours: replayed.", "by": "ours", "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}
 				}
 			},

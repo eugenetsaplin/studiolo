@@ -1,6 +1,6 @@
 # Twenty-five cards for three (Venticinque)
 
-3 players. In the book of 1787: no chapter of its own. Status: taken from a later source: the 1787 book has no chapter on this game. Rules revision 5.
+3 players. In the book of 1787: no chapter of its own. Status: taken from a later source: the 1787 book has no chapter on this game. Rules revision 8.
 
 Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. Not played by the engine for lack of a format key: the payment of the match and the «fuora» play (FORMAT_OPEN_POINTS point 6). Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -102,6 +102,6 @@ This step: *Documented: from Dummett (1980), p. 260.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Regole inalterabili (1830) | Carlo O..., Regole inalterabili per tutti i giuochi di Tarocco detti di commercio, Torino, 1830 (RI), known only through Dummett 1980 | not held: known to us only through another source |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/venticinque_3.json`, rules revision 5. Do not edit: change the game file.
+Generated from `rulesets/venticinque_3.json`, rules revision 8. Do not edit: change the game file.

@@ -4,7 +4,7 @@
 	"family": "dottore",
 	"status": "playable_with_decisions",
 	"about": "Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The payment, the value of each card, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.",
-	"revision": 5,
+	"revision": 8,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -23,13 +23,19 @@
 			"short_ru": "Турин [1846], ч. I",
 			"short_en": "Torino [1846], part I",
 			"held": true
+		},
+		"prammatica1846": {
+			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
+			"held": true
 		}
 	},
 	"seats": {
 		"count": {"value":5,"source":"[D] Torino 1787, p. 76: «al Dottore si giuoca pure tra cinque persone»."},
 		"direction": {"value":"right","source":"[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
-		"first_dealer": {"value":"draw_trump","source":"[R] Torino 1787, p. 16 (general rule): cards are turned up and «se viene prima da questa parte un Trionfo, mischierò io»; the game sections themselves do not repeat who deals first, so the general rule is carried over."},
-		"cut_by": {"value":"left","source":"[R] Torino 1787, p. 58 (Permesso, said before the deal): «ed a sinistra coppati»; who cuts is not named. Read with the general rule of pp. 16-18 as the player on the dealer's left; other reading: only the direction of the cut is meant."},
+		"first_dealer": {"value":"draw_trump","source":"[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first. General rule of the book, not repeated in the section."},
+		"cut_by": {"value":"left","source":"[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies. General rule of the book, not repeated in the section."},
 		"cut_min": {"value":2,"source":"[D] Torino 1787, p. 17: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
 		"dealer_rotation": {"value":"right","source":"[R] Torino 1787, p. 70: after a hand that «si deve ripigliar da capo» «tocca al compagno appresso a mischiare, e dar i Tarocchi»: the next player deals; the book names no other change of dealer, and «appresso» is read in the direction of play (to the right).","alt":"left"}
 	},
@@ -41,7 +47,7 @@
 		"deck": {"value":"full78","source":"[R] Torino 1787, p. 75: dealt as Permesso for five (p. 74), 5 × 15 + 3 = 78; the sum is not printed."},
 		"trump_order": {"value":"torino_1787","source":"[D] Torino 1787, pp. 9-10, 13: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); checked on the scan on 2 November 2026."},
 		"suit_order": {"value":"italian","source":"[D] Torino 1787, pp. 11-13: swords and batons run 10 down to 1, cups and coins 1 up to 10, the courts above every numeral in the order King, Queen, Knight, Jack; checked on the scan on 2 November 2026."},
-		"card_points": {"value": "honours_4_angel", "source": "[R] Torino 1787, pp. 13-14: king 5, queen 4, knight 3, jack 2, Angel, Bagatto, Fool 5; plain cards counted with a figure in pairs (p. 52), our reading.", "by": "ours"},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5. How the cards are grouped in the count is written in hand.count.group."},
 		"fool": {"value":"excuse","source":"[D] Torino 1787, p. 77: «Il Folle a questi tre giuochi solamente … non volendo noi giuocar altra carta»: shown instead of a card, it takes nothing (Quintilio, Sestilio, Settilio)."},
 		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 75-78: the Dottore says nothing of the Fool; pp. 76-77 give giuoco sciolto, which uses the Dottore's rules, the Fool's card (pp. 77-78). Carried over to the Dottore itself; other reading: no card for the Fool at the Dottore.","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»; carried over to the three games of pp. 77-78."},

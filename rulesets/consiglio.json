@@ -5,7 +5,15 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two.",
-	"revision": 5,
+	"revision": 8,
+	"sources": {
+		"prammatica1846": {
+			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
+			"held": true
+		}
+	},
 	"seats": {
 		"count": {"value":4,"source":"[D] Torino 1787, p. 97: «giuocasi in quattro persone, come in Partita»."},
 		"seating": {"value":"partners_adjacent","source":"[D] Torino 1787, p. 97: «le due persone, che sono insieme, seggono vicine»."}

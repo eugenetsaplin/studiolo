@@ -262,7 +262,7 @@
 				"first_dealer": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["draw_trump", "draw_high", "best_cut", "random", "host"]}}}]},
 				"cut_by": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["left", "right", "none"]}}}]},
 				"cut_min": {"$ref": "#/$defs/r_int"},
-				"dealer_rotation": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["right", "left", "alternate", "loser_deals", "winner_passes_to_companion", "same"]}}}]},
+				"dealer_rotation": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"anyOf": [{"enum": ["right", "left", "alternate", "loser_deals", "winner_passes_to_companion", "same"]}, {"$ref": "#/$defs/by_seats"}]}}}]},
 				"seating": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["free", "partners_opposite", "partners_adjacent", "draw_high_pairs"]}}}]}
 			}
 		},

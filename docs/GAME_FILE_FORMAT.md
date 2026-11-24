@@ -209,7 +209,7 @@ When `sets.honours` is absent, the honours are the counters worth 5 of `card_poi
 | `first_dealer` | enum | `draw_trump` (p. 16), `draw_high`, `best_cut` (Partita, p. 89 «Chi coppa meglio», [R]), `random`, `host` | table |
 | `cut_by` | enum | `left` (pp. 16-18), `right`, `none` | deal |
 | `cut_min` | integer | `2` (p. 17 «Una carta sola non si può coppare») | deal |
-| `dealer_rotation` | enum | `right`, `left`, `alternate`, `loser_deals`, `winner_passes_to_companion` (p. 41: the winner hands the pack to his «companion»: for two players the other one deals, for three and four the seat to the right of the winner [S]; a partita with no winner: the seat to the right of the last dealer), `same` | match runner |
+| `dealer_rotation` | enum, by seats | `right`, `left`, `alternate`, `loser_deals`, `winner_passes_to_companion` (p. 41: the winner hands the pack to his «companion»: for two players the other one deals, for three and four the seat to the right of the winner; a partita with no winner: the seat to the right of the last dealer), `same`. Trent'uno writes it by seats: `winner_passes_to_companion` for two, `right` for three and four | match runner |
 | `seating` | enum | `free`, `partners_opposite` (Partita, p. 89 «a faccia a faccia»), `partners_adjacent` (Consiglio, p. 97), `draw_high_pairs` | table |
 
 ### 6.2 `sides`

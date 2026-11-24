@@ -1,6 +1,6 @@
 # Council (Consiglio)
 
-4 players. In the book of 1787: p. 97. Status: playable, with decisions of ours where the book is silent. Rules revision 5.
+4 players. In the book of 1787: p. 97. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
 
 This game is written as [Partita for four](partita_4.md) with differences.
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - Players at the table: 4. *Documented: from the book, p. 97.* Same as in [Partita for four](partita_4.md). <!-- rule: seats.count -->
 - Play passes to the right. *Documented: from the book, p. 35.* Same as in [Partita for four](partita_4.md). <!-- rule: seats.direction -->
-- The first dealer is whoever cuts the highest card. *Documented: from Torino [1846], part I, p. 89.* Other reading: First dealer: draw high. Same as in [Partita for four](partita_4.md). <!-- rule: seats.first_dealer -->
+- The first dealer is whoever cuts the highest card. *Documented: from the book, p. 89.* Other reading: First dealer: draw high. Same as in [Partita for four](partita_4.md). <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Our reading: book, p. 58.* Same as in [Partita for four](partita_4.md). <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Documented: from the book, p. 17.* Same as in [Partita for four](partita_4.md). <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. Same as in [Partita for four](partita_4.md). <!-- rule: seats.dealer_rotation -->
@@ -43,7 +43,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- Count in pairs or in fours: choices 2, 4; default 2. *Documented: from the book, p. 89.* <!-- rule: options.group -->
+- Count in pairs or in fours: choices 2, 4; default 2. *Our reading: book, p. 89.* <!-- rule: options.group -->
 - Stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 90.* <!-- rule: options.stake -->
 - variant: Sum of four deals: the pair with the larger total wins. *Documented: from the book, p. 97.* <!-- rule: variants.sum_of_four_deals -->
 
@@ -83,12 +83,12 @@ This step: *Documented: from the book, p. 89.*
 - Cards are counted in pairs: a card is worth its value and half a point more. *Our reading: book, pp. 88-90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.count_unit -->
 - Cards are counted in groups of option:group: a group is worth the sum of its values less one point for each extra card. *Documented: from the book, p. 89.* <!-- rule: hand.count.group -->
 - A single card without a pair counts as half a point and its value. *Documented: from the book, p. 90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.odd_card -->
-- The card given for the Fool is part of the count. *Sources silent, our decision.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.fool_card -->
+- The card given for the Fool is part of the count. *Our reading: Turin 1880, pp. 88-90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.fool_card -->
 
 ### The result of a hand
 
 - Whoever reaches the threshold wins. *Our reading: book, p. 97.* Other reading: More points wins the hand. <!-- rule: hand.result.winner -->
-- If the points are equal, nobody gains game points. *Sources silent, our decision, after Dummett (1980), pp. 89-90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.result.tie -->
+- If the points are equal, nobody gains game points. *Our reading: Turin 1880, pp. 89-90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.result.tie -->
 - A hand gives no game points. *Sources silent, our decision.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.result.game_points -->
 - The threshold is 46 points. *Documented: from the book, p. 97.* <!-- rule: hand.result.target -->
 
@@ -112,6 +112,7 @@ This step: *Documented: from the book, p. 89.*
 ## Not played yet
 
 - **Marcio vola premiums.** Not in the 1787 book; the stake is the agreed simple sum. *Our reading: Dummett 1980, p. 261 (his guesses, not printed in the book): a double payment when the loser has fewer than 18 points, a triple for a vola, an extra for each five points.* <!-- left_out: marcio_vola_premiums -->
+- **Fool discard for vola.** Vola is not played (open question 13); the exception is not offered. *Documented: Torino 1787, p. 34 (rule 38): the Fool may be put away «in un sol caso … guadagnar la partita vola»; Turin 1880, p. 9: «as peul dcò scartesse quand ch'a iè la certëssa d'fè la vola»; Dummett 1980, p. 259 reads the same.* <!-- left_out: fool_discard_for_vola -->
 
 ## Sources
 
@@ -120,5 +121,7 @@ This step: *Documented: from the book, p. 89.*
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Turin 1880 | C. C. Tarocaire, La partia a taroch an quatr. Regolament e caprissi, Turin, Stamperia Leteraria, 1880 | held |
 
-Generated from `rulesets/consiglio.json`, rules revision 5. Do not edit: change the game file.
+Generated from `rulesets/consiglio.json`, rules revision 8. Do not edit: change the game file.

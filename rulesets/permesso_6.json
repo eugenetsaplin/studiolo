@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Sestilio, Permesso for six (Torino 1787, «Del giuoco di Permesso in sei persone, o sia Sestilio», pp. 76-77), a game the book calls «inusitato»: 13 cards to each of the six players, the dealer too, and no discard (p. 76); whoever wants to go alone asks «Permesso» as before. The book offers «giuoco sciolto» instead, played by the rules of Dottore without a discard, where the most points wins (pp. 76-77); here it is the variant «sciolto_chosen», and the outcome of a general pass in Dummett (1980, p. 267) is the variant «all_pass_sciolto». The payments of both are not printed. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 3,
+	"revision": 8,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -27,7 +27,7 @@
 		"mode": {"value":"by_contract","source":"[D] Torino 1787, p. 76: «chi vuole andar a solo chiamerà Permesso, come è stato detto di sopra»: one against the rest; the giuoco sciolto makes each play for himself (contract sciolto)."}
 	},
 	"cards": {
-		"deck": {"value":"full78","source":"[D] Torino 1787, p. 76: 6 × 13 = 78 («tredici carte ad ogni giuocatore, e per se tredici»); the sum is not printed."}
+		"deck": {"value":"full78","source":"[R] Torino 1787, p. 76: 6 × 13 = 78 («tredici carte ad ogni giuocatore, e per se tredici»); the sum is not printed."}
 	},
 	"contracts": [
 		{"id":"three","rank":1,"exchange":3,"onoranza":2,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 60, 67: «Permesso» asks to call three cards and put three away; «Chi va a tre carte, guadagna l'Onoranza di due»."},
@@ -143,7 +143,7 @@
 				"settings": {
 					"winner": {"value":"more_points","source":"[D] Torino 1787, pp. 76-77: «in cui chi fa più punti guadagna la partita»."},
 					"tie": {"value":"no_game_points","source":"[S] Torino 1787, p. 76 does not say what equal points are worth; ours: no payment, the hand is replayed by the next dealer."},
-					"game_points": {"value":"none","source":"[R] Torino 1787, p. 76: only «guadagna la partita»; the hand is settled in stakes at once."}
+					"game_points": {"value":"none","source":"[S] Torino 1787, p. 76 says only «guadagna la partita» and names no game points. Ours: the hand is settled in stakes at once."}
 				}
 			},
 			{
@@ -175,5 +175,10 @@
 		"play": [
 			{"value":{"advice":"six_player_permesso_unusual"},"source":"[D] Torino 1787, p. 76: «Il giuoco di Permesso in sei persone è un giuoco inusitato»."}
 		]
-	}
+	},
+	"left_out": [
+		{"id":"vola","source":"[D] Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).","why":"The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played."},
+		{"id":"marcio","source":"[D] Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».","why":"Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played (see FORMAT_OPEN_POINTS, F2)."},
+		{"id":"draw_money","source":"[D] Torino 1787, p. 70: after a draw nothing is said of the stakes on the table.","why":"A drawn hand pays nothing in the ledger."}
+	]
 }
