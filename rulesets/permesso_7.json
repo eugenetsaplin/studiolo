@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Settilio, Permesso for seven (Torino 1787, «Del giuoco di Permesso in sette persone, o sia Settilio», p. 77, and the Fool of pp. 77-78), «giuoco bizzarro»: 11 cards to each of the seven players and one card over «per lo scarto»; the rest is said to be as in Quintilio and Sestilio. The book does not say who takes the card over; ours, as the dealer, who then puts one card away. Giuoco sciolto is inherited from Sestilio because «come sopra è stato detto di Quintilio, e Sestilio» (p. 77); that it applies with seven is our reading.",
-	"revision": 8,
+	"revision": 9,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -30,7 +30,7 @@
 				"module": "deal",
 				"settings": {
 					"hand_size": {"value":11,"source":"[D] Torino 1787, p. 77: «undici carte per ciascun giuocatore»."},
-					"dealer_extra": {"value":1,"source":"[R] Torino 1787, p. 77: «una carta sola resterà per lo scarto»: one card is over and is the discard; who takes it is not said. Ours: the dealer (Dummett 1980, p. 267: he takes the last card and puts one away).","by":"dummett1980"},
+					"dealer_extra": {"value":1,"source":"[R] Torino 1787, p. 77: «una carta sola resterà per lo scarto»: one card is over and is the discard; who takes it is not said. Ours: the dealer (Dummett 1980, p. 267: he takes the last card and puts one away).","by":"dummett1980", "pages": [267]},
 					"dead": {"value":"none","source":"[R] Torino 1787, p. 77: 7 × 11 + 1 = 78; nothing is left over (the sum is not printed)."}
 				}
 			},
@@ -39,13 +39,13 @@
 				"module": "discard",
 				"source": "[D] Torino 1787, p. 77: «una carta sola resterà per lo scarto».",
 				"settings": {
-					"who": {"value":"dealer","source":"[R] Torino 1787, p. 77 does not say who takes the card over. Ours, after Dummett 1980, p. 267: the dealer «takes the last card for himself, discarding one».","by":"dummett1980"},
+					"who": {"value":"dealer","source":"[R] Torino 1787, p. 77 does not say who takes the card over. Ours, after Dummett 1980, p. 267: the dealer «takes the last card for himself, discarding one».","by":"dummett1980", "pages": [267]},
 					"count": {"value":1,"source":"[D] Torino 1787, p. 77: «una carta sola resterà per lo scarto»: one card is put away."},
 					"count_mode": {"value":"exact","source":"[R] Torino 1787, p. 77: one card put away; exactly one, as the hand must have 11 cards for the tricks."},
-					"discard_honours_barred": {"value":true,"source":"[R] Torino 1787, p. 34 (general rule 38): «Nessun onore, cioè nessun Re, nè l'Angelo, nè il Folle, nè Bagatto si potrà scartare»; the Permesso sections (pp. 59-60) do not repeat it, so the general rule is carried over. Other reading: the Permesso discard is free.","alt":false},
+					"discard_honours_barred": {"value":true,"source":"[R] Torino 1787, p. 34 (general rule 38): «cioè nessun Re, nè l'Angelo, nè il Folle, nè Bagatto si potrà scartare»; the Permesso sections (pp. 59-60) do not repeat it, so the general rule is carried over. Other reading: the Permesso discard is free.","alt":false},
 					"allowed_exceptions": {"value": [{"if": {"hand_lacks": "T0", "hand_count": {"of": "trumps", "max": 1}}, "any": ["T1"]}], "source": "[R] Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: «solo» is read as the only trump of the hand, as Dummett 1980, p. 259 reads this rule («neither the Folle nor any other trump»). Revision 1 read it as «holding no Fool». The exception for the Fool «in un sol caso … vola» is not played (see left_out). Other reading: no exception, as the rules of 1830 have it (Dummett, p. 259).", "alt": []},
 					"counts_for": {"value": "discarder", "source": "[S] Torino 1787, pp. 59-60 do not say whose points the discard joins. Ours, as in Venticinque (p. 55, «L'avvantaggio di questo giuoco ordinariamente è di chi scarta»): the discard counts for the side of the player who put it away, the dealer. Dummett 1980, p. 259 supports the other reading: if the dealer's side makes no tricks, «they must surrender the discarded cards».", "alt": "discarder_unless_no_tricks", "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}},
-					"announce": {"value":"ho_scartato","source":"[D] Torino 1787, p. 60: «distintamente, e chiaramente ho scartato: … più non potrai cambiar alcuna carta di esso»."}
+					"announce": {"value":"ho_scartato","source":"[D] Torino 1787, p. 60: «distintamente, e chiaramente ho scartato: … più non potrai cambiar alcuna carta»."}
 				},
 				"after": "deal"
 			}

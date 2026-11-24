@@ -26,11 +26,11 @@ It is the restorer's rule applied to games: what we add must be recognisable as 
 
 ## Where we stand
 
-Rules revision 8, November 2026 (release 1, with its DOI, holds revision 4):
+Rules revision 9, November 2026 (release 1, with its DOI, holds revision 4):
 
 - 21 game files: one per game, and one per number of players where the deal differs.
-- 913 rules: 556 documented, 249 our readings, 108 where the sources are silent.
-- 31 open questions, 29 of them still open.
+- 911 rules: 541 documented, 260 our readings, 110 where the sources are silent.
+- 34 open questions, 30 of them still open.
 - The rules engine plays all 21 game files today.
 
 ## What is here
@@ -55,6 +55,8 @@ Revision 5 corrects nine wrong or doubtful attributions of sources that a second
 Revisions 6 and 7 make the rest of the book playable. Sedici and Trent'uno become a race to five points, after Prammatica [1846], pp. 11-13. Permesso gets its auction and its exchange of called cards, Chiamare il Re its secret partner, Bagatt'ultimo and Mitigati their declarations. Where the pages are silent — who receives which laid card, what the dealer's pass means, how long a match lasts — the file carries a placeholder with its mark and the other reading, and the question stands in the list.
 
 Revision 8 is a second reading. The thirteen game files of revisions 6 and 7 were read again against the page images. Three scans sent by the Turin Academy of Sciences were read with them: the two pages missing from our copy of the book of [1846], the separate booklet of the *Prammatica*, and *La partia a taroch an quatr* (Turin, 1880). The reading found more than sixty points to correct. Two of them change who deals: at Baronetti the loser deals the next game (1787, pp. 41 and 47), and at Trent'uno for three and four the deal goes round to the right (pp. 19 and 42). Mitigati for two gains the words «Ho scartato» before the declarations, and Trent'uno a variant after the *Prammatica*, in which the Fool beats the Bagatto. The rest are pages, quotations and marks. The revision also corrects our own count: sixteen leaves kept only for comparison with an older format had been counted as rules where the sources are silent. Without them revision 7 had 908 rules, not 924.
+
+Revision 9 follows two independent outside checks of revision 8. Each remark was checked against the page images or reproduced on the engine, and the pages that decide a point were read twice, the second time by a reader who had not seen the first reading. About two thirds of the remarks held. Three of them change the play of the short games. At Sedici, Trent'uno and Baronetti for two the deal alternates (1787, pp. 42-43, rule 44): the reading of revision 8, that the loser deals, is withdrawn. «Fuora» may be said on any turn of one's own (p. 40). At Baronetti the Fool is played into a trick in place of a card (pp. 50 and 54). In the games for three and four the card given for the Fool goes to the player who took the trick (Torino [1846], part I, p. 33), and Partita counted by four makes 72 points, with 36 each a tie. The rules pages had errors of their own: they said «half a point more» where the count takes half a point off, and 43 links gave a page of the book of 1787 under the name of another book. These are corrected, and a check now runs over every game, variant and option. Two questions came out of the check and stay open: how the book counted the cards left over at Venticinque, where its own example makes a tie that our count cannot produce, and where the steps of the payment at Permesso fall, on which two rules of the book disagree.
 
 ## How you can help
 
@@ -85,7 +87,7 @@ Petri Games is a small studio. Reading the scans, writing the rule files, buildi
 
 ## Play the games
 
-- **Studiolo, the site**: play in the browser, with friends by a link or against bots. An early build: 8 of the 21 games can be played so far. <https://studiolo.petrigames.com/?from=github>
+- **Studiolo, the site**: play in the browser, with friends by a link or against bots. Every game of the book can be played: 21 game files, 28 tables by the number of players. <https://studiolo.petrigames.com/?from=github>
 - **TRIONFI** on Steam: our card game played with the Cary-Yale Visconti deck. <https://store.steampowered.com/app/5504420/?utm_source=github&utm_campaign=studiolo>
 
 ## Licence and citation

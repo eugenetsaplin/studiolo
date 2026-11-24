@@ -1,6 +1,6 @@
 # Bagatto last (Bagatt’ultimo)
 
-3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
+3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
 
 Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, pp. 94-96.* <!-- rule: sides.mode -->
 
@@ -33,7 +33,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Whoever plays the Fool keeps it and gives another card in its place. *Our reading: book, p. 52.* <!-- rule: cards.fool_exchange -->
 - The card for the Fool goes to the winner of the trick. *Our reading: Torino [1846], part I, p. 33.* <!-- rule: cards.fool_exchange_to -->
 - The owner of the Fool picks the card he gives. *Documented: from Torino [1846], part I, p. 33.* <!-- rule: cards.fool_exchange_card -->
-- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 50.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
@@ -50,7 +50,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The dealer names the packets before dealing. *Documented: from the book, p. 92.* <!-- rule: hand.deal.packets_announced -->
 - Dealing starts with the player on the dealer's right. *Documented: from the book, pp. 91-92.* <!-- rule: hand.deal.order -->
 - The whole pack is dealt, no cards are left over. *Documented: from the book, p. 91.* <!-- rule: hand.deal.dead -->
-- The dealer gets his extra cards last. *Sources silent, our decision, after Dummett (1980), pp. 91-92.* <!-- rule: hand.deal.extra_when -->
+- The dealer gets his extra cards last. *Sources silent, our decision, after Dummett (1980), p. 260.* <!-- rule: hand.deal.extra_when -->
 
 ### The discard
 
@@ -82,7 +82,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - There are no multipliers for tricks. *Our reading: book.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book.* <!-- rule: hand.count.last_trick_bonus -->
 - A single card counts as a short group. *Sources silent, our decision.* <!-- rule: hand.count.odd_card -->
-- The card given for the Fool is part of the count. *Our reading: Torino [1846], part I, pp. 91-96.* <!-- rule: hand.count.fool_card -->
+- The card given for the Fool is part of the count. *Our reading: Torino [1846], part I, p. 33.* <!-- rule: hand.count.fool_card -->
 
 ### The result of a hand
 
@@ -93,13 +93,16 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### Settling
 
 - Settling is in marche. *Documented: from the book, p. 93.* <!-- rule: hand.settle.unit -->
-- The amount of the settlement: 10. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision, after Dummett (1980), pp. 91-96.* Other reading: The amount of the settlement: the stake: simple. The Onoranza of the contract and the points beyond the line are counted apart. Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
-- The winners collect from the losers. *Sources silent, our decision, after Dummett (1980), pp. 91-96.* Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
+- The amount of the settlement: 10. *Sources silent, our decision, after Dummett (1980), p. 262.* Other reading: The amount of the settlement: the stake: simple. Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
+- The winners collect from the losers. *Sources silent, our decision, after Dummett (1980), p. 262.* Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
+- Whoever takes the last trick with Trump 1 — Magician collects 30 from each other player. *Documented: from the book, p. 96.* Other reading: The 30 is paid once in all, and the other players share it. <!-- rule: hand.settle.payments[bagatto_last] -->
+- Whoever lets Trump 1 — Magician be taken in the last trick pays 30 to each other player. *Documented: from the book, p. 96.* <!-- rule: hand.settle.payments[bagatto_lost_last] -->
+- Whoever lets Trump 1 — Magician be taken before the last trick pays 5 to each other player. *Documented: from the book, p. 96.* <!-- rule: hand.settle.payments[bagatto_lost] -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -109,6 +112,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ## Not played yet
 
+- **Bagatto discard.** The engine bars the honours from the discard without this exception in this game. *Documented: Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.* <!-- left_out: bagatto_discard -->
 - **Bagatto ultimo declaration.** The declaration is printed in Torino [1846], but Torino 1787, p. 96 pays Bagatto last without one, and the book of 1787 decides; not played (open question 17). *Documented: Torino [1846], part I, pp. 44-45 (read on the Academy's separate image of the missing pages): Bagatto last is declared, «ponendolo a tal uopo in tavola avanti di sè»; p. 53, Mitigati for three: «quando l'abbia per tale dichiarato». Dummett 1980, p. 262 (after RI 1830, «not allowed for in PE»): also ghinghetta, a pool for it, and a counter-announcement to take Bagatto, 60 marche.* <!-- left_out: bagatto_ultimo_declaration -->
 
 ## Sources
@@ -121,4 +125,4 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 | Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 
-Generated from `rulesets/bagattultimo.json`, rules revision 8. Do not edit: change the game file.
+Generated from `rulesets/bagattultimo.json`, rules revision 9. Do not edit: change the game file.

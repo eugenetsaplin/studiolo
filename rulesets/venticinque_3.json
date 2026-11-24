@@ -3,8 +3,8 @@
 	"id": "venticinque_3",
 	"family": "venticinque",
 	"status": "from_later_source",
-	"about": "Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. Not played by the engine for lack of a format key: the payment of the match and the «fuora» play (FORMAT_OPEN_POINTS point 6). Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 8,
+	"about": "Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. Not played by the engine for lack of a format key: the payment of the match and the «fuora» play. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 9,
 	"sources": {
 		"dummett1980": {
 			"cite": "M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing)",
@@ -38,29 +38,29 @@
 		}
 	},
 	"seats": {
-		"count": {"value": 3, "source": "[D] Torino [1846], part I, p. 33: «A Venticinque in tre»; Torino 1787, p. 8 gives only the name.", "by": "torino1846"},
+		"count": {"value": 3, "source": "[D] Torino [1846], part I, p. 33: «A Venticinque in tre»; Torino 1787, p. 8 gives only the name.", "by": "torino1846", "pages": [33]},
 		"direction": {"value": "right", "source": "[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
 		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first."},
 		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies."},
-		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
-		"dealer_rotation": {"value": "right", "source": "[S] Torino [1846], part I, p. 34 does not say who deals next; ours after Torino [1846], part I, p. 18: «si rimette il mazzo a chi vien dopo a destra».", "by": "torino1846"}
+		"cut_min": {"value": 2, "source": "[R] Torino 1787, p. 16: «Una carta sola non si può coppare»: the page forbids only a cut of one card; that each part keeps at least two cards is our reading."},
+		"dealer_rotation": {"value": "right", "source": "[S] Torino [1846], part I, p. 34 does not say who deals next; ours after Torino [1846], part I, p. 18: «si rimette il mazzo a chi vien dopo a destra».", "by": "torino1846", "pages": [18, 34]}
 	},
 	"sides": {
-		"mode": {"value": "each_for_self", "source": "[D] Dummett 1980, p. 260 (after RI): each player scores for himself and keeps his own running total.", "by": "dummett1980"}
+		"mode": {"value": "each_for_self", "source": "[D] Dummett 1980, p. 260 (after RI): each player scores for himself and keeps his own running total.", "by": "dummett1980", "pages": [260]}
 	},
 	"cards": {
-		"deck": {"value": "full78", "source": "[D] Dummett 1980, p. 260 (after RI): three times 25 cards and the dealer's three more make the whole pack, which is also the 78 points of the count.", "by": "dummett1980"},
-		"trump_order": {"value": "torino_1787", "source": "[D] Dummett 1980, pp. 259-260: the Piedmontese order, the Angel XX above the World XXI; Torino 1787, p. 13 gives the same («l'Angelo ... appresso noi prende il Mondo»).", "by": "dummett1980"},
+		"deck": {"value": "full78", "source": "[D] Dummett 1980, p. 260 (after RI): three times 25 cards and the dealer's three more make the whole pack, which is also the 78 points of the count.", "by": "dummett1980", "pages": [260]},
+		"trump_order": {"value": "torino_1787", "source": "[D] Dummett 1980, pp. 259-260: the Piedmontese order, the Angel XX above the World XXI; Torino 1787, p. 13 gives the same («l'Angelo ... appresso noi prende il Mondo»).", "by": "dummett1980", "pages": [259, 260]},
 		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
-		"card_points": {"value": "honours_4_angel", "source": "[D] Dummett 1980, p. 259: Angel, Bagatto, Fool and each King 5, each Queen 4, each Knight 3, each Jack 2; the World has no value; same as Torino 1787, pp. 13-14.", "by": "dummett1980"},
+		"card_points": {"value": "honours_4_angel", "source": "[D] Dummett 1980, p. 259: Angel, Bagatto, Fool and each King 5, each Queen 4, each Knight 3, each Jack 2; the World has no value; same as Torino 1787, pp. 13-14.", "by": "dummett1980", "pages": [259]},
 		"sets": {
-			"honours": {"value": ["rank:K", "T20", "T0", "T1"], "source": "[D] Dummett 1980, p. 259: the honours are the five-point cards, the four Kings, the Angel, Bagatto and the Fool; Torino 1787, p. 34 names the same four kinds.", "by": "dummett1980"}
+			"honours": {"value": ["rank:K", "T20", "T0", "T1"], "source": "[D] Dummett 1980, p. 259: the honours are the five-point cards, the four Kings, the Angel, Bagatto and the Fool; Torino 1787, p. 34 names the same four kinds.", "by": "dummett1980", "pages": [259]}
 		},
-		"fool": {"value": "excuse", "source": "[D] Torino [1846], part I, p. 33: «mostrandolo in tavola agli altri due», then kept with his cards.", "by": "torino1846"},
-		"fool_exchange": {"value": true, "source": "[D] Torino [1846], part I, p. 33: «dare in compenso un'altra cartuccia qualunque, onde chi ha presa … la mano».", "by": "torino1846"},
-		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino [1846], part I, p. 33: «un'altra cartuccia qualunque».", "by": "torino1846"},
-		"fool_exchange_to": {"value": "trick_winner", "source": "[D] Torino [1846], part I, p. 33: «dare in compenso un'altra cartuccia qualunque, onde chi ha presa … la mano».", "by": "torino1846"},
-		"fool_no_tricks": {"value": "give_fool", "source": "[D] Prammatica [1846], p. 6: «chi non potesse coprirlo, alla fine della mano è obbligato di cederlo».", "by": "prammatica1846"}
+		"fool": {"value": "excuse", "source": "[D] Torino [1846], part I, p. 33: «mostrandolo in tavola agli altri due», then kept with his cards.", "by": "torino1846", "pages": [33]},
+		"fool_exchange": {"value": true, "source": "[D] Torino [1846], part I, p. 33: «dare in compenso un'altra cartuccia qualunque, onde chi ha presa … la mano».", "by": "torino1846", "pages": [33]},
+		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino [1846], part I, p. 33: «un'altra cartuccia qualunque».", "by": "torino1846", "pages": [33]},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[D] Torino [1846], part I, p. 33: «dare in compenso un'altra cartuccia qualunque, onde chi ha presa … la mano».", "by": "torino1846", "pages": [33]},
+		"fool_no_tricks": {"value": "give_fool", "source": "[D] Prammatica [1846], p. 6: «chi non potesse coprirlo, alla fine della mano è obbligato di cederlo».", "by": "prammatica1846", "pages": [6]}
 	},
 	"hand": {
 		"phases": [
@@ -68,12 +68,12 @@
 				"id": "deal",
 				"module": "deal",
 				"settings": {
-					"hand_size": {"value": 25, "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846"},
-					"dealer_extra": {"value": 3, "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846"},
-					"extra_when": {"value": "last", "source": "[D] Dummett 1980, p. 260 (after RI): the dealer takes «the last three cards» of the pack.", "by": "dummett1980"},
-					"packets": {"value": [5, 10, 10], "source": "[D] Dummett 1980, p. 260 (after RI): three rounds, the first of five cards each, the second and the third of ten each. The same 5, 10, 10 is the custom of Bagatt'ultimo, Torino 1787, pp. 91-92.", "by": "dummett1980"},
-					"dead": {"value": "none", "source": "[D] Dummett 1980, p. 260 (after RI): 25 + 25 + 28 is the whole pack of 78.", "by": "dummett1980"},
-					"order": {"value": "from_right", "source": "[R] Torino [1846], part I, p. 51 (Mitigati for three): «5 a chi ti sta a destra», then left, then the dealer.", "by": "torino1846"}
+					"hand_size": {"value": 25, "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846", "pages": [33]},
+					"dealer_extra": {"value": 3, "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846", "pages": [33]},
+					"extra_when": {"value": "last", "source": "[D] Dummett 1980, p. 260 (after RI): the dealer takes «the last three cards» of the pack.", "by": "dummett1980", "pages": [260]},
+					"packets": {"value": [5, 10, 10], "source": "[D] Dummett 1980, p. 260 (after RI): three rounds, the first of five cards each, the second and the third of ten each. The same 5, 10, 10 is the custom of Bagatt'ultimo, Torino 1787, pp. 91-92.", "by": "dummett1980", "pages": [260]},
+					"dead": {"value": "none", "source": "[D] Dummett 1980, p. 260 (after RI): 25 + 25 + 28 is the whole pack of 78.", "by": "dummett1980", "pages": [260]},
+					"order": {"value": "from_right", "source": "[R] Torino [1846], part I, p. 51 (Mitigati for three): «5 a chi ti sta a destra», then left, then the dealer.", "by": "torino1846", "pages": [51]}
 				}
 			},
 			{
@@ -81,31 +81,31 @@
 				"module": "a_monte",
 				"source": "[D] Dummett 1980, p. 260 (after RI): after each round of the deal the players may throw the deal in if all agree.",
 				"settings": {
-					"consent": {"value": "unanimous", "source": "[D] Dummett 1980, p. 260 (after RI): «a monte» only if all agree; Torino 1787, pp. 29-30: «cambiar le carte ... o affatto rifare la data».", "by": "dummett1980"},
-					"what": {"value": "redeal", "source": "[D] Dummett 1980, p. 259: «a monte» is giving up the deal; changing only some cards is not described (FORMAT_OPEN_POINTS point 27).", "by": "dummett1980"},
-					"windows": {"value": ["deal.packet"], "source": "[D] Dummett 1980, p. 260 (after RI): the choice is offered after every round of the deal; the key «deal.packet» is the proposal of FORMAT_OPEN_POINTS point 6 (a window inside a phase).", "by": "dummett1980"}
+					"consent": {"value": "unanimous", "source": "[D] Dummett 1980, p. 260 (after RI): «a monte» only if all agree; Torino 1787, pp. 29-30: «cambiar le carte ... o affatto rifare la data».", "by": "dummett1980", "pages": [260]},
+					"what": {"value": "redeal", "source": "[D] Dummett 1980, p. 259: «a monte» is giving up the deal; changing only some cards is not described.", "by": "dummett1980", "pages": [259]},
+					"windows": {"value": ["deal.packet"], "source": "[D] Dummett 1980, p. 260 (after RI): the choice is offered after every round of the deal; the key «deal.packet» is a proposal for the format (a window inside a phase).", "by": "dummett1980", "pages": [260]}
 				}
 			},
 			{
 				"id": "discard",
 				"module": "discard",
 				"settings": {
-					"who": {"value": "dealer", "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846"},
-					"count": {"value": 3, "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846"},
-					"discard_honours_barred": {"value": true, "source": "[D] Torino [1846], part I, p. 33: «rigorosamente proibito lo scarto degli Onori»; Prammatica [1846], p. 14: «paga partita».", "by": "torino1846"},
-					"barred": {"value": ["trumps"], "source": "[D] Torino [1846], part I, p. 33: «Lo scarto dei Tarocchi è solo permesso quando non se ne hanno in mano più di tre»: no trump is put away, but for the exception that follows. Revision 1 played the other edition, Dummett 1980, p. 260 (after the rules of 1830): no trionfo from XVII up.", "by": "torino1846", "alt": ["T17", "T18", "T19", "T21"]},
-					"allowed_exceptions": {"value": [{"if": {"hand_count": {"of": {"all": ["trumps", {"not": "T0"}]}, "max": 3}}, "all": ["trumps", {"not": "set:honours"}]}], "source": "[D] Torino [1846], part I, p. 33: trumps are put away only «quando non se ne hanno in mano più di tre»: a dealer who holds three trumps or fewer may put them away, the honours never. [R] The Fool is not counted among the trumps held. With 28 cards this happens in 1.32 % of the deals. In the edition of 1830 (Dummett 1980, p. 260) there is no such exception.", "alt": [], "by": "torino1846"},
-					"announce": {"value": "ho_scartato", "source": "[D] Dummett 1980, p. 259: the discard is announced with «Ho scartato» and is then final; Torino 1787, p. 34 (rule 37): «Chi dirà ho scartato, e poi vorrà ricambiare lo scarto, non potrà più».", "by": "dummett1980"}
+					"who": {"value": "dealer", "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846", "pages": [33]},
+					"count": {"value": 3, "source": "[D] Torino [1846], part I, p. 33: «con venticinque carte per ciascuno: ne sopravanzano tre», discarded by the dealer.", "by": "torino1846", "pages": [33]},
+					"discard_honours_barred": {"value": true, "source": "[D] Torino [1846], part I, p. 33: «rigorosamente proibito lo scarto degli Onori»; Prammatica [1846], p. 14: «paga partita».", "by": "torino1846", "pages": [33]},
+					"barred": {"value": ["trumps"], "source": "[D] Torino [1846], part I, p. 33: «scarto dei Tarocchi è solo permesso», «quando non se ne hanno in mano più di tre»: no trump is put away, but for the exception that follows. Revision 1 played the other edition, Dummett 1980, p. 260 (after the rules of 1830): no trionfo from XVII up.", "by": "torino1846", "pages": [33], "alt": ["T17", "T18", "T19", "T21"]},
+					"allowed_exceptions": {"value": [{"if": {"hand_count": {"of": {"all": ["trumps", {"not": "T0"}]}, "max": 3}}, "all": ["trumps", {"not": "set:honours"}]}], "source": "[D] Torino [1846], part I, p. 33: trumps are put away only «quando non se ne hanno in mano più di tre»: a dealer who holds three trumps or fewer may put them away, the honours never. [R] The Fool is not counted among the trumps held. With 28 cards this happens in 1.32 % of the deals. In the edition of 1830 (Dummett 1980, p. 260) there is no such exception.", "alt": [], "by": "torino1846", "pages": [33]},
+					"announce": {"value": "ho_scartato", "source": "[D] Dummett 1980, p. 259: the discard is announced with «Ho scartato» and is then final; Torino 1787, p. 34 (rule 37): «Chi dirà ho scartato, e poi vorrà ricambiare lo scarto, non potrà più».", "by": "dummett1980", "pages": [259]}
 				}
 			},
 			{
 				"id": "tricks",
 				"module": "tricks",
 				"settings": {
-					"first_leader": {"value": "dealer_right", "source": "[D] Dummett 1980, p. 259: the player to the dealer's right leads; Torino 1787, p. 35: «Chi è a destra di chi dà, comincia».", "by": "dummett1980"},
+					"first_leader": {"value": "dealer_right", "source": "[D] Dummett 1980, p. 259: the player to the dealer's right leads; Torino 1787, p. 35: «Chi è a destra di chi dà, comincia».", "by": "dummett1980", "pages": [259]},
 					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 50: «Chi prende giuoca sempre il primiero»."},
-					"follow_suit": {"value": true, "source": "[R] Torino [1846], part I, p. 36: «è rigorosamente proibito il rifiato», said for Partita and the games after it; carried back.", "by": "torino1846"},
-					"must_trump": {"value": true, "source": "[R] Torino [1846], part I, p. 36 prints the duty for Partita and the games after it: «si risponderà e prenderà con un Trionfo»; carried back to this game.", "by": "torino1846"},
+					"follow_suit": {"value": true, "source": "[R] Torino [1846], part I, p. 36: «è rigorosamente proibito il rifiato», said for Partita and the games after it; carried back.", "by": "torino1846", "pages": [36]},
+					"must_trump": {"value": true, "source": "[R] Torino [1846], part I, p. 36 prints the duty for Partita and the games after it: «si risponderà e prenderà con un Trionfo»; carried back to this game. Torino 1787, p. 49 (Baronetti) prints the same duty: «se non ho carte della medesima sequenza prendo con Trionfi».", "by": "torino1846", "pages": [36]},
 					"must_overtrump": {"value": false, "source": "[R] Torino 1787, p. 49: the book states no duty to beat a trump on the table."}
 				}
 			},
@@ -113,28 +113,28 @@
 				"id": "count",
 				"module": "count",
 				"settings": {
-					"group": {"value": 3, "source": "[D] Torino [1846], part I, p. 34: «I punti si contano con tre carte».", "by": "torino1846"},
+					"group": {"value": 3, "source": "[D] Torino [1846], part I, p. 34: «I punti si contano con tre carte».", "by": "torino1846", "pages": [34]},
 					"count_unit": {"value": "half_point", "source": "[R] Dummett 1980, p. 260: with threes the whole pack is worth 78 points, as 130 less 52; the value of a card is its points less two thirds, see GAME_FILE_FORMAT 11.12."},
 					"trick_multipliers": {"value": false, "source": "[R] Torino 1787: the count is the one the section names; the book prints no trick multiplier and no war in these games (x2 and x4 are Duello's own)."},
 					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787: the book prints no bonus for the last trick (the +5 is Duello's own)."},
-					"odd_card": {"value": "as_group", "source": "[S] Torino [1846], part I, p. 34 says only «I punti si contano con tre carte»; ours: a short group.", "by": "ours"}
+					"odd_card": {"value": "as_group", "source": "[S] Torino [1846], part I, p. 34 says only «I punti si contano con tre carte»; ours: a short group.", "by": "ours", "pages": [34]}
 				}
 			},
 			{
 				"id": "result",
 				"module": "result",
 				"settings": {
-					"winner": {"value": "threshold", "source": "[R] Dummett 1980, p. 260 (after RI): in every round each player enters the difference between his points and 26; there is no winner of a single hand, the running total decides (match). The threshold is the line of 26.", "by": "dummett1980"},
-					"target": {"value": 26, "source": "[D] Prammatica [1846], p. 14: the line is twenty-six points («il numero di ventisei punti»).", "by": "prammatica1846"},
-					"game_points": {"value": "none", "source": "[D] Dummett 1980, p. 260 (after RI): the hand gives no game point; the match pays by the running totals.", "by": "dummett1980"}
+					"winner": {"value": "threshold", "source": "[R] Dummett 1980, p. 260 (after RI): in every round each player enters the difference between his points and 26; there is no winner of a single hand, the running total decides (match). The threshold is the line of 26. [S] Paid after each deal: the format cannot pay by the result of the match.", "by": "dummett1980", "pages": [260]},
+					"target": {"value": 26, "source": "[D] Prammatica [1846], p. 14: the line is twenty-six points («il numero di ventisei punti»).", "by": "prammatica1846", "pages": [14]},
+					"game_points": {"value": "none", "source": "[D] Dummett 1980, p. 260 (after RI): the hand gives no game point; the match pays by the running totals.", "by": "dummett1980", "pages": [260]}
 				}
 			}
 		]
 	},
 	"match": {
-		"kind": {"value": "running_total", "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; «Vince chi ha dei tre fatti e guadagnati un maggior numero di punti»: after three deals the greatest total wins. Each player keeps the running total of the differences between his points and 26: Dummett's account, 1980, p. 260 (after RI); Prammatica [1846], p. 14 speaks only of a gain «più di ventisei punti» in the last deal. Dummett 1980, p. 260 (after the rules of 1830) ends the game sooner, at the first sure positive total of the last round: see left_out, fuora_declaration.", "by": "torino1846"},
-		"round_target": {"value": 26, "source": "[D] Prammatica [1846], p. 14: the line is twenty-six points («il numero di ventisei punti»).", "by": "prammatica1846"},
-		"rounds": {"value": 3, "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; Prammatica [1846], pp. 13-14.", "by": "torino1846"}
+		"kind": {"value": "running_total", "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; «Vince chi ha dei tre fatti e guadagnati un maggior numero di punti»: after three deals the greatest total wins. Each player keeps the running total of the differences between his points and 26: Dummett's account, 1980, p. 260 (after RI); Prammatica [1846], p. 14 speaks only of a gain «più di ventisei punti» in the last deal. Dummett 1980, p. 260 (after the rules of 1830) ends the game sooner, at the first sure positive total of the last round: see left_out, fuora_declaration.", "by": "torino1846", "pages": [34]},
+		"round_target": {"value": 26, "source": "[D] Prammatica [1846], p. 14: the line is twenty-six points («il numero di ventisei punti»).", "by": "prammatica1846", "pages": [14]},
+		"rounds": {"value": 3, "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; Prammatica [1846], pp. 13-14.", "by": "torino1846", "pages": [34]}
 	},
 	"view": {
 		"piles": {"rest": "face_down_count", "discard": "owner_only"},
@@ -142,11 +142,11 @@
 	},
 	"bot": {
 		"play": [
-			{"value": "when «fuora» (running total above 26 after two rounds) play «da fuori»: give the points to the player behind", "source": "[D] Dummett 1980, p. 260 (after RI): a player who is out must play «da fuori», losing the power of his cards in the tricks and giving points to the one with the smaller total; the penalty for failing is an onoranza of five points to each of the two (Prammatica [1846], p. 14: «per volta a caduno dei due avversari»). PE (1787, pp. 43-44, at Sedici) calls loading the rest on another «atto poco grazioso». Dummett finds it unclear whether he still follows suit; Torino [1846], part I, p. 34: if he still holds trumps «è obbligato a trionfare».", "by": "dummett1980"}
+			{"value": "when «fuora» (running total above 26 after two rounds): lead the trionfi you still hold, then the kings and the sure cards", "source": "[D] Torino [1846], part I, p. 34: «Se avrà ancora dei Trionfi è obbligato a trionfare, quindi si giuocheranno i Re»: the player who is out leads his trionfi, then the kings and the sure cards. Other reading: Dummett 1980, p. 260 (after RI): a player who is out must play «da fuori», losing the power of his cards in the tricks and giving points to the one with the smaller total; the penalty for failing is an onoranza of five points to each of the two (Prammatica [1846], p. 14: «per volta a caduno dei due avversari»). PE (1787, pp. 43-44, at Sedici) calls loading the rest on another «atto poco grazioso». Dummett finds it unclear whether he still follows suit; Torino [1846], part I, p. 34: if he still holds trumps «è obbligato a trionfare».", "by": "torino1846", "pages": [34]}
 		]
 	},
 	"left_out": [
-		{"id": "match_payment", "source": "[D] Dummett 1980, p. 260 (after RI): if both others have zero or less each pays the winner 1 game point; if one of them has a plus he neither pays nor receives and the third pays the winner 2. Torino [1846], part I, p. 34 says only who wins and who loses: «come perde chi ne ha fatto un numero minore».", "why": "Format gap, not silence: The format has no settle mode that reads running totals at the end of a match (FORMAT_OPEN_POINTS point 6, proposal match.payout); the payment is not played until it has."},
-		{"id": "fuora_declaration", "source": "[D] Torino [1846], part I, p. 34: «Chi è fuori, ossia non può più perdere» must play «da fuori» without harming the other two; if he still holds trumps «è obbligato a trionfare». Prammatica [1846], p. 14 prints the same duty for the last deal and its penalty, an onoranza of five points to each opponent. Dummett 1980, p. 260 (after RI): after two rounds a player whose total is above 26 cannot lose and says «Fuora» at the end of the deal; he also wins when in the last round a player has reached a sure positive total. Dummett's quotation of RI (p. 260, note 2) is word for word Prammatica [1846], p. 14.", "why": "Format gap, not silence: An intention, not a checkable rule of the cards (FORMAT_OPEN_POINTS point 6): no card becomes illegal; a bot.play leaf and a hint carry it."}
+		{"id": "match_payment", "source": "[D] Dummett 1980, p. 260 (after RI): if both others have zero or less each pays the winner 1 game point; if one of them has a plus he neither pays nor receives and the third pays the winner 2. Torino [1846], part I, p. 34 says only who wins and who loses: «come perde chi ne ha fatto un numero minore».", "why": "Format gap, not silence: The format has no settle mode that reads running totals at the end of a match; the payment is not played until it has."},
+		{"id": "fuora_declaration", "source": "[D] Torino [1846], part I, p. 34: «Chi è fuori, ossia non può più perdere» must play «da fuori» without harming the other two; if he still holds trumps «è obbligato a trionfare». Prammatica [1846], p. 14 prints the same duty for the last deal and its penalty, an onoranza of five points to each opponent. Dummett 1980, p. 260 (after RI): after two rounds a player whose total is above 26 cannot lose and says «Fuora» at the end of the deal; he also wins when in the last round a player has reached a sure positive total. Dummett's quotation of RI (p. 260, note 2) is word for word Prammatica [1846], p. 14.", "why": "Format gap, not silence: An intention, not a checkable rule of the cards: no card becomes illegal; a bot.play leaf and a hint carry it."}
 	]
 }

@@ -524,7 +524,7 @@ State: `s.m.<phase id> = {order, at, made: [{seat, kind, n, cards?}], paid: [{fr
 
 | key | type | values | default |
 |---|---|---|---|
-| `first_leader` | enum | `non_dealer` (format 2; p. 54), `dealer_right` (p. 35 «Chi è a destra di chi dà, comincia»), `declarer`, `previous_last_taker` (Dottore, p. 75 «Chi è ultimo a prendere giuoca il primo», [R]) | `dealer_right` |
+| `first_leader` | enum | `non_dealer` (format 2; p. 54), `dealer_right` (p. 35 «Chi è a destra di chi dà, comincia»), `declarer`, `previous_last_taker` (Dottore, p. 75 «Chi è ultimo a prendere giuoca il primo», [R]; from the second hand of a match the taker of the last trick of the previous hand), `round_last_taker` (a game dealt in rounds: the first round of every hand starts on the dealer's right, each later round of the same hand with the taker of the last trick of the round before; Torino 1787, pp. 35 and 37) | `dealer_right` |
 | `next_leader` | enum | `trick_winner` (p. 50 «Chi prende giuoca sempre il primiero») | `trick_winner` |
 | `follow_suit` | bool | format 2 (p. 49) | `true` |
 | `must_trump` | bool | void in the led suit, a trump must be played (format 2) | `true` |
@@ -561,13 +561,15 @@ Going out in Sedici and Trent'uno (pp. 35, 39-41, 46).
 | key | type | values | default |
 |---|---|---|---|
 | `target` | number | 16 (p. 35), 31 (p. 46) | required |
-| `claim_when` | enum | `after_trick` (played), `any_time`, `own_turn` (not played) | `after_trick` |
+| `claim_when` | enum | `after_trick` (played), `own_turn` (played: a claim at any turn of the seat to act, see below), `any_time` (not played) | `after_trick` |
 | `false_claim` | list | typed rows by the claimer's real points (book points): `{"below": 8, "pays": {"stake": "marcia"}, "to": "each_other"}` or `{"from": 8, "pays": {"stake": "simple"}}`; `pays.stake` is `simple`, `marcia` or `double` (marcia and double are twice the simple stake); `to` is `each_other`, the only payee played: the claimer pays every other seat (FORMAT_OPEN_POINTS 56) | none |
-| `after_false_claim` | enum | `play_on` (the claimer pays the row and play goes on), `hand_ends` (a false claim loses the partita: the hand ends, with two seats the other seat wins, with more nobody wins; the row is not paid) | `play_on` |
+| `after_false_claim` | enum | `play_on` (the claimer pays the row and play goes on), `hand_ends` (a false claim loses the partita: the hand ends, every other seat wins, and the row is paid by the claimer to each other seat as the price of the lost game, with no second payment for the win) | `play_on` |
 | `after_first_out` | enum | `hand_ends` (played), `others_continue` (Sedici for three «a scaricare», pp. 43-44: not played) | `hand_ends` |
 | `stock_empty` | enum | `hand_ends_no_winner` (played), `reshuffle_untaken`, `hand_ends_most_points` (not played) | `reshuffle_untaken` |
 
 **The claim window (`claim_when: after_trick`).** Right after a trick only the seat that took it may claim, before anything else happens; points come only with a taken trick, so nobody else can have gone out. The seat has the action `claim_fuora` beside its cards until it plays a card. After the last trick of a round the window comes before the next deal, but there it is offered only when the claim is right (a false claim could only cost) and is then the only action: the engine waits for it. The engine counts aloud for the claimer (p. 41): the points of the cards it has won so far, counted by the count phase's rules (the same number as `view.points.mine`). Enough points (`target` or more): the claimer is out (`s.out`), the hand ends at once and goes on to count, result and settle. Too few: it pays the row of `false_claim` that fits its points (an event `paid`, `why: false_claim`, made by the settle phase to each other seat, whoever wins the hand) and play goes on (`play_on`); one claim at a time. The pack running out with no claim: the hand ends with no winner (`stock_empty`).
+
+**The claim window (`claim_when: own_turn`).** The seat to act in the tricks may claim at any of its turns: before a lead, before an answer in the middle of a trick, and right after a trick it took. One claim a turn (a false one is followed by a card). A right claim ends the hand at once; the cards lying in a trick not yet closed are counted for nobody. A false claim pays the same `false_claim` rows and goes on as `after_false_claim` says. The window after the last trick of a round (the engine waits for a right claim before the next deal) stays as under `after_trick`.
 
 **Game points of a false claim.** In a match that counts game points (`result.game_points` not `none`) a false claim whose row pays `marcia` or `double` gives each other seat two game points (a «vada doppio»), a row paying `simple` one (Prammatica [1846], p. 13). They are added to the hand's `gamePoints` beside the winner's own (11.13).
 
@@ -590,7 +592,7 @@ Counts the cards each seat or side has won (and the discard, the stock cards, th
 
 The arithmetic. Each card has its value `v` from `cards.card_points` (plain cards: 1 when grouped, `plain_value` when `group` is 1). A group of `g` cards is worth the sum of its values less `g − 1` (p. 52: a king with a plain card 5, two plain cards 1). Hence each card is worth `v − (g−1)/g`, and the total of the deck is the same however the cards fall into groups: 91 with pairs, 78 with threes (130 − 52), 130 counted singly with plain cards 1. The odd cards follow `odd_card`. The format 2 engine counts in half-points with the values less one; the results are identical. `sides.pool` = `side` puts partners' cards in one heap before grouping.
 
-No actions. Seat view after the hand: the breakdown listed in `view.score_panel.after_hand`. Events: `counted {points per seat or side}`.
+No actions. After the hand every seat's view carries the breakdown in `result.breakdown` (CORE_API section 3, Result); the file's `view.score_panel.after_hand` is the list of lines the table shows. The core sends them ready, as numbers in that order: `view.scoreLines.lines[]` with the key, the rule path and the numbers by unit or seat (CORE_API section 3, View); the words stay the table's. Events: `counted {points per seat or side}`.
 
 ### 11.13 `result`
 

@@ -523,7 +523,7 @@
 			"type": "object",
 			"additionalProperties": false,
 			"properties": {
-				"first_leader": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["non_dealer", "dealer_right", "declarer", "previous_last_taker"]}}}]},
+				"first_leader": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["non_dealer", "dealer_right", "declarer", "previous_last_taker", "round_last_taker"]}}}]},
 				"next_leader": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["trick_winner"]}}}]},
 				"follow_suit": {"$ref": "#/$defs/r_bool"},
 				"must_trump": {"$ref": "#/$defs/r_bool"},

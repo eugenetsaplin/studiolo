@@ -1,8 +1,8 @@
 # Mitigati for two (Mitigati)
 
-2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
+2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
 
-Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan (check of 2 November 2026, image of p. 85 seen again for this file): the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards thirteen cards and his opponent twelve (honours never; read as exact, the other reading, up to thirteen, is in the source text), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25), the other reading (39 and 39) is in the source text. Marks: [D] documented, [R] our reading, [S] sources silent.
+Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan: the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards thirteen cards and his opponent twelve (honours never; read as exact, the other reading, up to thirteen, is in the source text), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25); 39 and 39 cannot be, as no cards would be left for the second deal. Marks: [D] documented, [R] our reading, [S] sources silent.
 
 ## How to read the marks
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The dealers alternate. *Sources silent, our decision.* Other reading: The loser deals. <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 85.* <!-- rule: sides.mode -->
 
@@ -34,7 +34,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The owner of the Fool picks the card he gives. *Documented: from the book, p. 52.* <!-- rule: cards.fool_exchange_card -->
 - The card for the Fool goes to the opponent. *Documented: from the book, p. 52.* <!-- rule: cards.fool_exchange_to -->
 - The Fool is never lost, not even in the last trick. *Documented: from the book, p. 50.* <!-- rule: cards.fool_last_trick -->
-- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 50.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
@@ -45,7 +45,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 This step: *Sources silent, our decision.*
 
-- Cards dealt to each player: the dealer: 26; the dealer's opponent: 25. *Sources silent, our decision, after Dummett (1980), p. 85.* Open question 5: could be settled by a document in which the rule is printed, a mathematical analysis or statistics of games played by bots (the size of the first deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.deal_first.hand_size -->
+- Cards dealt to each player: the dealer: 26; the dealer's opponent: 25. *Sources silent, our decision, after Dummett (1980), pp. 262-263.* Open question 5: could be settled by a document in which the rule is printed, a mathematical analysis or statistics of games played by bots (the size of the first deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.deal_first.hand_size -->
 - The dealer gets as many as the others. *Sources silent, our decision, after Dummett (1980), pp. 262-263.* <!-- rule: hand.deal_first.dealer_extra -->
 
 ### The discard
@@ -80,7 +80,7 @@ This step: *Documented: from the book, p. 86.*
 ### Declarations
 
 - A declaration may be made before the first trick. *Our reading: book, p. 86.* Open question 30: could be settled by a document in which the rule is printed or a trial with live players (when the declarations of Mitigati for two close); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.declarations.window -->
-- The kinds of declaration are listed in the game file. *Our reading: book, p. 86.* Other reading: id: onori; of: set:honours; min: 1; show: announce count; pays: table: by: count; rows: 3: 10; 4: 15; 5: 20; beyond: every: 1; add: 5, id: trionfi; of: trumps; min: 10; show: announce count; pays: table: by: trumps; rows: ; same as count: yes, id: mitigati; of: any: Trump 20 — Angel, Trump 1 — Magician, Fool; min: 3; all of: yes; show: announce; pays: 10. <!-- rule: hand.declarations.kinds -->
+- The kinds of declaration are listed in the game file. *Our reading: book, p. 86.* <!-- rule: hand.declarations.kinds -->
 - Whoever declares late loses the right to declare. *Our reading: book, p. 86.* <!-- rule: hand.declarations.late -->
 - The players make the declarations themselves. *Our reading: book, pp. 85-86.* Other reading: The engine makes the declarations for the players. <!-- rule: hand.declarations.mode -->
 - Payment is made at once. *Our reading: book, p. 86.* <!-- rule: hand.declarations.paid -->
@@ -97,8 +97,8 @@ This step: *Documented: from the book, p. 86.*
 ### The count
 
 - Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Documented: from the book, p. 87.* <!-- rule: hand.count.group -->
-- Cards are counted in pairs: a card is worth its value and half a point more. *Documented: from the book, p. 52.* <!-- rule: hand.count.count_unit -->
-- A single card without a pair counts as half a point and its value. *Our reading: book, pp. 54-55.* Other reading: A single card without a pair does not count. <!-- rule: hand.count.odd_card -->
+- Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Documented: from the book, p. 52.* <!-- rule: hand.count.count_unit -->
+- A card left without a pair is worth its value less half a point, as in a pair. *Our reading: book, pp. 54-55.* Other reading: A card left over, with no full group, does not count. <!-- rule: hand.count.odd_card -->
 - The card given for the Fool is part of the count. *Documented: from the book, p. 87.* <!-- rule: hand.count.fool_card -->
 - There are no multipliers for tricks. *Our reading: book.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book.* <!-- rule: hand.count.last_trick_bonus -->
@@ -114,12 +114,15 @@ This step: *Documented: from the book, p. 86.*
 
 - Settling is in marche. *Documented: from the book, pp. 86-87.* <!-- rule: hand.settle.unit -->
 - The loser pays the winner. *Our reading: book, p. 87.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: simple. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake: simple. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
+- Whoever takes the last trick with Trump 1 — Magician collects 30 from each other player. *Sources silent, our decision.* Other reading: The 30 is paid once in all, and the other players share it. <!-- rule: hand.settle.payments[bagatto_last] -->
+- Whoever lets Trump 1 — Magician be taken in the last trick pays 30 to each other player. *Sources silent, our decision.* <!-- rule: hand.settle.payments[bagatto_lost_last] -->
+- Whoever lets Trump 1 — Magician be taken before the last trick pays 5 to each other player. *Sources silent, our decision.* <!-- rule: hand.settle.payments[bagatto_lost] -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: the players deal in turn. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: the players deal in turn. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -128,6 +131,7 @@ This step: *Documented: from the book, p. 86.*
 
 ## Not played yet
 
+- **Bagatto discard.** The engine bars the honours from the discard without this exception in this game. *Documented: Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.* <!-- left_out: bagatto_discard -->
 - **Dummett payment.** A reconstruction by Dummett, not a source; not written. *Documented: Dummett 1980, p. 263 (his guess, not PE): the winner receives 10 game points, or 20 if the loser has less than 23 card points, plus the amount by which he exceeds 46.* <!-- left_out: dummett_payment -->
 
 ## Sources
@@ -139,4 +143,4 @@ This step: *Documented: from the book, p. 86.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/mitigati_2.json`, rules revision 8. Do not edit: change the game file.
+Generated from `rulesets/mitigati_2.json`, rules revision 9. Do not edit: change the game file.

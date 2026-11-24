@@ -1,6 +1,6 @@
 # Partita for three (Partita)
 
-3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
+3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
 
 Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 88.* <!-- rule: sides.mode -->
 - Signals between partners are forbidden. *Documented: from the book, p. 73.* <!-- rule: sides.signals -->
@@ -32,7 +32,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Our reading: book, p. 90.* <!-- rule: cards.fool -->
 - Whoever plays the Fool keeps it and gives another card in its place. *Our reading: book, p. 52.* Other reading: Nothing is given for the Fool. <!-- rule: cards.fool_exchange -->
 - The owner of the Fool picks the card he gives. *Our reading: book, p. 52.* <!-- rule: cards.fool_exchange_card -->
-- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 50.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- The card for the Fool goes to the winner of the trick. *Our reading: Torino [1846], part I, p. 33.* Other reading: The card for the Fool goes to the opponent. <!-- rule: cards.fool_exchange_to -->
+- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
@@ -40,8 +41,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### The deal
 
-- Cards dealt to each player: 25. *Our reading: Dummett (1980), p. 88.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.deal.hand_size -->
-- The dealer gets 3 more. *Our reading: Dummett (1980), p. 88.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.deal.dealer_extra -->
+- Cards dealt to each player: 25. *Our reading: Dummett (1980), p. 260.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.deal.hand_size -->
+- The dealer gets 3 more. *Our reading: Dummett (1980), p. 260.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.deal.dealer_extra -->
 - The cards are dealt in packets as the dealer chooses. *Our reading: book, p. 59.* <!-- rule: hand.deal.packets -->
 - The dealer names the packets before dealing. *Our reading: book, p. 59.* <!-- rule: hand.deal.packets_announced -->
 - Dealing starts with the player on the dealer's right. *Our reading: book, p. 59.* <!-- rule: hand.deal.order -->
@@ -61,7 +62,7 @@ This step: *Documented: from the book, p. 88.*
 
 ### The tricks
 
-- The player on the dealer's right leads first. *Our reading: book, p. 61.* Other reading: First lead: declarer. <!-- rule: hand.tricks.first_leader -->
+- The player on the dealer's right leads first. *Our reading: book, p. 35.* <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 37.* <!-- rule: hand.tricks.next_leader -->
 - You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
@@ -70,9 +71,9 @@ This step: *Documented: from the book, p. 88.*
 
 ### The count
 
-- Cards are counted in pairs: a card is worth its value and half a point more. *Our reading: book, p. 88.* <!-- rule: hand.count.count_unit -->
-- Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Our reading: Dummett (1980), pp. 88-89.* <!-- rule: hand.count.group -->
-- A single card without a pair counts as half a point and its value. *Documented: from the book, p. 88.* <!-- rule: hand.count.odd_card -->
+- Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Our reading: book, p. 88.* <!-- rule: hand.count.count_unit -->
+- Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Our reading: Dummett (1980), p. 260.* <!-- rule: hand.count.group -->
+- A card left without a pair is worth its value less half a point, as in a pair. *Documented: from the book, p. 88.* <!-- rule: hand.count.odd_card -->
 - The card given for the Fool is part of the count. *Sources silent, our decision.* <!-- rule: hand.count.fool_card -->
 
 ### The result of a hand
@@ -85,17 +86,17 @@ This step: *Documented: from the book, p. 88.*
 
 - Settling is in stakes. *Sources silent, our decision.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Our reading: Dummett (1980), p. 260.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake: as agreed. *Sources silent, our decision.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 38.* <!-- rule: penalties.revoke -->
-- Offence «signal»: text only; penalty: pays: simple game; to: each of the others; then: lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «signal»: text only; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Sources
 
@@ -106,4 +107,4 @@ This step: *Documented: from the book, p. 88.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/partita_3.json`, rules revision 8. Do not edit: change the game file.
+Generated from `rulesets/partita_3.json`, rules revision 9. Do not edit: change the game file.

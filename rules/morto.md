@@ -1,6 +1,6 @@
 # Morto
 
-2 players. In the book of 1787: pp. 57-58. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
+2 players. In the book of 1787: pp. 57-58. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
 
 Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-18.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, pp. 16-18.* <!-- rule: seats.cut_min -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The dealers alternate. *Sources silent, our decision.* <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 57.* <!-- rule: sides.mode -->
 
@@ -51,7 +51,8 @@ This step: *Documented: from the book, p. 57.*
 
 ### The tricks
 
-- The dealer's opponent leads first. *Documented: from the book, p. 50.* <!-- rule: hand.tricks.first_leader -->
+- The dealer's opponent leads first. *Documented: from the book, p. 54.* <!-- rule: hand.tricks.first_leader -->
+- Whoever takes a trick leads next. *Documented: from the book, p. 50.* <!-- rule: hand.tricks.next_leader -->
 - You must follow suit if you can. *Documented: from the book, p. 49.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from the book, p. 49.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, p. 49.* <!-- rule: hand.tricks.must_overtrump -->
@@ -66,12 +67,12 @@ This step: *Documented: from the book, p. 57.*
 - The top card is taken. *Documented: from the book, p. 57.* <!-- rule: hand.morto.take -->
 - The card taken is shown to the opponents. *Documented: from the book, p. 57.* <!-- rule: hand.morto.show_to -->
 - The card goes to the won cards. *Documented: from the book, p. 57.* <!-- rule: hand.morto.goes_to -->
-- If a trick holds the Fool, the winner of the trick takes the stock card. *Sources silent, our decision.* <!-- rule: hand.morto.fool_trick -->
+- If a trick holds the Fool, the winner of the trick takes the stock card. *Our reading: book, p. 57.* <!-- rule: hand.morto.fool_trick -->
 
 ### The count
 
-- Cards are counted in pairs: a card is worth its value and half a point more. *Documented: from the book, p. 52.* <!-- rule: hand.count.count_unit -->
-- A single card without a pair counts as half a point and its value. *Documented: from the book, pp. 54-55.* <!-- rule: hand.count.odd_card -->
+- Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Documented: from the book, p. 52.* <!-- rule: hand.count.count_unit -->
+- A card left without a pair is worth its value less half a point, as in a pair. *Documented: from the book, pp. 54-55.* <!-- rule: hand.count.odd_card -->
 - There are no multipliers for tricks. *Our reading: book, p. 52.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book, p. 54.* <!-- rule: hand.count.last_trick_bonus -->
 - The dealer keeps his discard. *Our reading: book, p. 55.* Other reading: A dealer who takes no trick loses his discard. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.dealer_forfeit -->
@@ -94,6 +95,8 @@ This step: *Documented: from the book, p. 57.*
 
 ## Not played yet
 
+- **Fool from morto.** The engine puts a Fool drawn from the Morto among the drawer's won cards like any card: it counts its points and no plain card is given for it. *Sources silent, our decision: Torino 1787, pp. 57-58 say nothing of the Fool drawn from the Morto; the page says only «e poi la metti ne' punti tuoi».* <!-- left_out: fool_from_morto -->
+- **Bagatto discard.** The Venticinque section, which Morto follows, says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred). *Documented: Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.* <!-- left_out: bagatto_discard -->
 - **Premium scale.** Premiums by agreement are not played: a won hand is one game point, as in Venticinque. *Documented: Dummett and McLeod 2004, pp. 156-157: premiums beyond the single game point are agreed by the players; the authors suggest a scale of 1, 2, 3, 4 and 6.* <!-- left_out: premium_scale -->
 - **Vola.** A bid to take all the tricks is a contract the engine has no place for. *Documented: Dummett 1980, p. 259: the Fool may be discarded by a dealer who means to win every trick (vola).* <!-- left_out: vola -->
 - **Declarations 1846.** Torino 1787, p. 57 plays Morto as Venticinque, without declarations; the 1846 variant is not played. *Documented: Torino [1846], part I, pp. 48-49: honours, Mitigati, ten trionfi and Bagatto ultimo are declared in Morto, under the rules of N° XII, pp. 44-46.* <!-- left_out: declarations_1846 -->
@@ -104,4 +107,4 @@ This step: *Documented: from the book, p. 57.*
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 
-Generated from `rulesets/morto.json`, rules revision 8. Do not edit: change the game file.
+Generated from `rulesets/morto.json`, rules revision 9. Do not edit: change the game file.

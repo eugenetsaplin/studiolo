@@ -1,6 +1,6 @@
 # Less (Meno)
 
-2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
+2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
 
 Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -18,8 +18,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
-- The deal passes to the right. *Sources silent, our decision, after Torino [1846], part I, pp. 78-79.* <!-- rule: seats.dealer_rotation -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
+- The deal passes to the right. *Sources silent, our decision, after Torino [1846], part I, p. 18.* <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 78.* <!-- rule: sides.mode -->
 
 ### The cards
@@ -29,18 +29,17 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - In swords and batons the larger number is higher; in cups and coins it is the other way: the ace takes the two, up to the ten, and the king takes the queen, the knight and the jack. *Documented: from the book, pp. 11-13.* <!-- rule: cards.suit_order -->
 - Kings, the Angel, the Bagatto and the Fool are worth 5, queens 4, knights 3, jacks 2, every other card 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Sources silent, our decision.* <!-- rule: cards.fool -->
+- The card for the Fool goes to the winner of the trick. *Our reading: Torino [1846], part I, p. 33.* Other reading: The card for the Fool goes to the opponent. <!-- rule: cards.fool_exchange_to -->
 
 ### By agreement / Variants
 
 - Stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
-- variant: Four cards, as at Sedici. *Documented: from the book, p. 78.* <!-- rule: variants.four_cards -->
-- variant: Eight cards, as at Trent'uno. *Documented: from the book, p. 78.* <!-- rule: variants.eight_cards -->
 
 ### The deal
 
 - Cards dealt to each player: 25 for 2 and 3 players; 19 for 4 players; 15 for 5 players; 13 for 6 players; 11 for 7 players. *Documented: from the book, p. 78.* <!-- rule: hand.deal.hand_size -->
 - The cards are dealt face down. *Our reading: book, p. 78.* <!-- rule: hand.deal.face -->
-- The dealer gets as many as the others. *Sources silent, our decision, after Dummett (1980), p. 78.* <!-- rule: hand.deal.dealer_extra -->
+- The dealer gets as many as the others. *Sources silent, our decision, after Dummett (1980), p. 269.* <!-- rule: hand.deal.dealer_extra -->
 - The other cards lie face down out of play. *Sources silent, our decision, after Dummett (1980), p. 269.* <!-- rule: hand.deal.dead -->
 
 ### The tricks
@@ -58,23 +57,28 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### The result of a hand
 
 - Fewer points wins the hand. *Documented: from the book, p. 78.* <!-- rule: hand.result.winner -->
-- A hand gives no game points. *Sources silent, our decision.* <!-- rule: hand.result.game_points -->
+- A hand gives no game points. *Sources silent, our decision.* Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins or pays in Meno when the fewest points are equal, and whether «the fewest points win» is the right reading at all); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.game_points -->
 - If the points are equal, nobody gains game points. *Sources silent, our decision.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count, the first lead and the payment of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
 
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 21.* <!-- rule: hand.settle.unit -->
-- The amount of the settlement: the stake: simple. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake: simple. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
 - The losers pay the winner. *Sources silent, our decision.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count, the first lead and the payment of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
 - Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, p. 79.* <!-- rule: penalties.revoke -->
+
+## Not played yet
+
+- **Four cards.** Recorded, not played. The rule for a tie is not printed [S]: Meno is won by the fewest points, and with a short deal for four or more players several players take no trick and share zero, so a hand without a winner is almost certain. Until the rule is set the variant is not offered. The data are kept here in words: four cards each (hand_size 4), counted singly (group 1), the Fool a trump in the order of Sedici with T0 (Torino 1787, p. 78: «come al Sedici»). *Documented: Torino 1787, p. 78: «si può giuocare con quattro carte, come al Sedici»: four cards to each player. [S] With four cards and a plain card worth 0, equal fewest points are frequent; a rule for a tie is not printed. [R] Read as the number of cards only; whether the deals are repeated as at Sedici and when the game ends is not said.* <!-- left_out: four_cards -->
+- **Eight cards.** Recorded, not played. The rule for a tie is not printed [S]: Meno is won by the fewest points, and with a short deal for four or more players several players take no trick and share zero, so a hand without a winner is almost certain. Until the rule is set the variant is not offered. The data are kept here in words: eight cards each (hand_size 8), counted singly (group 1) with a plain card worth 1 (Torino [1846], part I, pp. 30-31), the Fool a trump in the order of Sedici with T0. *Documented: Torino 1787, p. 78: «con otto carte, come al Trent'uno»: eight cards to each player. [R] Read as the number of cards only; whether the deals are repeated as at Trent'uno and when the game ends is not said.* <!-- left_out: eight_cards -->
 
 ## Sources
 
@@ -85,4 +89,4 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/meno.json`, rules revision 8. Do not edit: change the game file.
+Generated from `rulesets/meno.json`, rules revision 9. Do not edit: change the game file.

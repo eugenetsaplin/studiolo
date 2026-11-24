@@ -4,7 +4,7 @@
 	"family": "dottore",
 	"status": "playable_with_decisions",
 	"about": "Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The payment, the value of each card, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.",
-	"revision": 8,
+	"revision": 9,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -36,7 +36,7 @@
 		"direction": {"value":"right","source":"[D] Torino 1787, pp. 35, 37: «gli altri sempre a destra procedendo»: play passes to the right."},
 		"first_dealer": {"value":"draw_trump","source":"[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first. General rule of the book, not repeated in the section."},
 		"cut_by": {"value":"left","source":"[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies. General rule of the book, not repeated in the section."},
-		"cut_min": {"value":2,"source":"[D] Torino 1787, p. 17: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
+		"cut_min": {"value": 2, "source": "[R] Torino 1787, p. 16: «Una carta sola non si può coppare»: the page forbids only a cut of one card; that each part keeps at least two cards is our reading."},
 		"dealer_rotation": {"value":"right","source":"[R] Torino 1787, p. 70: after a hand that «si deve ripigliar da capo» «tocca al compagno appresso a mischiare, e dar i Tarocchi»: the next player deals; the book names no other change of dealer, and «appresso» is read in the direction of play (to the right).","alt":"left"}
 	},
 	"sides": {
@@ -48,11 +48,11 @@
 		"trump_order": {"value":"torino_1787","source":"[D] Torino 1787, pp. 9-10, 13: the trionfi rank by their printed numbers, with the Angel XX above the World XXI («l'usanza, che in questo caso fa legge»); checked on the scan on 2 November 2026."},
 		"suit_order": {"value":"italian","source":"[D] Torino 1787, pp. 11-13: swords and batons run 10 down to 1, cups and coins 1 up to 10, the courts above every numeral in the order King, Queen, Knight, Jack; checked on the scan on 2 November 2026."},
 		"card_points": {"value": "honours_4_angel", "source": "[D] Torino 1787, pp. 13-14: «Ogni Re conta cinque punti. Ogni Donna conta quattro punti»: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, the Fool 5. How the cards are grouped in the count is written in hand.count.group."},
-		"fool": {"value":"excuse","source":"[D] Torino 1787, p. 77: «Il Folle a questi tre giuochi solamente … non volendo noi giuocar altra carta»: shown instead of a card, it takes nothing (Quintilio, Sestilio, Settilio)."},
+		"fool": {"value": "excuse", "source": "[R] Torino 1787, p. 77: «Il Folle a questi tre giuochi solamente … non volendo noi giuocar altra carta»: shown instead of a card, it takes nothing (Quintilio, Sestilio, Settilio); carried over to the Dottore, whose page does not say it."},
 		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 75-78: the Dottore says nothing of the Fool; pp. 76-77 give giuoco sciolto, which uses the Dottore's rules, the Fool's card (pp. 77-78). Carried over to the Dottore itself; other reading: no card for the Fool at the Dottore.","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»; carried over to the three games of pp. 77-78."},
-		"fool_exchange_to": {"value":"trick_winner","source":"[D] Torino 1787, pp. 77-78: «dovrà sempre dare a chi ha preso … quando il Folle è stato giuocato»: to the taker of the trick in which the Fool was shown."},
-		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà sempre dare a chi ha preso», said of Permesso for five to seven; carried over to the Dottore, whose page (p. 75) does not say it."},
+		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
 	},
 	"options": [
 		{"id":"group","choices":[1,2,3],"default":2,"source":"[D] Torino 1787, p. 75: «Nel contare poi i … a due a … tutti contino sull'istesso metodo»; the default is ours.","affects":["hand.count.group"]},
@@ -64,7 +64,7 @@
 				"id": "deal",
 				"module": "deal",
 				"settings": {
-					"hand_size": {"value": 15, "source": "[D] Torino [1846], part I, p. 46: «Si danno quindici carte»; Torino 1787, p. 75 only by reference.", "by": "torino1846"},
+					"hand_size": {"value": 15, "source": "[D] Torino [1846], part I, p. 46: «Si danno quindici carte»; Torino 1787, p. 75 only by reference.", "by": "torino1846", "pages": [46]},
 					"dealer_extra": {"value":3,"source":"[D] Torino 1787, p. 75: «se ne scartano tre da chi dà le carte secondo il solito»: three over for the dealer."},
 					"packets": {"value":"dealer_choice","source":"[R] Torino 1787, p. 59 (said for Permesso): the way of dealing is the dealer's, announced before the cut."},
 					"packets_announced": {"value":true,"source":"[R] Torino 1787, p. 59: announced before the cut; the Dottore sends to Permesso for the deal."},
@@ -89,10 +89,10 @@
 				"id": "tricks",
 				"module": "tricks",
 				"settings": {
-					"first_leader": {"value": "previous_last_taker", "source": "[R] Torino 1787, p. 75: «Chi è ultimo a prendere giuoca il primo, come si è detto del giuoco Trent'uno»; the rule is on p. 37 (said for Sedici): «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare». Other reading: the last to receive cards; the lead of the first hand is not said (the general rule of p. 35 gives it to the player on the dealer's right).", "alt": "dealer_right", "replace": {"with": ["expert"], "what": "who leads first: «Chi è ultimo a prendere giuoca il primo»", "q": 20}},
-					"next_leader": {"value":"trick_winner","source":"[D] Torino 1787, p. 37: «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare»."},
+					"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, p. 35 (general rule): «Chi è a destra di chi dà, comincia»; the first lead of a hand is not printed for this game. p. 75, «Chi è ultimo a prendere giuoca il primo», is read as the lead after each trick (next_leader). Other reading (stood until revision 8): the taker of the last trick of the previous hand leads.", "alt": "previous_last_taker", "replace": {"with": ["expert"], "what": "who leads first: «Chi è ultimo a prendere giuoca il primo»", "q": 20}},
+					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 75: «Chi è ultimo a prendere giuoca il primo»; p. 37: «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare»."},
 					"follow_suit": {"value":true,"source":"[D] Torino 1787, p. 35: «debbon rispondere con carte della medesima sequenza»."},
-					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it.", "by": "torino1846"},
+					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it. Torino 1787, p. 49 (Baronetti) prints the same duty: «se non ho carte della medesima sequenza prendo con Trionfi».", "by": "torino1846", "pages": [36]},
 					"must_overtrump": {"value":false,"source":"[R] Torino 1787, pp. 36-37: no duty to beat the trump on the table."},
 					"fool_may_lead": {"value":true,"source":"[S] Ours: the Fool «solamente si mostra, quando cada in acconcio» (p. 77) at the three Permesso games; for the Dottore the book is silent."}
 				}
@@ -103,9 +103,9 @@
 				"settings": {
 					"count_unit": {"value":"half_point","source":"[R] Torino 1787, p. 75: counted «ad una ad una, o a due a due, o a tre a tre»; the half-point arithmetic of the format covers all three."},
 					"group": {"value":"option:group","source":"[D] Torino 1787, p. 75: «purchè tutti contino sull'istesso metodo»: one, two or three by agreement (option group)."},
-					"odd_card": {"value":"half_point","source":"[S] Torino 1787, p. 75 does not say how cards left over a whole group count; ours: as at Venticinque (p. 54), the odd card counts its value less the half."},
+					"odd_card": {"value": "half_point", "source": "[S] Torino 1787, p. 75 does not say how cards left over a whole group count; ours: as at Venticinque (p. 54), the odd card counts its value less the half (with groups of three the short group counts its values less two thirds)."},
 					"fool_card": {"value":"counted","source":"[S] Torino 1787, p. 75 is silent on the Fool's card; ours: counted."},
-					"plain_value": {"value":1,"source":"[R] Torino 1787, p. 75: counting one by one makes every plain card worth a point; Dummett 1980, p. 263: «so that there are 130 points altogether».","by":"dummett1980"}
+					"plain_value": {"value":1,"source":"[R] Torino 1787, p. 75: counting one by one makes every plain card worth a point; Dummett 1980, p. 263: «so that there are 130 points altogether».","by":"dummett1980", "pages": [263]}
 				}
 			},
 			{
@@ -113,7 +113,7 @@
 				"module": "result",
 				"settings": {
 					"winner": {"value":"more_points","source":"[D] Torino 1787, p. 75: «Chi fa più punti è quel, che guadagna»."},
-					"tie": {"value":"no_game_points","source":"[S] Torino 1787, p. 75 does not say what equal points are worth; ours: no one gains, the hand is replayed."},
+					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, p. 75 does not say what equal points are worth; ours: a tie is a hand played out; nobody pays."},
 					"game_points": {"value":"none","source":"[S] Torino 1787, p. 75 names no game points; the hand is settled in stakes."}
 				}
 			},
@@ -121,7 +121,7 @@
 				"id": "settle",
 				"module": "settle",
 				"settings": {
-					"unit": {"value":"stake","source":"[S] Torino 1787, pp. 75-76: no payment is printed (Dummett 1980, p. 263: «There is no information about the system of scoring»); the agreed stake.","by":"dummett1980"},
+					"unit": {"value":"stake","source":"[S] Torino 1787, pp. 75-76: no payment is printed (Dummett 1980, p. 263: «There is no information about the system of scoring»); the agreed stake.","by":"dummett1980", "pages": [263]},
 					"mode": {"value":"losers_pay_winner","source":"[S] Torino 1787, p. 75: not said; ours: each of the four others pays the winner (as Sedici for three, p. 43)."},
 					"amount": {"value":{"stake":"agreed"},"source":"[S] Torino 1787, p. 75: not said; the simple stake agreed before the deal (general rule, p. 21)."}
 				}
@@ -130,7 +130,7 @@
 	},
 	"match": {
 		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and prints no payment; the marche are settled after every deal, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
-		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 75-76 are silent on the length of a match. Torino [1846], part I, p. 46 («come al Venticinque in tre») and Prammatica [1846], p. 22 («simile al Venticinque del n° 6») liken the game to Venticinque for three but name no number of deals. Ours: one round of dealers, five deals. The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 75-76 are silent on the length of a match. Torino [1846], part I, p. 46 («come al Venticinque in tre») and Prammatica [1846], p. 22 («simile al Venticinque del n° 6») liken the game to Venticinque for three but name no number of deals. Ours: one round of dealers, five deals. The table may agree on two or three rounds.", "by": "ours", "pages": [75, 76], "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
 	},
 	"penalties": [
 		{
@@ -138,14 +138,14 @@
 			"offence": "revoke",
 			"enforce": "prevent",
 			"hand": "continues",
-			"effect": {"value":{"pays":"simple_game","to":"each_other"},"source":"[D] Torino 1787, p. 38 (general rule 35, said for Sedici; p. 79 (Meno) and p. 90 (Partita) send to it): «incorrere nella pena accennata … num. 35. di … tutti i giuocatori compagni»; the engine refuses a card that does not follow suit."}
+			"effect": {"value":{"pays":"simple_game","to":"each_other"},"source":"[D] Torino 1787, pp. 33-34 (rule 35; p. 38 sends to it, said for Sedici; p. 79 (Meno) and p. 90 (Partita) send to it): «incorrere nella pena accennata … num. 35. di … tutti i giuocatori compagni»; the engine refuses a card that does not follow suit."}
 		},
 		{
 			"id": "signal",
 			"offence": "signal",
 			"enforce": "text_only",
 			"hand": "continues",
-			"effect": {"value":{"pays":"simple_game","to":"each_other","then":"lone_player_may_stop"},"source":"[D] Torino 1787, p. 73: «costui pagherà la partita semplice a tutti … giuocare, o far cessare il giuoco»; named for Permesso for three, four and five and for Chiamare il Re (and «a qualunque altro giuoco di Tarocchi»). [R] who the offender may be is not said (any player); the table cannot see a knock, so only the rules page tells it."}
+			"effect": {"value":{"pays":"simple_game","to":"each_other"},"source":"[D] Torino 1787, p. 73: «costui pagherà la partita semplice a tutti … giuocare, o far cessare il giuoco»; named for Permesso for three, four and five and for Chiamare il Re (and «a qualunque altro giuoco di Tarocchi»). [R] who the offender may be is not said (any player); the table cannot see a knock, so only the rules page tells it."}
 		}
 	],
 	"view": {

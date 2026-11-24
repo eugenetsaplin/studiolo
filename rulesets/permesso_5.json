@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Permesso for five («Quintilio», Torino 1787, «Del Permesso in cinque persone», pp. 74-75, and the Fool of pp. 77-78): 15 cards to each of the five players, 18 to the dealer, who puts away any three (p. 74); the rest as in Permesso for three. The book advises the lone player to hold at least four of the greatest trumps (p. 74). The payment against four is not printed. The Fool is only shown, and its card goes to the taker of that trick (pp. 77-78).",
-	"revision": 8,
+	"revision": 9,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -35,10 +35,10 @@
 	"cards": {
 		"deck": {"value":"full78","source":"[R] Torino 1787, p. 74: 5 × 15 + 3 = 78 («quindici … dieciotto»); the sum is not printed."},
 		"fool": {"value":"excuse","source":"[D] Torino 1787, p. 77: «Il Folle a questi tre giuochi solamente … non volendo noi giuocar altra carta»: shown instead of a card, it takes nothing (Quintilio, Sestilio, Settilio)."},
-		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà … quando il Folle è stato giuocato»; read as the card given in place of the Fool (p. 52, p. 54), one plain card. Other reading: the Fool itself goes to the taker of that trick (no format key: FORMAT_OPEN_POINTS, F2).","alt":false},
+		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà … quando il Folle è stato giuocato»; read as the card given in place of the Fool (p. 52, p. 54), one plain card. Other reading: the Fool itself goes to the taker of that trick (no format key).","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»; carried over to the three games of pp. 77-78."},
-		"fool_exchange_to": {"value":"trick_winner","source":"[D] Torino 1787, pp. 77-78: «dovrà sempre dare a chi ha preso … quando il Folle è stato giuocato»: to the taker of the trick in which the Fool was shown."},
-		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed. Dummett 1980, p. 259 supports the other reading: «if they have won no tricks, they must surrender the Folle».", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+		"fool_exchange_to": {"value": "trick_winner", "source": "[D] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà sempre dare a chi ha preso»: to the taker of the trick in which the Fool was shown (Quintilio, Sestilio, Settilio)."},
+		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed. Dummett 1980, p. 259 supports the other reading: «if they have won no tricks, they must surrender the Folle».", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
 	},
 	"hand": {
 		"phases": [
@@ -75,7 +75,7 @@
 	},
 	"left_out": [
 		{"id":"vola","source":"[D] Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).","why":"The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played."},
-		{"id":"marcio","source":"[D] Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».","why":"Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played (see FORMAT_OPEN_POINTS, F2)."},
+		{"id":"marcio","source":"[D] Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».","why":"Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played."},
 		{"id":"draw_money","source":"[D] Torino 1787, p. 70: after a draw nothing is said of the stakes on the table.","why":"A drawn hand pays nothing in the ledger."},
 		{"id":"bagatto_declared_1846","source":"[D] Torino [1846], part I, pp. 44-46 (pp. 44-45 read on the Academy's separate image of the «pagine mancanti»; also Prammatica [1846], pp. 20-21): the lone player may declare the Bagatto last, played «e qualche volta in cinque persone»: «oltre alla Partita gli altri giuocatori ti pagheranno trenta marche per caduno»; failing, he pays thirty to each, apart from the game.","why":"The book of 1787 does not know it (Dummett 1980, p. 267: «also mentioned only in RI»). The engine cannot yet play a declaration by the lone player only, nor a payment that depends on it (question 17); a playable variant waits."},
 		{"id":"permesso_castrato","source":"[D] Torino [1846], part I, pp. 43-44; Prammatica [1846], p. 20: Permesso castrato, the pack without 24 small cards: «se in cinque, se ne distribuiranno dieci per ciascuno e se ne scarteranno quattro».","why":"A later custom of 1846, not in the book of 1787 (not in its index; Dummett 1980, p. 267: «mentioned only in RI»). Not played yet; a playable variant waits."}

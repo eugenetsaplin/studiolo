@@ -380,3 +380,64 @@ Reason: a full second reading of the rules of all 21 game files against the page
 12. The texts of Trent'uno name the new variant.
 
 **Count of marks.** The rule of the count, written now and kept by `node tools/count-marks.mjs`: a leaf is an object with `value` and `source` outside `left_out`; leaves marked `unused` are not counted, leaves in `variants` are counted; a leaf a child file inherits through `extends` is counted once. The sixteen `unused` leaves of Morto and Venticinque (eight each) stay in the files for the comparison with the old format, but are not rules. The six Bagatto payments of Mitigati for two and Bagatt'ultimo are rules with a mark, but they are not in the count: their sum stands in `amount`, not in `value`. By this rule revision 7 has 551 [D], 245 [R], 112 [S] — 908 rules (the 924 written above counted the sixteen `unused` leaves). Revision 8: 556 [D], 249 [R], 108 [S] — 913 rules in all.
+
+## Revision 9 — 24 November 2026, tag `rules-r9`
+
+<!-- files r9
+bagattultimo.json sha256:05b990f949424622ab44ab05532341174d47096e7639cccbfedf863413905554
+baronetti.json sha256:2f8592ce63be1cf660c46b85d7aa34df96b3e4ac7f7b076b4cacc7aebf7f1147
+chiamare_il_re.json sha256:dd535ea1922351dd605ca237f0083e03415c3c03bc147d1b743c6e073bbc77e5
+consiglio.json sha256:2e0646f17bc1ac220b5dfc8b457f28aae2cc02e6421d922d12c5e6b1a80603f7
+dottore.json sha256:b371baf3bba101021129075a5b266eef8f5ed8054ad6aa8b4e65f6dcc6c6a57a
+meno.json sha256:c644e46790ec4d985406e36b142f5fbb5c1110746b253e0b95d2d93446f42b49
+mitigati_2.json sha256:fbba2ff103104df0a72e8da2e160ced259042b52a8b0a2ad41b4dcb33db2583b
+morto.json sha256:9dbfb365711dfa31cfb78e6e50fb44b239a9ecea490d3c45f26fc1df687397a7
+partita_3.json sha256:31650afa8b426a3bf99f87d25775b6521bbfa5354ce62fc0af6dae6ca58cf611
+partita_4.json sha256:45b71421598cc0f4f58524a94fe11644b87e02a81c3b502b35fd676fbf0e9f5c
+permesso_3.json sha256:f778275db5f0917f6a6c5ea62774bbe44d630676d351fdd9a52719d3fdb2c806
+permesso_4.json sha256:a860f01dd30034fa85df12e2b5af96bd65709a7016b9b8542cfd89c3ed2f1bca
+permesso_5.json sha256:8c8ebe835541c2c14f257094325592b51d55bf20867e2dfa102217afadc3f705
+permesso_6.json sha256:da6195c43d12220dce52e58ccb9e216de0623967de12a4d8f8d6d35bae55eaed
+permesso_7.json sha256:56d0f1a35be83ca0f1e0c098639b7a66e8a2f8c9de07d3010b11298005612b92
+sedici_2.json sha256:ada4c969926f5b3a8554baccdaf52db1dabf6a5b9233663b0cf952a703c18e5a
+sedici_3.json sha256:db9fce4b293056a3c9958af55df283ab6e86f7cfac8320e923bdb279f135938e
+sedici_4.json sha256:21c1cd785a82f8c1743f9eb58295fbce2247f622a270c95f1cec2e500ee3b51b
+trentuno.json sha256:56d9da884b4c34c9c1f55eb000157e54d1379a58d553c95c1a13672247ebc50a
+venticinque.json sha256:89f277aa3f41e1da71abcfff41b0cd4414cd3006194bd65e8423e151c8c1a01b
+venticinque_3.json sha256:fdf12d51a3540d97bfe556bceee9a68eac44822642be5476a6f9da73c8cc4cf0
+-->
+
+Reason: two independent outside checks of revision 8. Each of their remarks was checked against the page images or reproduced on the engine, and the pages that decide a point were read a second time by a reader who had not seen the first reading. A value changed only where two readers read the page independently or the fault was reproduced; where the book is silent or disagrees with itself the value stays, the mark is made honest and the dispute is written down.
+
+**What changes for the player.**
+1. Sedici for two, Trent'uno for two, Baronetti: the deal alternates (1787, pp. 42-43, rule 44: the player whose turn it is to shuffle may happen to be the winner; p. 70: «tocca al compagno appresso a mischiare»; Baronetti through p. 53). The reading of revision 8, that the loser deals, is withdrawn: it stood only on the example of p. 41, where the winner had also dealt. It stays as the other reading. For three and four the deal goes round to the right, as before.
+2. Sedici for two to four, Trent'uno: «fuora» may be said on any turn of one's own, in the middle of a trick too (`claim_when: own_turn` [R]; 1787, p. 40; Dummett 1980, p. 269). Until now it could be said only straight after one's own trick; that reading, and the literal «at any moment», are the other readings. A right claim ends the game at once and the cards of an unfinished trick count for nobody.
+3. Sedici for two to four, Trent'uno: after each new deal of the same game the taker of the last trick leads; the first trick of every game is led by the player on the dealer's right (`first_leader: round_last_taker` [R]; 1787, pp. 35, 37). The book does not say it in so many words; the dealer's right for every round is the other reading.
+4. Baronetti: the Fool is played into a trick in place of a card (1787, pp. 50, 54: «solamente si mostra, come nel giuoco de' Baronetti»); it stays with its owner, who gives a plain card of his choice (p. 52). There is no separate action to show it, and every deal has 39 tricks.
+5. Partita for three and four, Consiglio, Permesso for three and four, Meno: the plain card for the Fool goes to the player who took the trick (Torino [1846], part I, p. 33; 1787, pp. 77-78, said of Permesso for five to seven), [R]. Until now it went to the opposing side or to the right-hand neighbour, which now and then turned a win into a tie.
+6. Dottore, Permesso for six and seven: the first lead of a hand is the player on the dealer's right (p. 35); p. 75 («Chi è ultimo a prendere giuoca il primo») is the lead after each trick.
+7. Partita for four, counted by four: the two cards of the discard count as one short group, 72 points in all, and 36 each is a tie (`odd_card: as_group` [R]; Dummett 1980, pp. 261, 263; Nice 1930, p. 279; Turin 1880, p. 11, where 36 each is «pata»). Until now the engine totalled 71½. Counted in pairs the total is 91, as before.
+8. Consiglio: the count is always in pairs and the target 46 (p. 97); the option to count by four is removed, since 46 of 72 is out of reach. The second custom of p. 97, the most points over the round, stays the variant «sum_of_four_deals».
+9. Meno: the two short variants (four and eight cards) are recorded but not played. The tie rule is not printed [S], and with four or more players equal zeros are almost certain (open question 34).
+10. Partita for four: the ban on going alone (p. 89) is no longer printed as a penalty «call own card», and the signal no longer says «the lone player may stop».
+
+**What changed in the files without a change of play.**
+1. Sedici and Trent'uno: `after_false_claim` play_on [S] → [R] by rule 9, p. 20; the Prammatica is no longer its ground. Sedici for two: a false claim is paid to «the opponent»; the empty pack no longer gives Dummett's guesses for Trent'uno as said of Sedici. `result.game_points` of Sedici [R] → [D] (Prammatica, pp. 11-12, as at Trent'uno). Trent'uno: the variant «Prammatica [1846]» says that by p. 12 the winner is the first to have made the points, which the engine does not play; `bot.play[1]` translated anew (p. 46).
+2. `seats.cut_min` [D] → [R], p. 16, in the eleven files that still had [D] (and p. 17 or pp. 16-18 → p. 16).
+3. The card for the Fool: Permesso for five to seven [D] by pp. 77-78 with its words; Dottore `fool` and `fool_exchange_to` [D] → [R] (carried over). Venticinque and Morto: the owner's choice is the other reading [R]. Permesso for four: `result.tie` no longer says a tie arises when a Fool was not paid for.
+4. Permesso: the step at 48 is [R], not [D] (rule 10, p. 68); rule 12 and its examples put the steps at 50, 55, 60 (other reading, open question 33); the engine is unchanged. `lay_down_fewer` quotes p. 65, rule 4; `exchange.give` [S] → [R] by p. 61.
+5. Venticinque for two: brought to the present form (`next_leader` p. 50, `first_leader` p. 54); `count.odd_card` [D] → [R], value unchanged; `result.tie` records that the example of p. 54 (27 against 28 made equal by the card for the Fool) does not agree with our count, where a tie cannot happen (open question 32).
+6. Morto: `next_leader` added (p. 50); `fool_trick` [S] → [R] by p. 57; `left_out` gains the Fool drawn from the Morto ([S]: pp. 57-58 are silent) and the lone Bagatto in the discard.
+7. `fool_no_tricks` give_none [R] → [S] (p. 50; p. 55 is no ground) in nine files.
+8. Mitigati for two: the other reading with one honour declared is removed (p. 93: three at least); «39 and 39» is written as impossible in `about` and in the first deal; `settle.amount` [D] → [S] (Dummett, p. 263, is the other reading).
+9. Venticinque for three: `bot.play[0]` by Torino [1846], part I, p. 34 (the player who is out leads his trionfi, then the kings and the sure cards); Dummett's reading is the other reading.
+10. Partita for three, Dottore, Meno, Permesso for six: a tie is a hand played out and nobody pays; the sources no longer say «replayed». Partita for four (four deals) and Venticinque for three: «paid after each deal» [S].
+11. Pages: every leaf that cites another book through `by` now has `pages`, the pages of that book (163 leaves). Until this revision the rules pages took the first page number in the source line, and 43 printed links named a page of the book of 1787 under the name of another book.
+12. Smaller records: revoke pages «pp. 33-34 (rule 35); p. 38 sends to it»; `must_trump` cites 1787, p. 49 (Baronetti) beside Torino [1846], p. 36; Ficcia cites 1787, p. 99; the signals of Turin 1880, p. 10; `dottore count.odd_card` names threes; «its points and a half» → «its points less a half»; the lone Bagatto in the discard is a `left_out` line in Bagatt'ultimo and Mitigati for two; quotations in the sources are fourteen words at most.
+13. Open questions: 5 and 20 closed; new questions 32 (the count of the rest at Venticinque), 33 (the steps of the payment at Permesso) and 34 (the tie at Meno).
+
+**The engine and the texts.** Two new values of the format, `claim_when: own_turn` and `first_leader: round_last_taker`. Five corrections: the discard is kept by the side, not the seat; `drop` throws away the cheapest cards whatever their order; a called rank is judged on the hand after the discard (p. 81); a false «fuora» that ends the game is paid; a deal that cannot be played out is refused. General checks now run over every game, number of seats, variant and option: the card for the Fool, the sum of the points, every variant playing to a winner, the tables of declarations, the words of the rules pages. The rules pages said «half a point more» where the engine takes half a point off, said that Sedici and Trent'uno are won by getting rid of one's cards, and printed the Onoranza of the contract in games without one; all three are corrected.
+
+Not in this revision, separate tasks: the payment at the end of a match (`match.payout`); the window of declarations before the first trick is covered; the winner «first to have made the points» for the Prammatica variant; a refusal to play against a double Onoranza (Permesso, p. 66); the blocks `sources`, `penalties` and `settle` of Venticinque for two; the bands of Permesso.
+
+**Count of marks** (by the rule written under revision 8): 541 [D], 260 [R], 110 [S] — 911 rules in all. The two short variants of Meno, now recorded and not played, are no longer in the count.

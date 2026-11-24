@@ -1,6 +1,6 @@
 # Call the King (Chiamare il Re)
 
-4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 8.
+4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
 
 Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S] (the lead [R], by the general rule of p. 35).
 
@@ -18,7 +18,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
-- A cut leaves at least 2 cards in each part. *Documented: from the book, p. 16.* <!-- rule: seats.cut_min -->
+- A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. <!-- rule: seats.dealer_rotation -->
 - The sides form by the bid: the one who takes the bid plays against the others. *Documented: from the book, pp. 80-83.* <!-- rule: sides.mode -->
 - Points are counted for the side, not for each player. *Documented: from the book, pp. 81-83.* <!-- rule: sides.pool -->
@@ -33,7 +33,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Sources silent, our decision.* <!-- rule: cards.fool -->
 - Whoever plays the Fool keeps it and gives another card in its place. *Documented: from the book, p. 81.* <!-- rule: cards.fool_exchange -->
 - The card for the Fool goes to the winner of the trick. *Our reading: Torino [1846], part I, p. 33.* <!-- rule: cards.fool_exchange_to -->
-- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 50.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
@@ -111,9 +111,9 @@ This step: *Documented: from the book, p. 82.*
 
 ### The count
 
-- Cards are counted in pairs: a card is worth its value and half a point more. *Documented: from the book, pp. 51-52.* <!-- rule: hand.count.count_unit -->
+- Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Documented: from the book, pp. 51-52.* <!-- rule: hand.count.count_unit -->
 - Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Our reading: book, p. 81.* <!-- rule: hand.count.group -->
-- A single card without a pair counts as half a point and its value. *Our reading: book, p. 54.* <!-- rule: hand.count.odd_card -->
+- A card left without a pair is worth its value less half a point, as in a pair. *Our reading: book, p. 54.* <!-- rule: hand.count.odd_card -->
 - The card given for the Fool is part of the count. *Documented: from the book, p. 81.* <!-- rule: hand.count.fool_card -->
 
 ### The result of a hand
@@ -127,25 +127,25 @@ This step: *Documented: from the book, p. 82.*
 
 - Settling is in stakes. *Documented: from the book, p. 83.* <!-- rule: hand.settle_pair.unit -->
 - The pair shares the win; with unequal sides (one against three) the declarer settles with each opponent. *Our reading: book, p. 90.* <!-- rule: hand.settle_pair.mode -->
-- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision.* Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle_pair.amount -->
+- The amount of the settlement: the stake: as agreed. *Sources silent, our decision.* Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle_pair.amount -->
 
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 83.* <!-- rule: hand.settle_alone.unit -->
 - The declarer settles with each player on his own. *Documented: from the book, pp. 82-83.* <!-- rule: hand.settle_alone.mode -->
-- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from Dummett (1980), p. 83.* <!-- rule: hand.settle_alone.amount -->
+- The amount of the settlement: the stake: as agreed. *Documented: from Dummett (1980), p. 269.* <!-- rule: hand.settle_alone.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
 - Offence «call own card»: apply; penalty: plays alone: yes; unless: all others forgive unanimously. *Our reading: book, p. 83.* <!-- rule: penalties.call_own_card -->
 - Offence «hint partner»: text only; penalty: hinter plays alone: yes; unless: hint was in the plain way of play. *Our reading: book, p. 83.* <!-- rule: penalties.hint_partner -->
 - Offence «signal»: text only; penalty: pays: simple game; to: each of the others; then: lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 38.* <!-- rule: penalties.revoke -->
+- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
@@ -161,4 +161,4 @@ This step: *Documented: from the book, p. 82.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/chiamare_il_re.json`, rules revision 8. Do not edit: change the game file.
+Generated from `rulesets/chiamare_il_re.json`, rules revision 9. Do not edit: change the game file.

@@ -5,7 +5,7 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two.",
-	"revision": 8,
+	"revision": 9,
 	"sources": {
 		"prammatica1846": {
 			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
@@ -23,17 +23,33 @@
 		"partners_share_hands": {"value":true,"source":"[D] Torino 1787, p. 97: «mostransi il giuoco»."},
 		"partners_talk": {"value":true,"source":"[D] Torino 1787, p. 97: «si consultano liberamente»."}
 	},
+	"options": [
+		{"id":"stake","choices":[1,2,5,10],"default":1,"source":"[D] Torino 1787, p. 90: «del convenuto»: the payment is agreed before the deal; the book names no figure; the choices are ours (as in Partita, p. 97: «tutto è simile al giuoco di Partita in quattro»).","affects":["hand.settle.amount"]}
+	],
 	"cards": {
 		"deck": {"value":"full78","source":"[D] Torino 1787, p. 97: «Del rimanente tutto è simile al giuoco di Partita in quattro»: the same deal, 4 × 19 + 2 = 78."}
 	},
 	"hand": {
 		"phases": [
 			{
+				"id": "count_fours",
+				"module": "count",
+				"remove": true
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"when": {"seats": [4]},
+				"settings": {
+					"group": {"value":2,"source":"[D] Torino 1787, p. 97: «presso cert'uni poter contare quarantasei punti»: 46 of 91, the count in pairs of p. 52. Counting by four (Partita, p. 89) is not offered here: 46 of 72 is out of reach (revision 9, answer 6 of the lead session)."}
+				}
+			},
+			{
 				"id": "result",
 				"module": "result",
 				"settings": {
 					"winner": {"value":"threshold","source":"[R] Torino 1787, p. 97: «Per vincere basta presso … contare quarantasei punti; … in tutto il giro»: the first custom is the base, the second a variant; the table must agree beforehand («fa ancor mestiere d'intendersela prima di giuocare»).","alt":"more_points"},
-					"target": {"value":46,"source":"[D] Torino 1787, p. 97: «quarantasei punti»."}
+					"target": {"value": 46, "source": "[D] Torino 1787, p. 97: «presso cert'uni poter contare quarantasei punti»: 46, counted in pairs."}
 				}
 			}
 		]
@@ -55,15 +71,15 @@
 					]
 				},
 				"match": {
-					"kind": {"value":"fixed_hands","source":"[R] Torino 1787, p. 97: a round of four deals; in this format `fixed_hands` counts game points per hand, the book counts the points of all four deals together (FORMAT_OPEN_POINTS, point 39); the marche are still settled after every deal (point 54)."},
+					"kind": {"value":"fixed_hands","source":"[R] Torino 1787, p. 97: a round of four deals; in this format `fixed_hands` counts game points per hand, the book counts the points of all four deals together; the marche are still settled after every deal (point 54)."},
 					"hands": {"value":4,"source":"[D] Torino 1787, p. 97: «tutte quattro le volte»: four deals. [R] That each player deals once is our reading; Torino [1846], part I, p. 36 says so of Partita for four."},
-					"tiebreak": {"value":"card_points","source":"[R] Torino 1787, p. 97: the part with more points «in tutto il giro» wins; game points are none, so this key decides the variant by the card points of the four hands together; equal totals are a draw (equal totals «rende pace», Prammatica [1846], p. 29). The marche are still settled after every deal: the format cannot pay one stake at the end (FORMAT_OPEN_POINTS, point 54)."}
+					"tiebreak": {"value":"card_points","source":"[R] Torino 1787, p. 97: the part with more points «in tutto il giro» wins; game points are none, so this key decides the variant by the card points of the four hands together; equal totals are a draw (equal totals «rende pace», Prammatica [1846], p. 29). The marche are still settled after every deal: the format cannot pay one stake at the end."}
 				}
 			}
 		}
 	],
 	"match": {
-		"dealer_rounds": {"value": 1, "source": "[R] Torino 1787, p. 97: the second custom counts the points «in tutto il giro», the cards dealt «tutte quattro le volte»: a round of four deals. The base file plays the first custom (46 points in one deal) and keeps the same round as the length of a match, our reading; the marche are settled after every deal, as at Partita («tutto è simile al giuoco di Partita in quattro»). The second custom with one stake at the end waits for the format (FORMAT_OPEN_POINTS, point 54); Prammatica [1846], pp. 29-30 has such a stake, the «coda». The table may agree on two or three rounds.", "alt": 2, "replace": {"with": ["document", "people"], "what": "one stake at the end of the partita, or the marche after every deal", "q": 24}}
+		"dealer_rounds": {"value": 1, "source": "[R] Torino 1787, p. 97: the second custom counts the points «in tutto il giro», the cards dealt «tutte quattro le volte»: a round of four deals. The base file plays the first custom (46 points in one deal) and keeps the same round as the length of a match, our reading; the marche are settled after every deal, as at Partita («tutto è simile al giuoco di Partita in quattro»). The second custom with one stake at the end waits for the format; Prammatica [1846], pp. 29-30 has such a stake, the «coda». The table may agree on two or three rounds.", "alt": 2, "replace": {"with": ["document", "people"], "what": "one stake at the end of the partita, or the marche after every deal", "q": 24}}
 	},
 	"view": {
 		"partners_hands": "shown"
