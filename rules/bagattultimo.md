@@ -1,6 +1,6 @@
-# The Last Bagatto (Bagatt’ultimo)
+# Bagatto last (Bagatt’ultimo)
 
-3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 7.
 
 Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -64,7 +64,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - A declaration may be made after the discard and before the first card. *Documented: from the book, p. 95.* <!-- rule: hand.declarations.window -->
 - The kinds of declaration are listed in the game file. *Documented: from Torino [1846], part I, pp. 93-95.* <!-- rule: hand.declarations.kinds -->
 - Whoever declares late loses the right to declare. *Documented: from the book, p. 95.* <!-- rule: hand.declarations.late -->
-- The players make the declarations themselves. *Our reading: book, p. 93.* Other reading: Declarations: auto. <!-- rule: hand.declarations.mode -->
+- The players make the declarations themselves. *Our reading: book, p. 93.* Other reading: The engine makes the declarations for the players. <!-- rule: hand.declarations.mode -->
 - Payment is made at once. *Documented: from the book, p. 94.* <!-- rule: hand.declarations.paid -->
 - Each of the others pays. *Documented: from Torino [1846], part I, p. 52.* <!-- rule: hand.declarations.paid_by -->
 
@@ -93,12 +93,13 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### Settling
 
 - Settling is in marche. *Documented: from the book, p. 93.* <!-- rule: hand.settle.unit -->
-- The amount: 10. *Sources silent, our decision, after Dummett (1980), pp. 91-96.* Other reading: The amount: the stake: simple. Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
+- The amount of the settlement: 10. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision, after Dummett (1980), pp. 91-96.* Other reading: The amount of the settlement: the stake: simple. The Onoranza of the contract and the points beyond the line are counted apart. Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
 - The winners collect from the losers. *Sources silent, our decision, after Dummett (1980), pp. 91-96.* Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -118,4 +119,4 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 
-Generated from `rulesets/bagattultimo.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/bagattultimo.json`, rules revision 7. Do not edit: change the game file.

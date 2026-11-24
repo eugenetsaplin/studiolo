@@ -190,13 +190,13 @@ When `sets.honours` is absent, the honours are the counters worth 5 of `card_poi
 
 | key | type | values | default | read by |
 |---|---|---|---|---|
-| `fool` | enum | `excuse` (shown, takes nothing, is never taken: p. 54); `trump` (an ordinary trionfo ranked by `trump_order`: Sedici, p. 36); `low_trump`, `high_trump` (format 2 lab values) | `excuse` | tricks, count |
+| `fool` | enum | `excuse` (shown, takes nothing, is never taken: p. 54); `trump` (an ordinary trionfo ranked by `trump_order`, which must then list `T0`, the lowest: Bagatto takes it, it takes plain cards as a trionfo, a lone Fool must answer a trionfo, it counts its `card_points`; no Fool exchange happens and `fool_exchange` is ignored; every special case of the excuse in `tricks`, `count`, the bot and the table applies only with `excuse`: Sedici, p. 36); `low_trump`, `high_trump` (format 2 lab values) | `excuse` | tricks, count |
 | `fool_exchange` | bool | the owner gives a plain card for the Fool at the end of the hand (p. 52) | `true` with `excuse` | count |
 | `fool_exchange_card` | enum | `cheapest` (engine picks), `owner_choice` (the owner picks, p. 52 «qualunque gli piaccia») | `cheapest` | count |
 | `fool_exchange_to` | enum | `opponent_side`; `trick_winner` (the winner of the trick in which the Fool was shown: Quintilio, Sestilio, Settilio, pp. 77-78) | `opponent_side` | count |
 | `fool_no_tricks` | enum | `give_none` (format 2), `give_fool` (a side without tricks gives the Fool itself: Dummett 1980, p. 259, after RI) | `give_none` | count |
 | `fool_last_trick` | enum | `kept`, `lost` | `kept` | tricks |
-| `fool_show_any_time` | bool | the Fool may be shown and laid aside outside a trick (Baronetti, p. 50 «solo mi basterà mostrarlo») | `false` | tricks, open_piles |
+| `fool_show_any_time` | bool | `true`: on his own turn (leading or answering) the owner of an open Fool may show it and lay it among his won cards (Baronetti, p. 50 «solo mi basterà mostrarlo»). This is not his play: the next card of that pile turns at once and he still plays a card. He may play the Fool into a trick instead; then it is the excuse (it takes nothing and is not lost). He cannot show it as his last card. It needs `open_piles`. The cards laid aside count as the seat's won cards | `false` | tricks, open_piles, count |
 
 ## 6. Seats and sides
 
@@ -209,14 +209,14 @@ When `sets.honours` is absent, the honours are the counters worth 5 of `card_poi
 | `first_dealer` | enum | `draw_trump` (p. 16), `draw_high`, `best_cut` (Partita, p. 89 «Chi coppa meglio», [R]), `random`, `host` | table |
 | `cut_by` | enum | `left` (pp. 16-18), `right`, `none` | deal |
 | `cut_min` | integer | `2` (p. 17 «Una carta sola non si può coppare») | deal |
-| `dealer_rotation` | enum | `right`, `left`, `alternate`, `loser_deals`, `winner_passes_to_companion` (p. 41), `same` | match runner |
+| `dealer_rotation` | enum | `right`, `left`, `alternate`, `loser_deals`, `winner_passes_to_companion` (p. 41: the winner hands the pack to his «companion»: for two players the other one deals, for three and four the seat to the right of the winner [S]; a partita with no winner: the seat to the right of the last dealer), `same` | match runner |
 | `seating` | enum | `free`, `partners_opposite` (Partita, p. 89 «a faccia a faccia»), `partners_adjacent` (Consiglio, p. 97), `draw_high_pairs` | table |
 
 ### 6.2 `sides`
 
 | key | type | values | read by |
 |---|---|---|---|
-| `mode` | enum, by seats | `each_for_self`; `fixed_pairs` (Partita 2×2); `declarer_vs_rest` (Permesso: «gli altri due compagni insieme mi sono incontra», p. 61); `called_partner` (Chiamare il Re); `by_contract` (the winning contract decides, section 9) | count, result, settle, view |
+| `mode` | enum, by seats | `each_for_self`; `fixed_pairs` (Partita 2×2); `declarer_vs_rest` (Permesso: «gli altri due compagni insieme mi sono incontra», p. 61); `called_partner` (Chiamare il Re); `by_contract` (the winning contract decides, section 9; played only with a `bidding` phase: the sides live in the hand) | count, result, settle, view |
 | `pool` | enum | `seat`, `side` (partners' points in one heap: p. 61-62, p. 89 «di due mucchj un solo mucchio») | count |
 | `partners_share_hands` | bool | Consiglio, p. 97 «mostransi il giuoco» | view |
 | `partners_talk` | bool | Consiglio, p. 97 «si consultano liberamente» | table chat |
@@ -282,6 +282,8 @@ The engine and the rules page see the merged file; the rules page says «as in g
 | `remove` | bool | no | deletes an inherited phase (7.3) |
 | `until`, `phases` | | for `repeat` | a group of phases repeated until `fuora`, `stock_empty` or `fuora_or_stock_empty` (Sedici, p. 39: «finchè alcuno si chiami fuora») |
 
+**Nested phases and hooks (as the core plays them).** The `phases` of a `repeat` group are phases like the others: the loader puts them into the plan in order, each marked with its group, and `checkSupport` checks their settings like those of the top-level phases (the rule path is `hand.phases[<id>]`, the same as for a top-level phase; ids are unique in the file). A hook (`during`) stands at the top level of `hand.phases`, outside the group, so that a variant or a child file can patch it by id (FORMAT_OPEN_POINTS 50a). A hook module may offer its host these functions, all optional: `onEnter` (the host phase starts), `onPlay` (a card has left the seat), `afterTrick`, `playable` (the cards the seat chooses from instead of its hand), `visibleHand`, `extraLegal` and `extraToAct` (actions and seats beside the host's: the claim window), `applyExtra` (it may end the hand at once), `hold` (the phase stays open after the host is done: a claim window before the next deal), `viewOf` (a part of the seat view under the module's name).
+
 The same module may appear twice with other settings (Mitigati for two: deal, discard by both, deal again, discard by the dealer: pp. 85-86).
 
 ### 8.1 Order
@@ -301,6 +303,8 @@ A condition is an object; all its keys must hold. No expressions.
 | `seats` | list of integers | the table has one of these seat counts |
 | `contract` | list of contract ids | the winning contract is one of these |
 | `all_passed` | bool | everybody passed in the bidding |
+
+A phase whose `when` holds `contract` or `all_passed` stays in the plan and is judged at run time: the engine skips it in a hand where the condition is false. `seats` and `option` are judged when the game is loaded. Two phases of one module that depend on the contract (Permesso for six: two tricks phases) never run in one hand; the state of a module that may run twice in a hand is kept by phase id.
 | `option` | object id → value | the agreed options have these values |
 | `hand_has` / `hand_lacks` | selector | the seat concerned holds / does not hold such a card |
 | `hand_count` | `{of: selector, min, max}` | the seat concerned holds that many such cards |
@@ -319,6 +323,8 @@ A game with a bidding or a call names its contracts once, at the top level:
 | `onoranza` | number | the Onoranza of this contract (Permesso, p. 67: on three 2, on two 3, on one 4, sans prendre 5) |
 | `sides` | enum | the sides this contract makes (`declarer_vs_rest`, `called_partner`, `each_for_self`) |
 | `pays` | object | other per-contract amounts a settle may refer to |
+
+A contract is won in the bidding (or fixed by `all_pass: contract:<id>`) and sets the sides of the hand: `declarer_vs_rest` (the declarer alone, the others together), `called_partner` (the declarer and the holder of the called card; the holder joins when the card is called, secretly), `each_for_self`. Bids are ordered by `rank`; a higher rank overcalls a lower.
 
 Example (Permesso for three, from the book; sources shortened here):
 
@@ -355,35 +361,42 @@ For every module: what it does, its settings (key, type, values, default), the a
 
 ### 11.1 `deal`
 
-Shuffles (or takes the cards left by an earlier phase), lets `seats.cut_by` cut, gives the hands, lays out piles and the rest.
+Shuffles (or takes the cards left by an earlier phase), lets `seats.cut_by` cut, gives the hands or the piles, and keeps the rest.
 
 | key | type | values | default |
 |---|---|---|---|
-| `hand_size` | count, by seats, by role | cards to each seat (format 2); `"half_rest"` (half of the cards still undealt: Mitigati, p. 85 «metà per uno»); `"all_rest"` | required |
+| `hand_size` | count, by seats, by role, `"half_rest"` | cards to each seat (format 2). `"half_rest"`: what is left in `s.rest`, less `dealer_extra`, shared equally; the dealer gets his extra cards on top (Mitigati for two, p. 86: 27 left, 12 to the non-dealer, 12 + 3 to the dealer). Only with `from: rest`. `"all_rest"` and unresolved `by_seats` are not played. Required unless `piles` is given | required |
 | `dealer_extra` | integer, by seats | extra cards of the dealer, for the discard (format 2) | `0` |
-| `extra_to` | enum | `dealer`, `declarer` | `dealer` |
-| `extra_when` | enum | `first`, `last` (Quintilio, p. 74 «l'ultime tre»), `any` | `last` |
-| `packets` | list of integers, `dealer_choice`, `one_by_one`, by seats | packets per round from the first receiver: `[5, 10, 10]` (Bagatt'ultimo, pp. 91-92 «tale è l'uso») | `one_by_one` |
-| `packets_announced` | bool | the dealer says his packets before the cut (pp. 18, 41-42, 53) | `false` |
-| `order` | enum | `from_right` (p. 59: dealt face down starting on the right), `from_left`, `opponent_first` | `from_right` |
-| `pile_count`, `pile_size` | integer | format 2 piles: `pile_count` piles of `pile_size` per seat, the last card face up (Pagat 21 + 6) | `0`, `3` |
-| `piles` | list of integers | piles of unequal size per seat: Baronetti `[10, 10, 10, 9]` (pp. 48-49) | none |
-| `pile_top` | enum | `up`, `down` | `up` |
-| `dead` | enum | what happens to the cards not dealt (format 2): `out` (face down, out of play: p. 57), `prize` (a stock for prize_stock), `none` (all dealt), `stock` (kept for a later deal: Sedici), `dealer` (to the dealer for his discard: Settilio, p. 77) | `out` |
-| `from` | enum | `deck`, `stock`, `rest` (a second deal from the undealt cards) | `deck` |
+| `extra_to` | enum | `dealer` | `dealer` |
+| `extra_when` | enum | `first`, `last`, `any` | `last` |
+| `packets` | list of integers, `dealer_choice`, `one_by_one` | packets per round from the first receiver. `dealer_choice` is dealt by the core in one go: with a fair shuffle the way of dealing changes no hand | `one_by_one` |
+| `packets_announced` | bool | the dealer says his packets before the cut | `false` |
+| `order` | enum | `from_right`, `from_left`, `opponent_first` (the dealer's opponent first, the dealer last: for two it is the same as `from_right`) | `from_right` |
+| `pile_count`, `pile_size` | integer | format 2 piles: not played (only 0) | `0`, `3` |
+| `piles` | list of integers | piles of each seat, in the order they are dealt: Baronetti `[10, 10, 10, 9]` (pp. 48-49). The deal lays pile 1 to every seat in the dealing order, then pile 2, and so on, from the top of the pack. Every seat gets the same piles. Replaces `hand_size` (a file with both is refused). The sum over the piles and the seats, plus `dealer_extra`, must fit the pack, and equal 78 with `dead: none` | none |
+| `pile_top` | enum | `up` (the top card of each pile is open), `down` | `up` |
+| `dead` | enum | `out` (face down, out of play), `prize` (a stock for `prize_stock`), `none` (all dealt), `stock` (the undealt cards stay in `s.rest` in order, for the next round of a `repeat` group: Sedici) | `out` |
+| `from` | enum | `deck` (shuffle and cut the whole pack), `rest` (a later deal of the same hand: no shuffle, no cut, the cards come from `s.rest` as it lies and join the hands the seats still keep; played only with `hand_size: half_rest`) | `deck` |
 | `face` | enum | `down`, `up` | `down` |
 
-Actions: `cut {at}` (the cutter; `at` ≥ `seats.cut_min` from either end), `choose_packets {packets}` (the dealer, when `packets` is `dealer_choice`). Seat view: own hand, the other hands' sizes, own piles with their tops, the tops of all piles, the size of the rest. Events: `dealt`.
+Rounds from the stock. Inside a `repeat` group a deal with `dead: stock` deals its first round from the shuffled and cut pack. In every later round (the engine's `s.round` above 0) it deals from the top of `s.rest` as it lies: no shuffle, no cut, no new dealer rule. The group ends when `s.rest` holds fewer cards than one round gives (`s.stockEmpty`).
 
-Example (Bagatt'ultimo, from the book):
+A hand may hold two deal phases (Mitigati for two: 26 and 25 cards, a discard of 13 and 12, then the rest). Every deal and every discard keeps its state by phase id (`s.m.<phase id>`); the first deal of a file that has one deal is still `s.m.deal`. A second deal is `from: rest` and cannot be the first phase. With `dead: none` it must use up `s.rest`: the validator counts the cards deal by deal and discard by discard for the dealer and for any other seat, and refuses a file where the seats would end with unequal hands (the tricks could not be played out).
+
+The preset (the bots' worlds, the lessons): `preset.hands = {<seat>: [cards]}` lists the cards of each seat in the order they are dealt, `preset.rest` the undealt cards in order (they feed the later rounds). With `piles`, `preset.piles = {<seat>: [[bottom..top], ...]}` lays the piles exactly as they lie (the top is the last card), and `preset.hands` must be empty. Every card of the pack appears once; a wrong size is an error.
+
+State: `s.hands[seat]` holds every card the seat owns; with piles `s.piles[seat] = [{cards: [bottom..top], open: bool}]` says where they lie (`open`: the top card is turned up). The view of a seat shows only the open tops (`view.hand`, `view.open_piles`); the count of all its cards stays in `view.handCounts`.
+
+Actions: none of the deal's own (the cut and the packets are automatic). Seat view: own hand, the other hands' sizes, the size of the rest. Events: `dealt {round}`.
+
+Example (Baronetti, from the book):
 
 ```json
 {"id": "deal", "module": "deal", "settings": {
-	"hand_size": {"value": 25, "source": "[D] Torino 1787, p. 91: «venticinque carte a ciascuno … onde ne prenderà ventiotto»."},
-	"dealer_extra": {"value": 3, "source": "[D] Torino 1787, p. 91: 28 to the dealer, 3 for the discard."},
-	"packets": {"value": [5, 10, 10], "source": "[D] Torino 1787, pp. 91-92: «debbonsi queste dare in tre volte; tale è l'uso»: 5, then 10, then 10."},
-	"extra_when": {"value": "last", "source": "[S] Ours: pp. 91-92 do not say when the dealer takes his three; the last three of the pack, as «l'ultime tre» on p. 74."},
-	"dead": {"value": "none", "source": "[D] Torino 1787, p. 91: 25 + 25 + 28 = 78, nothing is left."}
+	"piles": {"value": [10, 10, 10, 9], "source": "[D] Torino 1787, pp. 48-49: three piles of ten, one of nine for each player."},
+	"pile_top": {"value": "up", "source": "[D] Torino 1787, pp. 48-49: the last card of each pile is turned up."},
+	"order": {"value": "opponent_first", "source": "[D] Torino 1787, p. 48: the first pile to the dealer's opponent."},
+	"dead": {"value": "none", "source": "[D] Torino 1787, pp. 48-49: 39 and 39, nothing is left."}
 }}
 ```
 
@@ -393,7 +406,7 @@ Example (Bagatt'ultimo, from the book):
 |---|---|---|---|
 | `who` | enum | `dealer`, `declarer`, `each`, `dealer_then_other` | `dealer` |
 | `count` | count, by seats, by role | cards put away | `deal.dealer_extra` |
-| `count_mode` | enum | `exact` (Permesso, p. 59: «Guardati però di scartare più o meno di tre carte»), `up_to` (Quadrilio, p. 71 «non può scartarne più di due», [R]; Mitigati, p. 85 «sino a») | `exact` |
+| `count_mode` | enum | `exact` (Permesso, p. 59: «Guardati però di scartare più o meno di tre carte»), `up_to` (Quadrilio, p. 71 «non può scartarne più di due», [R]; Mitigati, p. 85 «sino a»). The core plays only `exact`: `up_to` needs an action to stop early, and in a hand with a second deal it would leave the hand sizes open (the validator refuses it there: Mitigati for two plays `exact`, question 5) | `exact` |
 | `discard_honours_barred` | bool | the honours (`set:honours`) may not be put away (format 2) | `true` |
 | `barred` | selectors | cards that may not be put away, when more than the honours (Partita, p. 90: «Bagatto non iscartasi, nè alcun Re») | none |
 | `allowed_exceptions` | selectors | barred cards allowed under a condition: `[{"if": {"hand_lacks": "T0", "hand_count": {"of": "trumps", "max": 1}}, "any": ["T1"]}]` (p. 34: the Bagatto when it is the only trump and the hand has no Fool) | none |
@@ -402,6 +415,8 @@ Example (Bagatt'ultimo, from the book):
 | `face` | enum | `down`, `up` | `down` |
 
 Actions: `discard {cards}`. Legal when the count and the bars hold. Seat view: the discarder sees his discard; others see its size. Events: `discarded {seat, n}`.
+
+Two discard phases in one hand (Mitigati for two) keep their state by phase id. The count adds the whole discard of a seat once, whatever the number of discard phases; the `counts_for` of the first phase of a seat holds for all its discards.
 
 ### 11.3 `a_monte`
 
@@ -429,37 +444,58 @@ The Permesso auction (pp. 60-66) and its short form in Chiamare il Re (pp. 82, 8
 | `all_pass` | string | `redeal`, `redeal_next_dealer`, `contract:<id>` (a fallback contract: `contract:call_king` in Chiamare il Re, `contract:sciolto` in Sestilio) | `redeal_next_dealer` |
 | `bid_binds` | bool | a bid must be played (p. 65 «dovrà andare irremissibilmente») | `true` |
 | `lay_down_fewer` | enum | `plays_at_laid` (p. 66: named three, laid down two, plays at two), `forbidden` | `plays_at_laid` |
+| `after_dealer_pass` | enum | `call` (with `dealer_speaks: first` and a fallback `all_pass: contract:<id>`: the dealer's pass ends the auction and he declares the fallback contract, the others never speak; Chiamare il Re, p. 82), `others_bid` | `others_bid` |
 
-Actions: `bid {contract}`, `pass`. Seat view: the auction so far, the current best bid and its holder, own legal bids. Events: `bid`, `contract_won {contract, declarer}` or `all_passed`. The sides of the hand become those of the contract.
+The auction as played (revision 7). The order of speech is the order of priority: a seat earlier in it may match the standing bid of a later seat («A due anch'io», pp. 62-64), a later seat must bid higher (`tie: challenger`: any seat but the dealer may match a bid of the dealer, once, and takes it; the dealer then has only a higher bid or a pass; `tie: dealer`: only the dealer may match). A pass is final; the auction ends when every seat but the last bidder has passed. All pass: `redeal` and `redeal_next_dealer` throw the hand in (nobody pays; it counts as a dealt hand); `contract:<id>` plays that contract with the dealer as the declarer.
+
+Actions: `bid_<contract id>`, `pass` (an action type is at most 24 characters, so a contract id is at most 20). Seat view: `view.bidding = {order, bids: [{seat, bid}], best, done}`, `view.contract`. Seat view: the auction so far, the current best bid and its holder, own legal bids. Events: `bid`, `contract_won {contract, declarer}` or `all_passed`. The sides of the hand become those of the contract.
 
 ### 11.5 `exchange`
 
-The called exchange of Permesso (p. 61: «chiami tre carte a suo piacimento, e ne getti via in tavola tre»).
+The called exchange of Permesso (p. 61: «chiami tre carte a suo piacimento, e ne getti via in tavola tre»). The declarer lays cards down face down, one action each, then calls the same number of cards by name; the holders give the called cards and take the laid ones, unseen. A contract with `exchange` 0 skips the phase. A phase that needs a contract stands in the plan with `when: {contract: [...]}` (Chiamare il Re: the exchange runs only at the contract `one`).
 
 | key | type | values | default |
 |---|---|---|---|
 | `count` | integer or `"contract"` | cards exchanged; `contract` takes `exchange` of the winning contract | `contract` |
-| `lay_down_first` | bool | the declarer lays his cards face down before calling (p. 61) | `true` |
+| `lay_down_first` | bool | the declarer lays his cards down before calling (p. 61); only `true` is played | `true` |
 | `face` | enum | `down` (p. 61: given and taken face down, unseen) | `down` |
-| `callable` | selectors | cards that may be called | `all` |
-| `card_not_held` | enum | a called card in the declarer's own hand or in the discard: `from_discard` (Dummett 1980, p. 266, a guess), `lost`, `forbidden` | `forbidden` |
+| `callable` | selectors | cards that may be called | `["all"]` |
+| `card_not_held` | enum | a called card that lies in the dealer's discard: `from_discard` (the declarer takes it; the dealer's discard takes one laid card in its place; Dummett 1980, p. 266, a guess); `forbidden` is not played (a list of legal calls would show the dealer's discard) | `from_discard` |
+| `give` | enum | who gets which laid card: `random` (each holder gets, unseen, as many laid cards as he gave; the laid cards are drawn by the seed of the deal, so a replay gives the same; [S]: p. 61 says only «Chi ha queste carte me le dà subito»); `declarer_assigns` is not played | `random` |
+| `discard_honours_barred` | bool | the honours (`set:honours` when the file defines it, else the cards worth 5 or more) may not be laid down (rule 38) | `false` |
+| `barred` | selectors | more cards that may not be laid down | none |
+| `allowed_exceptions` | selectors | cards laid down in spite of the bar; same meaning as in `discard` (the `if` conditions are judged on the hand with the cards already laid counted as held). Permesso: `[{"any": ["T0"]}]`, the Fool may be laid (pp. 34-35) | none |
 
-Actions: `lay_down {cards}`, `call {cards}` (the declarer). The holders give the called cards and receive one laid card each, automatically and unseen («Chi ha queste carte me le dà subito», p. 61). Seat view: the declarer sees what he received; a holder sees what he gave and got; the others see only how many. Events: `exchanged {n}`.
+If every card left in the declarer's hand is barred, all of them may be laid (as in `discard`).
+
+Cards that may be called: any card that is not in the declarer's hand, not in his own discard, not laid and not called already, and that the `callable` selectors name. The declarer cannot tell where a card lies, so the list of legal calls shows nothing (the phase needs `deal.dead` = `none`; the validator refuses another deal).
+
+Actions (the declarer; `type` and `card` only): `lay_down {card}` (one card at a time; barred cards are not offered); `lay_done` (stop laying: offered after at least one card is laid and before the count of the contract is reached, only when `bidding.lay_down_fewer` is `plays_at_laid` (or absent): the contract becomes the one of the same `sides` whose `exchange` equals the cards laid, with its Onoranza; laying none is not allowed); `call {card}` (one card at a time, as many as were laid). When the last card is called, the exchange is made at once: for each called card its holder gives it to the declarer and takes one laid card (the laid cards are shuffled by the seed `<seed>:<phase id>:give` and handed out in the order of the calls). A card from the dealer's discard goes to the declarer and the dealer's discard takes the laid card at the same place.
+
+State: `s.m.<phase id> = {stage: lay | call | done, need, laid, called, gave: {seat: [cards]}, got: {seat: [cards]}}`.
+
+Seat view `view.exchange = {laid: n, called: [cards], mine: {laid, gave, got}}`: `laid` and `called` are public (how many cards are laid; the names called). `mine.laid` is the declarer's own laid cards (nobody else sees them); after the exchange `mine.got` of the declarer is the cards he received. A holder (or the dealer whose discard gave a card) sees, after the exchange, `mine.gave` (what he gave) and `mine.got` (the laid cards he got); nobody else sees which laid card went to which holder. `view.contract.laid` is the count of laid cards. Events: `laid {seat, n, contract}` (when the laying is over; `contract` is the contract played, changed by `lay_done`), `called {cards}`, `exchanged {n}`.
 
 ### 11.6 `call_partner`
 
-Calling a king (Chiamare il Re, pp. 80-83).
+Calling a king (Chiamare il Re, pp. 80-84). The caller names a card by its rank; the holder of the named card is his partner, secret until that card is played.
 
 | key | type | values | default |
 |---|---|---|---|
 | `caller` | enum | `dealer` (p. 80), `declarer` | `dealer` |
-| `ladder` | list of ranks | `["K", "Q", "N", "J"]` (pp. 81-82: all four kings in hand → a queen; kings and queens → a knight; and so on) | `["K"]` |
-| `step_down` | enum | `caller_holds_all_of_rank` | same |
-| `secret` | bool | the holder does not reveal himself (p. 80) | `true` |
-| `own_card` | enum | calling one's own card: `plays_alone_unless_forgiven` (p. 83), `plays_alone`, `forbidden` | `plays_alone` |
-| `card_in_discard` | enum | `forbidden` (our proposal: the caller knows his discard), `plays_alone` | `forbidden` |
+| `ladder` | list of ranks | `["K", "Q", "N", "J"]` (pp. 81-82) | `["K"]` |
+| `step_down` | enum | `caller_holds_all_of_rank`: the caller names a card of the first rank of the ladder of which he does not hold all four cards (in his hand and his own discard together); with all four kings he names a queen, and so on | same |
+| `secret` | bool | the holder does not reveal himself until the card is played (p. 80); `false`: everybody knows at once | `true` |
+| `own_card` | enum | the caller names a card he holds himself: `plays_alone_unless_forgiven` (p. 83: he plays alone against the rest; the others cannot know the card is his, so forgiveness is not offered: [R], open question 28), `plays_alone` (the same), `forbidden` (such cards are not offered) | `plays_alone` |
+| `card_in_discard` | enum | a card of the caller's own discard: `forbidden` (the caller knows it; not offered) | `forbidden` |
 
-Actions: `call {card}`. Seat view: the called card (all), «you are the partner» (the holder only). Events: `partner_called {card}`; `partner_revealed` when the card is played.
+Legal calls: the four cards of the first rank of the ladder that the caller does not hold whole, less the cards of his own discard (and less his own hand cards when `own_card` is `forbidden`). If the caller holds all four cards of every rank of the ladder (all sixteen courts), nothing can be called: the caller plays alone as the contract of the file with `exchange` 0 and `sides` `declarer_vs_rest` (the highest rank of them; [S]); event `no_call {seat, contract}`, the phase is over at once, `s.contract` changes (and with it the settle that runs).
+
+Action (the caller): `call_partner {card}`. The partner is the seat that holds the card (the caller himself, if he holds it: he plays alone). The sides become: the declarer and the holder side 0, the rest side 1 (`Hand.setPartner`). With `secret` true: `s.secret = {card, holder}` until the card is played; the engine calls `onCardPlayed(h, entry, seat, card)` after every card played in the tricks; the called card clears `s.secret` and gives the event `partner_revealed {seat}` (the holder).
+
+State: `s.m.<phase id> = {caller, stage, card, holder, revealed}`.
+
+Seat view `view.call = {card, revealed, partner}`: the card is public once called (null before); `partner` is the holder for the holder himself (and so for a caller who called his own card), and for everybody once `revealed`; else null. `view.sides` shows null for the seats a viewer does not know while `s.secret` stands (the caller knows only himself; the holder and, after the reveal, everybody know all); `view.contract.called` holds the called card. Events: `partner_called {card}`, `partner_revealed {seat}`, `no_call {seat, contract}`.
 
 ### 11.7 `declarations`
 
@@ -468,15 +504,21 @@ Announcing honours, trumps and Mitigati (Bagatt'ultimo, pp. 93-95; Mitigati for 
 | key | type | values | default |
 |---|---|---|---|
 | `kinds` | list of declaration kinds | below | required |
-| `window` | enum | `after_discard_before_first_card` (p. 95), `before_first_trick_covered` (p. 86 «prima dee accusarli, che coperta siasi la prima mano») | `after_discard_before_first_card` |
+| `window` | enum | `after_discard_before_first_card` (p. 95), `before_first_trick_covered` (p. 86 «prima dee accusarli, che coperta siasi la prima mano»); both are played the same way: the window closes before the first card (D8) | `after_discard_before_first_card` |
 | `late` | enum | `right_lost` (p. 95) | `right_lost` |
 | `mode` | enum | `auto` (the engine declares for the seat), `manual` (the seat must press; forgetting loses it) | `auto` |
-| `paid` | enum | `at_once` (p. 95 «e subito, e non sul fine della partita»), `end_of_hand` | `at_once` |
-| `paid_by` | enum | `each_other` (each opponent pays the amount), `others_together` | `each_other` |
+| `paid` | enum | `at_once` (p. 95 «e subito, e non sul fine della partita»); `end_of_hand` is not played | `at_once` |
+| `paid_by` | enum | `each_other` (each opponent pays the amount); `others_together` is not played | `each_other` |
 
-A declaration kind: `{"id", "of": selector, "min": n, "all_of": bool, "show": "announce_count" | "announce" | "expose", "pays": amount}`. Example from p. 93-94: honours, three or more, announced without naming them, 3 → 10, 4 → 15, 5 → 20 and so on: `{"id": "onori", "of": "set:honours", "min": 3, "show": "announce_count", "pays": {"table": {"by": "count", "rows": {"3": 10, "4": 15, "5": 20}, "beyond": {"every": 1, "add": 5}}}}`; ten trumps or more, laid out and shown, as many as the trumps: `{"id": "trionfi", "of": "trumps", "min": 10, "show": "expose", "pays": {"table": {"by": "count", "rows": {}, "same_as_count": true}}}`; Mitigati (Angel, Bagatto, Fool): `{"id": "mitigati", "of": {"any": ["T20", "T1", "T0"]}, "min": 3, "all_of": true, "show": "announce", "pays": 10}`.
+A declaration kind: `{"id", "of": selector, "min": n, "all_of": bool, "show": "announce_count" | "announce" | "expose", "pays": amount}`. `id` is 1-16 letters `a-z` and `_` (the action is `declare_<id>`, and an action type is journaled as `[a-z_]{1,24}`). `of` selects cards of the hand; the seat qualifies when it holds at least `min` of them, and with `all_of` when it holds every card the selector names. `n` is the number of cards held. `pays` is a number, `{"table": …}` (section 10) or another amount of section 10. The table: `rows` by `n`, above the last row `rows[last] + floor((n − last) / every) × add`, below the first row nothing; `same_as_count` pays `n`.
 
-Actions: `declare {kind}` (manual mode). Seat view: all declarations made (count only, or the cards for `expose`). Events: `declared {seat, kind, n}` (settle pays them).
+Example from p. 93-94: honours, three or more, announced without naming them, 3 → 10, 4 → 15, 5 → 20 and so on: `{"id": "onori", "of": "set:honours", "min": 3, "show": "announce_count", "pays": {"table": {"by": "count", "rows": {"3": 10, "4": 15, "5": 20}, "beyond": {"every": 1, "add": 5}}}}`; ten trumps or more, laid out and shown, as many as the trumps: `{"id": "trionfi", "of": "trumps", "min": 10, "show": "expose", "pays": {"table": {"by": "count", "rows": {}, "same_as_count": true}}}`; Mitigati (Angel, Bagatto, Fool): `{"id": "mitigati", "of": {"any": ["T20", "T1", "T0"]}, "min": 3, "all_of": true, "show": "announce", "pays": 10}`.
+
+The turn. The window is played before the first card, in play order from the first leader (`tricks.first_leader`, in a hand with a leader of the previous hand the leader of the match). Each seat has one turn; a seat whose hand qualifies for no kind has no turn. In its turn a seat sees the kinds it may declare, one at a time: the actions `declare_<kind id>` for each kind its hand qualifies for and it has not declared yet, and `declare_done`. After a declaration the same seat goes on while it has a kind left; `declare_done` (or the end of the list) passes the turn. Once a seat has passed the turn it cannot declare any more (`late: right_lost`): the first card ends every right. With `mode: auto` the engine declares every kind for every seat in order, with no actions.
+
+Payments. Each declaration is paid at once by every other seat to the declarer (`paid_by: each_other`), `why: declaration`. The payments are kept in `s.m.<phase id>.paid` and given to `settle` by `handPayments` (11.14); with `show: expose` the cards of the kind become public for the hand.
+
+State: `s.m.<phase id> = {order, at, made: [{seat, kind, n, cards?}], paid: [{from, to, amount, why, kind}]}`. Seat view `view.declarations = {open, made: [{seat, kind, n, cards?}], offer: [kind ids]}`; `open` is true while the phase runs, `offer` is non-empty only for the seat to act; `cards` only for `show: expose`. Events: `declared {seat, kind, n, cards?}` (the money is paid by `settle`: the declarations come first, `paid {from, to, amount, why: declaration}`). Actions: `declare_<kind id>`, `declare_done`, both `{type}` with no card.
 
 ### 11.8 `tricks`
 
@@ -491,7 +533,7 @@ Actions: `declare {kind}` (manual mode). Seat view: all declarations made (count
 | `fool_may_lead` | bool | the Fool may be led | `true` |
 | `tricks` | integer | the number of tricks, when not every card is played | all cards |
 
-Actions: `play {card}`; with `cards.fool_show_any_time`, also `show_fool`. Legal cards follow suit → trump → any, with the Fool per `cards.fool`. Seat view: the current trick, who leads, own legal cards (for hints), the tricks won per seat (number only; closed tricks are not shown, pp. 32-33), the last trick per `view.last_trick`. Events: `card_played`, `trick_won {seat, cards}`, `last_trick_won`.
+Actions: `play {card}`; with `cards.fool_show_any_time` (only together with an `open_piles` phase), also `show_fool`. `play_from: pile_tops` also needs an `open_piles` phase. Legal cards follow suit → trump → any, with the Fool per `cards.fool` (a trionfo of the order with `trump`, the excuse of p. 54 with `excuse`). In a `repeat` group `first_leader` is read in every round (`previous_last_taker`: the taker of the last trick of the round before). Seat view: the current trick, who leads, own legal cards (for hints), the tricks won per seat (number only; closed tricks are not shown, pp. 32-33), the last trick per `view.last_trick`. Events: `card_played`, `trick_won {seat, cards}`, `last_trick_won`.
 
 ### 11.9 `prize_stock` (hook of `tricks`)
 
@@ -499,7 +541,18 @@ Morto (pp. 57-58). Settings: `stock` (`rest`: the cards `deal.dead` = `prize` le
 
 ### 11.10 `open_piles` (hook of `tricks`)
 
-Baronetti's piles (pp. 48-50): after each trick both turn the next card of the pile they played from, «ma non prima di aver giuocato, e risposto». Settings: `reveal` (`after_trick`, `after_own_play`), `empty_pile` (`play_from_others`). The piles themselves come from `deal.piles`. No actions (cards are played by `tricks.play` from a pile top). Seat view: every pile's size and open top. Events: `pile_revealed`.
+Baronetti's piles (pp. 48-50). Each seat owns the piles `deal.piles` dealt. Only the top card of a pile is open; the seat plays only open cards (`tricks.play_from: pile_tops`: the legal cards are the open tops, then follow suit and trump duties apply to them). After a trick (both cards played) each seat turns the next card of the pile it played from, «ma non prima di aver giuocato, e risposto». A pile played to empty stays empty.
+
+| key | type | values | default |
+|---|---|---|---|
+| `reveal` | enum | `after_trick` (both cards of the trick are played, then each seat turns the next card of its pile). `after_own_play` is not played yet | `after_trick` |
+| `empty_pile` | enum | `play_from_others` (a seat whose pile is used up plays from its other piles) | `play_from_others` |
+
+Actions: `show_fool {card: "T0"}` when `cards.fool_show_any_time` is true. It is offered to the seat whose turn it is, when the Fool is an open top of one of its piles and the seat holds at least one other card. It lays the Fool among the seat's won cards, turns the next card of that pile at once, and the seat keeps its turn. Playing the Fool into a trick is the ordinary `play` (the excuse of `cards.fool: excuse`).
+
+A card left without a partner: a seat that showed the Fool has one card fewer than the other. When the seat has played its last card and the other seat holds one card, that card is not played: it joins its owner's won cards at the end of the last trick (event `cards_kept`). [S] ours: the book does not say.
+
+Seat view `view.open_piles = {piles: {<seat>: [{size, top}]}, shown: {<seat>: [cards]}}`. `size` counts the covered cards, `top` is the open top or `null` (a pile played to empty, or turned only after the trick). Covered cards are never listed, not even to their owner. Events: `pile_revealed {seat, pile, card}`, `fool_shown {seat}`, `cards_kept {seat, cards}`. Example: `rulesets/baronetti.json`, phase `piles`.
 
 ### 11.11 `fuora` (hook of `tricks`)
 
@@ -508,12 +561,17 @@ Going out in Sedici and Trent'uno (pp. 35, 39-41, 46).
 | key | type | values | default |
 |---|---|---|---|
 | `target` | number | 16 (p. 35), 31 (p. 46) | required |
-| `claim_when` | enum | `any_time`, `after_trick`, `own_turn` | `after_trick` |
-| `false_claim` | list | penalties by the claimer's real points: `[{"below": 8, "pays": {"stake": "double"}}, {"from": 8, "pays": {"stake": "simple"}}]` (p. 39) | none |
-| `after_first_out` | enum | `hand_ends`, `others_continue` (Sedici for three «a scaricare», pp. 43-44) | `hand_ends` |
-| `stock_empty` | enum | `reshuffle_untaken`, `hand_ends_most_points`, `hand_ends_no_winner` | `reshuffle_untaken` |
+| `claim_when` | enum | `after_trick` (played), `any_time`, `own_turn` (not played) | `after_trick` |
+| `false_claim` | list | typed rows by the claimer's real points (book points): `{"below": 8, "pays": {"stake": "marcia"}, "to": "each_other"}` or `{"from": 8, "pays": {"stake": "simple"}}`; `pays.stake` is `simple`, `marcia` or `double` (marcia and double are twice the simple stake); `to` is `each_other`, the only payee played: the claimer pays every other seat (FORMAT_OPEN_POINTS 56) | none |
+| `after_false_claim` | enum | `play_on` (the claimer pays the row and play goes on), `hand_ends` (a false claim loses the partita: the hand ends, with two seats the other seat wins, with more nobody wins; the row is not paid) | `play_on` |
+| `after_first_out` | enum | `hand_ends` (played), `others_continue` (Sedici for three «a scaricare», pp. 43-44: not played) | `hand_ends` |
+| `stock_empty` | enum | `hand_ends_no_winner` (played), `reshuffle_untaken`, `hand_ends_most_points` (not played) | `reshuffle_untaken` |
 
-Actions: `claim_fuora`. The engine counts aloud for the claimer (p. 41). Events: `fuora_claimed {seat, valid, points}`. With `repeat` (8): `{"id": "rounds", "module": "repeat", "until": "fuora", "phases": [deal of 4, tricks]}`.
+**The claim window (`claim_when: after_trick`).** Right after a trick only the seat that took it may claim, before anything else happens; points come only with a taken trick, so nobody else can have gone out. The seat has the action `claim_fuora` beside its cards until it plays a card. After the last trick of a round the window comes before the next deal, but there it is offered only when the claim is right (a false claim could only cost) and is then the only action: the engine waits for it. The engine counts aloud for the claimer (p. 41): the points of the cards it has won so far, counted by the count phase's rules (the same number as `view.points.mine`). Enough points (`target` or more): the claimer is out (`s.out`), the hand ends at once and goes on to count, result and settle. Too few: it pays the row of `false_claim` that fits its points (an event `paid`, `why: false_claim`, made by the settle phase to each other seat, whoever wins the hand) and play goes on (`play_on`); one claim at a time. The pack running out with no claim: the hand ends with no winner (`stock_empty`).
+
+**Game points of a false claim.** In a match that counts game points (`result.game_points` not `none`) a false claim whose row pays `marcia` or `double` gives each other seat two game points (a «vada doppio»), a row paying `simple` one (Prammatica [1846], p. 13). They are added to the hand's `gamePoints` beside the winner's own (11.13).
+
+Actions: `claim_fuora`. Events: `fuora_claimed {seat, valid, points}` (points in book points), `stock_empty`. Seat view: `view.fuora = {target, canClaim, claims: [{seat, valid, points}]}`. With `repeat` (11.15): `{"id": "rounds", "module": "repeat", "until": "fuora", "phases": [deal of 4, tricks]}` and the hook `{"id": "fuora", "module": "fuora", "during": "tricks"}` beside it.
 
 ### 11.12 `count`
 
@@ -542,10 +600,14 @@ Decides who won the hand and how.
 |---|---|---|---|
 | `winner` | enum | `more_points` (format 2; p. 54), `threshold` (every seat or side reaching `target` wins: Bagatt'ultimo 26, p. 95; Baronetti 46, p. 51), `declarer_threshold` (the declarer's side against `target`, with `bands`: Permesso 46), `fewest_points` (Meno, p. 78 «guadagna chi fa meno punti»), `first_out` (by `fuora`) | `more_points` |
 | `target` | number | 46, 26, 16, 31 | none |
-| `tie` | enum | format 2 `no_game_points`; `redeal_next_dealer` (p. 70 «tocca al compagno appresso a mischiare»); `declarer_loses` (our reading of p. 74 «non si può mai rifare per eguaglianza di punti»); `draw` | `no_game_points` |
+| `tie` | enum | format 2 `no_game_points`; `redeal_next_dealer` (p. 70 «tocca al compagno appresso a mischiare»: the outcome is `draw`, nobody pays, the hand counts as dealt); `declarer_loses` (our reading of p. 74 «non si può mai rifare per eguaglianza di punti»); `draw` | `no_game_points` |
 | `bands` | list of `{min, max, outcome, pays}` | finer outcomes by the declarer's points: 46+ win; 45½ draw; 43½-45 loss on the Onoranza only (pp. 66-70) | none |
 | `game_points` | enum | format 2: `one`, `one_or_two_dry`; `none` (the hand settles in stakes only) | `one` |
 | `shut_num`, `shut_den` | integer | format 2: the dry line | `1`, `3` |
+
+`declarer_threshold` (played, revision 7): the points of the declarer's side (book points, halves exact) select the first row of `bands` that holds them. `outcome: win` makes the declarer's side the winners, `loss` the other sides, `draw` has no winner (`result.outcome: draw`). `pays` says how much of the settle amount is paid: `full`, `onoranza_only` (the points beyond the line are left out), `nothing`. `result.band = {outcome, pays}`, `result.contract`, `result.declarer`. Without `bands` the declarer wins with `target` and loses otherwise. `threshold` with `tie: declarer_loses` and a declarer: when no side reaches the target (45½ each) the other sides win. A hand thrown in in the bidding has `outcome: thrown_in`.
+
+With `winner: first_out` the winner is the seat that went out (a valid `fuora`); `result.reason` is `fuora`, `false_claim` (`after_false_claim: hand_ends`) or `stock_empty`. A hand with no winner has `outcome: none`, no winners, no payment and no game point (it is not a tie, so a race never deals it again by the same dealer). `game_points: one` gives the winner of the partita one point, a «vada»; the false-claim points of the `fuora` module come on top.
 
 Example (Permesso, from the book):
 
@@ -567,12 +629,16 @@ Turns the result and the events of the hand into payments between seats.
 | key | type | values | default |
 |---|---|---|---|
 | `unit` | enum | `stake`, `marca` (p. 93: «siasi conchiuso di quanto vaglia la marca»), `soldo` (p. 69), `game_point` | `stake` |
-| `mode` | enum | `loser_pays_winner`; `declarer_vs_each` (the declarer collects from each or pays each: pp. 64, 68-69, 73-74 «come fosse egli tre giuocatori in un solo»); `losers_pay_winner` (Sedici for three, p. 43 «da tutti e due i compagni perdenti»); `a_scaricare` (only the last loser pays, for two: pp. 43-44); `pair_split` (each winner collects from one opponent: p. 90); `winners_from_losers` (each loser pays each winner) | `loser_pays_winner` |
+| `mode` | enum | `loser_pays_winner`; `declarer_vs_each` (the declarer collects from each opponent or pays each: pp. 64, 68-69, 73-74 «come fosse egli tre giuocatori in un solo»; played); `losers_pay_winner` (Sedici for three, p. 43 «da tutti e due i compagni perdenti»); `a_scaricare` (only the last loser pays, for two: pp. 43-44); `pair_split` (each winner collects from one opponent: p. 90; with unequal sides, one against three, it is played as `declarer_vs_each` with the same amount [S]); `winners_from_losers` (each loser pays each winner) | `loser_pays_winner` |
 | `amount` | amount | the payment for the hand: `{"stake": "simple"}`; Permesso: `{"sum": [{"contract": "onoranza"}, {"per_points": {…}}]}` | `{"stake": "simple"}` |
 | `premiums` | list | `{id, when: vola / loser_below_fraction / winner_times_loser, fraction, times, effect: {multiply, add}, option}`: marcio (p. 99 «vale posta doppia»), vola (p. 100), triplice, quadriplice (p. 55); `option` makes it count only if agreed | none |
 | `payments` | list | event payments, each with its own source: `{id, on, from, to, amount, source}` | none |
 
-Event payments, `on`: `declaration:<kind>`, `last_trick_won_with:<card>`, `lost_in_last_trick:<card>`, `lost_before_last_trick:<card>`, `reached_target`, `penalty:<id>`. `from` / `to`: `each_other`, `event_seat`, `losers`, `each_loser`, `winners`, `each_winner`. Example, the Bagatto last (p. 96):
+The amount of a declarer game is a sum: `{contract: onoranza}` (the contract's field) and `{per_points}` (steps of `every` points between the declarer side's points and `from`, rounded by `round` on the scale of points and counted whatever the sign: 40 points on three lose 2 + 1 = 3 to each of two opponents, six in all). The rows are written apart (`why`: `onoranza`, `points`, the mode, the id of an event payment, `false_claim`, `declaration`). The band's `pays` cuts the amount. The payments of events (declarations, `payments`) come first.
+
+Event payments, `on`: `declaration:<kind>` (the seat that declared the kind), `last_trick_won_with:<card>` (the seat that played the card in the last trick and took that trick), `lost_in_last_trick:<card>` (played in the last trick, the trick taken by another seat), `lost_before_last_trick:<card>` (played before the last trick and not taken by its player; an excuse kept by its owner is never lost). `from` / `to`: `each_other` (every seat but the event seat), `event_seat`, `winners` and `each_winner`, `losers` and `each_loser` (by `result.winners`). Every payer pays every payee the amount (never himself). `reached_target` and `penalty:<id>` are not played. `payments` is played when every row names a unique `id`, one of the events above, `from`/`to` of the list above and an amount.
+
+The payments of the hand are made by `handPayments(h, set)` of `core/modules/payments.js`: first the payments of the declarations of the hand (`why: declaration`, in the order they were declared), then the rows of `settle.payments` in file order, each with `why` equal to the row `id`; a row whose event did not happen gives nothing. `settle` calls it and puts these payments before the payment of the game, after the payments of false `fuora` claims. The function reads the hand and changes nothing. Example, the Bagatto last (p. 96):
 
 ```json
 "payments": [
@@ -582,11 +648,11 @@ Event payments, `on`: `declaration:<kind>`, `last_trick_won_with:<card>`, `lost_
 ]
 ```
 
-When there is no `settle` phase, the result's `game_points` feed the match (format 2 behaviour). Seat view: the payments of the hand and the running ledger. Events: `paid {from, to, amount, why}`.
+When there is no `settle` phase, the result's `game_points` feed the match (format 2 behaviour). Seat view: the payments of the hand and the running ledger. Events: `paid {from, to, amount, why}`. The payments of false `fuora` claims (the `fuora` module) come first (`why: false_claim`), whoever wins the hand and also in a hand with no winner; the stake of the partita follows by `mode`. A partita with no winner pays no stake.
 
 ### 11.15 `repeat`
 
-A structural group, not a game mechanism: runs its `phases` again and again `until` a condition (`fuora`, `stock_empty`, `fuora_or_stock_empty`). Used for the repeated deals of Sedici and Trent'uno.
+A structural group, not a game mechanism: runs its `phases` again and again `until` a condition (`fuora`, `stock_empty`, `fuora_or_stock_empty`). Used for the repeated deals of Sedici and Trent'uno. The group holds a `deal` and a `tricks` phase (the checker requires both) and, for `until: fuora`, the file needs a `fuora` phase. Each round after the first: `s.round` counts up, the open trick and the state of the inner modules are cleared, the deal runs again (`deal.dead: stock` keeps the undealt cards in order in `s.rest`, and a later round deals from them with no shuffle and no cut; `dead: stock` is played only inside a repeat group), the dealer stays the same and the cards won in the earlier rounds stay won. The group ends when the next deal cannot be made (fewer cards in the pack than one deal takes: event `stock_empty`, `s.stockEmpty`), or at once when a hook ends the hand (a valid claim).
 
 ## 12. Match
 
@@ -595,7 +661,7 @@ The match wraps the hand. Format 2 keys keep their names.
 | key | type | values | default |
 |---|---|---|---|
 | `kind` | enum | `single_hand`; `fixed_hands` (`hands` hands); `race` (to `target` game points); `running_total` (Venticinque for three by RI: `rounds` rounds, each seat scores its points less `round_target`, the greatest total wins if it is above zero (Torino [1846], part I, p. 34: «Vince chi ha … un maggior numero di punti»), as the core plays it; Dummett 1980, p. 260 has the first player to reach a positive total in the last round); `ledger` (stakes accumulate hand after hand; with `dealer_rounds` the match ends after that many rounds of dealers, the greatest balance wins and equal balances are a draw, «pace»; without it the table ends the match when the players leave) | from `hands`: 0 → `race`, N → `fixed_hands`; no match section → `single_hand` |
-| `target` | number | format 2 | `5` |
+| `target` | number | format 2: the game points a `race` is played to | `5` |
 | `hands` | integer | format 2 (0 = race) | — |
 | `tiebreak` | enum | format 2: `none`, `card_points` | `none` |
 | `tie_replay` | bool | format 2 | `true` |
@@ -605,7 +671,9 @@ The match wraps the hand. Format 2 keys keep their names.
 | `rounds` | integer | `running_total`: 3 | none |
 | `dealer_rounds` | integer | `ledger`: the match ends after this many rounds of dealers (deals = rounds x seats); without the key a ledger match never ends | none |
 
-The dealer changes by `seats.dealer_rotation`.
+The dealer changes by `seats.dealer_rotation`. A hand thrown in (everybody passed, `outcome: thrown_in`) or drawn (`outcome: draw`) counts as a dealt hand in `dealer_rounds`: nobody pays, the next dealer follows the rotation; it is never dealt again by the same dealer (that is `tie_replay` of a tied race hand only).
+
+**A race of a going-out game (Sedici, Trent'uno at two).** `kind: race`, `target: 5`, `result.game_points: one`: a partita (one hand, however many rounds of deals it has) won by a valid «fuora» gives its winner one point, a «vada»; a false «fuora» whose row pays `marcia` or `double` gives each other seat two points, a «vada doppio», a row paying `simple` one (Prammatica [1846], p. 13). The match ends when a seat has `target` points after a partita and one side leads alone (`max_hands` otherwise): when the leaders are level at the target or above, another partita is played, until one side leads alone (revision 6); the most points win. Only `max_hands` can end a race level, with no winner. A partita with no winner (the pack ran out) has `outcome: none`, scores nothing, and the next dealer follows `dealer_rotation` (`tie_replay` is for a tied hand only). The other reading («al primo vada») is `kind: ledger` with `dealer_rounds: 1`: every partita stands alone and is paid at once; the core plays both forms. `view.score_panel.ledger: false` hides the stakes ledger: the stake of the whole partita is paid at its end, which the format cannot compute yet (FORMAT_OPEN_POINTS 54).
 
 ## 13. Penalties
 
@@ -635,7 +703,7 @@ Only what must differ per game; everything else is the table's default. Plain va
 | `declarations` | `count_only`, `cards` | per kind `show` |
 | `last_trick` | `hidden`, `until_next_lead`, `always` | `until_next_lead` |
 | `partners_hands` | `hidden`, `shown` | from `sides.partners_share_hands` |
-| `score_panel.live_points` | `hidden` (the book counts at the end; closed tricks need not be shown, pp. 32-33), `own`, `side`, `all` | `hidden` |
+| `score_panel.live_points` | `hidden` (the book counts at the end; closed tricks need not be shown, pp. 32-33), `own` (played: the book points of the cards the seat has won so far in this partita, counted by the count phase's rules, as `view.points.mine`), `side`, `all` (not played) | `hidden` |
 | `score_panel.after_hand` | list of `pairs`, `groups`, `odd_card`, `fool_card`, `discard`, `stock_cards`, `declarations`, `premiums`, `bands`, `payments`, `running_total` | `["groups"]` |
 | `score_panel.ledger` | bool: show the stakes ledger | `true` with a `settle` phase |
 

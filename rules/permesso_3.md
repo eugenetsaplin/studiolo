@@ -1,8 +1,8 @@
 # Permesso for three (Permesso)
 
-3 players. In the book of 1787: pp. 58-70. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+3 players. In the book of 1787: pp. 58-70. Status: playable, with decisions of ours where the book is silent. Rules revision 7.
 
-Permesso for three («Trilio»), the first of the Turin rulebook's games of one against two (Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787, «Del giuoco del Permesso in tre persone», pp. 58-70), on the whole 78-card pack: 25 cards to each of the two players and 28 to the dealer, who puts three away (p. 59); after «Ho scartato» the player first in hand asks «Permesso?», the players bid how few cards they will change (three, two, one or none: «sans prendre»), the winner of the bidding lays his worst cards face down, calls the same number by name from the other hands and plays alone against the other two, who count their points together (pp. 60-66). He wins with 46 of the 91 points counted in pairs; the stake is the Onoranza of his contract (2, 3, 4 or 5 coins) and one coin for each five points beyond 45 (pp. 66-70). The book is silent on the dealer's place in the auction, on a general pass and on a called card that lies in the discard; those are our decisions, marked [S]. Played in coins agreed before the deal (p. 67). Marks: [D] documented, [R] our reading, [S] sources silent.
+Permesso for three («Trilio»), the first of the Turin rulebook's games of one against two (Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787, «Del giuoco del Permesso in tre persone», pp. 58-70), on the whole 78-card pack: 25 cards to each of the two players and 28 to the dealer, who puts three away (p. 59); after «Ho scartato» the player first in hand asks «Permesso?», the players bid how few cards they will change (three, two, one or none: «sans prendre»), the winner of the bidding lays his worst cards face down, calls the same number by name from the other hands and plays alone against the other two, who count their points together (pp. 60-66). He wins with 46 of the 91 points counted in pairs; the stake is the Onoranza of his contract (2, 3, 4 or 5 coins) and one coin for each five points beyond 45 (pp. 66-70). The book is silent on the dealer's place in the auction, on a general pass and on a called card that lies in the discard; those are our decisions, marked [S]. Played in coins agreed before the deal (p. 67); a match is one round of dealers (ours). Marks: [D] documented, [R] our reading, [S] sources silent.
 
 ## How to read the marks
 
@@ -77,10 +77,10 @@ This step: *Documented: from the book, pp. 60-66.*
 
 - The bids are: three, two, one, sans prendre. *Documented: from the book, p. 66.* <!-- rule: hand.bidding.contracts -->
 - The player on the dealer's right opens the bidding. *Documented: from the book, p. 60.* <!-- rule: hand.bidding.opens -->
-- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: When the dealer speaks: in turn. <!-- rule: hand.bidding.dealer_speaks -->
-- With equal bids the earlier seat in turn wins the bidding. *Documented: from the book, pp. 63-64.* <!-- rule: hand.bidding.tie -->
+- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: The dealer speaks in his turn. <!-- rule: hand.bidding.dealer_speaks -->
+- With equal bids the seat that speaks earlier wins. An earlier seat may match the bid of a later one; a later seat must bid higher. A pass is final. *Documented: from the book, pp. 63-64.* <!-- rule: hand.bidding.tie -->
 - Whoever passes may not come back into the bidding. *Documented: from the book, p. 66.* <!-- rule: hand.bidding.pass_is_final -->
-- If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), pp. 65-66.* Other reading: If everyone passes: a redeal. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.bidding.all_pass -->
+- If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), pp. 65-66.* Other reading: If everyone passes, the same dealer deals again. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.bidding.all_pass -->
 - A bid binds: whoever takes it must play it. *Documented: from the book, p. 66.* <!-- rule: hand.bidding.bid_binds -->
 - Whoever lays down fewer cards than he bid plays the bid of the cards laid. *Documented: from the book, p. 65.* <!-- rule: hand.bidding.lay_down_fewer -->
 
@@ -93,6 +93,9 @@ This step: *Documented: from the book, pp. 60-61.*
 - The exchange is made face down. *Documented: from the book, p. 61.* <!-- rule: hand.exchange.face -->
 - Cards that may be asked for: all. *Documented: from the book, p. 61.* <!-- rule: hand.exchange.callable -->
 - If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision, after Dummett (1980), p. 61.* Other reading: If nobody else holds the wanted card, it may not be asked for. <!-- rule: hand.exchange.card_not_held -->
+- The laid cards go to the holders unseen, drawn by lot. *Sources silent, our decision.* Other reading: Who gets which laid card: declarer assigns. Open question 27: could be settled by a document in which the rule is printed or a trial with live players (who takes which of the laid cards in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.exchange.give -->
+- Honours may not be laid down. *Our reading: book, pp. 34-35.* Other reading: Any card may be laid down. Open question 31: could be settled by a document in which the rule is printed or the opinion of an expert (which cards may be laid down in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.exchange.discard_honours_barred -->
+- Some cards are still allowed to be laid down (for example the Fool). *Our reading: book, pp. 34-35.* <!-- rule: hand.exchange.allowed_exceptions -->
 
 ### The tricks
 
@@ -115,18 +118,19 @@ This step: *Documented: from the book, pp. 60-61.*
 - The declarer wins if he reaches the threshold of his bid. *Documented: from the book, p. 68.* <!-- rule: hand.result.winner -->
 - The threshold is 46 points. *Documented: from the book, p. 68.* <!-- rule: hand.result.target -->
 - If the points are equal, the cards are dealt again by the next dealer. *Documented: from the book, p. 70.* <!-- rule: hand.result.tie -->
-- The result depends on bands of points, set in the game file. *Our reading: book, pp. 66-70.* Other reading: min: 46; outcome: win; pays: full, min: 45; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 44.5; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. <!-- rule: hand.result.bands -->
+- The result follows bands of the declarer's points: a win, a draw or a loss; he pays all, the Onoranza alone, or nothing. *Our reading: book, pp. 66-70.* Other reading: min: 46; outcome: win; pays: full, min: 45; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 44.5; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. <!-- rule: hand.result.bands -->
 - A hand gives no game points. *Our reading: book, p. 64.* <!-- rule: hand.result.game_points -->
 
 ### Settling
 
 - Settling is in soldi. *Documented: from the book, pp. 67-69.* <!-- rule: hand.settle.unit -->
 - The declarer settles with each player on his own. *Documented: from the book, p. 64.* <!-- rule: hand.settle.mode -->
-- The amount: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. *Our reading: book, pp. 67-70.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. The Onoranza of the contract and the points beyond the line are counted apart. *Our reading: book, pp. 67-70.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -141,7 +145,6 @@ This step: *Documented: from the book, pp. 60-61.*
 
 - **Vola.** The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played. *Documented: Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).* <!-- left_out: vola -->
 - **Marcio.** Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played (see FORMAT_OPEN_POINTS, F2). *Documented: Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».* <!-- left_out: marcio -->
-- **Fool given in exchange.** The mechanism is not explained (probably the Fool may be laid down in the exchange); the exchange has no key for it (FORMAT_OPEN_POINTS, 10). *Documented: Torino 1787, pp. 34-35 (rule 38): «Si potrà però il Folle dar via, … carta, ove si giuochi a Permesso».* <!-- left_out: fool_given_in_exchange -->
 - **Draw money.** A drawn hand pays nothing in the ledger. *Documented: Torino 1787, p. 70: after a draw nothing is said of the stakes on the table.* <!-- left_out: draw_money -->
 
 ## Sources
@@ -153,4 +156,4 @@ This step: *Documented: from the book, pp. 60-61.*
 | RI 1830 (after Dummett) | [Carlo O…], Regole inalterabili per tutti i giuochi di Tarocco detti di commercio, Torino, 1830 (known to us only through Dummett 1980) | not held: known to us only through another source |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 
-Generated from `rulesets/permesso_3.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/permesso_3.json`, rules revision 7. Do not edit: change the game file.

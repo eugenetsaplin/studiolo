@@ -3,8 +3,8 @@
 	"id": "trentuno",
 	"family": "sedici",
 	"status": "playable_with_decisions",
-	"about": "Trent'uno («Trent'uno»), pp. 45-46 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787): Sedici with eight covered cards to each player and thirty-one points to win (pp. 45-46: «Premesse tutte le sopradette regole»). Everything of Sedici applies unless said otherwise: the Fool is the lowest trionfo and counts one point, Bagatto takes it, the cards are counted singly, the dealer goes on dealing until somebody says «fuora» (pp. 36-41, 51). The section does not say how many play; it is read after Sedici, for two, three or four. A plain card is worth 1 (since revision 2, by calculation; Dummett 1980, p. 269, allows it), a false claim is paid double under 16 points, and when the pack runs out before anybody has said «fuora» the hand ends with no payment: our decisions, each leaf says whose reading. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 3,
+	"about": "Trent'uno («Trent'uno»), pp. 45-46 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787): Sedici with eight covered cards to each player and thirty-one points to win (pp. 45-46: «Premesse tutte le sopradette regole»). Everything of Sedici applies unless said otherwise: the Fool is the lowest trionfo and counts one point, Bagatto takes it, the cards are counted singly, the dealer goes on dealing until somebody says «fuora» (pp. 36-41, 51). The section does not say how many play; it is read after Sedici, for two, three or four. A plain card is worth 1 (since revision 2, by calculation; Dummett 1980, p. 269, allows it), a false claim is paid double under 16 points, and when the pack runs out before anybody has said «fuora» the hand ends with no payment: our decisions, each leaf says whose reading. A match is a race to five points, each game won being one: Prammatica [1846], pp. 11-12 says it of Sedici, and Trent'uno «non differisce dal Sedici che nel numero»; the number five is our reading of p. 13. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 6,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -23,6 +23,12 @@
 			"short_ru": "Даммет (1980)",
 			"short_en": "Dummett (1980)",
 			"held": true
+		},
+		"prammatica1846": {
+			"cite": "L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846]",
+			"short_ru": "Prammatica [1846]",
+			"short_en": "Prammatica [1846]",
+			"held": true
 		}
 	},
 	"seats": {
@@ -31,7 +37,7 @@
 		"first_dealer": {"value": "draw_trump", "source": "[D] Torino 1787, p. 16: cards are turned up for each side, «se viene prima da questa parte un Trionfo, mischierò io»: the side that first receives a trionfo shuffles and deals first."},
 		"cut_by": {"value": "left", "source": "[D] Torino 1787, pp. 16-17: the player on the dealer's left cuts («di dar a coppare a chi ti siede a sinistra»); if he declines the next on the left, if all decline the dealer deals as the pack lies."},
 		"cut_min": {"value": 2, "source": "[D] Torino 1787, p. 16: «Una carta sola non si può coppare»: a cut leaves at least two cards in each part."},
-		"dealer_rotation": {"value": "right", "source": "[S] Torino 1787, p. 41 and Torino [1846], pp. 27-28 say it for two only; ours after Torino [1846], part I, p. 18: «a chi vien dopo a destra».", "by": "torino1846"}
+		"dealer_rotation": {"value": "winner_passes_to_companion", "source": "[R] Torino 1787, p. 45: «Premesse tutte le sopradette regole»: Trent'uno is played by the rules of Sedici, and at Sedici the winner hands the whole pack to his companion, who shuffles and deals (p. 41: «rimetterai le carte tutte in mazzo al tuo compagno»). For two players the companion is the other player, so the loser deals the next game. [S] For three and four players the companion is read as the player on the winner's right, and when nobody has won (the pack ran out) the player on the last dealer's right deals. Other version: the deal passes to the right after every game (Torino [1846], part I, p. 18: «a chi vien dopo a destra»).", "alt": "right"}
 	},
 	"sides": {
 		"mode": {"value": "each_for_self", "source": "[D] Torino 1787, pp. 45-46: «Premesse tutte le sopradette regole»: as at Sedici each player makes his own points and the first to thirty-one says «fuora»."}
@@ -40,7 +46,7 @@
 		"deck": {"value": "full78", "source": "[D] Torino 1787, pp. 9-10: «Settant'otto Tarocchi si richiedono»: twenty-two trionfi (the Fool is n. 0 among them) and fourteen cards in each of the four suits."},
 		"trump_order": {"value": ["T20", "T21", "T19", "T18", "T17", "T16", "T15", "T14", "T13", "T12", "T11", "T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2", "T1", "T0"], "source": "[D] Torino 1787, pp. 13, 37-39, 46: as at Sedici, the Angel XX takes the World XXI and none takes the Angel, the Fool is the lowest and «Bagatto piglia il Folle» (p. 46). The list is highest first."},
 		"suit_order": {"value": "italian", "source": "[D] Torino 1787, pp. 11-13: in swords and batons the larger number takes the smaller; in cups and coins «la carta di numero inferiore prende quella di numero superiore, eccetto le figure» (the ace takes the two up to the ten); the courts stand above every numeral. [R] The order among the courts, King, Queen, Knight, Jack, is read from their points 5, 4, 3, 2 (pp. 13-14) and from the list of p. 10."},
-		"card_points": {"value": {"rank:K": 5, "rank:Q": 4, "rank:N": 3, "rank:J": 2, "T20": 5, "T1": 5, "T0": 1}, "source": "[D] Torino 1787, pp. 13-14, 38, 46: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, and the Fool «conta un sol punto» at Sedici and Trent'uno; a plain card is worth count.plain_value."},
+		"card_points": {"value": {"rank:K": 5, "rank:Q": 4, "rank:N": 3, "rank:J": 2, "T20": 5, "T1": 5, "T0": 1}, "source": "[D] Torino 1787, pp. 13-14, 38: king 5, queen 4, knight 3, jack 2, the Angel 5, Bagatto 5, and «il Folle al Sedici, ed al Trent'uno conta un sol punto» (p. 38); a plain card is worth count.plain_value."},
 		"fool": {"value": "trump", "source": "[D] Torino 1787, pp. 36, 38, 46: at Trent'uno as at Sedici the Fool takes as a trionfo and a lone Fool must be played; Bagatto takes it («Bagatto piglia il Folle»), it takes no Bagatto (p. 38)."}
 	},
 	"options": [
@@ -85,9 +91,10 @@
 				"source": "[D] Torino 1787, pp. 45-46: «con trent'un punto la partita è guadagnata»; «chiamarti prontamente fuora innanzi agli altri compagni, quando lo sii senza fallo».",
 				"settings": {
 					"target": {"value": 31, "source": "[D] Torino 1787, p. 46: «con trent'un punto la partita è guadagnata»."},
-					"claim_when": {"value": "after_trick", "source": "[R] Torino 1787, pp. 39-40, 46: as at Sedici the claim is read as made when a trick is taken; the book advises saying «fuora» «prontamente» once sure. Other reading: at any moment.", "alt": "any_time"},
+					"claim_when": {"value": "after_trick", "source": "[R] Torino 1787, pp. 39-40, 46: as at Sedici the claim is read as made right after a trick, by the player who took it, before anything else happens; nobody else can have gone out with that trick. After the last trick of a round the claim comes before the next deal. The book advises saying «fuora» «prontamente» once sure. Other reading: at any moment.", "alt": "any_time"},
 					"after_first_out": {"value": "hand_ends", "source": "[D] Torino 1787, pp. 40-41, 45: as at Sedici, the game is won when a player is out."},
-					"false_claim": {"value": [{"below": 16, "pays": {"stake": "double"}}, {"from": 16, "pays": {"stake": "simple"}}], "source": "[S] Torino 1787, pp. 45-46 and Torino [1846], pp. 29-30 print no line; ours: half of 31, as Sedici's eight of sixteen (p. 39). Other reading: in the Savoy «À Fora» (rules of Annecy, in Depaulis 1984) a false claim loses the game and no more, at 30 points too.", "by": "ours", "alt": [{"from": 0, "pays": {"stake": "simple"}}], "replace": {"with": ["document", "math"], "what": "a false «fuora»", "q": 11}},
+					"false_claim": {"value": [{"below": 16, "pays": {"stake": "double"}}, {"from": 16, "pays": {"stake": "simple"}}], "source": "[S] Torino 1787, pp. 45-46 and Torino [1846], pp. 29-30 print no line; ours: half of 31, as Sedici's eight of sixteen (p. 39). Other reading: in the Savoy «À Fora» (rules of Annecy, in Depaulis 1984) a false claim loses the game and no more, at 30 points too. [R] In a race (match.kind) a double row gives each other player two points, a «vada doppio», and a simple row one: Prammatica [1846], p. 13 prints the «vada doppio» for a revoke at Trent'uno al meno; carried over to the false claim, ours.", "by": "ours", "alt": [{"from": 0, "pays": {"stake": "simple"}}], "replace": {"with": ["document", "math"], "what": "a false «fuora»", "q": 11}},
+					"after_false_claim": {"value": "play_on", "alt": "hand_ends", "source": "[S] Torino 1787, pp. 39, 45-46 print the payment for a false «fuora» at Sedici, not what happens next; ours: the claimer pays and the game goes on. Prammatica [1846], p. 12 points the same way: «non è già vincitore quegli che si dichiara il primo», the winner is the first who has really made thirty-one. Other version: a false claim loses the game, as in the Savoy «À Fora» (rules of Annecy, in Depaulis 1984).", "replace": {"with": ["document", "bots"], "what": "a false «fuora»: does the game go on or end", "q": 25}},
 					"stock_empty": {"value": "hand_ends_no_winner", "source": "[S] Torino 1787, p. 39 and Torino [1846], part I, p. 26: «finchè alcuno si chiami fuora»; an empty pack is not mentioned. Ours after Dummett 1980, p. 269, who names two guesses: the hand is given up without payment, or all the cards are dealt again; the first is played. Revision 1 gathered the untaken cards and dealt on, which cannot be done: too few cards are left for another round.", "by": "dummett1980", "replace": {"with": ["document", "bots"], "what": "the pack runs out and nobody has said «fuora»", "q": 10}}
 				}
 			},
@@ -106,7 +113,7 @@
 				"module": "result",
 				"settings": {
 					"winner": {"value": "first_out", "source": "[D] Torino 1787, p. 46: «con trent'un punto la partita è guadagnata»: the first to be out wins."},
-					"game_points": {"value": "none", "source": "[R] Torino 1787, pp. 41, 45-46: the game is paid as a stake, as at Sedici; the book names no game points."}
+					"game_points": {"value": "one", "source": "[D] Prammatica [1846], pp. 11-12: at Sedici a match seldom ends «nel primo punto che si vince o si perde», each game won or lost being a point, a «vada»; Trent'uno «non differisce dal Sedici che nel numero di trentuno» (p. 12). So a game won gives its winner one point in the race of match.kind. The stake of Torino 1787, p. 41 is still paid by the settle phase.", "by": "prammatica1846"}
 				}
 			},
 			{
@@ -121,7 +128,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+		"kind": {"value": "race", "source": "[D] Prammatica [1846], pp. 11-12: at Sedici «Se poi a più punti si stabilisce la partita o la presa», and Trent'uno «non differisce dal Sedici che nel numero di trentuno»: the match is played to several points, each game won being one. The book of 1787 describes one game only. Other version, also printed (pp. 11, 13): the match «al primo vada», every game stands alone and is paid at once; then the length of a match is ours, one round of dealers (match.kind ledger with match.dealer_rounds 1).", "by": "prammatica1846", "alt": "ledger"},
+		"target": {"value": 5, "source": "[R] Prammatica [1846], p. 13 names the match played «a più punti non meno di cinque» in the article on Trent'uno al meno, which refers back to Sedici and Trent'uno; the page names no other number. Ours: five, the least the page allows. [S] When the leaders are level at five or more, another game is played, until one leads alone: the sources say nothing of it; other version, the match is drawn. Which custom was played, the race or «al primo vada», is open (match.kind).", "by": "prammatica1846", "replace": {"with": ["document", "people"], "what": "which custom was played, a race or «al primo vada», to how many points, and what is done when the leaders are level", "q": 26}}
 	},
 	"penalties": [
 		{
@@ -139,7 +147,7 @@
 			"effect": {"value": {"pays": "simple_game", "to": "each_other"}, "source": "[D] Torino 1787, p. 42 (rule 43) and p. 45: a dealer who changes his method without timely notice pays the simple game to all."}
 		}
 	],
-	"view": {"piles": {"rest": "face_down_count"}, "score_panel": {"live_points": "own", "after_hand": ["groups", "payments"]}},
+	"view": {"piles": {"rest": "face_down_count"}, "score_panel": {"live_points": "own", "after_hand": ["groups", "payments"], "ledger": false}},
 	"bot": {
 		"play": [
 			{"value": "lead kings seldom, hoping to take other players' queens, knights or jacks with them", "source": "[D] Torino 1787, p. 46: «i Re si giuocan di rado sulla … o i Cavalli, od i Fanti»: advice of the book; it never binds a human player."},

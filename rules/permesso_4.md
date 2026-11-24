@@ -79,10 +79,10 @@ This step: *Documented: from the book, pp. 60-66.*
 
 - The bids are: three, two, one, sans prendre. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.contracts -->
 - The player on the dealer's right opens the bidding. *Documented: from the book, p. 60.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.opens -->
-- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: When the dealer speaks: in turn. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.dealer_speaks -->
-- With equal bids the earlier seat in turn wins the bidding. *Documented: from the book, pp. 63-64.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.tie -->
+- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: The dealer speaks in his turn. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.dealer_speaks -->
+- With equal bids the seat that speaks earlier wins. An earlier seat may match the bid of a later one; a later seat must bid higher. A pass is final. *Documented: from the book, pp. 63-64.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.tie -->
 - Whoever passes may not come back into the bidding. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.pass_is_final -->
-- If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), pp. 65-66.* Other reading: If everyone passes: a redeal. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.all_pass -->
+- If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), pp. 65-66.* Other reading: If everyone passes, the same dealer deals again. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.all_pass -->
 - A bid binds: whoever takes it must play it. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.bid_binds -->
 - Whoever lays down fewer cards than he bid plays the bid of the cards laid. *Documented: from the book, p. 65.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.lay_down_fewer -->
 
@@ -95,6 +95,9 @@ This step: *Documented: from the book, pp. 60-61.*
 - The exchange is made face down. *Documented: from the book, p. 61.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.face -->
 - Cards that may be asked for: all. *Documented: from the book, p. 61.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.callable -->
 - If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision, after Dummett (1980), p. 61.* Other reading: If nobody else holds the wanted card, it may not be asked for. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.card_not_held -->
+- The laid cards go to the holders unseen, drawn by lot. *Sources silent, our decision.* Other reading: Who gets which laid card: declarer assigns. Open question 27: could be settled by a document in which the rule is printed or a trial with live players (who takes which of the laid cards in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.give -->
+- Honours may not be laid down. *Our reading: book, pp. 34-35.* Other reading: Any card may be laid down. Open question 31: could be settled by a document in which the rule is printed or the opinion of an expert (which cards may be laid down in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.discard_honours_barred -->
+- Some cards are still allowed to be laid down (for example the Fool). *Our reading: book, pp. 34-35.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.allowed_exceptions -->
 
 ### The tricks
 
@@ -117,18 +120,19 @@ This step: *Documented: from the book, pp. 60-61.*
 - The declarer wins if he reaches the threshold of his bid. *Documented: from the book, p. 68.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.winner -->
 - The threshold is 46 points. *Documented: from the book, p. 68.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.target -->
 - If the points are equal, the declarer loses. *Sources silent, our decision.* Open question 14: could be settled by a document in which the rule is printed (equal points, 45½ each); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
-- The result depends on bands of points, set in the game file. *Our reading: book, pp. 66-67.* Other reading: min: 46; outcome: win; pays: full, min: 45.5; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 45; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. <!-- rule: hand.result.bands -->
+- The result follows bands of the declarer's points: a win, a draw or a loss; he pays all, the Onoranza alone, or nothing. *Our reading: book, pp. 66-67.* Other reading: min: 46; outcome: win; pays: full, min: 45.5; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 45; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. <!-- rule: hand.result.bands -->
 - A hand gives no game points. *Our reading: book, p. 64.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.game_points -->
 
 ### Settling
 
 - Settling is in soldi. *Documented: from the book, pp. 67-69.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.unit -->
 - The declarer settles with each player on his own. *Documented: from the book, pp. 73-74.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.mode -->
-- The amount: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. *Our reading: book, pp. 67-70.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.amount -->
+- The amount of the settlement: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. The Onoranza of the contract and the points beyond the line are counted apart. *Our reading: book, pp. 67-70.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* Same as in [Permesso for three](permesso_3.md). <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 

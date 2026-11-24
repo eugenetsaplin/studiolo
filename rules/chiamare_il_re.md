@@ -1,6 +1,6 @@
 # Call the King (Chiamare il Re)
 
-4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 7.
 
 Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S].
 
@@ -72,7 +72,8 @@ This step: *Documented: from the book, pp. 80-82.*
 - The bids are: one, sans prendre. *Documented: from the book, p. 84.* <!-- rule: hand.bidding.contracts -->
 - The dealer opens the bidding. *Documented: from the book, p. 80.* <!-- rule: hand.bidding.opens -->
 - The dealer speaks first. *Documented: from the book, pp. 80-82.* <!-- rule: hand.bidding.dealer_speaks -->
-- With equal bids the later bidder wins the bidding. *Our reading: book, p. 82.* Other reading: With equal bids: the dealer. <!-- rule: hand.bidding.tie -->
+- With equal bids the later bidder wins the bidding. *Our reading: book, p. 82.* Other reading: With equal bids the dealer wins the bidding. <!-- rule: hand.bidding.tie -->
+- If the dealer passes, the bidding ends: he calls a king. The others may only overcall a bid of the dealer. *Our reading: book, p. 80.* Other reading: If the dealer passes, the others bid. Open question 29: could be settled by a document in which the rule is printed (the auction after the dealer passes); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.bidding.after_dealer_pass -->
 - If everyone passes, the bid «call the king» is played. *Documented: from the book, p. 80.* <!-- rule: hand.bidding.all_pass -->
 
 ### Calling a partner
@@ -83,8 +84,8 @@ This step: *Documented: from the book, pp. 80-83.*
 - The call goes by rank: K, Q, N, J. *Documented: from the book, pp. 81-82.* <!-- rule: hand.call_partner.ladder -->
 - If the caller holds every card of that rank, he calls the next rank. *Documented: from the book, pp. 81-82.* <!-- rule: hand.call_partner.step_down -->
 - The others do not know who is whose partner. *Documented: from the book, p. 80.* <!-- rule: hand.call_partner.secret -->
-- If the caller holds the called card himself, he plays alone, unless he is forgiven. *Documented: from the book, p. 83.* <!-- rule: hand.call_partner.own_card -->
-- The called card may not be in the discard. *Our reading: book, pp. 80-81.* Other reading: The called card in the discard: plays alone. Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.call_partner.card_in_discard -->
+- If the caller holds the called card himself, he plays alone against the rest; nobody knows it until that card is played. *Our reading: book, p. 83.* Open question 28: could be settled by a document in which the rule is printed or a trial with live players (calling a card of one's own hand); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.call_partner.own_card -->
+- A card of the caller's own discard may not be called. *Our reading: book, pp. 80-81.* Other reading: The called card in the discard: plays alone. Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.call_partner.card_in_discard -->
 
 ### The exchange
 
@@ -95,6 +96,9 @@ This step: *Documented: from the book, p. 82.*
 - The exchange is made face down. *Documented: from the book, p. 82.* <!-- rule: hand.exchange.face -->
 - Cards that may be asked for: all. *Our reading: book, p. 82.* <!-- rule: hand.exchange.callable -->
 - If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision.* Other reading: If nobody else holds the wanted card, it may not be asked for. <!-- rule: hand.exchange.card_not_held -->
+- The laid cards go to the holders unseen, drawn by lot. *Sources silent, our decision.* Other reading: Who gets which laid card: declarer assigns. Open question 27: could be settled by a document in which the rule is printed or a trial with live players (who takes which of the laid cards in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.exchange.give -->
+- Honours may not be laid down. *Our reading: book, pp. 34-35.* Other reading: Any card may be laid down. Open question 31: could be settled by a document in which the rule is printed or the opinion of an expert (which cards may be laid down in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.exchange.discard_honours_barred -->
+- Some cards are still allowed to be laid down (for example the Fool). *Our reading: book, pp. 34-35.* <!-- rule: hand.exchange.allowed_exceptions -->
 
 ### The tricks
 
@@ -122,29 +126,29 @@ This step: *Documented: from the book, p. 82.*
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 83.* <!-- rule: hand.settle_pair.unit -->
-- The pair shares the win. *Our reading: book, p. 90.* <!-- rule: hand.settle_pair.mode -->
-- The amount: the stake: as agreed. *Sources silent, our decision.* Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle_pair.amount -->
+- The pair shares the win; with unequal sides (one against three) the declarer settles with each opponent. *Our reading: book, p. 90.* <!-- rule: hand.settle_pair.mode -->
+- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision.* Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle_pair.amount -->
 
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 83.* <!-- rule: hand.settle_alone.unit -->
 - The declarer settles with each player on his own. *Documented: from the book, pp. 82-83.* <!-- rule: hand.settle_alone.mode -->
-- The amount: the stake: as agreed. *Documented: from Dummett (1980), p. 83.* <!-- rule: hand.settle_alone.amount -->
+- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from Dummett (1980), p. 83.* <!-- rule: hand.settle_alone.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
-- Offence «call own card»: apply; penalty: plays alone: yes; unless: all others forgive unanimously. *Documented: from the book, p. 83.* <!-- rule: penalties.call_own_card -->
+- Offence «call own card»: apply; penalty: plays alone: yes; unless: all others forgive unanimously. *Our reading: book, p. 83.* <!-- rule: penalties.call_own_card -->
 - Offence «hint partner»: text only; penalty: hinter plays alone: yes; unless: hint was in the plain way of play. *Our reading: book, p. 83.* <!-- rule: penalties.hint_partner -->
 - Offence «signal»: text only; penalty: pays: simple game; to: each of the others; then: lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 - Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 38.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
-- **All sixteen courts.** The ladder ends at the jack; the format has no value for an exhausted ladder (FORMAT_OPEN_POINTS, F2). *Sources silent, our decision: Torino 1787, pp. 81-82: nothing is said of a dealer who holds all kings, queens, knights and jacks.* <!-- left_out: all_sixteen_courts -->
 - **Onoranza of ad una.** Not printed in the 1787 book; the payment is the agreed stake. *Our reading: Dummett 1980, p. 269 (a conjecture of his; our scan lacks page 268): a basic payment of 1 for «a due», 2 for «ad una», and 1 for calling a king.* <!-- left_out: onoranza_of_ad_una -->
 
 ## Sources
@@ -155,4 +159,4 @@ This step: *Documented: from the book, p. 82.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 
-Generated from `rulesets/chiamare_il_re.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/chiamare_il_re.json`, rules revision 7. Do not edit: change the game file.

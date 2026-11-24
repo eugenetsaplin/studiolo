@@ -235,3 +235,97 @@ Reason: five stake games had no end of a match. Partita for three and for four, 
 7. The format documents: section 12 of `GAME_FILE_FORMAT.md` now says that the greatest positive total wins at Venticinque for three, as the core plays it (Torino [1846], part I, p. 34); points 13 and 33 of `FORMAT_OPEN_POINTS.md` are corrected.
 
 **Count of marks** (not counting the lists of «not played»): 546 [D], 236 [R], 122 [S] — 904 rules in all.
+
+## Revision 6 — 24 November 2026, tag `rules-r6`
+
+<!-- files r6
+bagattultimo.json sha256:8f94b70ca813a51e997cab04dbc7caa271ce0e507646d62268d8584eecf9050b
+baronetti.json sha256:7383b512edea995bb3a1b3bc34622b09172705b27aad26e146edd079aa13b12f
+chiamare_il_re.json sha256:16edb6155addf208449b561fa012ee1024f83a7c22bc220e87c7e8d32b8a609f
+consiglio.json sha256:3b6e85e1c48bff858d113e8b753dc9eea01345f8188b44a47f0542c93f01dd4d
+dottore.json sha256:6fc28bd07ae8582e9e42bce59f41c35dde58b330147ae44a70c585991efb33fb
+meno.json sha256:4b420624235a1bfea52fc0ea651c750fd1fa10505cf41219a49f425c603a3fc3
+mitigati_2.json sha256:ed6672668360ac38c59f3eb1c2bf1b25f8bfacc7f52f9a19a6ac0f5ddd0f6bc8
+morto.json sha256:efadc6227af5ca874dc4a7eead13079723e621b0434bf6297e1218b2ca221817
+partita_3.json sha256:bfc0dedc5d26ee5c73970dad6b248520e82f8e4adc1c53f876b782e2701c03f1
+partita_4.json sha256:df1c7092e7c3ae3ae090e3c32db6c06b4e77004b8cc8b168903b6b02faacaa90
+permesso_3.json sha256:e552b3aba74e451bea1b106761f522db4d8efb61fb7ae686ce8281b547c4d408
+permesso_4.json sha256:c9596040661c807db4d746191f72e3171717fc581fa6dab57960653092c7c8cb
+permesso_5.json sha256:3b8e2162306195941da8e3b2052c93c76979b2b9fc531e787c21e6ce94f3739b
+permesso_6.json sha256:798f5dca01e70e3a9d2fca4d79f10a97e211984100c0a03a175922c470dc0010
+permesso_7.json sha256:9e8324c5af5c24345bb8dcefb1778eb2e33d1b8d1788dd505137022ce8343c3b
+sedici_2.json sha256:95153889fdc4835c8788f53c66691ac6396a8ec31746c0368d252c30f905ad48
+sedici_3.json sha256:f1616230abdb79d103cd63d9dfef125f8fc43e3aa16587172b59b85cc43e7299
+sedici_4.json sha256:470e914337ae6438f0a919e34f783b74d937823dd9f919a94a9ebeee375dc5c5
+trentuno.json sha256:acecf5696ff14a78935f92a337b4e0732818807dcbdb0b37f63c9fbd760536b1
+venticinque.json sha256:d4db4754f735b175d7a4ee055ae8caa20b349e685854d625d4b06f59a1bf8245
+venticinque_3.json sha256:c44ca901817546f45667b7dc827215393336437d242f0c4714847cfa6d66cdd9
+-->
+
+Reason: Sedici for two, Trent'uno and Baronetti become playable (run C3a). Sedici and Trent'uno had no match: each game was settled alone and the table kept the ledger «until the players leave». Baronetti had no end of a match either. Prammatica [1846], pp. 11-13 was read again: at Sedici a match seldom ends «nel primo punto» (p. 11), it is played to several points, and Trent'uno differs from Sedici only in the number (p. 12). The words «a più punti non meno di cinque» stand on p. 13, in the article on Trent'uno al meno. **The game changes: Sedici and Trent'uno are now a race; a false «fuora» no longer ends the game.**
+
+**What changes for the player.**
+1. Sedici and Trent'uno: a match is a race to five points. A game won is one point. A false «fuora» that pays double gives each other player two points («vada doppio»), a simple one one point. A game that nobody wins (the pack ran out) gives no point. When the leaders are level at five or more, another game is played, until one leads alone. The table shows the race, not the ledger; the stake of each game is still paid.
+2. Sedici and Trent'uno: a false «fuora» is paid and the game goes on. The claim is made right after a trick, by the player who took it; after the last trick of a round, before the next deal.
+3. Sedici and Trent'uno: the winner hands the pack to his companion; for two the loser deals the next game.
+4. Baronetti: a match is one round of dealers, two games. An open Fool may be shown on one's own turn and laid with one's won cards; the owner still plays a card. It may instead be played into a trick as an excuse.
+5. Recorded as other versions, not played: the match «al primo vada», every game paid at once (Prammatica [1846], pp. 11, 13); a race to more than five; a match drawn when the leaders are level; a false claim that loses the game (the Savoyard «À Fora», Annecy); at Trent'uno the deal passing to the right after every game (Torino [1846], part I, p. 18); the Fool of Baronetti played only as an excuse.
+
+**What changed in the files.**
+1. Sedici for two and Trent'uno: `match.kind` race [D] (Prammatica [1846], pp. 11-12), `match.target` 5 [R] (p. 13, question 26), `hand.result.game_points` one [D] (p. 11), `hand.fuora.after_false_claim` play_on [S] (question 25), `view.score_panel.ledger` false. The sources of `hand.fuora.claim_when` and `hand.fuora.false_claim` say when the claim is made and what a false claim gives in a race. The source of `match.target` says what is done when the leaders are level [S]. The source `prammatica1846` is added to both files.
+2. Sedici for two: the source of `seats.dealer_rotation` quotes p. 41 and says who deals for two, three and four players and when nobody has won.
+3. Trent'uno: `seats.dealer_rotation` winner_passes_to_companion [R]: the book of 1787, p. 45 sends Trent'uno to the rules of Sedici; it stood as `right` [S]. `cards.card_points` cited p. 46 for the Fool's one point; the words are on p. 38 and are quoted now.
+4. Baronetti: `match.dealer_rounds` 1 [S] (question 23); the source of `cards.fool_show_any_time` gives the reading of p. 50; the source of `match.kind` is rewritten.
+5. Open questions: 25 (a false «fuora») and 26 (the form and the length of the match of Sedici and Trent'uno, and level leaders) are new; Baronetti is added to question 23.
+6. The texts of the three games are now full texts of playable games.
+
+**Count of marks** (not counting the lists of «not played»): 550 [D], 237 [R], 122 [S] — 909 rules in all.
+
+## Revision 7 — 24 November 2026, tag `rules-r7`
+
+<!-- files r7
+bagattultimo.json sha256:f52bb2e639fc271aa0d7d44f8b5604b16b872f128170bd5f13126dbdbf03d3fe
+baronetti.json sha256:7383b512edea995bb3a1b3bc34622b09172705b27aad26e146edd079aa13b12f
+chiamare_il_re.json sha256:479a2481fa38e0e6e3a82c75367591d5110ca28a306137e208e5a5c3a510188e
+consiglio.json sha256:3b6e85e1c48bff858d113e8b753dc9eea01345f8188b44a47f0542c93f01dd4d
+dottore.json sha256:6fc28bd07ae8582e9e42bce59f41c35dde58b330147ae44a70c585991efb33fb
+meno.json sha256:4b420624235a1bfea52fc0ea651c750fd1fa10505cf41219a49f425c603a3fc3
+mitigati_2.json sha256:7d5bba2aafaf86643c07a31b4d5887aca86d82e07d394acff84bafa90fb0e5b8
+morto.json sha256:efadc6227af5ca874dc4a7eead13079723e621b0434bf6297e1218b2ca221817
+partita_3.json sha256:bfc0dedc5d26ee5c73970dad6b248520e82f8e4adc1c53f876b782e2701c03f1
+partita_4.json sha256:df1c7092e7c3ae3ae090e3c32db6c06b4e77004b8cc8b168903b6b02faacaa90
+permesso_3.json sha256:d47b46d394f719124f796b9a8dd1df53736b1e1ad34c5656396eee33d436871c
+permesso_4.json sha256:c9596040661c807db4d746191f72e3171717fc581fa6dab57960653092c7c8cb
+permesso_5.json sha256:3b8e2162306195941da8e3b2052c93c76979b2b9fc531e787c21e6ce94f3739b
+permesso_6.json sha256:798f5dca01e70e3a9d2fca4d79f10a97e211984100c0a03a175922c470dc0010
+permesso_7.json sha256:9e8324c5af5c24345bb8dcefb1778eb2e33d1b8d1788dd505137022ce8343c3b
+sedici_2.json sha256:95153889fdc4835c8788f53c66691ac6396a8ec31746c0368d252c30f905ad48
+sedici_3.json sha256:48a61f7c6bc75f75bc8d652083d30b2bcaa1ca6022d2f27652eb6d2a989ee44e
+sedici_4.json sha256:072663c730c47c32c68bb3a58d6859e0231ee36055f94bdf03c4e555ff914e0e
+trentuno.json sha256:acecf5696ff14a78935f92a337b4e0732818807dcbdb0b37f63c9fbd760536b1
+venticinque.json sha256:d4db4754f735b175d7a4ee055ae8caa20b349e685854d625d4b06f59a1bf8245
+venticinque_3.json sha256:c44ca901817546f45667b7dc827215393336437d242f0c4714847cfa6d66cdd9
+-->
+
+Reason: the last ten game files become playable (run C3b): Sedici for three and four, Mitigati for two, Bagatt'ultimo, Chiamare il Re and Permesso for three to seven. They had no end of a match, and the core now plays sides that live in the hand, the auction, the called exchange, the call of a King and the declarations. The pages of the book were read again for every rule that is now played: pp. 34-35 (rule 38), 61-66 (the exchange and the auction of Permesso), 80-84 (Chiamare il Re), 85-86 (Mitigati for two). **The game changes: Sedici for three and four are a race; the eight other games end after one round of dealers; several rules that stood unplayed are played.**
+
+**What changes for the player.**
+1. Sedici for three and four: a match is a race to five points, as for two since revision 6. A false «fuora» is paid and the game goes on; a double row gives each other player two points, a simple one one point.
+2. Permesso for three to seven, Chiamare il Re, Bagatt'ultimo, Mitigati for two: a match is one round of dealers, each player dealing once; the payments are made after every hand, the greatest balance wins.
+3. A hand thrown in (everybody passed) or dealt again after equal points counts as a dealt hand: nobody pays and the next player deals.
+4. Permesso: the auction runs in the order of speech. An earlier seat may match the bid of a later one («A due anch'io», p. 62); a later seat must bid fewer cards; a pass is final.
+5. Permesso: a declarer may stop laying down after one card and plays at the contract of the cards laid (p. 65). Each holder of called cards takes, unseen, as many of the laid cards as he gave; which ones is drawn at random. Kings, the Angel and the Bagatto may not be laid down; the Fool may (pp. 34-35).
+6. Chiamare il Re: the dealer speaks first; his pass ends the auction and he calls a King. A King of his own may be called; he then plays alone against three, and the table does not offer forgiveness. With all sixteen courts in hand he plays alone, as at sans prendre.
+7. Mitigati for two: the first discard is exactly thirteen and twelve. Declarations, here and in Bagatt'ultimo, are made in one turn for each player before the first card, and paid at once.
+8. Recorded as other versions, not played: a match of two or three rounds; a thrown-in hand that does not count; the declarer handing out the laid cards; no bar on the laid cards; the others bidding after the dealer's pass; forgiveness asked of the three, or a card of one's own not offered; declarations open until the first trick is complete; a first discard «up to» the number named.
+
+**What changed in the files.**
+1. Sedici for three and four: `match.kind` race [D], `match.target` 5 [R] (question 26), `hand.result.game_points` one [D], `hand.fuora.after_false_claim` play_on [S] (question 25), `view.score_panel.ledger` false; the sources of `hand.fuora.claim_when` and `hand.fuora.false_claim` as for two; the source `prammatica1846` is added.
+2. Permesso for three, Chiamare il Re, Bagatt'ultimo, Mitigati for two: `match.dealer_rounds` 1 [S] (question 23); the source of `match.kind` is rewritten. Permesso for four to seven inherit it.
+3. Permesso for three and Chiamare il Re: `hand.exchange.give` random [S] (question 27), `hand.exchange.discard_honours_barred` true [R] and `hand.exchange.allowed_exceptions` the Fool [R] (question 31). Permesso for three: the item `fool_given_in_exchange` leaves `left_out`; the sources of `hand.bidding.tie`, `hand.bidding.all_pass`, `hand.bidding.lay_down_fewer` (p. 65, not 65-66) and `hand.result.tie` say how they are played.
+4. Chiamare il Re: `hand.bidding.after_dealer_pass` call [R] (question 29); `hand.call_partner.own_card` and the penalty `call_own_card` are marked [R] (question 28); the source of `hand.call_partner.ladder` says what is done with all sixteen courts [S], and `all_sixteen_courts` leaves `left_out`; the source of `hand.settle_pair.mode` says how unequal sides pay [S].
+5. Mitigati for two: `hand.discard_first.count_mode` exact [R] (question 5); `hand.declarations.window` marked [R] (question 30).
+6. Open questions: 27-31 are new; 5, 22, 23 and 26 are extended.
+7. The texts of the ten games are now full texts of playable games.
+
+**Count of marks** (not counting the lists of «not played»): 551 [D], 245 [R], 128 [S] — 924 rules in all.

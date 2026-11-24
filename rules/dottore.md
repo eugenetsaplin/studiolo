@@ -87,12 +87,12 @@ This step: *Documented: from the book, p. 75.*
 
 - Settling is in stakes. *Sources silent, our decision, after Dummett (1980), pp. 75-76.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Sources silent, our decision.* <!-- rule: hand.settle.mode -->
-- The amount: the stake: as agreed. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 

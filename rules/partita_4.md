@@ -90,13 +90,13 @@ This step: *Documented: from the book, p. 89.*
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 90.* <!-- rule: hand.settle.unit -->
-- The pair shares the win. *Documented: from the book, p. 90.* <!-- rule: hand.settle.mode -->
-- The amount: the stake: as agreed. *Documented: from the book, p. 90.* <!-- rule: hand.settle.amount -->
+- The pair shares the win; with unequal sides (one against three) the declarer settles with each opponent. *Documented: from the book, p. 90.* <!-- rule: hand.settle.mode -->
+- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from the book, p. 90.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Our reading: book, p. 90.* Open question 24: could be settled by a document in which the rule is printed or a trial with live players (one stake at the end of the partita, or the marche after every deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. *Documented: from Torino [1846], part I, p. 36.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Documented: from Torino [1846], part I, p. 36.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. <!-- rule: match.dealer_rounds -->
 
 ### Offences
 

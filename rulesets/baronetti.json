@@ -2,8 +2,8 @@
 	"format": 3,
 	"id": "baronetti",
 	"status": "playable_with_decisions",
-	"about": "Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described. Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.",
-	"revision": 3,
+	"about": "Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described, and a match of one round of dealers (two games, each player dealing once) is our decision. Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.",
+	"revision": 6,
 	"sources": {
 		"ours": {
 			"cite": "Studiolo decision; not a source",
@@ -33,7 +33,7 @@
 		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»: the owner chooses the plain card he gives, the other has no right to say «Voglio quella»."},
 		"fool_exchange_to": {"value": "opponent_side", "source": "[D] Torino 1787, p. 52: the card is given «al compagno», in this game the opponent. The trick-taker wording belongs to pp. 77-78 (Permesso for five to seven), not to Baronetti."},
 		"fool_last_trick": {"value": "kept", "source": "[D] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»: the Fool is never lost; the book makes no exception for the last trick."},
-		"fool_show_any_time": {"value": true, "source": "[R] Torino 1787, p. 50: the Fool lying open on a pile may be shown «quando mi vada in acconcio» whatever card the opponent plays, and then put among one's points; read as: at any moment of the game. Other reading: only in place of an answer inside a trick (compare pp. 77-78, «si mostra, quando cada in acconcio, non volendo noi giuocar altra carta»).", "alt": false},
+		"fool_show_any_time": {"value": true, "source": "[R] Torino 1787, p. 50: «mi basterà mostrarlo, quando mi vada in acconcio, e poi metterlo ne' miei punti»: the owner is never obliged to give the Fool away, and play goes on. Read as: on his own turn, leading or answering, the owner of an open Fool may show it and lay it among his won cards; this is not his card of the trick, the next card of that pile is turned at once and he still plays a card. He may instead play the Fool into a trick as an excuse: it takes nothing and is not lost (p. 47). Other reading: the Fool is only played as an excuse, in place of a card of the trick (compare pp. 77-78, «si mostra, quando cada in acconcio, non volendo noi giuocar altra carta»).", "alt": false},
 		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; an owner without a plain card gives nothing.", "by": "ours", "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
 	},
 	"options": [
@@ -108,7 +108,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the table keeps the stakes ledger until the players leave."}
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita»), not a match; the stakes are settled after every game, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 47-53 are silent on the length of a match: they end with «Le altre regole si potranno riferire ai numeri antecedenti» (p. 53), and the general rules name none. Ours: one round of dealers, two games, each player dealing once. The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore, Meno and Baronetti", "q": 23}}
 	},
 	"penalties": [
 		{

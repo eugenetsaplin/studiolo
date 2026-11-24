@@ -3,8 +3,8 @@
 	"id": "permesso_3",
 	"family": "permesso",
 	"status": "playable_with_decisions",
-	"about": "Permesso for three («Trilio»), the first of the Turin rulebook's games of one against two (Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787, «Del giuoco del Permesso in tre persone», pp. 58-70), on the whole 78-card pack: 25 cards to each of the two players and 28 to the dealer, who puts three away (p. 59); after «Ho scartato» the player first in hand asks «Permesso?», the players bid how few cards they will change (three, two, one or none: «sans prendre»), the winner of the bidding lays his worst cards face down, calls the same number by name from the other hands and plays alone against the other two, who count their points together (pp. 60-66). He wins with 46 of the 91 points counted in pairs; the stake is the Onoranza of his contract (2, 3, 4 or 5 coins) and one coin for each five points beyond 45 (pp. 66-70). The book is silent on the dealer's place in the auction, on a general pass and on a called card that lies in the discard; those are our decisions, marked [S]. Played in coins agreed before the deal (p. 67). Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 3,
+	"about": "Permesso for three («Trilio»), the first of the Turin rulebook's games of one against two (Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787, «Del giuoco del Permesso in tre persone», pp. 58-70), on the whole 78-card pack: 25 cards to each of the two players and 28 to the dealer, who puts three away (p. 59); after «Ho scartato» the player first in hand asks «Permesso?», the players bid how few cards they will change (three, two, one or none: «sans prendre»), the winner of the bidding lays his worst cards face down, calls the same number by name from the other hands and plays alone against the other two, who count their points together (pp. 60-66). He wins with 46 of the 91 points counted in pairs; the stake is the Onoranza of his contract (2, 3, 4 or 5 coins) and one coin for each five points beyond 45 (pp. 66-70). The book is silent on the dealer's place in the auction, on a general pass and on a called card that lies in the discard; those are our decisions, marked [S]. Played in coins agreed before the deal (p. 67); a match is one round of dealers (ours). Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 7,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -103,11 +103,11 @@
 					"contracts": {"value":["three","two","one","sans_prendre"],"source":"[D] Torino 1787, p. 66: «Io vado a tre, o a due, o ad una, o sans prendre»; the lowest first."},
 					"opens": {"value":"dealer_right","source":"[D] Torino 1787, p. 60: «Chi è primo in mano, cioè quello, … le carte … dice chiaramente: Permesso?»; the first in hand sits on the dealer's right (pp. 60, 64)."},
 					"dealer_speaks": {"value":"last","source":"[S] Torino 1787, pp. 60-64 name no part for the dealer in the bidding: the examples have only the first in hand and «l'altro compagno appresso di me». Ours, after Dummett 1980, p. 266 (his reading of the book, not printed in it): the dealer speaks last and may overcall.","by":"dummett1980","alt":"in_turn"},
-					"tie": {"value":"earlier_seat","source":"[D] Torino 1787, pp. 63-64: «Sempre solo andrà quegli, il quale va a meno»; «Ad egual partito adunque il primo in … partito, chi siede appresso sarà preferito»."},
+					"tie": {"value":"earlier_seat","source":"[D] Torino 1787, pp. 63-64: «Sempre solo andrà quegli, il quale va a meno»; «Ad egual partito adunque il primo in … partito, chi siede appresso sarà preferito». [R] Played as an auction: the order of speech is the order of priority; a seat earlier in it may match the standing bid of a later seat («A due anch'io», pp. 62-64), a later seat must go to fewer cards; a pass is final; the auction ends when every seat but the last bidder has passed."},
 					"pass_is_final": {"value":true,"source":"[D] Torino 1787, p. 66: «Chi avrà detto: Io passo, e poi non vorrà più passare, dovrà assolutamente passare»."},
-					"all_pass": {"value": "redeal_next_dealer", "source": "[S] Torino 1787, pp. 65-66 say nothing of a hand in which everyone passes. Ours: the cards are thrown in and the next player deals (Dummett 1980, p. 265, his guess); other reading: the same dealer deals again.", "by": "dummett1980", "alt": "redeal", "replace": {"with": ["document"], "what": "the bidding of the dealer and a general pass", "q": 22}},
+					"all_pass": {"value": "redeal_next_dealer", "source": "[S] Torino 1787, pp. 65-66 say nothing of a hand in which everyone passes. Ours: the cards are thrown in and the next player deals (Dummett 1980, p. 265, his guess); nobody pays and the thrown-in hand counts as a dealt hand in the round of dealers (match.dealer_rounds). Other reading: the same dealer deals again.", "by": "dummett1980", "alt": "redeal", "replace": {"with": ["document"], "what": "the bidding of the dealer and a general pass", "q": 22}},
 					"bid_binds": {"value":true,"source":"[D] Torino 1787, p. 66: «dovrà andare irremissibilmente, o pagar l'Onoranza doppia a tutti i compagni»."},
-					"lay_down_fewer": {"value":"plays_at_laid","source":"[D] Torino 1787, p. 65: «Chi dirà di andar … a tre carte, … una, o a due»."}
+					"lay_down_fewer": {"value":"plays_at_laid","source":"[D] Torino 1787, p. 65 (rule 4): «Chi dirà di andar … a tre carte, … una, o a due»: one who bid three cards and lays down fewer plays at the cards laid. [R] Played as printed: the declarer may stop laying after one card or more and plays at the contract whose exchange equals the cards laid, with its Onoranza; laying none is not allowed, the page names only «una, o a due»."}
 				}
 			},
 			{
@@ -119,7 +119,10 @@
 					"lay_down_first": {"value":true,"source":"[D] Torino 1787, pp. 64-66: whoever asks for cards without having laid down all he wants to lay down pays the simple game; «si dovranno mettere altrettante in tavola coperte» before the calling."},
 					"face": {"value":"down","source":"[D] Torino 1787, p. 61: «le metto coperte copertissime in tavola»; the holder takes the laid cards and «non le lascia vedere»."},
 					"callable": {"value":["all"],"source":"[D] Torino 1787, p. 61: «chiamo per cagion d'esempio, l'Angelo, Bagatto, il Re delle Coppe»: any cards, «a suo piacimento» (p. 60)."},
-					"card_not_held": {"value":"from_discard","source":"[S] Torino 1787, p. 61 does not say what happens when a called card is in the dealer's discard or in the caller's own hand. Ours, after Dummett 1980, p. 266 (his guess): the caller gets the discarded card and the dealer takes a laid card in its place; calling a card of one's own hand is refused.","by":"dummett1980","alt":"forbidden"}
+					"card_not_held": {"value":"from_discard","source":"[S] Torino 1787, p. 61 does not say what happens when a called card is in the dealer's discard or in the caller's own hand. Ours, after Dummett 1980, p. 266 (his guess): the caller gets the discarded card and the dealer takes a laid card in its place; calling a card of one's own hand is refused.","by":"dummett1980","alt":"forbidden"},
+					"give": {"value": "random", "alt": "declarer_assigns", "source": "[S] Torino 1787, p. 61: «Chi ha queste carte me le dà subito», and each takes as many of the laid cards as he gave («chi me ne dà una, se ne prende una»); which of them is not printed. Ours: each holder of called cards takes, unseen, as many of the laid cards as he gave, drawn at random (by the seed of the deal). Other version: the declarer hands them out as he likes.", "by": "ours", "replace": {"with": ["document", "people"], "what": "who takes which of the laid cards in the exchange", "q": 27}},
+					"discard_honours_barred": {"value": true, "alt": false, "source": "[R] Torino 1787, pp. 34-35 (general rule 38): no honour, «nessun Re, nè l'Angelo, nè il Folle, nè Bagatto», may be put away, but «Si potrà però il Folle dar via … ove si giuochi a Permesso». Read: the cards laid down in the exchange are put away like a discard, so the kings, the Angel and Bagatto may not be laid down; the Fool may. Other reading: the bar is for the discard only and any card may be laid down.", "replace": {"with": ["document", "expert"], "what": "which cards may be laid down in the exchange", "q": 31}},
+					"allowed_exceptions": {"value": [{"any": ["T0"]}], "source": "[R] Torino 1787, pp. 34-35: «Si potrà però il Folle dar via … ove si giuochi a Permesso»: the Fool may be laid down in the exchange. The exception of a lone Bagatto (p. 34) is said of the discard and is not carried over."}
 				}
 			},
 			{
@@ -150,7 +153,7 @@
 				"settings": {
 					"winner": {"value":"declarer_threshold","source":"[D] Torino 1787, p. 68: «Io vinco la partita, facendo quarantasei punti»."},
 					"target": {"value":46,"source":"[D] Torino 1787, p. 68: «quarantasei punti»."},
-					"tie": {"value":"redeal_next_dealer","source":"[D] Torino 1787, p. 70: «tu non guadagni, nè perdi: la partita … a mischiare, e dar i Tarocchi»."},
+					"tie": {"value":"redeal_next_dealer","source":"[D] Torino 1787, p. 70: «tu non guadagni, nè perdi: la partita … a mischiare, e dar i Tarocchi». [S] The drawn hand counts as a dealt hand in the round of dealers (match.dealer_rounds): nobody pays and the next player deals; ours."},
 					"bands": {"value":[{"min":46,"outcome":"win","pays":"full"},{"min":45.5,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43.5,"max":45,"outcome":"loss","pays":"onoranza_only"},{"max":43,"outcome":"loss","pays":"full"}],"source":"[R] Torino 1787, pp. 66-70: 46 and more wins (pp. 66, 68); «quarantatrè punti e mezzo, ovvero quarantaquattro, … o quarantacinque» loses «solo dell'Onoranza» (pp. 66-67); «quarantacinque, e mezzo, ovvero quarantacinque, e non abbi avuto il Folle» is a draw (p. 70). The book does not reconcile 45 as a loss and 45 as a draw; read here: the draw stands at 45½, and 45 is the loss on the Onoranza; other reading (the second readers): 45 is a draw too when no Fool card is owed, and a loss on the Onoranza when it is.","alt":[{"min":46,"outcome":"win","pays":"full"},{"min":45,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43.5,"max":44.5,"outcome":"loss","pays":"onoranza_only"},{"max":43,"outcome":"loss","pays":"full"}]},
 					"game_points": {"value":"none","source":"[R] Torino 1787, pp. 64, 68-69: the hand is settled in coins at once; no game points are kept."}
 				}
@@ -167,7 +170,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and its coins; the table keeps the accounts until the players leave."}
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes one hand and its coins; they are settled after every hand, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 58-70 are silent on the length of a match: the book describes one hand and its payment. Ours: one round of dealers, as many hands as players, each player dealing once; the payments are made after every hand and the greatest balance wins. A thrown-in hand (everybody passed, or a hand that is dealt again after equal points) counts as a dealt hand: nobody pays, the next player deals and the round goes on. The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match", "q": 23}}
 	},
 	"penalties": [
 		{
@@ -232,7 +236,6 @@
 	"left_out": [
 		{"id":"vola","source":"[D] Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).","why":"The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played."},
 		{"id":"marcio","source":"[D] Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».","why":"Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played (see FORMAT_OPEN_POINTS, F2)."},
-		{"id":"fool_given_in_exchange","source":"[D] Torino 1787, pp. 34-35 (rule 38): «Si potrà però il Folle dar via, … carta, ove si giuochi a Permesso».","why":"The mechanism is not explained (probably the Fool may be laid down in the exchange); the exchange has no key for it (FORMAT_OPEN_POINTS, 10)."},
 		{"id":"draw_money","source":"[D] Torino 1787, p. 70: after a draw nothing is said of the stakes on the table.","why":"A drawn hand pays nothing in the ledger."}
 	]
 }

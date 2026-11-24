@@ -41,8 +41,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### By agreement / Variants
 
 - stake: choices 1, 2, 5, 10; default 1. *Sources silent, our decision.* <!-- rule: options.stake -->
-- variant: sciolto chosen. *Documented: from the book, p. 76.* <!-- rule: variants.sciolto_chosen -->
-- variant: all pass sciolto. *Our reading: Dummett (1980), p. 267.* <!-- rule: variants.all_pass_sciolto -->
+- variant: Free game by choice. *Documented: from the book, p. 76.* <!-- rule: variants.sciolto_chosen -->
+- variant: Free game when everyone passes. *Our reading: Dummett (1980), p. 267.* <!-- rule: variants.all_pass_sciolto -->
 
 ### Bids
 
@@ -82,8 +82,8 @@ This step: *Documented: from the book, pp. 60-66.*
 
 - The bids are: three, two, one, sans prendre. *Documented: from the book, p. 66.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.contracts -->
 - The player on the dealer's right opens the bidding. *Documented: from the book, p. 60.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.opens -->
-- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: When the dealer speaks: in turn. Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.dealer_speaks -->
-- With equal bids the earlier seat in turn wins the bidding. *Documented: from the book, pp. 63-64.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.tie -->
+- The dealer speaks last. *Sources silent, our decision, after Dummett (1980), pp. 60-64.* Other reading: The dealer speaks in his turn. Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.dealer_speaks -->
+- With equal bids the seat that speaks earlier wins. An earlier seat may match the bid of a later one; a later seat must bid higher. A pass is final. *Documented: from the book, pp. 63-64.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.tie -->
 - Whoever passes may not come back into the bidding. *Documented: from the book, p. 66.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.pass_is_final -->
 - If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), pp. 76-77.* Other reading: If everyone passes: contract:sciolto. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.all_pass -->
 - A bid binds: whoever takes it must play it. *Documented: from the book, p. 66.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.bidding.bid_binds -->
@@ -93,20 +93,23 @@ This step: *Documented: from the book, pp. 60-66.*
 
 This step: *Documented: from the book, pp. 60-61.*
 
-- The bid says how many cards are exchanged. *Documented: from the book, pp. 60-66.* <!-- rule: hand.exchange.count -->
-- You lay down your cards first, then take the new ones. *Documented: from the book, pp. 64-66.* <!-- rule: hand.exchange.lay_down_first -->
-- The exchange is made face down. *Documented: from the book, p. 61.* <!-- rule: hand.exchange.face -->
-- Cards that may be asked for: all. *Documented: from the book, p. 61.* <!-- rule: hand.exchange.callable -->
-- If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision, after Dummett (1980), p. 61.* Other reading: If nobody else holds the wanted card, it may not be asked for. <!-- rule: hand.exchange.card_not_held -->
+- The bid says how many cards are exchanged. *Documented: from the book, pp. 60-66.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.count -->
+- You lay down your cards first, then take the new ones. *Documented: from the book, pp. 64-66.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.lay_down_first -->
+- The exchange is made face down. *Documented: from the book, p. 61.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.face -->
+- Cards that may be asked for: all. *Documented: from the book, p. 61.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.callable -->
+- If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision, after Dummett (1980), p. 61.* Other reading: If nobody else holds the wanted card, it may not be asked for. Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.card_not_held -->
+- The laid cards go to the holders unseen, drawn by lot. *Sources silent, our decision.* Other reading: Who gets which laid card: declarer assigns. Open question 27: could be settled by a document in which the rule is printed or a trial with live players (who takes which of the laid cards in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.give -->
+- Honours may not be laid down. *Our reading: book, pp. 34-35.* Other reading: Any card may be laid down. Open question 31: could be settled by a document in which the rule is printed or the opinion of an expert (which cards may be laid down in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.discard_honours_barred -->
+- Some cards are still allowed to be laid down (for example the Fool). *Our reading: book, pp. 34-35.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.exchange.allowed_exceptions -->
 
 ### The tricks
 
-- The player on the dealer's right leads first. *Our reading: book, p. 61.* Other reading: First lead: declarer. <!-- rule: hand.tricks.first_leader -->
-- Whoever takes a trick leads next. *Documented: from the book, p. 37.* <!-- rule: hand.tricks.next_leader -->
-- You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks.follow_suit -->
-- With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
-- A trump must be answered with a trump, but you need not beat it. *Our reading: book, pp. 36-37.* <!-- rule: hand.tricks.must_overtrump -->
-- The Fool may be led. *Sources silent, our decision.* <!-- rule: hand.tricks.fool_may_lead -->
+- The player on the dealer's right leads first. *Our reading: book, p. 61.* Other reading: First lead: declarer. Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks.first_leader -->
+- Whoever takes a trick leads next. *Documented: from the book, p. 37.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks.next_leader -->
+- You must follow suit if you can. *Documented: from the book, p. 35.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks.follow_suit -->
+- With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks.must_trump -->
+- A trump must be answered with a trump, but you need not beat it. *Our reading: book, pp. 36-37.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks.must_overtrump -->
+- The Fool may be led. *Sources silent, our decision.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks.fool_may_lead -->
 
 ### The count
 
@@ -117,42 +120,43 @@ This step: *Documented: from the book, pp. 60-61.*
 
 ### The result of a hand
 
-- The declarer wins if he reaches the threshold of his bid. *Documented: from the book, p. 68.* <!-- rule: hand.result.winner -->
-- The threshold is 46 points. *Documented: from the book, p. 68.* <!-- rule: hand.result.target -->
-- If the points are equal, the cards are dealt again by the next dealer. *Documented: from the book, p. 70.* <!-- rule: hand.result.tie -->
-- The result depends on bands of points, set in the game file. *Our reading: book, pp. 66-70.* Other reading: min: 46; outcome: win; pays: full, min: 45; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 44.5; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. <!-- rule: hand.result.bands -->
-- A hand gives no game points. *Our reading: book, p. 64.* <!-- rule: hand.result.game_points -->
+- The declarer wins if he reaches the threshold of his bid. *Documented: from the book, p. 68.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result.winner -->
+- The threshold is 46 points. *Documented: from the book, p. 68.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result.target -->
+- If the points are equal, the cards are dealt again by the next dealer. *Documented: from the book, p. 70.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result.tie -->
+- The result follows bands of the declarer's points: a win, a draw or a loss; he pays all, the Onoranza alone, or nothing. *Our reading: book, pp. 66-70.* Other reading: min: 46; outcome: win; pays: full, min: 45; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 44.5; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result.bands -->
+- A hand gives no game points. *Our reading: book, p. 64.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result.game_points -->
 
 ### Settling
 
-- Settling is in soldi. *Documented: from the book, pp. 67-69.* <!-- rule: hand.settle.unit -->
-- The declarer settles with each player on his own. *Our reading: book, p. 74.* <!-- rule: hand.settle.mode -->
-- The amount: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. *Our reading: book, pp. 67-70.* <!-- rule: hand.settle.amount -->
+- Settling is in soldi. *Documented: from the book, pp. 67-69.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.settle.unit -->
+- The declarer settles with each player on his own. *Our reading: book, p. 74.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.settle.mode -->
+- The amount of the settlement: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. The Onoranza of the contract and the points beyond the line are counted apart. *Our reading: book, pp. 67-70.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.settle.amount -->
 
 ### The tricks
 
-- The taker of the last trick of the previous hand leads first. *Our reading: book, p. 75.* Other reading: The player on the dealer's right leads first. Open question 20: could be settled by the opinion of an expert (who leads first: «Chi è ultimo a prendere giuoca il primo»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.tricks_sciolto.first_leader -->
-- Whoever takes a trick leads next. *Documented: from the book, p. 37.* <!-- rule: hand.tricks_sciolto.next_leader -->
-- You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks_sciolto.follow_suit -->
-- With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: hand.tricks_sciolto.must_trump -->
-- A trump must be answered with a trump, but you need not beat it. *Our reading: book, pp. 36-37.* <!-- rule: hand.tricks_sciolto.must_overtrump -->
-- The Fool may be led. *Sources silent, our decision.* <!-- rule: hand.tricks_sciolto.fool_may_lead -->
+- The taker of the last trick of the previous hand leads first. *Our reading: book, p. 75.* Other reading: The player on the dealer's right leads first. Open question 20: could be settled by the opinion of an expert (who leads first: «Chi è ultimo a prendere giuoca il primo»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks_sciolto.first_leader -->
+- Whoever takes a trick leads next. *Documented: from the book, p. 37.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks_sciolto.next_leader -->
+- You must follow suit if you can. *Documented: from the book, p. 35.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks_sciolto.follow_suit -->
+- With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks_sciolto.must_trump -->
+- A trump must be answered with a trump, but you need not beat it. *Our reading: book, pp. 36-37.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks_sciolto.must_overtrump -->
+- The Fool may be led. *Sources silent, our decision.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.tricks_sciolto.fool_may_lead -->
 
 ### The result of a hand
 
-- More points wins the hand. *Documented: from the book, pp. 76-77.* <!-- rule: hand.result_sciolto.winner -->
-- If the points are equal, nobody gains game points. *Sources silent, our decision.* <!-- rule: hand.result_sciolto.tie -->
-- A hand gives no game points. *Our reading: book, p. 76.* <!-- rule: hand.result_sciolto.game_points -->
+- More points wins the hand. *Documented: from the book, pp. 76-77.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result_sciolto.winner -->
+- If the points are equal, nobody gains game points. *Sources silent, our decision.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result_sciolto.tie -->
+- A hand gives no game points. *Our reading: book, p. 76.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.result_sciolto.game_points -->
 
 ### Settling
 
-- Settling is in stakes. *Sources silent, our decision.* <!-- rule: hand.settle_sciolto.unit -->
-- The losers pay the winner. *Sources silent, our decision, after Dummett (1980), p. 76.* <!-- rule: hand.settle_sciolto.mode -->
-- The amount: the stake: as agreed. *Sources silent, our decision.* <!-- rule: hand.settle_sciolto.amount -->
+- Settling is in stakes. *Sources silent, our decision.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.settle_sciolto.unit -->
+- The losers pay the winner. *Sources silent, our decision, after Dummett (1980), p. 76.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.settle_sciolto.mode -->
+- The amount of the settlement: the stake: as agreed. The Onoranza of the contract and the points beyond the line are counted apart. *Sources silent, our decision.* Same as in [Permesso for six](permesso_6.md). <!-- rule: hand.settle_sciolto.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* Same as in [Permesso for six](permesso_6.md). <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for six](permesso_6.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -167,7 +171,6 @@ This step: *Documented: from the book, pp. 60-61.*
 
 - **Vola.** The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played. *Documented: Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).* <!-- left_out: vola -->
 - **Marcio.** Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played (see FORMAT_OPEN_POINTS, F2). *Documented: Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».* <!-- left_out: marcio -->
-- **Fool given in exchange.** The mechanism is not explained (probably the Fool may be laid down in the exchange); the exchange has no key for it (FORMAT_OPEN_POINTS, 10). *Documented: Torino 1787, pp. 34-35 (rule 38): «Si potrà però il Folle dar via, … carta, ove si giuochi a Permesso».* <!-- left_out: fool_given_in_exchange -->
 - **Draw money.** A drawn hand pays nothing in the ledger. *Documented: Torino 1787, p. 70: after a draw nothing is said of the stakes on the table.* <!-- left_out: draw_money -->
 
 ## Sources

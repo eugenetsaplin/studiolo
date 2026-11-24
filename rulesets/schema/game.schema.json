@@ -463,7 +463,8 @@
 				"pass_is_final": {"$ref": "#/$defs/r_bool"},
 				"all_pass": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "string", "pattern": "^(redeal|redeal_next_dealer|contract:[a-z][a-z0-9_]*)$"}}}]},
 				"bid_binds": {"$ref": "#/$defs/r_bool"},
-				"lay_down_fewer": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["plays_at_laid", "forbidden"]}}}]}
+				"lay_down_fewer": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["plays_at_laid", "forbidden"]}}}]},
+				"after_dealer_pass": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["call", "others_bid"]}}}]}
 			}
 		},
 		"m_exchange": {
@@ -474,7 +475,11 @@
 				"lay_down_first": {"$ref": "#/$defs/r_bool"},
 				"face": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["down", "up"]}}}]},
 				"callable": {"$ref": "#/$defs/r_selectors"},
-				"card_not_held": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["from_discard", "lost", "forbidden"]}}}]}
+				"card_not_held": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["from_discard", "lost", "forbidden"]}}}]},
+				"give": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["random", "declarer_assigns"]}}}]},
+				"discard_honours_barred": {"$ref": "#/$defs/r_bool"},
+				"barred": {"$ref": "#/$defs/r_selectors"},
+				"allowed_exceptions": {"$ref": "#/$defs/r_selectors"}
 			}
 		},
 		"m_call_partner": {
@@ -554,9 +559,22 @@
 			"properties": {
 				"target": {"$ref": "#/$defs/r_num"},
 				"claim_when": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["any_time", "after_trick", "own_turn"]}}}]},
-				"false_claim": {"$ref": "#/$defs/r_list"},
+				"false_claim": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/false_claim_row"}}}}]},
+				"after_false_claim": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["play_on", "hand_ends"]}}}]},
 				"after_first_out": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["hand_ends", "others_continue"]}}}]},
 				"stock_empty": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["reshuffle_untaken", "hand_ends_most_points", "hand_ends_no_winner"]}}}]}
+			}
+		},
+		"false_claim_row": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["pays"],
+			"oneOf": [{"required": ["below"]}, {"required": ["from"]}],
+			"properties": {
+				"below": {"type": "number"},
+				"from": {"type": "number"},
+				"pays": {"type": "object", "additionalProperties": false, "required": ["stake"], "properties": {"stake": {"enum": ["simple", "marcia", "double"]}}},
+				"to": {"enum": ["each_other"]}
 			}
 		},
 		"m_count": {
@@ -628,8 +646,8 @@
 			"properties": {
 				"id": {"$ref": "#/$defs/ident"},
 				"on": {"type": "string", "pattern": "^(declaration:[a-z][a-z0-9_]*|last_trick_won_with:T([0-9]|1[0-9]|2[01])|lost_in_last_trick:T([0-9]|1[0-9]|2[01])|lost_before_last_trick:T([0-9]|1[0-9]|2[01])|reached_target|penalty:[a-z][a-z0-9_]*)$"},
-				"from": {"enum": ["each_other", "event_seat", "losers", "each_loser"]},
-				"to": {"enum": ["event_seat", "each_other", "winners", "each_winner"]},
+				"from": {"enum": ["each_other", "event_seat", "winners", "each_winner", "losers", "each_loser"]},
+				"to": {"enum": ["event_seat", "each_other", "winners", "each_winner", "losers", "each_loser"]},
 				"amount": {"$ref": "#/$defs/amount"},
 				"source": {"$ref": "#/$defs/source"},
 				"alt": {}

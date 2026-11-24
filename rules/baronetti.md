@@ -1,8 +1,8 @@
 # Baronetti
 
-2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 6.
 
-Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described. Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.
+Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan (check of 2 November 2026): two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described, and a match of one round of dealers (two games, each player dealing once) is our decision. Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.
 
 ## How to read the marks
 
@@ -42,7 +42,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### The deal
 
-- The cards lie in piles: 10, 10, 10, 9. *Documented: from the book, pp. 48-49.* <!-- rule: hand.deal.piles -->
+- Each player's cards lie face down in piles; the piles hold, one after another: 10, 10, 10, 9. *Documented: from the book, pp. 48-49.* <!-- rule: hand.deal.piles -->
 - The top cards of the piles are open. *Documented: from the book, pp. 48-49.* <!-- rule: hand.deal.pile_top -->
 - Dealing starts with the dealer's opponent. *Documented: from the book, p. 48.* <!-- rule: hand.deal.order -->
 - The cards are dealt face down. *Documented: from the book, p. 48.* <!-- rule: hand.deal.face -->
@@ -63,7 +63,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 This step: *Documented: from the book, pp. 49-50.*
 
 - The next top card of a pile is turned up after a trick. *Documented: from the book, p. 50.* <!-- rule: hand.piles.reveal -->
-- When your own pile is gone, you play from the others. *Our reading: book, pp. 49-50.* <!-- rule: hand.piles.empty_pile -->
+- When one of your piles is used up, you play from your other piles. *Our reading: book, pp. 49-50.* <!-- rule: hand.piles.empty_pile -->
 
 ### The count
 
@@ -84,11 +84,12 @@ This step: *Documented: from the book, pp. 49-50.*
 
 - Settling is in stakes. *Documented: from the book, p. 21.* <!-- rule: hand.settle.unit -->
 - The loser pays the winner. *Our reading: book, p. 51.* <!-- rule: hand.settle.mode -->
-- The amount: the stake: simple. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake: simple. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore, Meno and Baronetti); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -103,4 +104,4 @@ This step: *Documented: from the book, pp. 49-50.*
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 
-Generated from `rulesets/baronetti.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/baronetti.json`, rules revision 6. Do not edit: change the game file.

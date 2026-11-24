@@ -4,7 +4,7 @@
 	"family": "chiamare_il_re",
 	"status": "playable_with_decisions",
 	"about": "Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S].",
-	"revision": 3,
+	"revision": 7,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -92,6 +92,7 @@
 					"opens": {"value":"dealer","source":"[D] Torino 1787, pp. 80, 82: only the dealer calls and may go alone: «chi mischia, e dà le carte»."},
 					"dealer_speaks": {"value":"first","source":"[D] Torino 1787, pp. 80-82: «chiamasi un Re solamente da chi ha date le carte»; the others answer his declaration."},
 					"tie": {"value":"challenger","source":"[R] Torino 1787, p. 82: «Se un altro tuo compagno poi ti … pare: Io vado à sans prendre»: the dealer has only these two ways out, so on an equal bid the other player goes (the second reading takes it as [D]); other reading: the dealer keeps his equal bid.","alt":"dealer"},
+					"after_dealer_pass": {"value": "call", "alt": "others_bid", "source": "[R] Torino 1787, pp. 80, 82: the dealer speaks first; if he does not go alone he «chiama qualunque Re» (p. 80), and another player may answer a bid of the dealer with «Ad una vado io» (p. 82). Read: the dealer's pass ends the auction and he calls a King; the others may only overcall a bid of the dealer, or match it (bidding.tie). Other reading: after the dealer passes the others may still bid.", "replace": {"with": ["document"], "what": "the auction after the dealer passes", "q": 29}},
 					"all_pass": {"value":"contract:call_king","source":"[D] Torino 1787, p. 80: if nobody goes alone the dealer «chiama qualunque Re, il quale più gli piaccia, e convenga»."}
 				}
 			},
@@ -104,10 +105,10 @@
 				"source": "[D] Torino 1787, pp. 80-83: the dealer calls a king after the discard.",
 				"settings": {
 					"caller": {"value":"dealer","source":"[D] Torino 1787, p. 80: «chiamasi un Re solamente da chi ha date le carte»."},
-					"ladder": {"value":["K","Q","N","J"],"source":"[D] Torino 1787, pp. 81-82: all four kings → a queen; kings and queens → a knight; kings, queens and knights → a jack: «potrà chiamare una Donna, … non mai un … Donne insieme coi Re»."},
+					"ladder": {"value":["K","Q","N","J"],"source":"[D] Torino 1787, pp. 81-82: all four kings → a queen; kings and queens → a knight; kings, queens and knights → a jack: «potrà chiamare una Donna, … non mai un … Donne insieme coi Re». [S] If the caller holds all sixteen courts and no card of the ladder can be called, he plays alone as at sans prendre: the book is silent (pp. 81-82); ours."},
 					"step_down": {"value":"caller_holds_all_of_rank","source":"[D] Torino 1787, pp. 81-82: only when he holds all four of the rank below."},
 					"secret": {"value":true,"source":"[D] Torino 1787, p. 80: the holder «starà ben cheto, e non darà indizio veruno di averlo»."},
-					"own_card": {"value":"plays_alone_unless_forgiven","source":"[D] Torino 1787, p. 83: «Chi venisse a chiamare … se non gli … solo senza altra chiamata»."},
+					"own_card": {"value": "plays_alone_unless_forgiven", "source": "[R] Torino 1787, p. 83 prints that one who calls a card he holds himself plays alone, unless all the others forgive him. The table allows the call; it stays secret, like any call, until that card is played, and the caller plays alone against three; forgiveness is not offered, because the others cannot know the card is his. Other versions: the three are asked to forgive; or the table does not offer a card the caller holds (the book calls it a «fallo» of one who «non l'avesse veduto», p. 83).", "replace": {"with": ["document", "people"], "what": "calling a card of one's own hand", "q": 28}},
 					"card_in_discard": {"value": "forbidden", "source": "[R] Torino 1787, pp. 80-81 do not say what happens when the called king lies in the dealer's own discard. By rule 38 (p. 34: «Nessun onore, cioè nessun Re … si potrà scartare»; the same in Torino [1846], part I, p. 16) no king is put away, so the case does not arise: not allowed. Other reading: he plays alone.", "alt": "plays_alone", "replace": {"with": ["document"], "what": "the payment when a King is called; a called King in the discard", "q": 8}}
 				}
 			},
@@ -123,7 +124,10 @@
 					"lay_down_first": {"value":true,"source":"[R] Torino 1787, p. 82: «sulle regole del Permesso» (pp. 64-66): the card is laid down before the calling."},
 					"face": {"value":"down","source":"[D] Torino 1787, p. 82: «dandone via un'altra coperta in tavola»."},
 					"callable": {"value":["all"],"source":"[R] Torino 1787, p. 82: «chiamando una carta»: any card, as at Permesso."},
-					"card_not_held": {"value":"from_discard","source":"[S] Torino 1787, p. 82 does not say what happens when the called card is in the dealer's discard; ours as in Permesso for three.","alt":"forbidden"}
+					"card_not_held": {"value":"from_discard","source":"[S] Torino 1787, p. 82 does not say what happens when the called card is in the dealer's discard; ours as in Permesso for three.","alt":"forbidden"},
+					"give": {"value": "random", "alt": "declarer_assigns", "source": "[S] Torino 1787, p. 82 plays the exchange «sulle regole del Permesso»; Torino 1787, p. 61: «Chi ha queste carte me le dà subito», and each takes as many of the laid cards as he gave («chi me ne dà una, se ne prende una»); which of them is not printed. Ours: each holder of called cards takes, unseen, as many of the laid cards as he gave, drawn at random (by the seed of the deal). Other version: the declarer hands them out as he likes.", "by": "ours", "replace": {"with": ["document", "people"], "what": "who takes which of the laid cards in the exchange", "q": 27}},
+					"discard_honours_barred": {"value": true, "alt": false, "source": "[R] Torino 1787, pp. 34-35 (general rule 38): no honour, «nessun Re, nè l'Angelo, nè il Folle, nè Bagatto», may be put away, but «Si potrà però il Folle dar via … ove si giuochi a Permesso». Read: the cards laid down in the exchange are put away like a discard, so the kings, the Angel and Bagatto may not be laid down; the Fool may. Other reading: the bar is for the discard only and any card may be laid down.", "replace": {"with": ["document", "expert"], "what": "which cards may be laid down in the exchange", "q": 31}},
+					"allowed_exceptions": {"value": [{"any": ["T0"]}], "source": "[R] Torino 1787, pp. 34-35: «Si potrà però il Folle dar via … ove si giuochi a Permesso»: the Fool may be laid down in the exchange. The exception of a lone Bagatto (p. 34) is said of the discard and is not carried over."}
 				}
 			},
 			{
@@ -166,7 +170,7 @@
 				},
 				"settings": {
 					"unit": {"value":"stake","source":"[D] Torino 1787, p. 83: «secondo il convenuto»: the agreed sum."},
-					"mode": {"value":"pair_split","source":"[R] Torino 1787, p. 90 (Partita, two against two): each winner collects from one opponent; the Re pages name no mode for two against two; read the same."},
+					"mode": {"value":"pair_split","source":"[R] Torino 1787, p. 90 (Partita, two against two): each winner collects from one opponent; the Re pages name no mode for two against two; read the same. [S] When the caller called a card of his own and plays alone against three, the same amount is paid to or from each of the three, as declarer_vs_each; ours."},
 					"amount": {"value": {"stake": "agreed"}, "source": "[S] Torino 1787, pp. 82-83 print the payment only for the lone player («secondo il convenuto»); for two against two it is not said; ours: the simple stake agreed before the deal.", "replace": {"with": ["document"], "what": "the payment when a King is called; a called King in the discard", "q": 8}}
 				}
 			},
@@ -185,7 +189,8 @@
 		]
 	},
 	"match": {
-		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and its stakes; the table keeps accounts until the players leave."}
+		"kind": {"value": "ledger", "source": "[S] Ours: the book describes one hand and its stakes; they are settled after every hand, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 79-84 are silent on the length of a match: the book describes one hand and its payment. Ours: one round of dealers, four hands, each player dealing once; the payments are made after every hand and the greatest balance wins. A thrown-in hand (everybody passed, or a hand that is dealt again after equal points) counts as a dealt hand: nobody pays, the next player deals and the round goes on. The table may agree on two or three rounds.", "by": "ours", "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match", "q": 23}}
 	},
 	"penalties": [
 		{
@@ -193,7 +198,7 @@
 			"offence": "call_own_card",
 			"enforce": "apply",
 			"hand": "continues",
-			"effect": {"value":{"plays_alone":true,"unless":"all_others_forgive_unanimously"},"source":"[D] Torino 1787, p. 83: «se non gli verrà da tutti il … ad andar solo senza altra chiamata»."}
+			"effect": {"value":{"plays_alone":true,"unless":"all_others_forgive_unanimously"},"source":"[R] Torino 1787, p. 83 prints that one who calls a card of his own plays alone against the three, unless all forgive him. Applied by the table when that card is played; forgiveness is not offered (the others cannot know the card is his). Other versions: see hand.call_partner.own_card.", "replace": {"with": ["document", "people"], "what": "calling a card of one's own hand", "q": 28}}
 		},
 		{
 			"id": "hint_partner",
@@ -235,7 +240,6 @@
 		]
 	},
 	"left_out": [
-		{"id":"all_sixteen_courts","source":"[S] Torino 1787, pp. 81-82: nothing is said of a dealer who holds all kings, queens, knights and jacks.","why":"The ladder ends at the jack; the format has no value for an exhausted ladder (FORMAT_OPEN_POINTS, F2)."},
 		{"id":"onoranza_of_ad_una","source":"[R] Dummett 1980, p. 269 (a conjecture of his; our scan lacks page 268): a basic payment of 1 for «a due», 2 for «ad una», and 1 for calling a king.","why":"Not printed in the 1787 book; the payment is the agreed stake."}
 	]
 }

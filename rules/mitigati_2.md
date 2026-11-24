@@ -1,6 +1,6 @@
 # Mitigati for two (Mitigati)
 
-2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 3.
+2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 7.
 
 Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan (check of 2 November 2026, image of p. 85 seen again for this file): the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards up to thirteen cards and his opponent twelve (honours never), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25), the other reading (39 and 39) is in the source text. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -54,7 +54,7 @@ This step: *Documented: from the book, p. 85.*
 
 - Every player puts cards away. *Documented: from the book, p. 85.* <!-- rule: hand.discard_first.who -->
 - Cards put away: the dealer: 13; the dealer's opponent: 12. *Documented: from the book, p. 85.* <!-- rule: hand.discard_first.count -->
-- At most that many are put away. *Our reading: book, p. 85.* Other reading: Exactly that many are put away. <!-- rule: hand.discard_first.count_mode -->
+- Exactly that many are put away. *Our reading: book, p. 85.* Other reading: At most that many are put away. Open question 5: could be settled by a document in which the rule is printed, a mathematical analysis or statistics of games played by bots (the size of the first deal and of the first discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard_first.count_mode -->
 - Honours may not be put away. *Documented: from the book, p. 85.* <!-- rule: hand.discard_first.discard_honours_barred -->
 - The discard counts for the player who put it away. *Our reading: book, p. 21.* Other reading: The discard counts for its owner if he took at least one trick. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard_first.counts_for -->
 
@@ -62,7 +62,7 @@ This step: *Documented: from the book, p. 85.*
 
 This step: *Documented: from the book, pp. 85-86.*
 
-- Cards dealt to each player: half rest. *Documented: from the book, p. 86.* <!-- rule: hand.deal_second.hand_size -->
+- Each player gets half of the cards left, the dealer his extra cards on top of that. *Documented: from the book, p. 86.* <!-- rule: hand.deal_second.hand_size -->
 - The dealer gets 3 more. *Documented: from the book, p. 86.* <!-- rule: hand.deal_second.dealer_extra -->
 - The whole pack is dealt, no cards are left over. *Documented: from the book, p. 85.* <!-- rule: hand.deal_second.dead -->
 - The cards come from what is left. *Sources silent, our decision, after Dummett (1980), pp. 85-86.* <!-- rule: hand.deal_second.from -->
@@ -78,10 +78,10 @@ This step: *Documented: from the book, p. 86.*
 
 ### Declarations
 
-- A declaration may be made before the first trick. *Documented: from the book, p. 86.* <!-- rule: hand.declarations.window -->
+- A declaration may be made before the first trick. *Our reading: book, p. 86.* Open question 30: could be settled by a document in which the rule is printed or a trial with live players (when the declarations of Mitigati for two close); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.declarations.window -->
 - The kinds of declaration are listed in the game file. *Our reading: book, p. 86.* Other reading: id: onori; of: set:honours; min: 1; show: announce count; pays: table: by: count; rows: 3: 10; 4: 15; 5: 20; beyond: every: 1; add: 5, id: trionfi; of: trumps; min: 10; show: announce count; pays: table: by: trumps; rows: ; same as count: yes, id: mitigati; of: any: Trump 20 — Angel, Trump 1 — Magician, Fool; min: 3; all of: yes; show: announce; pays: 10. <!-- rule: hand.declarations.kinds -->
 - Whoever declares late loses the right to declare. *Our reading: book, p. 86.* <!-- rule: hand.declarations.late -->
-- The players make the declarations themselves. *Our reading: book, p. 86.* Other reading: Declarations: auto. <!-- rule: hand.declarations.mode -->
+- The players make the declarations themselves. *Our reading: book, p. 86.* Other reading: The engine makes the declarations for the players. <!-- rule: hand.declarations.mode -->
 - Payment is made at once. *Our reading: book, p. 86.* <!-- rule: hand.declarations.paid -->
 - Each of the others pays. *Our reading: book, p. 86.* <!-- rule: hand.declarations.paid_by -->
 
@@ -113,11 +113,12 @@ This step: *Documented: from the book, p. 86.*
 
 - Settling is in marche. *Documented: from the book, pp. 86-87.* <!-- rule: hand.settle.unit -->
 - The loser pays the winner. *Our reading: book, p. 87.* <!-- rule: hand.settle.mode -->
-- The amount: the stake: simple. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake: simple. The Onoranza of the contract and the points beyond the line are counted apart. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn. The marche are settled after every deal; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -137,4 +138,4 @@ This step: *Documented: from the book, p. 86.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Prammatica [1846] | L. B., Prammatica ossia regole indispensabili per gli amatori di simile passatempo, part II of the same book, Torino, [1846] | held |
 
-Generated from `rulesets/mitigati_2.json`, rules revision 3. Do not edit: change the game file.
+Generated from `rulesets/mitigati_2.json`, rules revision 7. Do not edit: change the game file.
