@@ -1,0 +1,22 @@
+{
+  "name": "studiolo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The rules engine, bots and tools of Studiolo: the tarot games of the Turin rulebook of 1787.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\" \"test/**/*.test.mjs\"",
+    "play": "node tools/play.mjs",
+    "deal-check": "node tools/deal-check.mjs",
+    "botlab": "node tools/botlab.mjs",
+    "robots": "node tools/robots.mjs",
+    "validate": "node tools/validate-rulesets.mjs",
+    "check:pure": "node tools/check-core-pure.mjs",
+    "same-five": "node tools/same-five.mjs",
+    "count-marks": "node tools/count-marks.mjs"
+  }
+}

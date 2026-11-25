@@ -1,0 +1,1 @@
+{"format": 1, "id": "normal", "name": {"ru": "Обычный", "en": "Normal"}, "worlds": 200, "budget_plays": 60000, "halving": true, "rollout": "greedy", "noise": 0.02, "temperature": 0, "forget": 0, "win_weight": 5, "pace_ms": 700}

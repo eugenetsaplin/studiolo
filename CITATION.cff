@@ -11,7 +11,8 @@ abstract: >-
   Machine-readable and plain-English rules of the tarot card games of the Turin rulebook
   «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787). Every rule carries its
   source, its page and a mark: documented, our reading, or sources silent. With the journal of
-  revisions, the list of open questions and the method.
+  revisions, the list of open questions and the method. With the rules engine, bots and the tools to
+  measure them.
 keywords:
   - tarot
   - tarocchi
@@ -20,7 +21,9 @@ keywords:
   - history of games
   - Piedmont
   - rules reconstruction
-license: CC-BY-4.0
+license:
+  - CC-BY-4.0
+  - MIT
 repository-code: "https://github.com/eugenetsaplin/studiolo"
 version: "1 (rules revision 4)"
 date-released: "2026-11-23"

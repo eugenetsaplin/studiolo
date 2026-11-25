@@ -1,0 +1,1 @@
+{"format": 1, "id": "easy", "name": {"ru": "Лёгкий", "en": "Easy"}, "worlds": 2, "budget_plays": 3000, "halving": false, "rollout": "random", "noise": 0, "temperature": 6, "forget": 1, "win_weight": 5, "pace_ms": 700}

@@ -31,7 +31,7 @@ Rules revision 10, November 2026 (release 1, with its DOI, holds revision 4):
 - 21 game files: one per game, and one per number of players where the deal differs.
 - 935 rules: 551 documented, 272 our readings, 112 where the sources are silent.
 - 34 open questions, 29 of them still open.
-- The rules engine plays all 21 game files today.
+- The rules engine plays all 21 game files today. The rules engine, the bots and the bot lab are in this repository.
 
 ## What is here
 
@@ -42,9 +42,71 @@ Rules revision 10, November 2026 (release 1, with its DOI, holds revision 4):
 | [`rulesets/REVISIONS.md`](rulesets/REVISIONS.md) | The journal: every change to every rule, numbered, with its reason. |
 | [`rulesets/OPEN_QUESTIONS.md`](rulesets/OPEN_QUESTIONS.md) | The placeholders, each with its alternatives and with how often the disputed case comes up in play. |
 | [`method/`](method/) | How we look for sources, read them, turn them into rules, and test the result with robots. |
-| [`docs/`](docs/) | The format of a rule file, and the rules it cannot express yet. |
+| [`docs/`](docs/) | The format of a rule file, and the rules it cannot express yet; how the engine and the bots work. |
+| [`core/`](core/) | The rules engine: it reads a rule file and plays a hand by those rules. It knows no game by name. |
+| [`bots/`](bots/) | The bots: a random robot and three levels of a simple bot. They are plain on purpose. |
+| [`tools/`](tools/) | The commands that play a hand, run the robots, measure one bot against another, and check the rule files. |
+| [`test/`](test/) | The tests of the engine, the bots and the tools. |
+| [`examples/`](examples/) | Worked examples: a rule file, a played hand, a measurement, a check of the deal. |
+| [`problems/`](problems/) | Open problems for people who program or count, each with the commands to start. |
 
-The rules engine and simple robots will follow, so that anyone can repeat our numbers. Until then the journal and the documents name some commands and tools that are not in this repository.
+The journal and the documents name commands and tools. Most of them are here now, so that anyone can repeat our numbers. A few are not: they need parts that are not in this repository.
+
+## Run the engine
+
+You need Node 24. The engine has no dependencies: there is nothing to install.
+
+```
+npm run play    -- sedici_2 --seats 2 --seed demo --bots normal,easy
+npm run robots  -- --games sedici_2:2 --deals 20 --seed demo
+npm run botlab  -- --games sedici_2:2 --a normal --b easy --deals 20 --seed demo
+```
+
+- `npm run play` plays one hand of a game and prints the deal, every move, the result and the money. The start and the end of the output:
+
+  ```
+  game sedici_2, rules revision 10, 2 seats
+  seed demo, hand 0, hand seed demo:sedici_2:2:0, dealer seat 0
+  seat 0: normal
+  seat 1: easy
+  deal
+    seat 0: swords:1 batons:10 coins:1 T18
+    seat 1: batons:Q coins:7 T10 T14
+    undealt: 70 cards
+  moves
+     1  seat 1  play coins:7
+     2  seat 0  play coins:1
+          trick won by seat 0 (coins:7 coins:1)
+     ...
+    33  seat 1  claim_fuora
+          fuora_claimed {"seat":1,"valid":true,"points":20}
+  result
+    outcome: win (fuora)
+    winners: seat 1
+    points: side 0 72, side 1 240
+    payments: seat 0 to seat 1 1 (loser_pays_winner)
+    money: seat 0 -1, seat 1 +1 (sum 0)
+    checksum 7ffbcfce09e90a3e
+  ```
+
+- `npm run robots` plays many hands with a random robot and checks that the engine kept its rules. It prints one line per game, with a count for each kind of failure:
+
+  ```
+  game      seats  hands  actions  invariant  recount  secrecy  replay  refused-legal  illegal tried/refused  ms/hand
+  sedici_2  2      21     631      0          0        0        0       0              6/6                    17.53
+  failures: 0; written <WORK>/robots_core.json
+  ```
+
+- `npm run botlab` plays one bot against another on the same hands and prints the share of hands won, with its interval, and the money per hand:
+
+  ```
+  sedici_2:2 normal vs easy hands 20 share 0.600 [0.387..0.781] fair 0.500 margin 0.6 decisions 586 | money 0.200 [-0.241..0.641] per hand, thrown in 0.000, no declarer, contracts {}, a minus the others 0.400 [-0.482..1.282]
+  written <WORK>/botlab/normal_vs_easy.json 5 s
+  ```
+
+The hands are fixed by the seed and the number of the hand, so the same command gives the same numbers each time (the times, `ms/hand` and `s`, change from machine to machine). The bots are simple on purpose and are not meant to be strong. A number from the lab says how the bots behave under our readings, not what the game was in 1787.
+
+[`docs/ENGINE.md`](docs/ENGINE.md) explains the engine in ten minutes. [`docs/BOT.md`](docs/BOT.md) and [`docs/CORE_API.md`](docs/CORE_API.md) give the contracts of the bots and of the core.
 
 ## Our mistakes stay in the record
 
@@ -94,10 +156,18 @@ Petri Games is a small studio. Reading the scans, writing the rule files, buildi
 
 ## Licence and citation
 
-Our own texts and rule files are under [CC BY 4.0](LICENSE): use them freely, name us, and link here.
+This repository has two licences, one for code and one for texts.
+
+| What | Licence |
+|---|---|
+| `core/`, `bots/`, `tools/`, `test/`, `package.json`, the code and level files in `examples/` (`*.mjs`, `*.json`) | MIT, see [`LICENSE-CODE`](LICENSE-CODE) |
+| `rulesets/`, `rules/`, `docs/`, `method/`, the texts in `examples/` (`*.md`), `problems/`, and our other texts | [CC BY 4.0](LICENSE) |
+| Quotations from the sources, the cards in the banner | Not ours; see below |
+
+Use the texts and rule files freely, name us, and link here. The code may be used, changed and passed on under the terms of the MIT licence.
 
 Two things are not ours to license. The quotations from the sources belong to their authors and publishers. The cards in the banner are «Cary-Yale Visconti tarocchi, Milan, 1440s. Beinecke Library, Yale University (open access)».
 
 Suggested citation: Tsaplin, E. (2026). *Studiolo: the tarot games of the 1787 Turin rulebook* (release 1, rules revision 4). Zenodo. <https://doi.org/10.5281/zenodo.24476761>. See [`CITATION.cff`](CITATION.cff).
 
-Each release is archived at Zenodo under its own DOI: name the release and the rules revision you used. One permanent DOI always leads to the latest release: <https://doi.org/10.5281/zenodo.24476760>. The engine, when it is published, will carry its own licence.
+Each release is archived at Zenodo under its own DOI: name the release and the rules revision you used. One permanent DOI always leads to the latest release: <https://doi.org/10.5281/zenodo.24476760>.
