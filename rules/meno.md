@@ -1,6 +1,6 @@
 # Less (Meno)
 
-2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -33,7 +33,9 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- Stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- With 2 or 3 players only: variant: Short deal: four cards (two or three players). *Documented: from the book, p. 78.* <!-- rule: variants.four_cards -->
+- With 2, 3, 4 or 5 players only: variant: Short deal: eight cards (two to five players). *Documented: from the book, p. 78.* <!-- rule: variants.eight_cards -->
 
 ### The deal
 
@@ -45,26 +47,26 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### The tricks
 
 - You must follow suit if you can. *Documented: from the book, pp. 78-79.* <!-- rule: hand.tricks.follow_suit -->
-- The player on the dealer's right leads first. *Our reading: book, p. 35.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count, the first lead and the payment of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.tricks.first_leader -->
+- The player on the dealer's right leads first. *Our reading: book, p. 35.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count and the first lead of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 37.* <!-- rule: hand.tricks.next_leader -->
 - With no card of the suit you must trump. *Our reading: Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Sources silent, our decision.* <!-- rule: hand.tricks.must_overtrump -->
 
 ### The count
 
-- Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Sources silent, our decision, after Dummett (1980), p. 269.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count, the first lead and the payment of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.group -->
+- Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Sources silent, our decision, after Dummett (1980), p. 269.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count and the first lead of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.group -->
 
 ### The result of a hand
 
 - Fewer points wins the hand. *Documented: from the book, p. 78.* <!-- rule: hand.result.winner -->
-- A hand gives no game points. *Sources silent, our decision.* Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins or pays in Meno when the fewest points are equal, and whether «the fewest points win» is the right reading at all); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.game_points -->
-- If the points are equal, nobody gains game points. *Sources silent, our decision.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count, the first lead and the payment of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
+- A hand gives no game points. *Sources silent, our decision.* Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins and who pays in Meno, and what happens when the fewest points are equal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.game_points -->
+- If several players tie for the best result, they all win; if all tie, the hand is a tie. *Sources silent, our decision.* Other reading: If the points are equal, nobody gains game points. Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins and who pays in Meno, and what happens when the fewest points are equal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
 
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 21.* <!-- rule: hand.settle.unit -->
-- The amount of the settlement: the stake: simple. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
-- The losers pay the winner. *Sources silent, our decision.* Open question 19: could be settled by the opinion of an expert or statistics of games played by bots (the count, the first lead and the payment of Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
+- The amount of the settlement: the simple stake. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- One player pays: the loser, the one with the worst result. If several tie for the worst, all of them pay. *Our reading: Torino [1846], part I, p. 32.* Other reading: The losers pay the winner. Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins and who pays in Meno, and what happens when the fewest points are equal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
 
 ### The match
 
@@ -73,12 +75,11 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, p. 79.* <!-- rule: penalties.revoke -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, p. 79.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
-- **Four cards.** Recorded, not played. The rule for a tie is not printed [S]: Meno is won by the fewest points, and with a short deal for four or more players several players take no trick and share zero, so a hand without a winner is almost certain. Until the rule is set the variant is not offered. The data are kept here in words: four cards each (hand_size 4), counted singly (group 1), the Fool a trump in the order of Sedici with T0 (Torino 1787, p. 78: «come al Sedici»). *Documented: Torino 1787, p. 78: «si può giuocare con quattro carte, come al Sedici»: four cards to each player. [S] With four cards and a plain card worth 0, equal fewest points are frequent; a rule for a tie is not printed. [R] Read as the number of cards only; whether the deals are repeated as at Sedici and when the game ends is not said.* <!-- left_out: four_cards -->
-- **Eight cards.** Recorded, not played. The rule for a tie is not printed [S]: Meno is won by the fewest points, and with a short deal for four or more players several players take no trick and share zero, so a hand without a winner is almost certain. Until the rule is set the variant is not offered. The data are kept here in words: eight cards each (hand_size 8), counted singly (group 1) with a plain card worth 1 (Torino [1846], part I, pp. 30-31), the Fool a trump in the order of Sedici with T0. *Documented: Torino 1787, p. 78: «con otto carte, come al Trent'uno»: eight cards to each player. [R] Read as the number of cards only; whether the deals are repeated as at Trent'uno and when the game ends is not said.* <!-- left_out: eight_cards -->
+- **Vola.** Not played: the core plays settle.premiums only as an empty list (core/modules/settle.js). The book of 1787 (pp. 78-79) does not name the vola at Meno. *Documented: Torino [1846], part I, p. 32, of Trent'uno al meno: «nella vola non perde uno solo, ma tutti»: the player who takes every trick is the only winner and all the others pay him. [R] Carried to Meno, as the same page reads: usually one player loses.* <!-- left_out: vola -->
 
 ## Sources
 
@@ -89,4 +90,4 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/meno.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/meno.json`, rules revision 10. Do not edit: change the game file.

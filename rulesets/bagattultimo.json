@@ -4,7 +4,7 @@
 	"family": "mitigati",
 	"status": "playable_with_decisions",
 	"about": "Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -63,8 +63,7 @@
 		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
 	},
 	"options": [
-		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]},
-		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's.", "affects": ["hand.settle.unit"]}
+		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's. The sums printed in marche are the honours, the trumps and Mitigati (pp. 94-95), the three Bagatto payments (p. 96) and the ficcia (p. 87). [S] Revision 10: the engine does not multiply them yet: the honours and the trumps are a table it cannot scale, and scaling the other sums alone would set Mitigati against the honours; the payment for 26 points (Dummett's ten) has no page.", "affects": ["hand.settle.unit"]}
 	],
 	"variants": [
 		{

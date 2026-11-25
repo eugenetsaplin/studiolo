@@ -1,6 +1,6 @@
 # Twenty-five cards (Venticinque)
 
-2 players. In the book of 1787: pp. 53-56. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+2 players. In the book of 1787: pp. 53-56. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Venticinque is a family of Piedmontese games (Dummett 1980: for three players p. 260, for two players p. 261); this file is the game for two as the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, «Del giuoco di venticinque carte in due persone», pp. 53-56) gives it, read on its scan, on the 78-card deck: 25 cards to the dealer's opponent, 28 to the dealer who discards 3 (p. 53), the other 25 cards out of play, covered on the table (p. 57), 25 tricks, the cards counted in pairs (p. 52). The rules are the book's: the trionfi rank by their printed numbers with the Angel XX above the World XXI (pp. 9-10, 13), the Angel is the honour that may not be discarded (pp. 14, 34, 54), the Fool is never taken and its owner gives one plain card at the end of the hand (pp. 50, 52, 54), the discard counts for the dealer (p. 55), the hand is won by more points (p. 54) and has no dry premium, the premiums are agreed before the deal (pp. 21, 55, 99). Ours, where the book is silent: the Fool may be led, the engine chooses the card the Fool's owner gives, and the match of four hands around the hand. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -48,6 +48,7 @@ This step: *Documented: from the book, p. 53.*
 - Cards put away: 3. *Documented: from the book, pp. 53-54.* <!-- rule: hand.discard.count -->
 - The discard is announced with «ho scartato» and is final. *Documented: from the book, p. 54.* <!-- rule: hand.discard.announce -->
 - Honours may not be put away. *Documented: from the book, p. 54.* <!-- rule: hand.discard.discard_honours_barred -->
+- The discard counts for the player who put it away. *Our reading: book, p. 55.* Other reading: The discard counts for nobody. Open question 32: could be settled by a document in which the rule is printed or a mathematical analysis (whether the dealer's discard is in the count (53 cards or 50)); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
 
 ### The tricks
 
@@ -61,7 +62,7 @@ This step: *Documented: from the book, p. 53.*
 ### The count
 
 - Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Documented: from the book, p. 52.* <!-- rule: hand.count.count_unit -->
-- A card left without a pair is worth its value less half a point, as in a pair. *Our reading: book, pp. 54-55.* Open question 32: could be settled by a document in which the rule is printed or a mathematical analysis (how the book counted the cards left over); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.odd_card -->
+- A card left without a pair is worth its value less half a point, as in a pair. *Documented: from the book, p. 52.* <!-- rule: hand.count.odd_card -->
 - There are no multipliers for tricks. *Our reading: book, p. 52.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book, p. 54.* <!-- rule: hand.count.last_trick_bonus -->
 - The dealer keeps his discard. *Our reading: book, p. 55.* Other reading: A dealer who takes no trick loses his discard. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.dealer_forfeit -->
@@ -78,6 +79,10 @@ This step: *Documented: from the book, p. 53.*
 - A match is 4 hands. *Sources silent, our decision.* Open question 6: could be settled by statistics of games played by bots or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.hands -->
 - If the hands are tied, whoever has more card points over all the hands wins. *Sources silent, our decision.* Open question 6: could be settled by statistics of games played by bots or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.tiebreak -->
 
+### Offences
+
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+
 ## Not played yet
 
 - **Vola.** A premium agreed in advance for all the tricks is a stake of the table, not a bid or a rule of the hand: the engine plays no premium. *Documented: Torino 1787, pp. 21, 55, 100: «Vola, dicesi del fare tutte le basi»: a premium for taking every trick, played «purchè si voglia, e dicasi avanti in termini chiari», that is by agreement before the deal; and the Fool may be put away for a sure vola (rule 38, p. 34).* <!-- left_out: vola -->
@@ -88,5 +93,6 @@ This step: *Documented: from the book, p. 53.*
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
+| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 
-Generated from `rulesets/venticinque.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/venticinque.json`, rules revision 10. Do not edit: change the game file.

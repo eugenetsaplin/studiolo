@@ -252,6 +252,8 @@ A variant is a named patch on the game file, chosen when the table is made. It c
 
 The patch merges as `extends` does (7.3). The rules page shows each variant as a box «variant: …» with its source.
 
+A variant may limit itself to some numbers of seats by patching `seats.count`: `"patch": {"seats": {"count": {"value": [2, 3], "source": "…"}}}`. The core then refuses the variant at the other numbers of seats («this game is not played with N seats»), the rules page does not print it there, and the general checks do not try it there. Meno's short forms use it (revision 10): a variant is offered at a number of seats only if, in 200 hands of random players, at most 15 % have no winner and at most 50 % have more than one winning side.
+
 ### 7.3 `extends`: a game written as another game plus differences
 
 The book writes many games as «the same as …»: Morto «non giuocasi altrimente che a Venticinque carte» (p. 57), Quadrilio «è lo stesso, che il Permesso in tre persone» (p. 71), Consiglio «tutto è simile al giuoco di Partita in quattro» (p. 97), Trent'uno after the rules of Sedici (p. 45). The format follows the book: a child file names its parent in `extends` and holds only what differs.
@@ -353,7 +355,7 @@ Payments and declarations use amounts: a number, or an object with one of these 
 | `{"sum": [a, b]}` | a + b (Onoranza plus the points) |
 | `{"times": [a, 2]}` | a × 2 |
 
-Rounding values: `down`, `up`, `nearest_half_down` (to the nearest step, a half step down: our decision for 47½ → 45), `nearest_half_up`, `none`.
+Rounding values: `down`, `up`, `nearest_half_down` (to the nearest step, a half step down: our decision for 47½ → 45), `nearest_half_up`, `none`, `toward_zero` (revision 10: only whole steps from `from` count, on either side: with `from: 45`, `every: 5` 48 is 0 steps, 50 is 1, 43 is 0, 40 is -1; the part of a step left over is dropped).
 
 ## 11. The modules (catalogue)
 
@@ -602,7 +604,7 @@ Decides who won the hand and how.
 |---|---|---|---|
 | `winner` | enum | `more_points` (format 2; p. 54), `threshold` (every seat or side reaching `target` wins: Bagatt'ultimo 26, p. 95; Baronetti 46, p. 51), `declarer_threshold` (the declarer's side against `target`, with `bands`: Permesso 46), `fewest_points` (Meno, p. 78 «guadagna chi fa meno punti»), `first_out` (by `fuora`) | `more_points` |
 | `target` | number | 46, 26, 16, 31 | none |
-| `tie` | enum | format 2 `no_game_points`; `redeal_next_dealer` (p. 70 «tocca al compagno appresso a mischiare»: the outcome is `draw`, nobody pays, the hand counts as dealt); `declarer_loses` (our reading of p. 74 «non si può mai rifare per eguaglianza di punti»); `draw` | `no_game_points` |
+| `tie` | enum | format 2 `no_game_points`; `redeal_next_dealer` (p. 70 «tocca al compagno appresso a mischiare»: the outcome is `draw`, nobody pays, the hand counts as dealt); `declarer_loses` (our reading of p. 74 «non si può mai rifare per eguaglianza di punti»); `draw`; `share` (revision 10, `more_points` and `fewest_points`: when several sides are level at the best points they all win, `result.winners` holds all their seats, `outcome: win`, and `worst` is the worst of the others; when every side is level it is a tie as before) | `no_game_points` |
 | `bands` | list of `{min, max, outcome, pays}` | finer outcomes by the declarer's points: 46+ win; 45½ draw; 43½-45 loss on the Onoranza only (pp. 66-70) | none |
 | `game_points` | enum | format 2: `one`, `one_or_two_dry`; `none` (the hand settles in stakes only) | `one` |
 | `shut_num`, `shut_den` | integer | format 2: the dry line | `1`, `3` |
@@ -672,6 +674,7 @@ The match wraps the hand. Format 2 keys keep their names.
 | `round_target` | number | `running_total`: 26 | none |
 | `rounds` | integer | `running_total`: 3 | none |
 | `dealer_rounds` | integer | `ledger`: the match ends after this many rounds of dealers (deals = rounds x seats); without the key a ledger match never ends | none |
+| `payout` | `per_hand`, `match_end`, or `{at: match_end, mode, amount}` | revision 10. `per_hand`: each hand pays its stake as the `settle` phase says. `match_end`: the hands pay no stake (the payments of events, declarations and false claims, stay); once, when the match is over, the losers of the match pay its winners: `mode` (`loser_pays_winner`, `losers_pay_winner`, `winners_from_losers`, `pair_split`, as `settle.mode`) and `amount` (numbers, `stake`, `option`, `sum`, `times`, as `settle.amount`) are those of the `settle` phase unless the object form gives its own. Winners of the match are those of `kind` (`fixed_hands`, `race`: the side with most game points, then `tiebreak`; `running_total`: the greatest positive total); no winners (level) - nobody pays. `loser_pays_winner` takes the payers from the worst of the match (`running_total`: the lowest total; else the sides lowest by game points, then card points when `tiebreak: card_points`), the other modes every loser. Not for `ledger` and `single_hand`. The payment is `standing.payments` (`[{from, to, amount, why}]`, `[]` while the match runs) and is added to `standing.ledger` when the match is over; `view.match.payments` repeats it. Both fields exist only when the file has `payout: match_end`; a file that pays per hand sends the views it always sent | `per_hand` |
 
 The dealer changes by `seats.dealer_rotation`. A hand thrown in (everybody passed, `outcome: thrown_in`) or drawn (`outcome: draw`) counts as a dealt hand in `dealer_rounds`: nobody pays, the next dealer follows the rotation; it is never dealt again by the same dealer (that is `tie_replay` of a tied race hand only).
 
@@ -741,6 +744,8 @@ Advice from the book is marked `[D]` like a rule; it never constrains a human pl
 | `rule_text` | object rule path → sentence | rules page (full) | replaces the module's own sentence for that rule |
 | `terms` | object | glossary | the book's words (onori, scarto, cartaccia, partita) |
 | `variant_names`, `option_names` | object | table setup, rules page | names of variants and options |
+| `penalty_names`, `contract_names` | object | rules page | names of offences (by `offence`, else the penalty id) and of bids (by contract id); a name the page lacks shows the id in plain letters, and a test fails on it |
+| `left_out` | object | rules page | for each `left_out` id of the game file the whole line the page prints, in this language, name first; the Russian page needs it, the English page may fall back to the `why` of the game file |
 
 A line is `{id?, text, rules, phase?}`:
 

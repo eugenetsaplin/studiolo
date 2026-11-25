@@ -1,6 +1,6 @@
 # Bagatto last (Bagatt’ultimo)
 
-3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -37,10 +37,9 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
-- marca value: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 93.* <!-- rule: options.marca_value -->
-- variant: packets 10 5 10. *Documented: from the book, p. 92.* <!-- rule: variants.packets_10_5_10 -->
-- variant: mitigati thirty. *Documented: from the book, p. 96.* <!-- rule: variants.mitigati_thirty -->
+- Worth of a marca: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 93.* <!-- rule: options.marca_value -->
+- variant: Dealing in packets of ten, five and ten cards. *Documented: from the book, p. 92.* <!-- rule: variants.packets_10_5_10 -->
+- variant: Mitigati paid at thirty marche. *Documented: from the book, p. 96.* <!-- rule: variants.mitigati_thirty -->
 
 ### The deal
 
@@ -93,11 +92,11 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### Settling
 
 - Settling is in marche. *Documented: from the book, p. 93.* <!-- rule: hand.settle.unit -->
-- The amount of the settlement: 10. *Sources silent, our decision, after Dummett (1980), p. 262.* Other reading: The amount of the settlement: the stake: simple. Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
+- The amount of the settlement: 10 marche. *Sources silent, our decision, after Dummett (1980), p. 262.* Other reading: The amount of the settlement: the simple stake. Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
 - The winners collect from the losers. *Sources silent, our decision, after Dummett (1980), p. 262.* Open question 7: could be settled by a document in which the rule is printed (the payment for the game at 26 points); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
-- Whoever takes the last trick with Trump 1 — Magician collects 30 from each other player. *Documented: from the book, p. 96.* Other reading: The 30 is paid once in all, and the other players share it. <!-- rule: hand.settle.payments[bagatto_last] -->
-- Whoever lets Trump 1 — Magician be taken in the last trick pays 30 to each other player. *Documented: from the book, p. 96.* <!-- rule: hand.settle.payments[bagatto_lost_last] -->
-- Whoever lets Trump 1 — Magician be taken before the last trick pays 5 to each other player. *Documented: from the book, p. 96.* <!-- rule: hand.settle.payments[bagatto_lost] -->
+- Whoever takes the last trick with Trump 1 — Magician collects 30 marche from each other player. *Documented: from the book, p. 96.* Other reading: The 30 marche is paid once in all, and the other players share it. <!-- rule: hand.settle.payments[bagatto_last] -->
+- Whoever lets Trump 1 — Magician be taken in the last trick pays 30 marche to each other player. *Documented: from the book, p. 96.* <!-- rule: hand.settle.payments[bagatto_lost_last] -->
+- Whoever lets Trump 1 — Magician be taken before the last trick pays 5 marche to each other player. *Documented: from the book, p. 96.* <!-- rule: hand.settle.payments[bagatto_lost] -->
 
 ### The match
 
@@ -106,9 +105,9 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: 10; unit: marca. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
-- Offence «misdeal»: impossible at the table; penalty: pays: 10; unit: marca. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
-- Offence «faced card»: impossible at the table; penalty: redeal for all: yes; only before cards seen: yes. *Documented: from the book, p. 92.* <!-- rule: penalties.faced_card -->
+- Offence «revoke»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
+- Offence «misdeal»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
+- Offence «a card turned face up in the deal»: impossible at the table; penalty: a redeal for all; only before the cards are seen. *Documented: from the book, p. 92.* <!-- rule: penalties.faced_card -->
 
 ## Not played yet
 
@@ -125,4 +124,4 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 | Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 
-Generated from `rulesets/bagattultimo.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/bagattultimo.json`, rules revision 10. Do not edit: change the game file.

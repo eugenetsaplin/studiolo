@@ -1,6 +1,6 @@
 # Mitigati for two (Mitigati)
 
-2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan: the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards thirteen cards and his opponent twelve (honours never; read as exact, the other reading, up to thirteen, is in the source text), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25); 39 and 39 cannot be, as no cards would be left for the second deal. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -38,8 +38,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
-- marca value: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 93.* <!-- rule: options.marca_value -->
+- Stake: a choice of 1, 2, 5 or 10 marche; by default 1 marca. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- Worth of a marca: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 93.* <!-- rule: options.marca_value -->
 
 ### The deal
 
@@ -113,11 +113,11 @@ This step: *Documented: from the book, p. 86.*
 ### Settling
 
 - Settling is in marche. *Documented: from the book, pp. 86-87.* <!-- rule: hand.settle.unit -->
-- The loser pays the winner. *Our reading: book, p. 87.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: simple. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
-- Whoever takes the last trick with Trump 1 — Magician collects 30 from each other player. *Sources silent, our decision.* Other reading: The 30 is paid once in all, and the other players share it. <!-- rule: hand.settle.payments[bagatto_last] -->
-- Whoever lets Trump 1 — Magician be taken in the last trick pays 30 to each other player. *Sources silent, our decision.* <!-- rule: hand.settle.payments[bagatto_lost_last] -->
-- Whoever lets Trump 1 — Magician be taken before the last trick pays 5 to each other player. *Sources silent, our decision.* <!-- rule: hand.settle.payments[bagatto_lost] -->
+- One player pays: the loser, the one with the worst result. If several tie for the worst, all of them pay. *Our reading: book, p. 87.* <!-- rule: hand.settle.mode -->
+- The amount of the settlement: the simple stake. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
+- Whoever takes the last trick with Trump 1 — Magician collects 30 marche from each other player. *Sources silent, our decision.* Other reading: The 30 marche is paid once in all, and the other players share it. <!-- rule: hand.settle.payments[bagatto_last] -->
+- Whoever lets Trump 1 — Magician be taken in the last trick pays 30 marche to each other player. *Sources silent, our decision.* <!-- rule: hand.settle.payments[bagatto_lost_last] -->
+- Whoever lets Trump 1 — Magician be taken before the last trick pays 5 marche to each other player. *Sources silent, our decision.* <!-- rule: hand.settle.payments[bagatto_lost] -->
 
 ### The match
 
@@ -126,8 +126,8 @@ This step: *Documented: from the book, p. 86.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: 10; unit: marca. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
-- Offence «misdeal»: impossible at the table; penalty: pays: 10; unit: marca. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
+- Offence «revoke»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
+- Offence «misdeal»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
 
 ## Not played yet
 
@@ -143,4 +143,4 @@ This step: *Documented: from the book, p. 86.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/mitigati_2.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/mitigati_2.json`, rules revision 10. Do not edit: change the game file.

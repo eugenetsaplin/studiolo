@@ -597,7 +597,7 @@
 			"properties": {
 				"winner": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["more_points", "threshold", "fewest_points", "first_out", "declarer_threshold"]}}}]},
 				"target": {"$ref": "#/$defs/r_num"},
-				"tie": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["no_game_points", "redeal_next_dealer", "declarer_loses", "draw"]}}}]},
+				"tie": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["no_game_points", "redeal_next_dealer", "declarer_loses", "draw", "share"]}}}]},
 				"bands": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/band"}}}}]},
 				"game_points": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["one", "one_or_two_dry", "none"]}}}]},
 				"shut_num": {"$ref": "#/$defs/r_int"},
@@ -668,7 +668,8 @@
 				"double_window_cards": {"$ref": "#/$defs/r_int"},
 				"round_target": {"$ref": "#/$defs/r_num"},
 				"rounds": {"$ref": "#/$defs/r_int"},
-				"dealer_rounds": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "integer", "minimum": 1}}}]}
+				"dealer_rounds": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "integer", "minimum": 1}}}]},
+				"payout": {"$ref": "#/$defs/r_any"}
 			}
 		},
 		"penalty": {

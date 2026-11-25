@@ -58,7 +58,7 @@ This step: *Documented: from the book, p. 57.*
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, p. 49.* <!-- rule: hand.tricks.must_overtrump -->
 - The Fool may be led. *Sources silent, our decision.* <!-- rule: hand.tricks.fool_may_lead -->
 
-### The prize stock (during: tricks)
+### The prize stock (while the tricks are played)
 
 This step: *Documented: from the book, p. 57.*
 
@@ -91,7 +91,7 @@ This step: *Documented: from the book, p. 57.*
 
 ### Offences
 
-- Offence «peek stock»: impossible at the table; penalty: lose: double; win double: simple; win simple: nothing. *Documented: from the book, p. 58.* <!-- rule: penalties.peek_morto -->
+- Offence «looking at a card of the covered stock»: impossible at the table; penalty: on a loss: doubled; on a double win: simple; on a simple win: nothing. *Documented: from the book, p. 58.* <!-- rule: penalties.peek_morto -->
 
 ## Not played yet
 

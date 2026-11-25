@@ -4,7 +4,7 @@
 	"family": "mitigati",
 	"status": "playable_with_decisions",
 	"about": "Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan: the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards thirteen cards and his opponent twelve (honours never; read as exact, the other reading, up to thirteen, is in the source text), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25); 39 and 39 cannot be, as no cards would be left for the second deal. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"ours": {
 			"cite": "Studiolo decision; not a source",
@@ -59,7 +59,7 @@
 	},
 	"options": [
 		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]},
-		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's.", "affects": ["hand.settle.unit"]}
+		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's. On the pages of this game only the ficcia is printed in marche (p. 87); the declarations are in marche through the tariff of pp. 93-95 (p. 86: «come a pagina 98»); the Bagatto payments rest on Torino [1846], part I, p. 53, not checked here; the payment for the game is a stake. [S] Revision 10: the engine does not multiply them yet: the honours and the trumps are a table it cannot scale.", "affects": ["hand.settle.unit"]}
 	],
 	"hand": {
 		"phases": [

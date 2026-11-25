@@ -37,7 +37,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- Stake: choices 1, 2, 5, 10; default 1. *Sources silent, our decision.* <!-- rule: options.stake -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Sources silent, our decision.* <!-- rule: options.stake -->
 
 ### The deal
 
@@ -86,7 +86,7 @@ This step: *Documented: from the book, p. 88.*
 
 - Settling is in stakes. *Sources silent, our decision.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Our reading: Dummett (1980), p. 260.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: as agreed. *Sources silent, our decision.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake as agreed. *Sources silent, our decision.* Open question 12: could be settled by a document in which the rule is printed (the deal, the discard and the payment of Partita for three); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -95,8 +95,8 @@ This step: *Documented: from the book, p. 88.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «signal»: text only; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Sources
 

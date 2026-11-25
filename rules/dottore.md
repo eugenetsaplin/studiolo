@@ -37,8 +37,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- How to count: by one, two or three cards: choices 1, 2, 3; default 2. *Documented: from the book, p. 75.* <!-- rule: options.group -->
-- Stake: choices 1, 2, 5, 10; default 1. *Sources silent, our decision.* <!-- rule: options.stake -->
+- How to count: by one, two or three cards: a choice of 1, 2 or 3; by default 2. *Documented: from the book, p. 75.* <!-- rule: options.group -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Sources silent, our decision.* <!-- rule: options.stake -->
 
 ### The deal
 
@@ -87,7 +87,7 @@ This step: *Documented: from the book, p. 75.*
 
 - Settling is in stakes. *Sources silent, our decision, after Dummett (1980), p. 263.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Sources silent, our decision.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: as agreed. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake as agreed. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -96,8 +96,8 @@ This step: *Documented: from the book, p. 75.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «signal»: text only; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 

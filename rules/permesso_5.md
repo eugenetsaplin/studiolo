@@ -40,14 +40,14 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- coin: choices soldo, due mezzo, lira, testone; default soldo. *Documented: from the book, p. 67.* <!-- rule: options.coin -->
+- Coin of the settling: a choice of soldo, two and a half soldi, lira or testone; by default soldo. *Documented: from the book, p. 67.* <!-- rule: options.coin -->
 
 ### Bids
 
-- «three»: rank 1, exchange 3, onoranza 2, sides declarer vs rest. *Documented: from the book, p. 60.* <!-- rule: contracts.three -->
-- «two»: rank 2, exchange 2, onoranza 3, sides declarer vs rest. *Documented: from the book, p. 62.* <!-- rule: contracts.two -->
-- «one»: rank 3, exchange 1, onoranza 4, sides declarer vs rest. *Documented: from the book, p. 63.* <!-- rule: contracts.one -->
-- «sans prendre»: rank 4, exchange 0, onoranza 5, sides declarer vs rest. *Documented: from the book, p. 64.* <!-- rule: contracts.sans_prendre -->
+- «three cards»: rank 1, exchange 3, Onoranza 2 soldi, sides: the declarer against the rest. *Documented: from the book, p. 60.* <!-- rule: contracts.three -->
+- «two cards»: rank 2, exchange 2, Onoranza 3 soldi, sides: the declarer against the rest. *Documented: from the book, p. 62.* <!-- rule: contracts.two -->
+- «one card»: rank 3, exchange 1, Onoranza 4 soldi, sides: the declarer against the rest. *Documented: from the book, p. 63.* <!-- rule: contracts.one -->
+- «sans prendre»: rank 4, exchange 0, Onoranza 5 soldi, sides: the declarer against the rest. *Documented: from the book, p. 64.* <!-- rule: contracts.sans_prendre -->
 
 ### The deal
 
@@ -77,7 +77,7 @@ This step: *Documented: from the book, p. 59.*
 
 This step: *Documented: from the book, pp. 60-66.*
 
-- The bids are: three, two, one, sans prendre. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.contracts -->
+- The bids are: three cards, two cards, one card, sans prendre. *Documented: from the book, p. 66.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.contracts -->
 - The player on the dealer's right opens the bidding. *Documented: from the book, p. 60.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.opens -->
 - The dealer speaks last. *Our reading: Torino [1846], part I, pp. 41-42.* Other reading: The dealer speaks in his turn. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.dealer_speaks -->
 - With equal bids the seat that speaks earlier wins. An earlier seat may match the bid of a later one; a later seat must bid higher. A pass is final. *Documented: from the book, pp. 63-64.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.bidding.tie -->
@@ -95,13 +95,13 @@ This step: *Documented: from the book, pp. 60-61.*
 - The exchange is made face down. *Documented: from the book, p. 61.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.face -->
 - Cards that may be asked for: all. *Documented: from the book, p. 61.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.callable -->
 - If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision, after Dummett (1980), p. 266.* Other reading: If nobody else holds the wanted card, it may not be asked for. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.card_not_held -->
-- The laid cards go to the holders unseen, drawn by lot. *Our reading: book, p. 61.* Other reading: Who gets which laid card: declarer assigns. Open question 27: could be settled by a document in which the rule is printed or a trial with live players (who takes which of the laid cards in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.give -->
+- The laid cards go to the holders unseen, drawn by lot. *Our reading: book, p. 61.* Other reading: Who gets which laid card: the declarer assigns them. Open question 27: could be settled by a document in which the rule is printed or a trial with live players (who takes which of the laid cards in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.give -->
 - Honours may not be laid down. *Our reading: book, pp. 34-35.* Other reading: Any card may be laid down. Open question 31: could be settled by a document in which the rule is printed or the opinion of an expert (which cards may be laid down in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.discard_honours_barred -->
 - Some cards are still allowed to be laid down (for example the Fool). *Our reading: book, pp. 34-35.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.exchange.allowed_exceptions -->
 
 ### The tricks
 
-- The player on the dealer's right leads first. *Our reading: book, p. 61.* Other reading: First lead: declarer. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.tricks.first_leader -->
+- The player on the dealer's right leads first. *Our reading: book, p. 61.* Other reading: First lead: the declarer. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 37.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.tricks.next_leader -->
 - You must follow suit if you can. *Documented: from the book, p. 35.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.tricks.must_trump -->
@@ -120,14 +120,14 @@ This step: *Documented: from the book, pp. 60-61.*
 - The declarer wins if he reaches the threshold of his bid. *Documented: from the book, p. 68.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.winner -->
 - The threshold is 46 points. *Documented: from the book, p. 68.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.target -->
 - If the points are equal, the cards are dealt again by the next dealer. *Documented: from the book, p. 70.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.tie -->
-- The result follows bands of the declarer's points: a win, a draw or a loss; he pays all, the Onoranza alone, or nothing. *Our reading: book, pp. 66-70.* Other reading: min: 46; outcome: win; pays: full, min: 45; max: 45.5; outcome: draw; pays: nothing, min: 43.5; max: 44.5; outcome: loss; pays: onoranza only, max: 43; outcome: loss; pays: full. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.bands -->
+- The result follows bands of the declarer's points: a win, a draw or a loss; he pays all, the Onoranza alone, or nothing. *Our reading: book, pp. 66-70.* Other reading: min: 46; outcome: win; pays: full, min: 45; max: 45.5; outcome: draw; pays: nothing, min: 43; max: 44.5; outcome: loss; pays: onoranza only, max: 42.5; outcome: loss; pays: full. Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.bands -->
 - A hand gives no game points. *Sources silent, our decision.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.result.game_points -->
 
 ### Settling
 
 - Settling is in soldi. *Documented: from the book, pp. 67-69.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.unit -->
 - The declarer settles with each player on his own. *Our reading: book, p. 74.* Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.mode -->
-- The amount of the settlement: sum: by the bid: onoranza, per points: of: declarer side; from: 45; every: 5; unit: 1; round: nearest half down; direction: both. The Onoranza of the contract and the points beyond the line are counted apart. *Our reading: book, pp. 67-70.* Open question 33: could be settled by a document in which the rule is printed or the opinion of an expert (the steps of the payment); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the Onoranza of the bid plus 1 soldo for every 5 points of the declarer's side beyond 45 (rounding: to the nearest half, down; both ways). The Onoranza of the contract and the points beyond the line are counted apart. *Our reading: book, pp. 67-70.* Other reading: The amount of the settlement: the Onoranza of the bid plus 1 soldo for every 5 points of the declarer's side beyond 45 (rounding: toward zero; both ways). The Onoranza of the contract and the points beyond the line are counted apart. Open question 33: could be settled by a document in which the rule is printed or the opinion of an expert (the steps of the payment); see [the open questions](../rulesets/OPEN_QUESTIONS.md). Same as in [Permesso for three](permesso_3.md). <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -136,12 +136,12 @@ This step: *Documented: from the book, pp. 60-61.*
 
 ### Offences
 
-- Offence «wrong discard count»: impossible at the table; penalty: pays: simple game; to: each of the others; if lost: double. *Documented: from the book, pp. 59-60.* <!-- rule: penalties.wrong_discard_count -->
-- Offence «change discard»: impossible at the table; penalty: allowed: no. *Documented: from the book, p. 60.* <!-- rule: penalties.change_discard -->
-- Offence «call without laying»: impossible at the table; penalty: pays: onoranza; to: each of the others; then: hand is played. *Documented: from the book, pp. 64-65.* <!-- rule: penalties.call_without_laying -->
-- Offence «refuse bid»: impossible at the table; penalty: pays: double onoranza; to: each of the others; marcio alt: marcia game. *Documented: from the book, p. 66.* <!-- rule: penalties.refuse_bid -->
-- Offence «signal»: text only; penalty: pays: simple game; to: each of the others; then: lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «a wrong number of cards in the discard»: impossible at the table; penalty: pays the simple stake to each of the others; if the hand is lost: doubled. *Documented: from the book, pp. 59-60.* <!-- rule: penalties.wrong_discard_count -->
+- Offence «changing the discard»: impossible at the table; penalty: not allowed. *Documented: from the book, p. 60.* <!-- rule: penalties.change_discard -->
+- Offence «calling for cards without laying a discard»: impossible at the table; penalty: pays the Onoranza to each of the others; then: the hand is played out. *Documented: from the book, pp. 64-65.* <!-- rule: penalties.call_without_laying -->
+- Offence «refusing the bid one made»: impossible at the table; penalty: pays a double Onoranza to each of the others; with a marcio: a game with a marcia. *Documented: from the book, p. 66.* <!-- rule: penalties.refuse_bid -->
+- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others; then: the lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 

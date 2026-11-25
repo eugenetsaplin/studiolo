@@ -1,6 +1,6 @@
 # Partita for four (Partita)
 
-4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Partita, two against two (Torino 1787, «Del giuocare in Partita», pp. 88-90), the game the book calls the proper one of four players: two fixed pairs, partners sit face to face, the cards are cut, dealt and discarded as in Permesso for four (19 cards to each, the dealer puts two away), no one may ever go alone («andar a solo mai e poi mai»), the two partners' points are one heap and the part with more points wins, even by a single unpaired card (pp. 88-90). The Bagatto and the kings may not be put away, the Fool is shown (p. 90). Each winner collects the agreed sum from one of the opponents (p. 90). The sum, the count by four or by two, the lead and who deals first («Chi coppa meglio») are our readings. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -16,7 +16,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - Players at the table: 4. *Documented: from the book, p. 88.* <!-- rule: seats.count -->
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
-- The first dealer is whoever cuts the highest card. *Documented: from the book, p. 89.* Other reading: First dealer: draw high. <!-- rule: seats.first_dealer -->
+- The first dealer is whoever cuts the highest card. *Documented: from the book, p. 89.* Other reading: First dealer: by drawing the high card. <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Our reading: book, p. 58.* <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. <!-- rule: seats.dealer_rotation -->
@@ -39,9 +39,9 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- counting, cards in a group: choices 2, 4; default 2. *Our reading: book, p. 89.* <!-- rule: options.group -->
-- Stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 90.* <!-- rule: options.stake -->
-- variant: Four deals: the pair with the larger total wins. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: variants.four_deals -->
+- counting, cards in a group: a choice of 2 or 4; by default 2. *Our reading: book, p. 89.* <!-- rule: options.group -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 90.* <!-- rule: options.stake -->
+- variant: Four deals: one payment at the end, to the pair with the larger total. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: variants.four_deals -->
 
 ### The deal
 
@@ -60,7 +60,7 @@ This step: *Documented: from the book, p. 89.*
 - Cards put away: 2. *Documented: from the book, p. 71.* <!-- rule: hand.discard.count -->
 - Exactly that many are put away. *Documented: from Torino [1846], part I, pp. 36, 40-41.* <!-- rule: hand.discard.count_mode -->
 - Honours may not be put away. *Our reading: book, p. 90.* Other reading: Any card may be put away. <!-- rule: hand.discard.discard_honours_barred -->
-- These may not be put away: Trump 1 — Magician, rank:K. *Documented: from the book, p. 90.* <!-- rule: hand.discard.barred -->
+- These may not be put away: Trump 1 — Magician, the kings. *Documented: from the book, p. 90.* <!-- rule: hand.discard.barred -->
 - There are exceptions to the ban, they depend on the hand. *Our reading: book, p. 34.* Other reading: . <!-- rule: hand.discard.allowed_exceptions -->
 - The discard counts for the player who put it away. *Sources silent, our decision.* Other reading: The discard counts for its owner if he took at least one trick. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
 - The discard is announced with «ho scartato» and is final. *Our reading: book, p. 60.* <!-- rule: hand.discard.announce -->
@@ -98,7 +98,7 @@ This step: *Documented: from the book, p. 89.*
 
 - Settling is in stakes. *Documented: from the book, p. 90.* <!-- rule: hand.settle.unit -->
 - The pair shares the win; with unequal sides (one against three) the declarer settles with each opponent. *Documented: from the book, p. 90.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: as agreed. *Documented: from the book, p. 90.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the stake as agreed. *Documented: from the book, p. 90.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -107,14 +107,15 @@ This step: *Documented: from the book, p. 89.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
-- Offence «signal»: text only; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
+- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 
 - **Go alone.** The table has no lone contract at Partita, so nobody can go alone; no penalty is needed. *Documented: Torino 1787, p. 89: «non sarà lecito poi, giuocando in Partita, di andar a solo mai».* <!-- left_out: go_alone -->
 - **Marcio vola premiums.** Not in the 1787 book; the stake is the agreed simple sum. *Our reading: Dummett 1980, p. 261 (his guesses, not printed in the book): a double payment when the loser has fewer than 18 points, a triple for a vola, an extra for each five points.* <!-- left_out: marcio_vola_premiums -->
 - **Fool discard for vola.** Vola is not played (open question 13); the exception is not offered. *Documented: Torino 1787, p. 34 (rule 38): the Fool may be put away «in un sol caso … guadagnar la partita vola»; Turin 1880, p. 9: «as peul dcò scartesse quand ch'a iè la certëssa d'fè la vola»; Dummett 1980, p. 259 reads the same.* <!-- left_out: fool_discard_for_vola -->
+- **Milan 1794.** Customs of Milan, not of Turin: the book of 1787 decides for its own games (a revoke pays the simple game to all, p. 33; kings may not be discarded, p. 90; the pairs are fixed, p. 88). Recorded so that the difference is seen; not played. *Documented: Per chi tarocca, Milan, 1794 (the neighbours of the Turin game): a revoke costs ten points of the count, «ordinariamente porta la penale di soli dieci punti» (p. 21); no trump may be discarded, «Se chi scarta scartasse un onore, od un tarocco perderà dieci punti» (pp. 23-24), while a king in the discard is ordinary play (p. 36); the partners change in the course of an evening (pp. 13, 31); one card turned by accident in the deal is no misdeal, «si volta per accidente una carta, non si va a monte» (p. 17).* <!-- left_out: milan_1794 -->
 
 ## Sources
 
@@ -124,6 +125,7 @@ This step: *Documented: from the book, p. 89.*
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Milan 1794 | Per chi tarocca. Almanacco critico-istruttivo per l'anno 1794, Milano, Luigi Veladini [1793/94]; Biblioteca Trivulziana, Triv M 1542 (the Milanese neighbours of the Turin game; a support, not a source of these rules) | held |
 | Turin 1880 | C. C. Tarocaire, La partia a taroch an quatr. Regolament e caprissi, Turin, Stamperia Leteraria, 1880 | held |
 
-Generated from `rulesets/partita_4.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/partita_4.json`, rules revision 10. Do not edit: change the game file.

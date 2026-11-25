@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Permesso for four («Quadrilio», Torino 1787, «Del Permesso in quattro persone», pp. 71-74): «lo stesso, che il Permesso in tre persone». 19 cards to each of the four players; the dealer, who holds two over, puts away two. One goes alone against the other three, who count together. There is no draw: one of the two parts must win «per eguaglianza di punti» never being replayed (p. 74). The 21 cards of the dealer, the exact or at most two put away and the lone player's payment (three players in one) are our readings, marked. Everything not written here is as in Permesso for three.",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -33,7 +33,8 @@
 		"mode": {"value":"by_contract","source":"[D] Torino 1787, pp. 71, 73: «è lo stesso, che il Permesso in tre persone»; the lone player has the other three against him («tutti tre gli avversarj compagni»)."}
 	},
 	"cards": {
-		"deck": {"value":"full78","source":"[R] Torino 1787, p. 71: 4 × 19 + the dealer's two over make 78; the sum is not printed."}
+		"deck": {"value":"full78","source":"[R] Torino 1787, p. 71: 4 × 19 + the dealer's two over make 78; the sum is not printed."},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three): «onde chi ha presa o coperta la mano non abbia ad averne danno»: the plain card for the Fool goes to whoever took the trick; Torino 1787, pp. 77-78 says the same of Permesso for five to seven: «la carta poscia del Folle si dovrà sempre dare a chi ha preso». Written here, not only inherited from Permesso for three: the pages of Permesso for four (1787, pp. 71-75) do not name it. Other reading (stood until revision 8): the card goes to the opposing side.", "alt": "opponent_side", "by": "torino1846", "pages": [33]}
 	},
 	"hand": {
 		"phases": [
@@ -59,7 +60,7 @@
 				"module": "result",
 				"settings": {
 					"tie": {"value": "declarer_loses", "source": "[S] Torino 1787, p. 74: «o l'una parte, o … vincere; non si … per eguaglianza di punti». Of 91 points 45½ each cannot arise: the card for the Fool goes to the taker of the trick (Dummett 1980, p. 267: «since each will have an even number of cards, no draw is possible»); ours: the lone player who does not make 46 loses (the Onoranza only, at 43½ to 45½) and nothing is replayed.", "replace": {"with": ["document"], "what": "equal points, 45½ each", "q": 14}},
-					"bands": {"value":[{"min":46,"outcome":"win","pays":"full"},{"min":43.5,"max":45.5,"outcome":"loss","pays":"onoranza_only"},{"max":43,"outcome":"loss","pays":"full"}],"source":"[R] Torino 1787, pp. 66-67, 74: as for three (46 wins; 43½ to 45 loses the Onoranza only) but «non si può mai rifare per eguaglianza di punti»: 45½ is not a draw; ours: it loses the Onoranza only.","alt":[{"min":46,"outcome":"win","pays":"full"},{"min":45.5,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43.5,"max":45,"outcome":"loss","pays":"onoranza_only"},{"max":43,"outcome":"loss","pays":"full"}]}
+					"bands": {"value":[{"min":46,"outcome":"win","pays":"full"},{"min":43,"max":45.5,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}],"source":"[R] Torino 1787, pp. 66-67, 74: as for three (46 wins; 43 to 45 loses the Onoranza only, the line drawn where the payment puts it, see permesso_3) but «non si può mai rifare per eguaglianza di punti»: 45½ is not a draw; ours: it loses the Onoranza only.","alt":[{"min":46,"outcome":"win","pays":"full"},{"min":45.5,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43,"max":45,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}]}
 				}
 			},
 			{

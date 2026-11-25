@@ -64,7 +64,10 @@
 				},
 				"terms": {"type": "object", "additionalProperties": {"type": "string"}},
 				"variant_names": {"type": "object", "additionalProperties": {"type": "string"}},
-				"option_names": {"type": "object", "additionalProperties": {"type": "string"}}
+				"option_names": {"type": "object", "additionalProperties": {"type": "string"}},
+				"penalty_names": {"type": "object", "description": "Name of an offence (the `offence` of a penalty, else its id) as the rules page prints it.", "additionalProperties": {"type": "string"}},
+				"contract_names": {"type": "object", "description": "Name of a bid (the id of a contract) as the rules page prints it.", "additionalProperties": {"type": "string"}},
+				"left_out": {"type": "object", "description": "The whole line the rules page prints for a left_out entry of the game file, in this language, name first; without it the page shows the English note of the game file.", "additionalProperties": {"type": "string"}}
 			}
 		}
 	}

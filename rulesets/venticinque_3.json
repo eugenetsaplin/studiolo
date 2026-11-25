@@ -3,8 +3,8 @@
 	"id": "venticinque_3",
 	"family": "venticinque",
 	"status": "from_later_source",
-	"about": "Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. Not played by the engine for lack of a format key: the payment of the match and the «fuora» play. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 9,
+	"about": "Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. Not played by the engine: the «fuora» play. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 10,
 	"sources": {
 		"dummett1980": {
 			"cite": "M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing)",
@@ -124,7 +124,7 @@
 				"id": "result",
 				"module": "result",
 				"settings": {
-					"winner": {"value": "threshold", "source": "[R] Dummett 1980, p. 260 (after RI): in every round each player enters the difference between his points and 26; there is no winner of a single hand, the running total decides (match). The threshold is the line of 26. [S] Paid after each deal: the format cannot pay by the result of the match.", "by": "dummett1980", "pages": [260]},
+					"winner": {"value": "threshold", "source": "[R] Dummett 1980, p. 260 (after RI): in every round each player enters the difference between his points and 26; there is no winner of a single hand, the running total decides (match). The threshold is the line of 26. Nothing is paid after a deal; the match is paid once at its end (match.payout).", "by": "dummett1980", "pages": [260]},
 					"target": {"value": 26, "source": "[D] Prammatica [1846], p. 14: the line is twenty-six points («il numero di ventisei punti»).", "by": "prammatica1846", "pages": [14]},
 					"game_points": {"value": "none", "source": "[D] Dummett 1980, p. 260 (after RI): the hand gives no game point; the match pays by the running totals.", "by": "dummett1980", "pages": [260]}
 				}
@@ -134,7 +134,8 @@
 	"match": {
 		"kind": {"value": "running_total", "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; «Vince chi ha dei tre fatti e guadagnati un maggior numero di punti»: after three deals the greatest total wins. Each player keeps the running total of the differences between his points and 26: Dummett's account, 1980, p. 260 (after RI); Prammatica [1846], p. 14 speaks only of a gain «più di ventisei punti» in the last deal. Dummett 1980, p. 260 (after the rules of 1830) ends the game sooner, at the first sure positive total of the last round: see left_out, fuora_declaration.", "by": "torino1846", "pages": [34]},
 		"round_target": {"value": 26, "source": "[D] Prammatica [1846], p. 14: the line is twenty-six points («il numero di ventisei punti»).", "by": "prammatica1846", "pages": [14]},
-		"rounds": {"value": 3, "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; Prammatica [1846], pp. 13-14.", "by": "torino1846", "pages": [34]}
+		"rounds": {"value": 3, "source": "[D] Torino [1846], part I, p. 34: «La partita si fa in tre scarti»; Prammatica [1846], pp. 13-14.", "by": "torino1846", "pages": [34]},
+		"payout": {"value": {"at": "match_end", "mode": "loser_pays_winner", "amount": {"stake": "simple"}}, "source": "[R] Torino [1846], part I, p. 34: «Vince chi ha dei tre fatti e guadagnati un maggior numero di punti», «come perde chi ne ha fatto un numero minore»: the player with the fewest points over the three deals pays the winner one stake; the sum is not printed (ours: one simple stake); equal lowest totals both pay. [S] When no total is above zero there is no winner and nobody pays (the running total of match.kind); the page names no such case. Other reading: Dummett 1980, p. 260, after the rules of 1830 (see left_out, match_payment).", "by": "torino1846", "pages": [34], "replace": {"with": ["document", "math"], "what": "the payment for a match of three deals", "q": 3}}
 	},
 	"view": {
 		"piles": {"rest": "face_down_count", "discard": "owner_only"},
@@ -146,7 +147,7 @@
 		]
 	},
 	"left_out": [
-		{"id": "match_payment", "source": "[D] Dummett 1980, p. 260 (after RI): if both others have zero or less each pays the winner 1 game point; if one of them has a plus he neither pays nor receives and the third pays the winner 2. Torino [1846], part I, p. 34 says only who wins and who loses: «come perde chi ne ha fatto un numero minore».", "why": "Format gap, not silence: The format has no settle mode that reads running totals at the end of a match; the payment is not played until it has."},
+		{"id": "match_payment", "source": "[D] Dummett 1980, p. 260 (after RI): if both others have zero or less each pays the winner 1 game point; if one of them has a plus he neither pays nor receives and the third pays the winner 2. Torino [1846], part I, p. 34 says only who wins and who loses: «come perde chi ne ha fatto un numero minore».", "why": "Dummett's tariff rests on the rules of 1830, which we do not hold; it is not played. The match pays one stake from the lowest total to the highest (match.payout, by Torino [1846], part I, p. 34)."},
 		{"id": "fuora_declaration", "source": "[D] Torino [1846], part I, p. 34: «Chi è fuori, ossia non può più perdere» must play «da fuori» without harming the other two; if he still holds trumps «è obbligato a trionfare». Prammatica [1846], p. 14 prints the same duty for the last deal and its penalty, an onoranza of five points to each opponent. Dummett 1980, p. 260 (after RI): after two rounds a player whose total is above 26 cannot lose and says «Fuora» at the end of the deal; he also wins when in the last round a player has reached a sure positive total. Dummett's quotation of RI (p. 260, note 2) is word for word Prammatica [1846], p. 14.", "why": "Format gap, not silence: An intention, not a checkable rule of the cards: no card becomes illegal; a bot.play leaf and a hint carry it."}
 	]
 }

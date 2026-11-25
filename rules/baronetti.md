@@ -38,7 +38,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
 
 ### The deal
 
@@ -58,7 +58,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, p. 49.* <!-- rule: hand.tricks.must_overtrump -->
 - The Fool may be led. *Sources silent, our decision.* <!-- rule: hand.tricks.fool_may_lead -->
 
-### Open piles (during: tricks)
+### Open piles (while the tricks are played)
 
 This step: *Documented: from the book, p. 50.*
 
@@ -83,8 +83,8 @@ This step: *Documented: from the book, p. 50.*
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 21.* <!-- rule: hand.settle.unit -->
-- The loser pays the winner. *Our reading: book, p. 51.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: simple. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- One player pays: the loser, the one with the worst result. If several tie for the worst, all of them pay. *Our reading: book, p. 51.* <!-- rule: hand.settle.mode -->
+- The amount of the settlement: the simple stake. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -93,10 +93,10 @@ This step: *Documented: from the book, p. 50.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «open two»: impossible at the table; penalty: first: warning; second: pays: simple game; forfeits winnings: yes. *Documented: from the book, pp. 50-51.* <!-- rule: penalties.open_two -->
-- Offence «peek pile»: impossible at the table; penalty: pays: double game; if inadvertent: simple game. *Documented: from the book, pp. 52-53.* <!-- rule: penalties.peek_pile -->
-- Offence «wrong deal method»: impossible at the table; penalty: pays: game as agreed. *Documented: from the book, p. 53.* <!-- rule: penalties.deal_card_by_card -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «two cards turned at once»: impossible at the table; penalty: the first time: a warning; the second time: pays the simple stake; forfeits the winnings. *Documented: from the book, pp. 50-51.* <!-- rule: penalties.open_two -->
+- Offence «looking at a covered card»: impossible at the table; penalty: pays the double stake; if inadvertent: the simple stake. *Documented: from the book, pp. 52-53.* <!-- rule: penalties.peek_pile -->
+- Offence «a wrong way of dealing»: impossible at the table; penalty: pays the stake agreed. *Documented: from the book, p. 53.* <!-- rule: penalties.deal_card_by_card -->
 
 ## Not played yet
 

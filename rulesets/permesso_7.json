@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Settilio, Permesso for seven (Torino 1787, «Del giuoco di Permesso in sette persone, o sia Settilio», p. 77, and the Fool of pp. 77-78), «giuoco bizzarro»: 11 cards to each of the seven players and one card over «per lo scarto»; the rest is said to be as in Quintilio and Sestilio. The book does not say who takes the card over; ours, as the dealer, who then puts one card away. Giuoco sciolto is inherited from Sestilio because «come sopra è stato detto di Quintilio, e Sestilio» (p. 77); that it applies with seven is our reading.",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -23,6 +23,50 @@
 	"cards": {
 		"deck": {"value":"full78","source":"[R] Torino 1787, p. 77: 7 × 11 + 1 = 78 («undici carte per ciascun giuocatore, sicchè una carta sola resterà per lo scarto»); the sum is not printed."}
 	},
+	"contracts": [
+		{"id":"three","rank":1,"exchange":3,"onoranza":2,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 60, 67: «Permesso» asks to call three cards and put three away; «Chi va a tre carte, guadagna l'Onoranza di due»."},
+		{"id":"two","rank":2,"exchange":2,"onoranza":3,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 62, 67: «A due»; «chi va a due carte guadagna l'Onoranza di tre»."},
+		{"id":"one","rank":3,"exchange":1,"onoranza":4,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 63, 67: «io vado ad una»; «chi va a una carta sola, guadagna l'Onoranza di quattro»."},
+		{"id":"sans_prendre","rank":4,"exchange":0,"onoranza":5,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 64, 67: «aller sans prendre», no card changed; «chi va a sans prendre, guadagna l'Onoranza di cinque»."},
+		{"id":"sciolto","rank":0,"exchange":0,"sides":"each_for_self","source":"[R] Torino 1787, pp. 76-77: «giuoco sciolto, in cui chi fa più punti guadagna la partita»; rules of the Dottore, without discard. Said for six (p. 76). For seven the page says only «Il rimanente si farà come sopra è stato detto di Quintilio, e Sestilio» (p. 77): carried over to Settilio, our reading."}
+	],
+	"variants": [
+		{
+			"id": "sciolto_chosen",
+			"source": "[R] Torino 1787, p. 76: «Per giuocar però meglio in sei persone … Permesso, potrassi giuocare a giuoco sciolto»: the table agrees before the deal to play giuoco sciolto instead of Permesso. For seven the page says only «Il rimanente si farà come sopra è stato detto di Quintilio, e Sestilio» (p. 77): carried over to Settilio, our reading.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "bidding",
+							"module": "bidding",
+							"settings": {
+								"contracts": {"value":["sciolto"],"source":"[R] Torino 1787, p. 76: only giuoco sciolto is played; nobody asks «Permesso». Said for six; carried over to seven (p. 77)."},
+								"all_pass": {"value":"contract:sciolto","source":"[R] Torino 1787, p. 76: the table plays «a giuoco sciolto» as agreed. Said for six; carried over to seven (p. 77)."}
+							}
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": "all_pass_sciolto",
+			"source": "[R] Dummett 1980, p. 267 (not printed in the Turin book): if all six pass, the cards are not thrown in but «giuoco sciolto» is played; the book itself (p. 76) offers it as a choice, not as the end of a general pass.",
+			"patch": {
+				"hand": {
+					"phases": [
+						{
+							"id": "bidding",
+							"module": "bidding",
+							"settings": {
+								"all_pass": {"value":"contract:sciolto","source":"[R] Dummett 1980, p. 267: a general pass leads to giuoco sciolto; the book says only that it may be played (p. 76).","by":"dummett1980", "pages": [267]}
+							}
+						}
+					]
+				}
+			}
+		}
+	],
 	"hand": {
 		"phases": [
 			{

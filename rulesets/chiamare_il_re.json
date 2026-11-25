@@ -4,7 +4,7 @@
 	"family": "chiamare_il_re",
 	"status": "playable_with_decisions",
 	"about": "Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S] (the lead [R], by the general rule of p. 35).",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -114,7 +114,7 @@
 					"ladder": {"value":["K","Q","N","J"],"source":"[D] Torino 1787, pp. 81-82: all four kings → a queen; kings and queens → a knight; kings, queens and knights → a jack: «potrà chiamare una Donna, … non mai un … Donne insieme coi Re». [S] If the caller holds all sixteen courts and no card of the ladder can be called, he plays alone as at sans prendre: the book is silent (pp. 81-82); ours."},
 					"step_down": {"value":"caller_holds_all_of_rank","source":"[D] Torino 1787, pp. 81-82: only when he holds all four of the rank below."},
 					"secret": {"value":true,"source":"[D] Torino 1787, p. 80: the holder «starà ben cheto, e non darà indizio veruno di averlo»."},
-					"own_card": {"value": "plays_alone_unless_forgiven", "source": "[R] Torino 1787, p. 83 prints that one who calls a card he holds himself plays alone, unless all the others forgive him. The table allows the call; it stays secret, like any call, until that card is played, and the caller plays alone against three; forgiveness is not offered, because the others cannot know the card is his. Torino [1846], part I, p. 40: «dovrai andar solo senza altra chiamata»; it names no forgiveness. Other versions: the three are asked to forgive; or the table does not offer a card the caller holds (the book calls it a «fallo» of one who «non l'avesse veduto», p. 83).", "replace": {"with": ["document", "people"], "what": "calling a card of one's own hand", "q": 28}},
+					"own_card": {"value": "plays_alone_unless_forgiven", "source": "[R] Torino 1787, p. 83 prints that one who calls a card he holds himself plays alone, unless all the others forgive him, «ma da tutti i compagni, dico concordemente». The table allows the call; it stays secret, like any call, until that card is played, and the caller plays alone against three; forgiveness is not offered, because the others cannot know the card is his. Torino [1846], part I, p. 40: «dovrai andar solo senza altra chiamata»; it names no forgiveness. Other versions: the three are asked to forgive; or the table does not offer a card the caller holds (the book calls it a «fallo» of one who «non l'avesse veduto», p. 83).", "replace": {"with": ["document", "people"], "what": "calling a card of one's own hand", "q": 28}},
 					"card_in_discard": {"value": "forbidden", "source": "[R] Torino 1787, pp. 80-81 do not say what happens when the called king lies in the dealer's own discard. By rule 38 (p. 34: «Nessun onore, cioè nessun Re … si potrà scartare»; the same in Torino [1846], part I, p. 16) no king is put away, so the case does not arise: not allowed. Other reading: he plays alone.", "alt": "plays_alone", "replace": {"with": ["document"], "what": "the payment when a King is called; a called King in the discard", "q": 8}}
 				}
 			},
@@ -204,7 +204,7 @@
 			"offence": "call_own_card",
 			"enforce": "apply",
 			"hand": "continues",
-			"effect": {"value":{"plays_alone":true,"unless":"all_others_forgive_unanimously"},"source":"[R] Torino 1787, p. 83 prints that one who calls a card of his own plays alone against the three, unless all forgive him. Applied by the table when that card is played; forgiveness is not offered (the others cannot know the card is his). Other versions: see hand.call_partner.own_card.", "replace": {"with": ["document", "people"], "what": "calling a card of one's own hand", "q": 28}}
+			"effect": {"value":{"plays_alone":true,"unless":"all_others_forgive_unanimously"},"source":"[R] Torino 1787, p. 83 prints that one who calls a card of his own plays alone against the three, unless all forgive him («dico concordemente»). Applied by the table when that card is played; forgiveness is not offered (the others cannot know the card is his). Other versions: see hand.call_partner.own_card.", "replace": {"with": ["document", "people"], "what": "calling a card of one's own hand", "q": 28}}
 		},
 		{
 			"id": "hint_partner",

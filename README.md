@@ -26,11 +26,11 @@ It is the restorer's rule applied to games: what we add must be recognisable as 
 
 ## Where we stand
 
-Rules revision 9, November 2026 (release 1, with its DOI, holds revision 4):
+Rules revision 10, November 2026 (release 1, with its DOI, holds revision 4):
 
 - 21 game files: one per game, and one per number of players where the deal differs.
-- 911 rules: 541 documented, 260 our readings, 110 where the sources are silent.
-- 34 open questions, 30 of them still open.
+- 935 rules: 551 documented, 272 our readings, 112 where the sources are silent.
+- 34 open questions, 29 of them still open.
 - The rules engine plays all 21 game files today.
 
 ## What is here
@@ -57,6 +57,8 @@ Revisions 6 and 7 make the rest of the book playable. Sedici and Trent'uno becom
 Revision 8 is a second reading. The thirteen game files of revisions 6 and 7 were read again against the page images. Three scans sent by the Turin Academy of Sciences were read with them: the two pages missing from our copy of the book of [1846], the separate booklet of the *Prammatica*, and *La partia a taroch an quatr* (Turin, 1880). The reading found more than sixty points to correct. Two of them change who deals: at Baronetti the loser deals the next game (1787, pp. 41 and 47), and at Trent'uno for three and four the deal goes round to the right (pp. 19 and 42). Mitigati for two gains the words «Ho scartato» before the declarations, and Trent'uno a variant after the *Prammatica*, in which the Fool beats the Bagatto. The rest are pages, quotations and marks. The revision also corrects our own count: sixteen leaves kept only for comparison with an older format had been counted as rules where the sources are silent. Without them revision 7 had 908 rules, not 924.
 
 Revision 9 follows two independent outside checks of revision 8. Each remark was checked against the page images or reproduced on the engine, and the pages that decide a point were read twice, the second time by a reader who had not seen the first reading. About two thirds of the remarks held. Three of them change the play of the short games. At Sedici, Trent'uno and Baronetti for two the deal alternates (1787, pp. 42-43, rule 44): the reading of revision 8, that the loser deals, is withdrawn. «Fuora» may be said on any turn of one's own (p. 40). At Baronetti the Fool is played into a trick in place of a card (pp. 50 and 54). In the games for three and four the card given for the Fool goes to the player who took the trick (Torino [1846], part I, p. 33), and Partita counted by four makes 72 points, with 36 each a tie. The rules pages had errors of their own: they said «half a point more» where the count takes half a point off, and 43 links gave a page of the book of 1787 under the name of another book. These are corrected, and a check now runs over every game, variant and option. Two questions came out of the check and stay open: how the book counted the cards left over at Venticinque, where its own example makes a tie that our count cannot produce, and where the steps of the payment at Permesso fall, on which two rules of the book disagree.
+
+Revision 10 plays what revision 9 had to leave on paper. The format gained three words: a result shared by the players level on the best score, a payment made once at the end of a match, and a rounding toward zero. At Meno one player pays, the one with the most points (Torino [1846], part I, p. 32), and players level on the fewest points all win; the sources are silent on that tie, and the other readings stay in the file. The two short forms of Meno of the book of 1787 (p. 78) are played again, each only at the numbers of players where a check of two hundred hands found a winner often enough. In Partita for four (the variant of four deals), in Consiglio (the sum of four deals) and in Venticinque for three one stake is paid once, at the end of the match (Torino [1846], part I, pp. 34-36). The five games for two play move for move as in revision 9: on fixed seeds the 1,700 checksums of hands and matches are the same. The revision also writes down the readings found since: the discard and the revoke at Venticinque, the steps of the payment at Permesso, and the Milanese almanac «Per chi tarocca» for 1794 as a neighbouring support.
 
 ## How you can help
 

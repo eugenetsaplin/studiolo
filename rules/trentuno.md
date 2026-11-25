@@ -29,12 +29,12 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The whole pack of 78 is used: 22 trumps (the Fool is among them as number 0) and 14 cards in each of four suits. *Documented: from the book, pp. 9-10.* <!-- rule: cards.deck -->
 - Rank of the trumps: Trump 20 — Angel, Trump 21 — World, Trump 19 — Sun, Trump 18 — Moon, Trump 17 — Star, Trump 16 — Tower, Trump 15 — Devil, Trump 14 — Temperance, Trump 13 — Death, Trump 12 — Traitor, Trump 11 — Strength, Trump 10 — Wheel of Fortune, Trump 9 — Hermit, Trump 8 — Justice, Trump 7 — Chariot, Trump 6 — Love, Trump 5 — Pope, Trump 4 — Emperor, Trump 3 — Empress, Trump 2 — Papess, Trump 1 — Magician, Fool. *Documented: from the book, p. 13.* <!-- rule: cards.trump_order -->
 - In swords and batons the larger number is higher; in cups and coins it is the other way: the ace takes the two, up to the ten, and the king takes the queen, the knight and the jack. *Documented: from the book, pp. 11-13.* <!-- rule: cards.suit_order -->
-- Card values: rank:K: 5; rank:Q: 4; rank:N: 3; rank:J: 2; T20: 5; T1: 5; T0: 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
+- Card values: the kings: 5; the queens: 4; the knights: 3; the jacks: 2; Trump 20 — Angel: 5; Trump 1 — Magician: 5; Fool: 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
 - The Fool plays as the lowest trump. *Documented: from the book, p. 36.* <!-- rule: cards.fool -->
 
 ### By agreement / Variants
 
-- stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
 - variant: Prammatica: the Fool takes Bagatto. *Documented: from Prammatica [1846], p. 12.* <!-- rule: variants.prammatica_1846 -->
 
 ### The deal
@@ -53,14 +53,14 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - With no card of the suit you must trump. *Our reading: Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, pp. 36-37.* <!-- rule: hand.tricks.must_overtrump -->
 
-### Fuora (during: tricks)
+### Fuora (while the tricks are played)
 
 This step: *Documented: from the book, pp. 45-46.*
 
 - Fuora is played to 31 points. *Documented: from the book, p. 46.* <!-- rule: hand.fuora.target -->
 - You may say «fuora» at any turn of your own, even in the middle of a trick. *Our reading: book, p. 40.* Other reading: A claim of points is made after a trick. <!-- rule: hand.fuora.claim_when -->
 - When the first player is out, the hand ends. *Documented: from the book, pp. 40-41.* <!-- rule: hand.fuora.after_first_out -->
-- A false claim is paid for; the size of the penalty is in the game file. *Sources silent, our decision.* Other reading: from: 0; pays: the stake: simple. Open question 11: could be settled by a document in which the rule is printed or a mathematical analysis (a false «fuora»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.false_claim -->
+- A false claim is paid for; the size of the penalty is in the game file. *Sources silent, our decision.* Other reading: from: 0; pays: stake: simple. Open question 11: could be settled by a document in which the rule is printed or a mathematical analysis (a false «fuora»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.false_claim -->
 - A player who claims wrongly pays for it and the play goes on. *Our reading: book, p. 20.* Other reading: A player who claims wrongly loses the partita. Open question 25: could be settled by a document in which the rule is printed or statistics of games played by bots (a false «fuora»: does the game go on or end); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.after_false_claim -->
 - If the stock runs out, the hand ends with no winner. *Sources silent, our decision, after Dummett (1980), p. 269.* Open question 10: could be settled by a document in which the rule is printed or statistics of games played by bots (the pack runs out and nobody has said «fuora»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.stock_empty -->
 
@@ -80,7 +80,7 @@ This step: *Documented: from the book, pp. 45-46.*
 
 - Settling is in stakes. *Documented: from the book, p. 21.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Our reading: book, p. 41.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: simple. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the simple stake. *Documented: from the book, p. 21.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -89,9 +89,9 @@ This step: *Documented: from the book, pp. 45-46.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «wrong deal method»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
-- Offence «misdeal»: impossible at the table; penalty: pays: game; to: each of the others; then deal passes: to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «a wrong way of dealing»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
+- Offence «misdeal»: impossible at the table; penalty: pays the stake of the game to each of the others; then the deal passes to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
 
 ## Not played yet
 

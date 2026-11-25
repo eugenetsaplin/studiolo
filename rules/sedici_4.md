@@ -1,6 +1,6 @@
 # Sixteen for four (Sedici)
 
-4 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+4 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Sedici for four players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 0 (Dummett 1980, p. 269; our decision); when the pack runs out before anybody has said «fuora» the hand ends with no payment (the first of the two guesses of Dummett 1980, p. 269). A match is a race to five games won (Prammatica [1846], pp. 11, 13; rules revision 7). Prammatica [1846], p. 12 says that Sedici «va soggetto a quasi tutte le regole» of Trent'uno al più; where the two books differ (the Fool and Bagatto), this file follows Torino 1787. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -27,12 +27,12 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The whole pack of 78 is used: 22 trumps (the Fool is among them as number 0) and 14 cards in each of four suits. *Documented: from the book, pp. 9-10.* <!-- rule: cards.deck -->
 - Rank of the trumps: Trump 20 — Angel, Trump 21 — World, Trump 19 — Sun, Trump 18 — Moon, Trump 17 — Star, Trump 16 — Tower, Trump 15 — Devil, Trump 14 — Temperance, Trump 13 — Death, Trump 12 — Traitor, Trump 11 — Strength, Trump 10 — Wheel of Fortune, Trump 9 — Hermit, Trump 8 — Justice, Trump 7 — Chariot, Trump 6 — Love, Trump 5 — Pope, Trump 4 — Emperor, Trump 3 — Empress, Trump 2 — Papess, Trump 1 — Magician, Fool. *Documented: from the book, p. 13.* <!-- rule: cards.trump_order -->
 - In swords and batons the larger number is higher; in cups and coins it is the other way: the ace takes the two, up to the ten, and the king takes the queen, the knight and the jack. *Documented: from the book, pp. 11-13.* <!-- rule: cards.suit_order -->
-- Card values: rank:K: 5; rank:Q: 4; rank:N: 3; rank:J: 2; T20: 5; T1: 5; T0: 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
+- Card values: the kings: 5; the queens: 4; the knights: 3; the jacks: 2; Trump 20 — Angel: 5; Trump 1 — Magician: 5; Fool: 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
 - The Fool plays as the lowest trump. *Documented: from the book, p. 36.* <!-- rule: cards.fool -->
 
 ### By agreement / Variants
 
-- stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 21.* <!-- rule: options.stake -->
 
 ### The deal
 
@@ -50,13 +50,13 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - With no card of the suit you must trump. *Our reading: Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, pp. 36-37.* <!-- rule: hand.tricks.must_overtrump -->
 
-### Fuora (during: tricks)
+### Fuora (while the tricks are played)
 
 This step: *Documented: from the book, p. 35.*
 
 - Fuora is played to 16 points. *Documented: from the book, p. 35.* <!-- rule: hand.fuora.target -->
 - You may say «fuora» at any turn of your own, even in the middle of a trick. *Our reading: book, p. 40.* Other reading: A claim of points is made after a trick. <!-- rule: hand.fuora.claim_when -->
-- A false claim is paid for; the size of the penalty is in the game file. *Documented: from the book, p. 39.* Other reading: below: 9; pays: the stake: marcia, from: 9; pays: the stake: simple. <!-- rule: hand.fuora.false_claim -->
+- A false claim is paid for; the size of the penalty is in the game file. *Documented: from the book, p. 39.* Other reading: below: 9; pays: stake: marcia; to: each of the others, from: 9; pays: stake: simple; to: each of the others. <!-- rule: hand.fuora.false_claim -->
 - A player who claims wrongly pays for it and the play goes on. *Our reading: book, p. 20.* Other reading: A player who claims wrongly loses the partita. Open question 25: could be settled by a document in which the rule is printed or statistics of games played by bots (a false «fuora»: does the game go on or end); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.after_false_claim -->
 - When the first player is out, the hand ends. *Documented: from the book, pp. 40-41.* <!-- rule: hand.fuora.after_first_out -->
 - If the stock runs out, the hand ends with no winner. *Sources silent, our decision, after Dummett (1980), p. 269.* Open question 10: could be settled by a document in which the rule is printed or statistics of games played by bots (the pack runs out and nobody has said «fuora»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.stock_empty -->
@@ -77,7 +77,7 @@ This step: *Documented: from the book, p. 35.*
 
 - Settling is in stakes. *Documented: from the book, p. 21.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Our reading: book, p. 41.* <!-- rule: hand.settle.mode -->
-- The amount of the settlement: the stake: simple. *Documented: from the book, p. 41.* <!-- rule: hand.settle.amount -->
+- The amount of the settlement: the simple stake. *Documented: from the book, p. 41.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
@@ -86,9 +86,9 @@ This step: *Documented: from the book, p. 35.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others; while trick open: change card. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «wrong deal method»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
-- Offence «misdeal»: impossible at the table; penalty: pays: game; to: each of the others; then deal passes: to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «a wrong way of dealing»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
+- Offence «misdeal»: impossible at the table; penalty: pays the stake of the game to each of the others; then the deal passes to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
 
 ## Sources
 
@@ -99,4 +99,4 @@ This step: *Documented: from the book, p. 35.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/sedici_4.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/sedici_4.json`, rules revision 10. Do not edit: change the game file.

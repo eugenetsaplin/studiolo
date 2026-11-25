@@ -3,7 +3,7 @@
 	"id": "meno",
 	"status": "playable_with_decisions",
 	"about": "Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -52,9 +52,58 @@
 	"options": [
 		{"id": "stake", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 21 (rule 10): «quanto si giuochi la partita semplice, qualunque sia il giuoco, che facciasi»: the stake of the simple game is settled before the deal. The book names no amount (p. 15 plays «un quattrino per ciascuna partita» as an example); the list of choices is the table's.", "affects": ["hand.settle.amount"]}
 	],
+	"variants": [
+		{
+			"id": "four_cards",
+			"source": "[D] Torino 1787, p. 78: «si può giuocare con quattro carte, come al Sedici»: four cards to each player. [R] Read as one deal with the number of cards only; whether the deals are repeated as at Sedici and when the game ends is not said. The tie rule of the base game holds (result.tie).",
+			"patch": {
+				"seats": {
+					"count": {
+						"value": [2, 3],
+						"source": "[S] Ours: the form is played at the numbers of seats where a hand of four cards has a winner often enough and rarely more than one (a check of 200 hands by random players at each number of seats: no winner at most 15 %, more than one winner at most 50 %). With four cards that holds for two and three seats only; with more seats most hands are shared by several players. The book of 1787 (p. 78) names the form for any number of seats."
+					}
+				},
+				"hand": {
+					"phases": [
+						{
+							"id": "deal",
+							"settings": {
+								"hand_size": {"value": 4, "source": "[D] Torino 1787, p. 78: «con quattro carte, come al Sedici»."}
+							}
+						},
+						{"id": "count", "settings": {"group": {"value": 1, "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»); counted singly, Fool an ordinary trionfo.", "by": "ours", "pages": [78]}, "plain_value": {"value": 0, "source": "[S] Ours as Sedici, after Dummett 1980, p. 269: plain cards 0.", "by": "dummett1980", "pages": [269], "alt": 1, "replace": {"with": ["document", "bots"], "what": "the value of a plain card counted singly", "q": 9}}}}
+					]
+				},
+				"cards": {"trump_order": {"value": ["T20", "T21", "T19", "T18", "T17", "T16", "T15", "T14", "T13", "T12", "T11", "T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2", "T1", "T0"], "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»): the Fool an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 38)."}, "card_points": {"value": "book_1787_short", "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»); counted singly, Fool an ordinary trionfo.", "by": "ours", "pages": [78]}, "fool": {"value": "trump", "source": "[R] As Sedici (Torino 1787, p. 78: «come al Sedici»); counted singly, Fool an ordinary trionfo.", "by": "ours", "pages": [78]}}
+			}
+		},
+		{
+			"id": "eight_cards",
+			"source": "[D] Torino 1787, p. 78: «con otto carte, come al Trent'uno»: eight cards to each player. [R] Read as one deal with the number of cards only (Torino [1846], part I, pp. 30-31; Dummett 1980, p. 269); whether the deals are repeated as at Trent'uno is not said. The tie rule of the base game holds (result.tie).",
+			"patch": {
+				"seats": {
+					"count": {
+						"value": [2, 3, 4, 5],
+						"source": "[S] Ours: the form is played at the numbers of seats where a hand of eight cards has a winner often enough and rarely more than one (a check of 200 hands by random players at each number of seats: no winner at most 15 %, more than one winner at most 50 %). With eight cards that holds for two to five seats; with six and seven seats most hands are shared by several players. The book of 1787 (p. 78) names the form for any number of seats."
+					}
+				},
+				"hand": {
+					"phases": [
+						{
+							"id": "deal",
+							"settings": {
+								"hand_size": {"value": 8, "source": "[D] Torino 1787, p. 78: «con otto carte, come al Trent'uno»."}
+							}
+						},
+						{"id": "count", "settings": {"group": {"value": 1, "source": "[D] Torino [1846], part I, pp. 30-31: «le carte si contano ad una ad una».", "by": "torino1846", "pages": [30, 31]}, "plain_value": {"value": 1, "source": "[D] Torino [1846], part I, p. 31: «I punti si contano precisamente come a Trent'uno al più»: a plain card counts one.", "by": "torino1846", "pages": [31], "alt": 0}}}
+					]
+				},
+				"cards": {"trump_order": {"value": ["T20", "T21", "T19", "T18", "T17", "T16", "T15", "T14", "T13", "T12", "T11", "T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2", "T1", "T0"], "source": "[R] As Trent'uno (Torino 1787, p. 78: «come al Trent'uno»): the Fool an ordinary trionfo, the lowest, taken by Bagatto."}, "card_points": {"value": "book_1787_short", "source": "[D] Torino [1846], part I, p. 31: «I punti si contano precisamente come a Trent'uno al più».", "by": "torino1846", "pages": [31]}, "fool": {"value": "trump", "source": "[D] Prammatica [1846], p. 6: in Trent'uno al meno «il Matto è considerato come semplice tarocco».", "by": "prammatica1846", "pages": [6]}}
+			}
+		}
+	],
 	"left_out": [
-		{"id": "four_cards", "source": "[D] Torino 1787, p. 78: «si può giuocare con quattro carte, come al Sedici»: four cards to each player. [S] With four cards and a plain card worth 0, equal fewest points are frequent; a rule for a tie is not printed. [R] Read as the number of cards only; whether the deals are repeated as at Sedici and when the game ends is not said.", "why": "Recorded, not played. The rule for a tie is not printed [S]: Meno is won by the fewest points, and with a short deal for four or more players several players take no trick and share zero, so a hand without a winner is almost certain. Until the rule is set the variant is not offered. The data are kept here in words: four cards each (hand_size 4), counted singly (group 1), the Fool a trump in the order of Sedici with T0 (Torino 1787, p. 78: «come al Sedici»)."},
-		{"id": "eight_cards", "source": "[D] Torino 1787, p. 78: «con otto carte, come al Trent'uno»: eight cards to each player. [R] Read as the number of cards only; whether the deals are repeated as at Trent'uno and when the game ends is not said.", "why": "Recorded, not played. The rule for a tie is not printed [S]: Meno is won by the fewest points, and with a short deal for four or more players several players take no trick and share zero, so a hand without a winner is almost certain. Until the rule is set the variant is not offered. The data are kept here in words: eight cards each (hand_size 8), counted singly (group 1) with a plain card worth 1 (Torino [1846], part I, pp. 30-31), the Fool a trump in the order of Sedici with T0."}
+		{"id": "vola", "source": "[D] Torino [1846], part I, p. 32, of Trent'uno al meno: «nella vola non perde uno solo, ma tutti»: the player who takes every trick is the only winner and all the others pay him. [R] Carried to Meno, as the same page reads: usually one player loses.", "why": "Not played: the core plays settle.premiums only as an empty list (core/modules/settle.js). The book of 1787 (pp. 78-79) does not name the vola at Meno."}
 	],
 	"hand": {
 		"phases": [
@@ -73,20 +122,20 @@
 				"module": "tricks",
 				"settings": {
 					"follow_suit": {"value": true, "source": "[D] Torino 1787, pp. 78-79: «se io giuocherò Bastoni, tu mi risponderai … risponder Trionfo, e non mai rinegare»: the answer is in the suit asked, a trionfo on a trionfo."},
-					"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, p. 35 (general): «Chi è a destra di chi dà, comincia».", "by": "ours", "pages": [35], "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}},
+					"first_leader": {"value": "dealer_right", "source": "[R] Torino 1787, p. 35 (general): «Chi è a destra di chi dà, comincia».", "by": "ours", "pages": [35], "replace": {"with": ["expert", "bots"], "what": "the count and the first lead of Meno", "q": 19}},
 					"next_leader": {"value": "trick_winner", "source": "[D] Torino 1787, p. 37 (general rule of the book): «Colui, che or ultimo ha preso la mano … deve essere il primo a giuocare»."},
 					"must_trump": {"value": true, "source": "[R] Torino [1846], part I, p. 36 prints the duty for Partita and the games after it: «si risponderà e prenderà con un Trionfo»; carried back to this game. Torino 1787, p. 49 (Baronetti) prints the same duty: «se non ho carte della medesima sequenza prendo con Trionfi».", "by": "torino1846", "pages": [36]},
 					"must_overtrump": {"value": false, "source": "[S] Torino 1787, pp. 78-79 are silent; ours: no duty, as Nice 1930, p. 283 and Piedicavallo 2008, p. 13.", "by": "ours", "pages": [78, 79]}
 				}
 			},
-			{"id": "count", "module": "count", "settings": {"group": {"value": 2, "source": "[S] Ours after Dummett 1980, p. 269: counted in pairs (forms of 25, 19, 15, 13, 11 cards).", "by": "dummett1980", "pages": [269], "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}}},
+			{"id": "count", "module": "count", "settings": {"group": {"value": 2, "source": "[S] Ours after Dummett 1980, p. 269: counted in pairs (forms of 25, 19, 15, 13, 11 cards).", "by": "dummett1980", "pages": [269], "replace": {"with": ["expert", "bots"], "what": "the count and the first lead of Meno", "q": 19}}}},
 			{
 				"id": "result",
 				"module": "result",
 				"settings": {
 					"winner": {"value": "fewest_points", "source": "[D] Torino 1787, p. 78: «guadagna chi fa meno punti»; «sempre vince colui, che di tutti gli altri compagni fa meno punti»."},
-					"game_points": {"value": "none", "source": "[S] Torino 1787, pp. 78-79: the book names no game points and no payment; the stake of the simple game is agreed for every game (p. 21).", "replace": {"with": ["document", "expert"], "what": "who wins or pays in Meno when the fewest points are equal, and whether «the fewest points win» is the right reading at all", "q": 34}},
-					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, pp. 78-79: a tie for the fewest points is not mentioned; ours: a tie is a hand played out; nobody pays.", "by": "ours", "pages": [78, 79], "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}
+					"game_points": {"value": "none", "source": "[S] Torino 1787, pp. 78-79: the book names no game points and no payment; the stake of the simple game is agreed for every game (p. 21).", "replace": {"with": ["document", "expert"], "what": "who wins and who pays in Meno, and what happens when the fewest points are equal", "q": 34}},
+					"tie": {"value": "share", "alt": "no_game_points", "source": "[S] Torino 1787, pp. 78-79, Torino [1846], part I, pp. 31-32 and Dummett 1980, p. 269 say nothing of equal fewest points. Ours: the players with equal fewest points all win and the one with the most points pays each of them a stake; when all are equal nobody pays. Other version (revision 9): a tie is a hand played out and nobody pays.", "by": "ours", "pages": [78, 79], "replace": {"with": ["document", "expert"], "what": "who wins and who pays in Meno, and what happens when the fewest points are equal", "q": 34}}
 				}
 			},
 			{
@@ -95,7 +144,7 @@
 				"settings": {
 					"unit": {"value": "stake", "source": "[D] Torino 1787, p. 21: the simple game is paid in the stake agreed before the deal, «qualunque sia il giuoco, che facciasi»."},
 					"amount": {"value": {"stake": "simple"}, "source": "[D] Torino 1787, p. 21: «quanto si giuochi la partita semplice, qualunque sia il giuoco»."},
-					"mode": {"value": "losers_pay_winner", "source": "[S] Torino 1787, pp. 78-79 name no payment; ours: each other player pays the one with fewest points.", "by": "ours", "pages": [78, 79], "replace": {"with": ["expert", "bots"], "what": "the count, the first lead and the payment of Meno", "q": 19}}
+					"mode": {"value": "loser_pays_winner", "alt": "losers_pay_winner", "source": "[R] Torino 1787, pp. 78-79 name no payment; the fewest points win (p. 78: «sempre vince colui, che di tutti gli altri compagni fa meno punti»). Read after Torino [1846], part I, p. 32, said of Trent'uno al meno: «nella vola non perde uno solo, ma tutti»: outside a vola one player loses, the one with the most points, and he alone pays the winner; players equal on the most points all pay. Other reading (revision 9, ours): each other player pays the winner.", "by": "torino1846", "pages": [32], "replace": {"with": ["document", "expert"], "what": "who wins and who pays in Meno, and what happens when the fewest points are equal", "q": 34}}
 				}
 			}
 		]

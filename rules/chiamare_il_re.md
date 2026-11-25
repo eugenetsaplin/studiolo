@@ -1,6 +1,6 @@
 # Call the King (Chiamare il Re)
 
-4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
 
 Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S] (the lead [R], by the general rule of p. 35).
 
@@ -37,13 +37,13 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### By agreement / Variants
 
-- stake: choices 1, 2, 5, 10; default 1. *Documented: from the book, p. 83.* <!-- rule: options.stake -->
+- Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 83.* <!-- rule: options.stake -->
 
 ### Bids
 
-- «call king»: rank 1, exchange 0, sides called partner. *Documented: from the book, pp. 80-81.* <!-- rule: contracts.call_king -->
-- «one»: rank 2, exchange 1, sides declarer vs rest. *Documented: from the book, p. 82.* <!-- rule: contracts.one -->
-- «sans prendre»: rank 3, exchange 0, sides declarer vs rest. *Documented: from the book, p. 82.* <!-- rule: contracts.sans_prendre -->
+- «call a king»: rank 1, exchange 0, sides: the declarer and the partner he called. *Documented: from the book, pp. 80-81.* <!-- rule: contracts.call_king -->
+- «one card»: rank 2, exchange 1, sides: the declarer against the rest. *Documented: from the book, p. 82.* <!-- rule: contracts.one -->
+- «sans prendre»: rank 3, exchange 0, sides: the declarer against the rest. *Documented: from the book, p. 82.* <!-- rule: contracts.sans_prendre -->
 
 ### The deal
 
@@ -69,7 +69,7 @@ This step: *Documented: from the book, pp. 79-80.*
 
 This step: *Documented: from the book, pp. 80-82.*
 
-- The bids are: one, sans prendre. *Documented: from the book, p. 84.* <!-- rule: hand.bidding.contracts -->
+- The bids are: one card, sans prendre. *Documented: from the book, p. 84.* <!-- rule: hand.bidding.contracts -->
 - The dealer opens the bidding. *Documented: from the book, p. 80.* <!-- rule: hand.bidding.opens -->
 - The dealer speaks first. *Documented: from the book, pp. 80-82.* <!-- rule: hand.bidding.dealer_speaks -->
 - With equal bids the later bidder wins the bidding. *Our reading: book, p. 82.* Other reading: With equal bids the dealer wins the bidding. <!-- rule: hand.bidding.tie -->
@@ -81,7 +81,7 @@ This step: *Documented: from the book, pp. 80-82.*
 This step: *Documented: from the book, pp. 80-83.*
 
 - The dealer calls the partner. *Documented: from the book, p. 80.* <!-- rule: hand.call_partner.caller -->
-- The call goes by rank: K, Q, N, J. *Documented: from the book, pp. 81-82.* <!-- rule: hand.call_partner.ladder -->
+- The call goes by rank: king, queen, knight, jack. *Documented: from the book, pp. 81-82.* <!-- rule: hand.call_partner.ladder -->
 - If the caller holds every card of that rank, he calls the next rank. *Documented: from the book, pp. 81-82.* <!-- rule: hand.call_partner.step_down -->
 - The others do not know who is whose partner. *Documented: from the book, p. 80.* <!-- rule: hand.call_partner.secret -->
 - If the caller holds the called card himself, he plays alone against the rest; nobody knows it until that card is played. *Our reading: book, p. 83.* Open question 28: could be settled by a document in which the rule is printed or a trial with live players (calling a card of one's own hand); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.call_partner.own_card -->
@@ -96,13 +96,13 @@ This step: *Documented: from the book, p. 82.*
 - The exchange is made face down. *Documented: from the book, p. 82.* <!-- rule: hand.exchange.face -->
 - Cards that may be asked for: all. *Our reading: book, p. 82.* <!-- rule: hand.exchange.callable -->
 - If nobody else holds the wanted card, it is taken from the discard. *Sources silent, our decision.* Other reading: If nobody else holds the wanted card, it may not be asked for. <!-- rule: hand.exchange.card_not_held -->
-- The laid cards go to the holders unseen, drawn by lot. *Our reading: Torino [1846], part I, p. 39.* Other reading: Who gets which laid card: declarer assigns. <!-- rule: hand.exchange.give -->
+- The laid cards go to the holders unseen, drawn by lot. *Our reading: Torino [1846], part I, p. 39.* Other reading: Who gets which laid card: the declarer assigns them. <!-- rule: hand.exchange.give -->
 - Honours may not be laid down. *Our reading: book, pp. 34-35.* Other reading: Any card may be laid down. Open question 31: could be settled by a document in which the rule is printed or the opinion of an expert (which cards may be laid down in the exchange); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.exchange.discard_honours_barred -->
 - Some cards are still allowed to be laid down (for example the Fool). *Our reading: book, pp. 34-35.* <!-- rule: hand.exchange.allowed_exceptions -->
 
 ### The tricks
 
-- The player on the dealer's right leads first. *Our reading: book, p. 35.* Other reading: First lead: declarer. <!-- rule: hand.tricks.first_leader -->
+- The player on the dealer's right leads first. *Our reading: book, p. 35.* Other reading: First lead: the declarer. <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 37.* <!-- rule: hand.tricks.next_leader -->
 - You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
@@ -127,13 +127,13 @@ This step: *Documented: from the book, p. 82.*
 
 - Settling is in stakes. *Documented: from the book, p. 83.* <!-- rule: hand.settle_pair.unit -->
 - The pair shares the win; with unequal sides (one against three) the declarer settles with each opponent. *Our reading: book, p. 90.* <!-- rule: hand.settle_pair.mode -->
-- The amount of the settlement: the stake: as agreed. *Sources silent, our decision.* Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle_pair.amount -->
+- The amount of the settlement: the stake as agreed. *Sources silent, our decision.* Open question 8: could be settled by a document in which the rule is printed (the payment when a King is called; a called King in the discard); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.settle_pair.amount -->
 
 ### Settling
 
 - Settling is in stakes. *Documented: from the book, p. 83.* <!-- rule: hand.settle_alone.unit -->
 - The declarer settles with each player on his own. *Documented: from the book, pp. 82-83.* <!-- rule: hand.settle_alone.mode -->
-- The amount of the settlement: the stake: as agreed. *Documented: from Dummett (1980), p. 269.* <!-- rule: hand.settle_alone.amount -->
+- The amount of the settlement: the stake as agreed. *Documented: from Dummett (1980), p. 269.* <!-- rule: hand.settle_alone.amount -->
 
 ### The match
 
@@ -142,10 +142,10 @@ This step: *Documented: from the book, p. 82.*
 
 ### Offences
 
-- Offence «call own card»: apply; penalty: plays alone: yes; unless: all others forgive unanimously. *Our reading: book, p. 83.* <!-- rule: penalties.call_own_card -->
-- Offence «hint partner»: text only; penalty: hinter plays alone: yes; unless: hint was in the plain way of play. *Our reading: book, p. 83.* <!-- rule: penalties.hint_partner -->
-- Offence «signal»: text only; penalty: pays: simple game; to: each of the others; then: lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
-- Offence «revoke»: impossible at the table; penalty: pays: simple game; to: each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- Offence «calling a card of one's own»: applies; penalty: plays alone; unless: all the others forgive it unanimously. *Our reading: book, p. 83.* <!-- rule: penalties.call_own_card -->
+- Offence «a hint to the partner»: in the text of the rules only; penalty: the one who hinted plays alone; unless: the hint was in the plain way of play. *Our reading: book, p. 83.* <!-- rule: penalties.hint_partner -->
+- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others; then: the lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
@@ -161,4 +161,4 @@ This step: *Documented: from the book, p. 82.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
 
-Generated from `rulesets/chiamare_il_re.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/chiamare_il_re.json`, rules revision 10. Do not edit: change the game file.

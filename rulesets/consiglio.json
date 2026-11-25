@@ -5,7 +5,7 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two.",
-	"revision": 9,
+	"revision": 10,
 	"sources": {
 		"prammatica1846": {
 			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
@@ -27,7 +27,8 @@
 		{"id":"stake","choices":[1,2,5,10],"default":1,"source":"[D] Torino 1787, p. 90: «del convenuto»: the payment is agreed before the deal; the book names no figure; the choices are ours (as in Partita, p. 97: «tutto è simile al giuoco di Partita in quattro»).","affects":["hand.settle.amount"]}
 	],
 	"cards": {
-		"deck": {"value":"full78","source":"[D] Torino 1787, p. 97: «Del rimanente tutto è simile al giuoco di Partita in quattro»: the same deal, 4 × 19 + 2 = 78."}
+		"deck": {"value":"full78","source":"[D] Torino 1787, p. 97: «Del rimanente tutto è simile al giuoco di Partita in quattro»: the same deal, 4 × 19 + 2 = 78."},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three): «onde chi ha presa o coperta la mano non abbia ad averne danno»: the plain card for the Fool goes to whoever took the trick; Torino 1787, pp. 77-78 says the same of Permesso for five to seven: «la carta poscia del Folle si dovrà sempre dare a chi ha preso». Written here, not only inherited from Partita for four: the pages of Consiglio (1787, p. 97) do not name it. Other reading (stood until revision 8): the card goes to the opposing side.", "alt": "opponent_side", "by": "torino1846", "pages": [33]}
 	},
 	"hand": {
 		"phases": [
@@ -71,9 +72,10 @@
 					]
 				},
 				"match": {
-					"kind": {"value":"fixed_hands","source":"[R] Torino 1787, p. 97: a round of four deals; in this format `fixed_hands` counts game points per hand, the book counts the points of all four deals together; the marche are still settled after every deal (point 54)."},
+					"kind": {"value":"fixed_hands","source":"[R] Torino 1787, p. 97: a round of four deals; in this format `fixed_hands` counts game points per hand, the book counts the points of all four deals together; the partita is paid once at the end (match.payout)."},
 					"hands": {"value":4,"source":"[D] Torino 1787, p. 97: «tutte quattro le volte»: four deals. [R] That each player deals once is our reading; Torino [1846], part I, p. 36 says so of Partita for four."},
-					"tiebreak": {"value":"card_points","source":"[R] Torino 1787, p. 97: the part with more points «in tutto il giro» wins; game points are none, so this key decides the variant by the card points of the four hands together; equal totals are a draw (equal totals «rende pace», Prammatica [1846], p. 29). The marche are still settled after every deal: the format cannot pay one stake at the end."}
+					"tiebreak": {"value":"card_points","source":"[R] Torino 1787, p. 97: the part with more points «in tutto il giro» wins; game points are none, so this key decides the variant by the card points of the four hands together; equal totals are a draw (equal totals «rende pace», Prammatica [1846], p. 29)."},
+					"payout": {"value": "match_end", "source": "[D] Torino 1787, p. 97: the part with more points «in tutto il giro» wins; Prammatica [1846], pp. 29-30: one stake at the end, the «coda»; equal totals «rende pace», nobody pays. [S] The size is ours: it is reckoned as the payment of one deal (settle: pair_split, as at Partita), one stake from each seat of the losing pair; no payment after each deal in this variant.", "by": "prammatica1846", "pages": [29, 30]}
 				}
 			}
 		}
