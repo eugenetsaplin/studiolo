@@ -22,11 +22,42 @@ export const supports = {
 	must_overtrump: [true, false],
 	play_from: ['hand', 'pile_tops'],
 	fool_may_lead: [true, false],
+	out_leads: ['free', 'trumps_then_kings'],
 };
 
 // the Fool is an excuse (the default) or an ordinary trionfo of the order (cards.fool: trump)
 const excuseOf = (h, c) => c === FOOL && h.game.cfg.cards.fool !== 'trump';
 const cat = (c) => (INFO[c].trump ? 'trump' : INFO[c].suit);
+
+// The seat that is out: in the last hand of a running-total match, the seat whose total of the earlier hands is above the
+// line (match.round_target, counted in twelfths as the match counts) and so cannot lose the match. The match puts the totals
+// of the seats before the hand and the mark of the last hand into the carry; a hand without them has nobody out.
+// This is the one place that tells who is out; the view reads it too.
+export function outSeatsOf(game, carry) {
+	const mc = carry && carry.match;
+	const line = game.cfg.match && game.cfg.match.round_target;
+	if (!mc || mc.kind !== 'running_total' || mc.last !== true || !Array.isArray(mc.totals) || !Number.isInteger(line)) return [];
+	const out = [];
+	mc.totals.forEach((t, seat) => { if (t > line * 12) out.push(seat); });
+	return out;
+}
+
+// the duty of a seat that is out when it leads: 'trumps' (any trump but the Fool), else 'kings', else null (any card)
+function outDuty(h, seat, set, hand) {
+	if (set.out_leads !== 'trumps_then_kings' || h.s.trick.length !== 0) return null;
+	if (!outSeatsOf(h.game, h.s.carry).includes(seat)) return null;
+	if (hand.some((c) => INFO[c].trump && c !== FOOL)) return 'trumps';
+	if (hand.some((c) => !INFO[c].trump && INFO[c].rank === 'K')) return 'kings';
+	return null;
+}
+
+// view.outLead (only a game with out_leads): who is out, and what the viewer must lead now (null when he is not bound)
+export function viewPart(h, entry, seat) {
+	if (entry.set.out_leads !== 'trumps_then_kings') return {};
+	const m = h.s.m.tricks;
+	const mine = m && !m.closing && h.toAct().includes(seat) ? outDuty(h, seat, entry.set, playableOf(h, seat)) : null;
+	return { outLead: { seats: outSeatsOf(h.game, h.s.carry), duty: mine } };
+}
 
 export function enter(h) {
 	const s = h.s;
@@ -78,6 +109,9 @@ function playsOf(h, seat, set, m) {
 	let cards = hand;
 	if (s.trick.length === 0) {
 		if (set.fool_may_lead === false && hand.length > 1) cards = hand.filter((c) => !excuseOf(h, c));
+		// out_leads: the seat that is out leads a trump if it has one, else a king (Torino [1846], I, p. 34)
+		const duty = outDuty(h, seat, set, hand);
+		if (duty) cards = hand.filter((c) => (duty === 'trumps' ? INFO[c].trump && c !== FOOL : !INFO[c].trump && INFO[c].rank === 'K'));
 	} else if (m.led !== null && set.follow_suit !== false) {
 		const led = m.led;
 		const same = hand.filter((c) => !excuseOf(h, c) && cat(c) === led);

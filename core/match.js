@@ -32,8 +32,14 @@ export class Match {
 		this.hand = this._start(null, this.handIndex, this.dealer, preset);
 	}
 
-	_start(lastTaker, handIndex, dealer, preset = null) {
+	_start(lastTaker, handIndex, dealer, preset = null, finished = this.done) {
 		const carry = { match: { kind: this.kind, handIndex } };
+		// a running total: the totals of the seats before this hand (twelfths) and whether it is the last hand; the hand
+		// needs them to know who cannot lose the match any more (tricks, out_leads)
+		if (this.kind === 'running_total') {
+			carry.match.last = handIndex + 1 >= this.handCount();
+			carry.match.totals = this._totalsOf(finished);
+		}
 		if (lastTaker !== null) carry.lastTaker = lastTaker;
 		const init = { seed: this.seed + ':' + handIndex, dealer, carry };
 		if (preset) init.preset = preset;
@@ -51,6 +57,13 @@ export class Match {
 			case 'ledger': return Number.isInteger(mc.dealer_rounds) && mc.dealer_rounds >= 1 ? mc.dealer_rounds * this.n : null;
 			default: return null;
 		}
+	}
+
+	// the running totals of the finished hands, by seat (an array), in twelfths over the line
+	_totalsOf(finished) {
+		const t = Array.from({ length: this.n }, () => 0);
+		for (const r of finished) for (let q = 0; q < this.n; q++) t[q] += (r.points[q] || 0) - (this.mc.round_target || 0) * 12;
+		return t;
 	}
 
 	_results() {
@@ -206,7 +219,7 @@ export class Match {
 			if (!Number.isInteger(opts.dealer) || opts.dealer < 0 || opts.dealer >= n) throw new Error('bad dealer');
 			d = opts.dealer;
 		}
-		const hand = this._start(lastTaker, this.handIndex + 1, d, opts.preset || null);
+		const hand = this._start(lastTaker, this.handIndex + 1, d, opts.preset || null, [...this.done, r]);
 		this.done.push(r);
 		this.dealer = d;
 		this.handIndex++;

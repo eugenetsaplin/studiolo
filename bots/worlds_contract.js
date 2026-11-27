@@ -5,6 +5,7 @@
 // are then set to the sampled ones just before the first phase after the exchange is entered. The rebuilt view must
 // equal the real one. See docs/BOT.md.
 import { newHand } from '../core/index.js';
+import { withOutCarry } from './carry.js';
 import { roleValue, seatAt } from '../core/util.js';
 import { catOf } from './policy.js';
 
@@ -168,6 +169,7 @@ function rebuildContract(game, view, info, p, seed, rng) {
 	let carry = null;
 	if (info.lead !== null && info.lead !== undefined) carry = { lastTaker: info.lead };
 	else if (info.carryMatters) carry = { lastTaker: rng.int(n) };
+	carry = withOutCarry(game, view, carry);
 	const at = patchIndex(game);
 	const saved = [];
 	let patched = false;

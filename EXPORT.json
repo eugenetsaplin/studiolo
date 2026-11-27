@@ -1,11 +1,11 @@
 {
-  "revision": 11,
-  "tag": "rules-r11",
-  "rules_tag": "rules-r11",
-  "ref": "open-r11.1",
-  "ref_commit": "197f29a044b2f8ef8ab0fb895720c11fe3f5f96c",
-  "commit": "197f29a044b2f8ef8ab0fb895720c11fe3f5f96c",
-  "commit_date": "2026-11-27T03:07:42+01:00",
+  "revision": 12,
+  "tag": "rules-r12",
+  "rules_tag": "rules-r12",
+  "ref": "open-r12.1",
+  "ref_commit": "c675362c1e3f9046687253b8240d2de098a39531",
+  "commit": "c675362c1e3f9046687253b8240d2de098a39531",
+  "commit_date": "2026-11-27T11:05:16+01:00",
   "tool": "export-open 2",
   "layers": [
     "rules",
@@ -13,7 +13,7 @@
   ],
   "node": "24.18.0",
   "tests": {
-    "passed": 1094,
+    "passed": 1107,
     "failed": 0,
     "skipped": 59
   },
@@ -31,8 +31,13 @@
     },
     {
       "path": "bots/bid.js",
-      "sha256": "f5b4e8f224c945e4f2ef3b4dcbea8983ccc9c27bdb61c9325cfddec9d499696a",
-      "bytes": 6426
+      "sha256": "e948d2652183d071f7cb04760c7a3d82d57b640bd93a68b087493d0feb1677ee",
+      "bytes": 6495
+    },
+    {
+      "path": "bots/carry.js",
+      "sha256": "b437922e9e2be01c89b0cd62320db8558ad99c05cb09ddad0e2ccb5fc02b9c2f",
+      "bytes": 1053
     },
     {
       "path": "bots/index.js",
@@ -76,18 +81,18 @@
     },
     {
       "path": "bots/worlds.js",
-      "sha256": "101a26f462b89d105dd94a2f8b0af8ba3da6a87bdccd5c7d68cca4fadd929043",
-      "bytes": 10016
+      "sha256": "462cc8e0f802694134d1d2b37004eaeb1c0fedc4172859ee1ae95282220f4e73",
+      "bytes": 10101
     },
     {
       "path": "bots/worlds_contract.js",
-      "sha256": "f8ffc6f2e2c1e07855028ec4328f14b9a81963dee2b81dd75682c8979b56e348",
-      "bytes": 12412
+      "sha256": "686fc8027713fea572d4b82b8c5ad99ef38f7cb06f2c3f5be2592fcb2847d9d0",
+      "bytes": 12497
     },
     {
       "path": "bots/worlds_ext.js",
-      "sha256": "827447c13104d274ba488bfd7d849bfc9a31d3be65a915f5fbc435a0e43284c8",
-      "bytes": 13073
+      "sha256": "51e48cea6dc679e2effa574e13c66c97edbc3f37f1c71d7ad9228920c720a2a4",
+      "bytes": 13142
     },
     {
       "path": "core/cards.js",
@@ -116,8 +121,8 @@
     },
     {
       "path": "core/match.js",
-      "sha256": "9b3f7867630831938a4ba6e0fa740b8342ddfd3c50e2dcc19964a7cf7b331ab8",
-      "bytes": 11389
+      "sha256": "4159a5d7900e93b99fef6fbe1e33467ad1b6890f9eedc4170c3d5c2917c73f60",
+      "bytes": 12083
     },
     {
       "path": "core/modules/a_monte.js",
@@ -201,8 +206,8 @@
     },
     {
       "path": "core/modules/tricks.js",
-      "sha256": "2527842830856182dce364c7331e4c74418167af3efc16c35a908d976c47f920",
-      "bytes": 8314
+      "sha256": "96479e7753e2f7f9634633d9145e4741586efa3b9ea95911e7b7d875c6cbcf2d",
+      "bytes": 10357
     },
     {
       "path": "core/points.js",
@@ -241,8 +246,8 @@
     },
     {
       "path": "docs/CORE_API.md",
-      "sha256": "91046c67590b528abb43457001985672b13ce526f63c768aab5b79e251ce8398",
-      "bytes": 35166
+      "sha256": "56db7b7c8358322d279cae35e5f2b3b141b8d45e56bf44f7afba2e338fcacdcf",
+      "bytes": 35426
     },
     {
       "path": "docs/ENGINE.md",
@@ -256,8 +261,8 @@
     },
     {
       "path": "docs/GAME_FILE_FORMAT.md",
-      "sha256": "5282c2919345bf0672b1dbe015c96da740e7b5293cc7a2c45d20b895a5d5907f",
-      "bytes": 93844
+      "sha256": "599371ec62a5fbe21979829b777fcb8d87b190bb344bba6791e4d0e318535621",
+      "bytes": 94414
     },
     {
       "path": "examples/01-sedici-for-two.md",
@@ -416,18 +421,18 @@
     },
     {
       "path": "rules/venticinque_3.md",
-      "sha256": "451c28b3256ad7028b1882b7cb4d40e59145f2389cd8f2776a76e956d942288f",
-      "bytes": 11487
+      "sha256": "2edd71044744a76a3feab3837f89917ed19e1860b3b14bf7164e9fcdca0b6f1d",
+      "bytes": 12235
     },
     {
       "path": "rulesets/OPEN_QUESTIONS.md",
-      "sha256": "92bd34ed353af2fcc2a515e09171799ac463f548ba8c3dbf5453e47bcb4e9fa8",
-      "bytes": 33200
+      "sha256": "954f32cc76bd3eed5f3023139f853c067e2b6001bc9f366c84b8ec255c9f1870",
+      "bytes": 33903
     },
     {
       "path": "rulesets/REVISIONS.md",
-      "sha256": "e5d79fc02de5765d4f6d3f97d47bfb32fdf317733f444603c2e13f5ddc667836",
-      "bytes": 94414
+      "sha256": "6052316ca9f6cfa98a87fb9003a9dd07253db8f469e464ddbf5fd8ad3a4c0b17",
+      "bytes": 102287
     },
     {
       "path": "rulesets/bagattultimo.json",
@@ -506,8 +511,8 @@
     },
     {
       "path": "rulesets/schema/game.schema.json",
-      "sha256": "624516245b37951084d043ed7afa0094f8e29239d616342dd1419f1b8393a88e",
-      "bytes": 36461
+      "sha256": "c22f40cba9e01df54a9df19d4c607d8f1c0deff83ded3964e78ea413c921b924",
+      "bytes": 36597
     },
     {
       "path": "rulesets/schema/texts.schema.json",
@@ -541,8 +546,8 @@
     },
     {
       "path": "rulesets/venticinque_3.json",
-      "sha256": "e30e7ff522af7bea4babbb984e351ebf8f790d158ae3f311b0c5a44af70d3d42",
-      "bytes": 18431
+      "sha256": "d75c6736a94e7dc80335e451fcd6134b62029bd26f74429051f1bd14e39e39b1",
+      "bytes": 20982
     },
     {
       "path": "test/botlab/botlab.test.mjs",
@@ -668,6 +673,11 @@
       "path": "test/check-bot/lib.mjs",
       "sha256": "9e311b55e6cfbc2cf463abd72c2ba4e82fd978e9c87f7dc7d58d6418a3962954",
       "bytes": 6646
+    },
+    {
+      "path": "test/check-bot/out-leads.test.mjs",
+      "sha256": "92f1cf44b0dd6d8992c6f9ac12f011ee4829e8d00726baa9b91d132887117461",
+      "bytes": 5218
     },
     {
       "path": "test/check-bot/purity.test.mjs",
@@ -898,6 +908,11 @@
       "path": "test/core/r10-core.test.js",
       "sha256": "6b25f696583010fed4469fff3b7cde3f49e87b27efa932a0ddc80b738d2a8b88",
       "bytes": 14217
+    },
+    {
+      "path": "test/core/r12-out-leads.test.js",
+      "sha256": "7116833e9a39f38a91e9a896dfe442a78f1cb7c3741f32aa5a8e5e88136b26cf",
+      "bytes": 10550
     },
     {
       "path": "test/core/r9-claims.test.js",

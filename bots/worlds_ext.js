@@ -4,6 +4,7 @@
 // through the core and the rebuilt view must equal the real one. See docs/BOT.md.
 import { ALL, FOOL } from '../core/cards.js';
 import { newHand } from '../core/index.js';
+import { withOutCarry } from './carry.js';
 import { roleValue, seatAt } from '../core/util.js';
 import { catOf } from './policy.js';
 import { place } from './worlds.js';
@@ -132,7 +133,7 @@ function rebuildRepeat(game, view, info, p, seed) {
 function replay(game, view, info, seed, preset, steps) {
 	let h;
 	try {
-		h = newHand(game, { seed, dealer: view.dealer, preset, carry: info.lead !== null && info.lead !== undefined ? { lastTaker: info.lead } : null });
+		h = newHand(game, { seed, dealer: view.dealer, preset, carry: withOutCarry(game, view, info.lead !== null && info.lead !== undefined ? { lastTaker: info.lead } : null) });
 		for (const st of steps) if (!h.apply(st.seat, st.action).ok) return null;
 	} catch {
 		return null;

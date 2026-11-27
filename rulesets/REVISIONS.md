@@ -556,3 +556,48 @@ Reason: an outside check of the 21 game files against the books (November 2026).
 **The engine, the checks and the texts.** New values of the format: `result.vola`, `bidding.overbid_returns`, `fuora.at_round_end`, `fuora.winner_is`, and the key `includes` of a declaration kind; the action `pass_fuora` stands beside `claim_fuora`; the declarations are also a hook of the tricks, for the window of the first trick. The independent checks (`test/check-core/*`, `tools/robots.mjs`) count the new rules with their own code. The texts of the changed rules are written in four languages; the Italian and French of the new lines wait for the translator. Bots: the bot says «fuora» at the target and passes in the last window without it, plays a card that wins the game now before any other choice (Sedici, Trent'uno), judges an equal bid in Permesso with the other bids, and counts the free game by the count phase of the contract played (also in the score lines); the notes are in `docs/BOT.md`. Not built: the forgiveness of the three at Chiamare il Re (p. 83), the right of the winner of a cut to name the dealer (p. 89), the going over to «sans prendre» after the auction.
 
 **Count of marks** (by the rule written under revision 8): 565 [D], 289 [R], 115 [S] — 969 rules in all (revision 10: 551, 272, 112 — 935). **Open questions:** 38 in the list; 16 open, 15 settled by the project, 7 closed (revision 11 closed 30 and 33 and added 35, 36, 37 and 38).
+
+## Revision 12 — 27 November 2026, tag `rules-r12`
+
+<!-- files r12
+bagattultimo.json sha256:7e8134190448bec3a3131bb94f653d74c873ef1de66d0f2099252e9e45b11165
+baronetti.json sha256:cf27234a97397f701e3d7af44a907212d56b2b012304038aedb488599f18e0cf
+chiamare_il_re.json sha256:37dc3ee7080e56144735173842ae7b69e0ced11f4fca17a66f29d9e0019d552a
+consiglio.json sha256:e32fbea008b481b8ef3c07bdf024121be50688d2941237b36bae07734f189b69
+dottore.json sha256:42e19f2643186ee0e5f503ce02064d96f253d025d2641c896bda87d5f26ad7b7
+meno.json sha256:5d79c5f5395884f5f8d0d5a4956bb98c584984f0682e018d9497ae21e3450260
+mitigati_2.json sha256:df17ec3e3be8e3210f1745b286c513d96bfb594a1160b352a111e71f68673aba
+morto.json sha256:cea639193f2d374045e803a151dd9de9a6db9bc608aa3b485d08b34815ad8a5c
+partita_3.json sha256:70c83d7698aa228e4764c4ad3a15d682cf9a2d5642b2e0233b4da9e6f314c661
+partita_4.json sha256:96a46b865c73665695ee18b0c5ba87a086684afaf6683353625a04eba8c309da
+permesso_3.json sha256:eb18ff5965ea7fc32dea5c42fbdb4c0787cbb9b3223b8ebec42d7bf4350bf73d
+permesso_4.json sha256:cc0389bdde9e96a2cb417b2b60a717c8cfb2296e3bb10c0db28654734737e91d
+permesso_5.json sha256:6a2fea707c9d93b2dac63312fd047ed13c05c0868fa8ab45ef186a7430adf31d
+permesso_6.json sha256:123031ff77c63651add9c69be23a8e7e63087e605ad7d4ff6c6bd3b838162b4f
+permesso_7.json sha256:10ba94af0c007a392ec1de87c2c1dffb8c1a92ed7b7df2fc3f9f8a2898b6b319
+sedici_2.json sha256:5183def1e47021af23e0cbeef0cee61185131e67aa9f6999fda32fb8cb4a1710
+sedici_3.json sha256:6a58e763534322bdadde547808a1e25eee3bc2ccff8308efe8662b5fae156ba0
+sedici_4.json sha256:2efd15ce9eb7c4f0fcca32f5cc885f67636e14be5f76f510ec9d31808ec90728
+trentuno.json sha256:359dc32101f48d23e0ac2b7ebd75c292286eafa24b8a5fe3298911e2e26974ba
+venticinque.json sha256:9ef803615710a96e9906456c54257939eb164dea1c05882ce2a22c18e3146be3
+venticinque_3.json sha256:d75c6736a94e7dc80335e451fcd6134b62029bd26f74429051f1bd14e39e39b1
+-->
+
+Reason: the last point of the outside check of revision 11 that was still on paper. At Venticinque for three, a player who can no longer lose the match, in the last deal with a running total above 26, must lead a trump when the lead is his: «Se avrà ancora dei Trionfi è obbligato a trionfare» (Torino [1846], part I, p. 34). Without a trump he leads a king; that, the Fool not counting as a trump, and the moment when a player is out are our readings, and the files say so. The sure cards and the impartial giving of tricks stay a duty of the player, not a rule of the cards. The reprint prints a penalty of five points to each opponent for breaking the duty (Prammatica [1846], p. 14); the engine simply does not accept another card. The four languages of the texts are written; the Italian and French of the new lines wait for the translator.
+
+**What changes for the player.**
+1. Venticinque for three: the player who is out leads a trump, then a king. In the last deal of the match (the third), a player whose total of the first two deals is above the line of 26 cannot end the match with a negative total any more. The book says that such a player «deve giuocar da fuori» and, if he still holds trumps, «è obbligato a trionfare, quindi si giuocheranno i Re, se ve ne sono» (Torino [1846], part I, p. 34 [D]; Prammatica [1846], p. 14 [D]). New setting `hand.tricks.out_leads` (`free`, the default of every other game; `trumps_then_kings`, set in this game): when the player who is out leads a trick he must play a trump (any trump but the Fool); with no trump, a king; with neither, any card. When he answers a lead the usual rules apply. The table does not accept another card (`enforce: prevent`, as with a revoke), so the penalty of the Prammatica, five points to each opponent, is written as a penalty of the game (`penalties[out_lead]`, offence `out_lead`) and told as the book's rule. Before revision 12 the duty was only a hint and a leaf of the bot.
+   What is printed and what is ours: the duty to play a trump is [D]; that it binds the player when he leads (the book uses «trionfare» so of the player who leads, pp. 50, 52) and that a king follows when no trump is left are [R]; the Fool not counting as a trump, the Bagatto counting (a player whose only trump left is the Bagatto must lead it) and any card for a hand with neither trumps nor kings are [S].
+   Who is out is [R]: the running total of the earlier deals (points less 26 in each deal, in the units of the match), strictly above the line `match.round_target`, read once at the start of the last deal, after Dummett 1980, p. 260 («after two rounds a total above 26»); Prammatica [1846], p. 14 says «nell'ultima distribuzione più di ventisei punti di guadagno». The other reading, that a player becomes out in the middle of the last deal when he has taken enough to be sure of a positive total (Dummett 1980, p. 260), is not played: with the count by threes the points in the middle of a deal are not defined. The setting has its `alt`, `free`, which is the play before revision 12.
+   The core: the match puts the totals of the seats before the hand and the mark of the last hand into the carry of the hand (`carry.match.totals`, `carry.match.last`; a running-total match only); `tricks.legal` reads them through one function that tells who is out, and the view tells the seat (`view.outLead`: `{seats, duty}`). A hand without these fields (an older journal, a hand dealt without a match) has nobody out and plays as before. The bots rebuild their worlds from the view, which names who is out, so their rebuilt hands have the same legal list as the real one.
+
+**What is written down without a change of play.**
+1. Venticinque for three: the left-out lines. `fuora_declaration` now says what is played (the duty to lead a trump, then a king) and what is not (the declaration «Fuora», the early end of the match after Dummett, «tutte le carte sicure», the impartial giving of the tricks, which stay an intention carried by a hint and a leaf of the bot); `table_penalties` no longer names the player who is out, whose penalty is now in `penalties`. The effect of the penalty `out_lead` is [D] for the five points to each opponent and [R] for its tie to the lead of the page of Torino; the Prammatica itself defines «da fuori» as playing «tutte le sue carte firme» and giving the tricks «imparzialmente».
+2. Open question 37 is rewritten: the duty is played, who is out stays a reading, the question stays open.
+3. The choice of a variant when a table is created (the screen «New table», the page of a game, the table itself) is a change of the site and of the server, not of the rules: no value of any game file changed for it.
+
+**What this revision did not touch.** The values of the other rules of the 21 files, the stakes, and the payment at the end of a match. The other twenty games are played as in revision 11; their hands carry no new field and their view has no `outLead`. The independent recounts (`npm run conformance`, `npm run robots`) agree with the engine; they do not recount the legal cards of this rule.
+
+**The engine, the checks and the texts.** New value of the format: the setting `hand.tricks.out_leads` and the offence `out_lead` of a penalty. The match gives the hand its carry (`totals`, `last`); an old carry without them gives an empty list of those who are out. The bots carry the same fields into the worlds they imagine (one line in each of four places); their strength is not changed. A test plays twenty matches at each level of the bots and finds no card outside the legal list.
+
+**Count of marks** (by the rule written under revision 8): 567 [D], 289 [R], 115 [S] — 971 rules in all (revision 11: 565, 289, 115 — 969). The two new [D] are the leaf `out_leads` and the effect of the penalty `out_lead`. **Open questions:** 38 in the list; 16 open, 15 settled by the project, 7 closed (revision 12 rewrote 37 and it stays open).

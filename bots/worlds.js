@@ -2,6 +2,7 @@
 // Input is the seat's view and nothing else. See docs/BOT.md.
 import { ALL, FOOL } from '../core/cards.js';
 import { newHand } from '../core/index.js';
+import { withOutCarry } from './carry.js';
 import { compileSelector } from '../core/selectors.js';
 import { catOf } from './policy.js';
 import { prepareExt, sampleExt } from './worlds_ext.js';
@@ -184,6 +185,7 @@ function rebuild(game, view, info, p, seed, rng) {
 	let carry = null;
 	if (info.lead !== null && info.lead !== undefined) carry = { lastTaker: info.lead };
 	else if (info.carryMatters) carry = { lastTaker: rng.int(n) };
+	carry = withOutCarry(game, view, carry);
 	let h;
 	try {
 		h = newHand(game, { seed, dealer: view.dealer, preset: { hands, rest: [...p.stockOrder, ...p.tail] }, carry });

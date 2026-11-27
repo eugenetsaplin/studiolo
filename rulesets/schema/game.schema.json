@@ -532,6 +532,7 @@
 				"must_overtrump": {"$ref": "#/$defs/r_bool"},
 				"play_from": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["hand", "pile_tops"]}}}]},
 				"fool_may_lead": {"$ref": "#/$defs/r_bool"},
+				"out_leads": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["free", "trumps_then_kings"]}}}]},
 				"tricks": {"$ref": "#/$defs/r_int"}
 			}
 		},
@@ -683,7 +684,7 @@
 			"additionalProperties": false,
 			"properties": {
 				"id": {"$ref": "#/$defs/ident"},
-				"offence": {"enum": ["revoke", "misdeal", "faced_card", "wrong_deal_method", "wrong_discard_count", "change_discard", "peek_stock", "peek_pile", "open_two", "signal", "talk", "show_cards", "false_fuora", "refuse_bid", "call_without_laying", "call_own_card", "hint_partner", "a_monte_retract", "take_others_points", "deal_out_of_turn"]},
+				"offence": {"enum": ["revoke", "misdeal", "faced_card", "wrong_deal_method", "wrong_discard_count", "change_discard", "peek_stock", "peek_pile", "open_two", "signal", "talk", "show_cards", "false_fuora", "refuse_bid", "call_without_laying", "call_own_card", "hint_partner", "a_monte_retract", "take_others_points", "out_lead", "deal_out_of_turn"]},
 				"enforce": {"enum": ["prevent", "apply", "text_only"]},
 				"effect": {"$ref": "#/$defs/r_any"},
 				"hand": {"enum": ["continues", "ends", "redeal"]}

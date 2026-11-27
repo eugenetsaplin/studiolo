@@ -3,6 +3,7 @@
 // (the exchange, the calls and the later bids of every seat by the policies of policy.js). The action with the best
 // mean world score wins; a bid has to beat the pass by the level's bid_margin. See docs/BOT.md.
 import { newHand } from '../core/index.js';
+import { withOutCarry } from './carry.js';
 import { bidAction } from './policy.js';
 import { prepare, place } from './worlds.js';
 import { rollout, scoreOf } from './rollout.js';
@@ -23,7 +24,7 @@ function rebuildBid(game, view, info, p, seed, rng) {
 	const { n, me } = info;
 	const hands = {};
 	for (let q = 0; q < n; q++) hands[q] = q === me ? [...view.hand, ...view.discard.mine] : [...p.hands[q], ...p.discards[q]];
-	const carry = info.carryMatters ? { lastTaker: rng.int(n) } : null;
+	const carry = withOutCarry(game, view, info.carryMatters ? { lastTaker: rng.int(n) } : null);
 	let h;
 	try {
 		h = newHand(game, { seed, dealer: view.dealer, preset: { hands, rest: [...p.stockOrder, ...p.tail] }, carry });

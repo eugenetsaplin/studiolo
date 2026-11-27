@@ -536,6 +536,7 @@ State: `s.m.<phase id> = {order, at, made: [{seat, kind, n, cards?}], paid: [{fr
 | `must_overtrump` | bool | a higher trump must be played if held (format 2) | `false` |
 | `play_from` | enum | `hand`, `pile_tops` (Baronetti: only the open cards, p. 49) | `hand` |
 | `fool_may_lead` | bool | the Fool may be led | `true` |
+| `out_leads` | enum | `free`; `trumps_then_kings` (revision 12): in the last hand of a `running_total` match a seat whose total of the earlier hands is above `match.round_target` cannot lose the match and, when it leads, must play a trump (the Fool is not one) if it holds one, else a king if it holds one, else any card; when it answers, the usual rules. The totals and the mark of the last hand come from the match (`carry.match`); `view.outLead` = `{seats, duty}` (`duty`: `trumps`, `kings` or null for the viewer). Penalty offence `out_lead` | `free` |
 | `tricks` | integer | the number of tricks, when not every card is played | all cards |
 
 Actions: `play {card}`; with `cards.fool_show_any_time` (only together with an `open_piles` phase), also `show_fool`. `play_from: pile_tops` also needs an `open_piles` phase. Legal cards follow suit → trump → any, with the Fool per `cards.fool` (a trionfo of the order with `trump`, the excuse of p. 54 with `excuse`). In a `repeat` group `first_leader` is read in every round (`previous_last_taker`: the taker of the last trick of the round before). Seat view: the current trick, who leads, own legal cards (for hints), the tricks won per seat (number only; closed tricks are not shown, pp. 32-33), the last trick per `view.last_trick`. Events: `card_played`, `trick_won {seat, cards}`, `last_trick_won`.
@@ -693,7 +694,7 @@ The general penalties of the book (pp. 17-34, 72-73) and those of each game. At 
 | key | type | values |
 |---|---|---|
 | `id` | id | |
-| `offence` | enum | `revoke`, `misdeal`, `faced_card`, `wrong_deal_method`, `wrong_discard_count`, `change_discard`, `peek_stock`, `peek_pile`, `open_two`, `signal`, `talk`, `show_cards`, `false_fuora`, `refuse_bid`, `call_without_laying`, `call_own_card`, `hint_partner`, `a_monte_retract`, `take_others_points`, `deal_out_of_turn` |
+| `offence` | enum | `revoke`, `misdeal`, `faced_card`, `wrong_deal_method`, `wrong_discard_count`, `change_discard`, `peek_stock`, `peek_pile`, `open_two`, `signal`, `talk`, `show_cards`, `false_fuora`, `refuse_bid`, `call_without_laying`, `call_own_card`, `hint_partner`, `a_monte_retract`, `take_others_points`, `deal_out_of_turn`, `out_lead` |
 | `enforce` | enum | `prevent` (the engine makes it impossible; the page tells the book's penalty), `apply` (possible by choice; the engine applies the effect: `false_fuora`, `a_monte_retract`, `call_own_card`), `text_only` |
 | `effect` | rule leaf | what the offender pays or loses, as data with its source |
 | `hand` | enum | `continues`, `ends`, `redeal` |
