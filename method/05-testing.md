@@ -6,12 +6,11 @@ One line holds for all of them. A game that runs is not thereby correct. A robot
 
 ## Which games are played
 
-At revision 2 the rules engine plays 8 of the 21 game files. Counted as pairs of game and number of players, it plays 13 of 28.
+At revision 12 the rules engine plays all 21 game files: each of the 28 pairs of game and number of players, and the 12 variants that the files describe.
 
-- Played: Venticinque for two, Morto, Venticinque for three, Partita for three, Partita for four, Consiglio, Dottore, and Meno from two to seven players.
-- Not yet played: Bagatt'ultimo, Baronetti, Chiamare il Re, Mitigati for two, Permesso for three to seven players, Sedici for two to four, Trent'uno for two to four.
+It was not so from the start. At revision 2 the engine played 8 of the 21 files, 13 of the 28 pairs: Venticinque for two, Morto, Venticinque for three, Partita for three, Partita for four, Consiglio, Dottore, and Meno from two to seven players. The rest of the book came in with revisions 6 and 7.
 
-A check can test a game when the engine plays it, and not otherwise. The other games are covered by the validator and the revision check. No robot has played them.
+A check can test a game when the engine plays it, and not otherwise. A number below that carries an early revision was taken on the games played at that revision.
 
 ## The checks
 
@@ -19,7 +18,7 @@ A check can test a game when the engine plays it, and not otherwise. The other g
 
 **The revision check.** It compares the hash of each file with the hash block of the journal. It tells us that no rule changed without an entry. It does not look at the rule.
 
-**The unit tests.** At revision 1 there were 376 tests, and 375 passed; the one that failed was a question about the rules. At revision 2 there are 396, and all pass. At revision 4 there are 707, and none fails. They tell us that the engine does what we meant. They do not tell us that what we meant is what the book says.
+**The unit tests.** At revision 1 there were 376 tests, and 375 passed; the one that failed was a question about the rules. At revision 2 there are 396, and all pass. At revision 4 there are 707, and none fails. At revision 12 this repository holds 1,166 (`npm test`): 1,107 pass, 59 are skipped, none fails. They tell us that the engine does what we meant. They do not tell us that what we meant is what the book says.
 
 **Random-play robots through the engine.** A robot picks a legal move at random. After each move the checks look at the cards: none lost, none doubled. The robots also try forbidden moves, and the engine must refuse them.
 
@@ -29,6 +28,8 @@ A check can test a game when the engine plays it, and not otherwise. The other g
 | 1 | 109,739 attempts at forbidden moves | all refused |
 | 1 | 20,000 deals played with the second value (`alt`) of 20 rules | 0 failures |
 | 2 | 65,001 deals | 0 failures |
+| 12 | 5,653 deals, 385,029 moves, all 28 pairs of game and seats (`npm run robots`) | 0 failures |
+| 12 | 3,761 attempts at forbidden moves | all refused |
 
 They tell us that the files can be dealt and played to the end, and that the second value of a placeholder can be played too. They cannot tell us which value is right. They play at random, so they say nothing about what a skilled player would do.
 
@@ -59,7 +60,7 @@ Which rules each side plays:
 
 So the comparison uses the Steam game's own rules, not our published game files alone.
 
-At revision 2: Venticinque, 10,000 of 10,000 hands agree; Morto, 2,000 of 2,000 hands agree. Revisions 3 and 4 changed no rule, and the comparison gave the same numbers after each.
+At revision 2: Venticinque, 10,000 of 10,000 hands agree; Morto, 2,000 of 2,000 hands agree. Revisions 3 and 4 changed no rule, and the comparison gave the same numbers after each. At revision 12 it gives them again: 10,000 of 10,000 and 2,000 of 2,000.
 
 This tells us that two programs, written apart, play the same hands the same way. It does not test the deal, and it does not tell us that the rules are those of the book.
 
