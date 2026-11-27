@@ -1,6 +1,6 @@
 # Sixteen for two (Sedici)
 
-2 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+2 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
 
 Sedici for two players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 0 (Dummett 1980, p. 269; our decision); when the pack runs out before anybody has said «fuora» the hand ends with no payment (ours; Dummett 1980, p. 269 gives this guess for Trentuno; for Sedici he guesses further deals until someone goes out). A match is a race to five points: each game won is one point, as Prammatica [1846], p. 11 says that a partita at Sedici seldom ends at the first point; the number five is our reading of p. 13. Prammatica [1846], p. 12 says that Sedici «va soggetto a quasi tutte le regole» of Trent'uno al più; where the two books differ (the Fool and Bagatto), this file follows Torino 1787. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -105,4 +105,4 @@ This step: *Documented: from the book, p. 35.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/sedici_2.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/sedici_2.json`, rules revision 13. Do not edit: change the game file.

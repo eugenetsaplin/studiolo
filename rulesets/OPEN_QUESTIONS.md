@@ -19,7 +19,7 @@ Pages are those of the printed books. «Rules of 1830» is «Regole inalterabili
 
 «Census» is a count of rare cases over 10,000 deals of random robots (an engine run, 23 November 2026). The robots play at random: for people, everything that depends on skill will be rarer.
 
-State at revision 12 (27 November 2026). Statuses as of 27 November 2026: 16 open, 15 settled by the project, 7 closed.
+State at revision 13 (27 November 2026). Statuses as of 27 November 2026: 16 open, 15 settled by the project, 7 closed.
 
 | No. | Question | Games | What stands now | Other version | How to close it | Status |
 |---|---|---|---|---|---|---|

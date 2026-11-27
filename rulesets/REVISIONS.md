@@ -601,3 +601,36 @@ Reason: the last point of the outside check of revision 11 that was still on pap
 **The engine, the checks and the texts.** New value of the format: the setting `hand.tricks.out_leads` and the offence `out_lead` of a penalty. The match gives the hand its carry (`totals`, `last`); an old carry without them gives an empty list of those who are out. The bots carry the same fields into the worlds they imagine (one line in each of four places); their strength is not changed. A test plays twenty matches at each level of the bots and finds no card outside the legal list.
 
 **Count of marks** (by the rule written under revision 8): 567 [D], 289 [R], 115 [S] — 971 rules in all (revision 11: 565, 289, 115 — 969). The two new [D] are the leaf `out_leads` and the effect of the penalty `out_lead`. **Open questions:** 38 in the list; 16 open, 15 settled by the project, 7 closed (revision 12 rewrote 37 and it stays open).
+
+
+## Revision 13 — 27 November 2026, tag `rules-r13`
+
+<!-- files r13
+bagattultimo.json sha256:7e8134190448bec3a3131bb94f653d74c873ef1de66d0f2099252e9e45b11165
+baronetti.json sha256:cf27234a97397f701e3d7af44a907212d56b2b012304038aedb488599f18e0cf
+chiamare_il_re.json sha256:37dc3ee7080e56144735173842ae7b69e0ced11f4fca17a66f29d9e0019d552a
+consiglio.json sha256:e32fbea008b481b8ef3c07bdf024121be50688d2941237b36bae07734f189b69
+dottore.json sha256:42e19f2643186ee0e5f503ce02064d96f253d025d2641c896bda87d5f26ad7b7
+meno.json sha256:fc40579fa468d7708c8dd32c7e8e29d3890cbb9b111b17f6f239ea131e226bf9
+mitigati_2.json sha256:df17ec3e3be8e3210f1745b286c513d96bfb594a1160b352a111e71f68673aba
+morto.json sha256:cea639193f2d374045e803a151dd9de9a6db9bc608aa3b485d08b34815ad8a5c
+partita_3.json sha256:30dc16f80843faa38ac47ad748b85121ef169db9bcf25098aeaa68047b5e3bfd
+partita_4.json sha256:4cbf99040c0e69c2d94f40a74eee391c52706935e4c715772564f9ae02c4d8ff
+permesso_3.json sha256:4473a8c12a368b548f8dcfa76993d1a7e189010bcc0c1c27cdbd4b6b06a2cfc6
+permesso_4.json sha256:cc0389bdde9e96a2cb417b2b60a717c8cfb2296e3bb10c0db28654734737e91d
+permesso_5.json sha256:6a2fea707c9d93b2dac63312fd047ed13c05c0868fa8ab45ef186a7430adf31d
+permesso_6.json sha256:123031ff77c63651add9c69be23a8e7e63087e605ad7d4ff6c6bd3b838162b4f
+permesso_7.json sha256:10ba94af0c007a392ec1de87c2c1dffb8c1a92ed7b7df2fc3f9f8a2898b6b319
+sedici_2.json sha256:08758414b5934048143b055c4d90fd50f2cce8ac18843de36a8b88fc8c6d46ec
+sedici_3.json sha256:6a58e763534322bdadde547808a1e25eee3bc2ccff8308efe8662b5fae156ba0
+sedici_4.json sha256:2efd15ce9eb7c4f0fcca32f5cc885f67636e14be5f76f510ec9d31808ec90728
+trentuno.json sha256:5fb28d12b42ee28dfb135dca4bb5e622cc97c2f36c807a07ca63f4fb7ddca3a8
+venticinque.json sha256:9ef803615710a96e9906456c54257939eb164dea1c05882ce2a22c18e3146be3
+venticinque_3.json sha256:d75c6736a94e7dc80335e451fcd6134b62029bd26f74429051f1bd14e39e39b1
+-->
+
+Wording only. Six source lines named notes of the project that are not part of this record; the references are removed. No value and no mark changes.
+
+**Files:** `meno.json`, `partita_3.json`, `partita_4.json`, `permesso_3.json`, `sedici_2.json`, `trentuno.json` (one reference removed from one source line in each). In `docs/FORMAT_OPEN_POINTS.md` three places that named the owner of the project now say «the project».
+
+**Count of marks:** 567 [D], 289 [R], 115 [S] — 971 rules in all, as in revision 12. **Open questions:** 38 in the list; 16 open, 15 settled by the project, 7 closed.

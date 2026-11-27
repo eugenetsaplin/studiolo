@@ -1,6 +1,6 @@
 # Less (Meno)
 
-2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
 
 Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -87,4 +87,4 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/meno.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/meno.json`, rules revision 13. Do not edit: change the game file.

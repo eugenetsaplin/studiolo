@@ -1,11 +1,11 @@
 {
-  "revision": 12,
-  "tag": "rules-r12",
-  "rules_tag": "rules-r12",
-  "ref": "open-r12.1",
-  "ref_commit": "c675362c1e3f9046687253b8240d2de098a39531",
-  "commit": "c675362c1e3f9046687253b8240d2de098a39531",
-  "commit_date": "2026-11-27T11:05:16+01:00",
+  "revision": 13,
+  "tag": "rules-r13",
+  "rules_tag": "rules-r13",
+  "ref": "open-r13.1",
+  "ref_commit": "730b195e4f90275ea5675700d0146440f3c3d9b7",
+  "commit": "730b195e4f90275ea5675700d0146440f3c3d9b7",
+  "commit_date": "2026-11-27T12:28:36+01:00",
   "tool": "export-open 2",
   "layers": [
     "rules",
@@ -256,8 +256,8 @@
     },
     {
       "path": "docs/FORMAT_OPEN_POINTS.md",
-      "sha256": "b9f80709ec8537711c3cf9323daf275b36e7fc09e83a88365c1125d013e84908",
-      "bytes": 36659
+      "sha256": "c670b2f757aa62657d99a73d0c75642aa928f9d4c0d12417e1d6b970375f707d",
+      "bytes": 36668
     },
     {
       "path": "docs/GAME_FILE_FORMAT.md",
@@ -346,7 +346,7 @@
     },
     {
       "path": "rules/meno.md",
-      "sha256": "787e6d9444f9189b7fb2dce4cf03b96891c5cbddc90b1639f72633b2dbe9cdaf",
+      "sha256": "b5d6f9c895452c4ba4cbcbb6cb2abeefe7d87aa7c8bcd5e34fabecb24e25f0b8",
       "bytes": 9443
     },
     {
@@ -361,17 +361,17 @@
     },
     {
       "path": "rules/partita_3.md",
-      "sha256": "868a3ec5327df5abfdf17e29ee37c26a35de1352fcf0005089b29b9be6fccd85",
+      "sha256": "d666959e723975d6820e1cd74785ab9464bc7a0bf83d72b9038b123926b8e3b9",
       "bytes": 11053
     },
     {
       "path": "rules/partita_4.md",
-      "sha256": "58e19ff36b0d82805e5a86f7a710221488b62be9a13775f5c0d3f2f1643013ce",
+      "sha256": "1dc01b10ec08b6437d1088bcae9c72565282aa68356b08a19ca819fc68d6785c",
       "bytes": 14582
     },
     {
       "path": "rules/permesso_3.md",
-      "sha256": "ca7d187d3c116a806d21d892caf85ee6c23a6c15c45236441cf07ca119150bc8",
+      "sha256": "dd4e1240f7a63335b325911c1211c868a1f189631251228f4af2db07693cd865",
       "bytes": 20039
     },
     {
@@ -396,7 +396,7 @@
     },
     {
       "path": "rules/sedici_2.md",
-      "sha256": "e2fcca70e34156be340a4dfceeb02cb6ddafc9732d62eddaf2a555463aa40675",
+      "sha256": "3a70fc720b24e0ff8a7dbb5762fa5e2b4b3046dfb9372b6c5d89c68e8575dcd7",
       "bytes": 12135
     },
     {
@@ -411,7 +411,7 @@
     },
     {
       "path": "rules/trentuno.md",
-      "sha256": "a7fdfbf528979be18beade1f5952d591b62d2ee47c03656c5dfb7fab05c0f9e2",
+      "sha256": "6404c1fce9d4072a3b335918544700bf562f8220796c9f3397d0e7712d4ed124",
       "bytes": 12291
     },
     {
@@ -426,13 +426,13 @@
     },
     {
       "path": "rulesets/OPEN_QUESTIONS.md",
-      "sha256": "954f32cc76bd3eed5f3023139f853c067e2b6001bc9f366c84b8ec255c9f1870",
+      "sha256": "2b86b7b9dabd7d00986c6295f39cb24defb5bdb64bf261b1f3bcdaf9252e2035",
       "bytes": 33903
     },
     {
       "path": "rulesets/REVISIONS.md",
-      "sha256": "6052316ca9f6cfa98a87fb9003a9dd07253db8f469e464ddbf5fd8ad3a4c0b17",
-      "bytes": 102287
+      "sha256": "bb9212f2c4314b68c0f2e2ffbeb6925624e7c352be3dbe3b78a08887a0949ec9",
+      "bytes": 104788
     },
     {
       "path": "rulesets/bagattultimo.json",
@@ -461,8 +461,8 @@
     },
     {
       "path": "rulesets/meno.json",
-      "sha256": "5d79c5f5395884f5f8d0d5a4956bb98c584984f0682e018d9497ae21e3450260",
-      "bytes": 18005
+      "sha256": "fc40579fa468d7708c8dd32c7e8e29d3890cbb9b111b17f6f239ea131e226bf9",
+      "bytes": 17974
     },
     {
       "path": "rulesets/mitigati_2.json",
@@ -476,18 +476,18 @@
     },
     {
       "path": "rulesets/partita_3.json",
-      "sha256": "70c83d7698aa228e4764c4ad3a15d682cf9a2d5642b2e0233b4da9e6f314c661",
-      "bytes": 15532
+      "sha256": "30dc16f80843faa38ac47ad748b85121ef169db9bcf25098aeaa68047b5e3bfd",
+      "bytes": 15501
     },
     {
       "path": "rulesets/partita_4.json",
-      "sha256": "96a46b865c73665695ee18b0c5ba87a086684afaf6683353625a04eba8c309da",
-      "bytes": 26129
+      "sha256": "4cbf99040c0e69c2d94f40a74eee391c52706935e4c715772564f9ae02c4d8ff",
+      "bytes": 26098
     },
     {
       "path": "rulesets/permesso_3.json",
-      "sha256": "eb18ff5965ea7fc32dea5c42fbdb4c0787cbb9b3223b8ebec42d7bf4350bf73d",
-      "bytes": 32781
+      "sha256": "4473a8c12a368b548f8dcfa76993d1a7e189010bcc0c1c27cdbd4b6b06a2cfc6",
+      "bytes": 32750
     },
     {
       "path": "rulesets/permesso_4.json",
@@ -521,8 +521,8 @@
     },
     {
       "path": "rulesets/sedici_2.json",
-      "sha256": "5183def1e47021af23e0cbeef0cee61185131e67aa9f6999fda32fb8cb4a1710",
-      "bytes": 22642
+      "sha256": "08758414b5934048143b055c4d90fd50f2cce8ac18843de36a8b88fc8c6d46ec",
+      "bytes": 22601
     },
     {
       "path": "rulesets/sedici_3.json",
@@ -536,8 +536,8 @@
     },
     {
       "path": "rulesets/trentuno.json",
-      "sha256": "359dc32101f48d23e0ac2b7ebd75c292286eafa24b8a5fe3298911e2e26974ba",
-      "bytes": 25054
+      "sha256": "5fb28d12b42ee28dfb135dca4bb5e622cc97c2f36c807a07ca63f4fb7ddca3a8",
+      "bytes": 25023
     },
     {
       "path": "rulesets/venticinque.json",

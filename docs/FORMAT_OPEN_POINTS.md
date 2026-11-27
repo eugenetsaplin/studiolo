@@ -57,7 +57,7 @@ Page numbers and quotations come from the first reading of the games; I did not 
 
 ### 6. Venticinque for three (p. 8 only; rules from RI 1830 through Dummett 1980, p. 260)
 
-- **gap.** «Fuora» after two rounds obliges the player to play «da fuori», giving points to the one behind (Dummett 1980, p. 260, after RI). This is an intention, not a checkable rule: no card is illegal because of it. Proposal: no rule leaf; a `bot.play` leaf and a hint, and the rules page tells it as RI's rule. If the owner wants it enforced, it needs a new `tricks` value «a seat that is out must play its lowest counter when it cannot win», which is our invention, `[S]`.
+- **gap.** «Fuora» after two rounds obliges the player to play «da fuori», giving points to the one behind (Dummett 1980, p. 260, after RI). This is an intention, not a checkable rule: no card is illegal because of it. Proposal: no rule leaf; a `bot.play` leaf and a hint, and the rules page tells it as RI's rule. If the project wants it enforced, it needs a new `tricks` value «a seat that is out must play its lowest counter when it cannot win», which is our invention, `[S]`.
 - **gap.** A monte by everyone's consent after each round of the deal (5, 10, 10): `a_monte.windows` names phases, not rounds inside a deal. Proposal: allow `"deal.packet"` in `windows` (after each packet round of the deal phase).
 - **gap.** The payment depends on the running totals at the end of the three rounds (each with zero or less pays 1; if one has a plus he does not pay and the third pays 2). That is a settle at the end of the match, not of a hand. Proposal: a key `match.payout` holding settle settings evaluated when the match ends (`mode` and `amount` as in 11.14, plus a mode `by_running_total`).
 - **fuzzy.** Whether a seat that is out still follows suit: Dummett is not clear either; `[S]`.
@@ -245,7 +245,7 @@ The first writing of the files (Baronetti, Venticinque for three, Mitigati for t
 
 ### 47. Mitigati for two, three things the format cannot say (p. 85)
 
-(a) `discard.count_mode` is one value for both players: the dealer «sino al numero di tredici» (up to, or exactly) and the other «ne scarta dodici» (exactly); written `up_to` `[R]` with `alt: exact`. Proposal: `count_mode` also as a by-role object. (b) The second deal «ritorna a dare tutte le carte, che son rimaste» may mean the hands gathered and dealt again (reading A of 2 November 2026) or the cards left undealt (reading B); `deal.from` has `deck`, `stock`, `rest` and no value for the first. `deal_second.from` is left unwritten. Proposal: a value `hands_regathered` once the owner chooses reading A. (c) The size of the first deal is not printed (see the item on the first deal above); the validator cannot check the arithmetic of the two deals, since `hand_size: half_rest` is not a number.
+(a) `discard.count_mode` is one value for both players: the dealer «sino al numero di tredici» (up to, or exactly) and the other «ne scarta dodici» (exactly); written `up_to` `[R]` with `alt: exact`. Proposal: `count_mode` also as a by-role object. (b) The second deal «ritorna a dare tutte le carte, che son rimaste» may mean the hands gathered and dealt again (reading A of 2 November 2026) or the cards left undealt (reading B); `deal.from` has `deck`, `stock`, `rest` and no value for the first. `deal_second.from` is left unwritten. Proposal: a value `hands_regathered` once the project chooses reading A. (c) The size of the first deal is not printed (see the item on the first deal above); the validator cannot check the arithmetic of the two deals, since `hand_size: half_rest` is not a number.
 
 ### 48. the validator does not read `deal.piles` (Baronetti, pp. 48-49)
 
@@ -261,7 +261,7 @@ At Bagatt'ultimo (pp. 93-95) the rows 3, 4, 5 honours and the trumps are printed
 
 ### 51. Meno, the short forms and the leftover cards (p. 78)
 
-(a) Meno with four or eight cards «come al Sedici», «come al Trent'uno» is written as the variants `four_cards`, `eight_cards` patching `hand_size`; how many deals are played and when the game ends (no «fuora») has no key: a `repeat` until `stock_empty` would have to be added by the owner's decision. (b) The cards left undealt differ by the seat count (2 players 28, 3 players 3, 4 players 2, 5 players 3, 6 none, 7 one); `deal.dealer_extra` can be by seats but `deal.dead` (an enum) cannot. Proposal: `dead` by seats.
+(a) Meno with four or eight cards «come al Sedici», «come al Trent'uno» is written as the variants `four_cards`, `eight_cards` patching `hand_size`; how many deals are played and when the game ends (no «fuora») has no key: a `repeat` until `stock_empty` would have to be added by a decision of the project. (b) The cards left undealt differ by the seat count (2 players 28, 3 players 3, 4 players 2, 5 players 3, 6 none, 7 one); `deal.dealer_extra` can be by seats but `deal.dead` (an enum) cannot. Proposal: `dead` by seats.
 
 ### 52. Venticinque for three, what the format cannot say (Dummett 1980, p. 260, after RI 1830)
 

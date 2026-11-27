@@ -1,6 +1,6 @@
 # Permesso for three (Permesso)
 
-3 players. In the book of 1787: pp. 58-70. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+3 players. In the book of 1787: pp. 58-70. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
 
 Permesso for three («Trilio»), the first of the Turin rulebook's games of one against two (Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787, «Del giuoco del Permesso in tre persone», pp. 58-70), on the whole 78-card pack: 25 cards to each of the two players and 28 to the dealer, who puts three away (p. 59); after «Ho scartato» the player first in hand asks «Permesso?», the players bid how few cards they will change (three, two, one or none: «sans prendre»), the winner of the bidding lays his worst cards face down, calls the same number by name from the other hands and plays alone against the other two, who count their points together (pp. 60-66). He wins with 46 of the 91 points counted in pairs; the stake is the Onoranza of his contract (2, 3, 4 or 5 coins) and one coin for each five points beyond 45 (pp. 66-70). The book is silent on the dealer's place in the auction (read from Torino [1846], marked [R]), on a general pass and on a called card that lies in the discard; those two are our decisions, marked [S]. Played in coins agreed before the deal (p. 67); a match is one round of dealers (ours). Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -160,4 +160,4 @@ This step: *Documented: from the book, pp. 60-61.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/permesso_3.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/permesso_3.json`, rules revision 13. Do not edit: change the game file.

@@ -1,6 +1,6 @@
 # Thirty-one (Trent’uno)
 
-2 to 4 players. In the book of 1787: pp. 45-46. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+2 to 4 players. In the book of 1787: pp. 45-46. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
 
 Trent'uno («Trent'uno»), pp. 45-46 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787): Sedici with eight covered cards to each player and thirty-one points to win (pp. 45-46: «Premesse tutte le sopradette regole»). Everything of Sedici applies unless said otherwise: the Fool is the lowest trionfo and counts one point, Bagatto takes it, the cards are counted singly, the dealer goes on dealing until somebody says «fuora» (pp. 36-41, 51). The section does not say how many play; it is read after Sedici, for two, three or four. A plain card is worth 1 (since revision 2, by calculation; Dummett 1980, p. 269, allows it), a false claim is paid double under 16 points, and when the pack runs out before anybody has said «fuora» the hand ends with no payment: our decisions, each leaf says whose reading. A match is a race to five points, each game won being one: Prammatica [1846], pp. 11-12 says it of Sedici, and Trent'uno «non differisce dal Sedici che nel numero»; the number five is our reading of p. 13. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -109,4 +109,4 @@ This step: *Documented: from the book, pp. 45-46.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/trentuno.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/trentuno.json`, rules revision 13. Do not edit: change the game file.

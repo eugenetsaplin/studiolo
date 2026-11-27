@@ -4,7 +4,7 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Partita, two against two (Torino 1787, «Del giuocare in Partita», pp. 88-90), the game the book calls the proper one of four players: two fixed pairs, partners sit face to face, the cards are cut, dealt and discarded as in Permesso for four (19 cards to each, the dealer puts two away), no one may ever go alone («andar a solo mai e poi mai»), the two partners' points are one heap and the part with more points wins, even by a single unpaired card (pp. 88-90). The Bagatto and the kings may not be put away, the Fool is shown (p. 90). Each winner collects the agreed sum from one of the opponents (p. 90). The sum, the count by four or by two, the lead and who deals first («Chi coppa meglio») are our readings. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 11,
+	"revision": 13,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -65,7 +65,7 @@
 		"fool": {"value":"excuse","source":"[D] Torino 1787, p. 90: «Il Folle si mostra»."},
 		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 52, 90: «Il Folle si mostra»; the card owed for the Fool is printed for Baronetti (p. 52) and Venticinque (p. 54) and carried over; it is not printed in the Partita pages. Other reading: none.","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»."},
-		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three): «onde chi ha presa o coperta la mano non abbia ad averne danno»: the plain card for the Fool goes to whoever took the trick; Torino 1787, pp. 77-78 says the same of Permesso for five to seven: «la carta poscia del Folle si dovrà sempre dare a chi ha preso». With pairs a partner who takes the trick keeps the side whole. Carried over (revision 9, answer 10 of the lead session). Other reading (stood until revision 8): the card goes to the opposing side.", "alt": "opponent_side", "by": "torino1846", "pages": [33]},
+		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three): «onde chi ha presa o coperta la mano non abbia ad averne danno»: the plain card for the Fool goes to whoever took the trick; Torino 1787, pp. 77-78 says the same of Permesso for five to seven: «la carta poscia del Folle si dovrà sempre dare a chi ha preso». With pairs a partner who takes the trick keeps the side whole. Carried over (revision 9). Other reading (stood until revision 8): the card goes to the opposing side.", "alt": "opponent_side", "by": "torino1846", "pages": [33]},
 		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
 	},
 	"options": [

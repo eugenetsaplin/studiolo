@@ -1,6 +1,6 @@
 # Partita for three (Partita)
 
-3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
 
 Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -107,4 +107,4 @@ This step: *Documented: from the book, p. 88.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/partita_3.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/partita_3.json`, rules revision 13. Do not edit: change the game file.
