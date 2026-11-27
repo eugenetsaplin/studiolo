@@ -60,6 +60,38 @@ test('Angel, Bagatto and Fool: three honours and Mitigati, 10 on top', () => {
 	assert.deepEqual(pay.map((p) => p.amount).sort(), [10, 10, 10, 10]);
 });
 
+const onlyMitigati = () => {
+	const h = bagattDeal(game, [[], ['T20', 'T1', 'T0'], []]);
+	dealerDiscards(h);
+	return h;
+};
+const got = (h, seat) => handPayments(h, { payments: [] }).filter((p) => p.to === seat);
+
+test('Mitigati alone carries the three honours: 10 + 10 from each, whatever the order of the buttons', () => {
+	const a = onlyMitigati();
+	const r = a.apply(1, { type: 'declare_mitigati' });
+	assert.deepEqual(r.events.map((e) => e.kind), ['mitigati', 'onori']);
+	assert.deepEqual(got(a, 1).map((p) => p.amount).sort(), [10, 10, 10, 10]);
+	assert.ok(types(a, 1).includes('declare_onori'), 'the honours stay on offer, so that naming them is not refused');
+	assert.ok(a.apply(1, { type: 'declare_onori' }).ok);
+	assert.deepEqual(got(a, 1).map((p) => p.amount).sort(), [10, 10, 10, 10], 'Mitigati first, then the honours: nothing more is paid');
+	assert.deepEqual(a.s.m.declarations.made.map((d) => d.kind), ['mitigati', 'onori']);
+	assert.ok(!types(a, 1).includes('declare_onori'), 'named once, gone');
+	const b = onlyMitigati();
+	b.apply(1, { type: 'declare_onori' });
+	b.apply(1, { type: 'declare_mitigati' });
+	assert.deepEqual(got(b, 1).map((p) => p.amount).sort(), [10, 10, 10, 10], 'honours first: no double payment');
+	assert.equal(b.s.m.declarations.made.filter((d) => d.kind === 'onori').length, 1);
+});
+
+test('Mitigati with four honours pays the honours once, by the larger count', () => {
+	const h = bagattDeal(game, [[], ['T20', 'T1', 'T0', 'swords:K'], []]);
+	dealerDiscards(h);
+	h.apply(1, { type: 'declare_mitigati' });
+	assert.deepEqual(got(h, 1).filter((p) => p.why === 'declaration').map((p) => p.amount).sort(), [10, 10, 15, 15]);
+	assert.equal(h.s.m.declarations.made.find((d) => d.kind === 'onori').n, 4);
+});
+
 test('declare_done closes the right of the seat; the others still speak', () => {
 	const h = bagattDeal(game, [[], [...KINGS], []]);
 	dealerDiscards(h);
@@ -110,7 +142,7 @@ test('whole hands: the log replays, cards are kept, the payments balance, two pa
 		const net = new Array(3).fill(0);
 		for (const p of pay) { net[p.from] -= p.amount; net[p.to] += p.amount; }
 		assert.equal(net.reduce((a, b) => a + b, 0), 0);
-		const made = h.s.log.filter((l) => l.action.type.startsWith('declare_') && l.action.type !== 'declare_done').length;
+		const made = h.s.m.declarations.made.length;
 		assert.equal(pay.filter((p) => p.why === 'declaration').length, made * 2);
 		checkConserved(h);
 	}

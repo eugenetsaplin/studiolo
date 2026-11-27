@@ -167,3 +167,95 @@ test('old games keep their snapshot: no new field appears while it is empty', ()
 	const keys = Object.keys(h.snapshot());
 	for (const k of ['contract', 'declarer', 'sides', 'secret', 'allPassed']) assert.ok(!keys.includes(k), k);
 });
+
+// Torino 1787, p. 62: «A due», answered «subito»: second reading, the word returns at once to the seat that was overbid.
+test('overbid_returns (alt): after «three» (seat 1) and «two» (seat 2) the word is with seat 1; the main value goes to the dealer as before', () => {
+	const run = (alts) => {
+		const h = until(newHand(load('permesso_3', 3, { alts }), { seed: 'three-then-two', dealer: 0 }), 'bidding');
+		act(h, 1, 'bid_three');
+		act(h, 2, 'bid_two');
+		return h;
+	};
+	const main = run([]);
+	assert.deepEqual(main.toAct(), [0]);
+	const alt = run(['hand.phases[bidding].settings.overbid_returns']);
+	assert.deepEqual(alt.toAct(), [1]);
+	assert.deepEqual(types(alt, 1), ['bid_two', 'bid_one', 'bid_sans_prendre', 'pass']);
+	// he holds with an equal bid: now seat 2 was overbid and has the word, he may only go higher
+	act(alt, 1, 'bid_two');
+	assert.deepEqual(alt.toAct(), [2]);
+	assert.deepEqual(types(alt, 2), ['bid_one', 'bid_sans_prendre', 'pass']);
+	// seat 2 gives way: the auction goes on with the dealer, who has not spoken
+	act(alt, 2, 'pass');
+	assert.deepEqual(alt.toAct(), [0]);
+	act(alt, 0, 'pass');
+	assert.equal(alt.s.contract, 'two');
+	assert.equal(alt.s.declarer, 1);
+	assert.equal(replayHand(alt.game, { seed: 'three-then-two', dealer: 0 }, alt.log).checksum(), alt.checksum());
+});
+
+test('overbid_returns is offered in every game that holds an auction, with the main value kept', () => {
+	for (const [id, n] of [['permesso_3', 3], ['permesso_4', 4], ['permesso_5', 5], ['permesso_6', 6], ['permesso_7', 7], ['chiamare_il_re', 4]]) {
+		const g = load(id, n);
+		const bid = g.plan.find((e) => e.module === 'bidding');
+		assert.equal(bid.set.overbid_returns, false, id);
+		const g2 = load(id, n, { alts: ['hand.phases[bidding].settings.overbid_returns'] });
+		assert.equal(g2.plan.find((e) => e.module === 'bidding').set.overbid_returns, true, id);
+	}
+});
+
+test('chiamare_il_re, overbid_returns (alt): the dealer has the word at once after another player answers «ad una»', () => {
+	const h = until(newHand(load('chiamare_il_re', 4, { alts: ['hand.phases[bidding].settings.overbid_returns'] }), { seed: 'k1', dealer: 0 }), 'bidding');
+	act(h, 0, 'bid_one');
+	const q = h.toAct()[0];
+	assert.notEqual(q, 0);
+	act(h, q, 'bid_one');
+	assert.deepEqual(h.toAct(), [0]);
+	assert.ok(types(h, 0).includes('bid_sans_prendre'));
+});
+
+// Torino 1787, p. 76-77: giuoco sciolto agreed beforehand: no auction, play begins at once, each for himself
+test('sciolto_chosen: no auction at Sestilio and Settilio; the hand goes to the tricks, each for himself', () => {
+	for (const [id, n] of [['permesso_6', 6], ['permesso_7', 7]]) {
+		const g = load(id, n, { variant: 'sciolto_chosen' });
+		const h = newHand(g, { seed: 'sc1', dealer: 0 });
+		const phases = [h.s.phase];
+		let guard = 0;
+		while (!h.isOver() && guard++ < 1000) {
+			const seat = h.toAct()[0];
+			assert.ok(h.apply(seat, h.legal(seat)[0]).ok);
+			if (phases[phases.length - 1] !== h.s.phase) phases.push(h.s.phase);
+		}
+		assert.ok(!phases.includes('bidding'), id + ' bids: ' + phases);
+		assert.equal(h.s.contract, 'sciolto');
+		assert.deepEqual(h.s.sides.of, Array.from({ length: n }, (_, i) => i));
+		// six: 13 cards each and no discard; seven: 11 each and the card over is put away by the dealer (p. 77)
+		assert.equal(phases.includes('discard'), n === 7, id);
+		assert.ok(h.s.result.winners.length >= 1);
+		const bidView = h.view(0).bidding;
+		assert.equal(bidView.bids.length, 0);
+	}
+	// the other variant (a general pass leads to the free game) still bids
+	const g2 = load('permesso_6', 6, { variant: 'all_pass_sciolto' });
+	const h2 = until(newHand(g2, { seed: 'sc2', dealer: 0 }), 'bidding');
+	assert.equal(h2.s.phase, 'bidding');
+});
+
+test('sciolto: the cards are counted by one, two or three as agreed (option group); Permesso itself stays in pairs', () => {
+	for (const group of [1, 2, 3]) {
+		const g = load('permesso_6', 6, { variant: 'sciolto_chosen', options: { group } });
+		const h = newHand(g, { seed: 'g' + group, dealer: 1 });
+		let guard = 0;
+		while (!h.isOver() && guard++ < 1000) {
+			const seat = h.toAct()[0];
+			assert.ok(h.apply(seat, h.legal(seat)[0]).ok);
+		}
+		const total = Object.values(h.s.result.points).reduce((a, b) => a + b, 0);
+		// one by one: every card of the pack is worth its value, 130 points; in pairs 91; in threes 78 short groups included
+		if (group === 1) assert.equal(total, 130 * 12);
+		if (group === 2) assert.equal(total, 91 * 12);
+		assert.ok(total > 0);
+	}
+	const cnt = load('permesso_6', 6, { options: { group: 1 } }).plan.find((e) => e.module === 'count');
+	assert.equal(cnt.set.group, 2);
+});

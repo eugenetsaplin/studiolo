@@ -25,10 +25,9 @@ const CEILINGS = [
 	[/^trentuno\/4( |$)/, 0.35, "Trent'uno on four seats: random players often do not reach 31 before the pack ends"],
 ];
 const ceilingOf = (label) => { const c = CEILINGS.find(([re]) => re.test(label)); return c ? { max: c[1], why: c[2] } : { max: DEFAULT_CEILING, why: null }; };
-// Configurations the file itself says the core cannot play yet: not a fault of the core or of the file.
-const NOT_PLAYED_YET = new Map([
-	['sedici_3/3 variant a_scaricare', 'the file asks for after_first_out and a settle mode the core does not play yet'],
-]);
+// Configurations the file itself says the core cannot play yet: not a fault of the core or of the file. (None since
+// revision 11: «a scaricare» of Sedici for three is played.)
+const NOT_PLAYED_YET = new Map([]);
 
 const names = (bad) => [...new Set(bad.map((b) => b.split(':')[0]))];
 
@@ -75,7 +74,8 @@ test('2. the points of all sides together are the points of all counted cards in
 		for (let i = 0; i < 3; i++) {
 			const h = playHand(g, 'sum' + i, i % c.seats);
 			const cards = [...countedCards(h)];
-			for (const l of h.s.discard) cards.push(...l);
+			// the cards a seat laid face down when it went out (a scaricare) are counted by nobody
+			h.s.discard.forEach((l, q) => { if (!h.outSeats().includes(q)) cards.push(...l); });
 			const sum = Object.values(h.s.m.count.sidePoints).reduce((a, b) => a + b, 0);
 			const one = countTwelfths(cards, optsOf(g));
 			if (sum !== one) bad.push(`${c.label}: the sides together ${sum / 12}, the same ${cards.length} cards in one pile ${one / 12}`);

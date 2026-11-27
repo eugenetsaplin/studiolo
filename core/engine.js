@@ -106,10 +106,38 @@ export class Hand {
 	// how many cards the deal inside a repeat group takes from the pack in one round
 	dealNeed() { return cardsNeeded(this); }
 
+	// the seats that are out of the hand while the others play on (s.outs, in the order they went out; none in a hand
+	// that ends with the first to go out)
+	outSeats() { return (this.s.outs || []).map((o) => o.seat); }
+
+	// the seats that still play, in the order of the seats: every seat, less those that have gone out. The one place that
+	// says how many play in a trick and in a deal.
+	playing() {
+		const out = this.outSeats();
+		const all = [];
+		for (let q = 0; q < this.s.n; q++) if (!out.includes(q)) all.push(q);
+		return all;
+	}
+
+	// the first seat from `seat` (itself included) that still plays, going round to the right
+	firstPlaying(seat) {
+		const out = this.outSeats();
+		let q = seat;
+		for (let i = 0; i < this.s.n && out.includes(q); i++) q = (q + 1) % this.s.n;
+		return q;
+	}
+
+	// the seat after `seat` that still plays
+	nextPlaying(seat) { return this.firstPlaying((seat + 1) % this.s.n); }
+
+	// has the first seat that plays no cards left? (those that play hold as many each; seat 0 when nobody has gone out)
+	playingEmpty() { return this.s.hands[this.firstPlaying(0)].length === 0; }
+
 	// has the repeat group of the phase just finished run its course? (sets s.stockEmpty when the next deal cannot be made)
 	groupDone(group) {
 		const s = this.s;
-		if (group.until !== 'stock_empty' && s.out !== null) return true;
+		// a first to go out ends the group, unless the others play on (s.outs): then only the pack can end it
+		if (group.until !== 'stock_empty' && s.out !== null && !(s.outs && s.outs.length)) return true;
 		if (group.until === 'fuora') {
 			// a valid claim ends the group at once (endHand); here only the pack can end it
 			if (s.rest.length < this.dealNeed()) { s.stockEmpty = true; return true; }
@@ -202,6 +230,7 @@ export class Hand {
 			const r = extra.e.mod.applyExtra(this, extra.e, seat, found);
 			const events = r.events.slice();
 			if (r.endHand) events.push(...this.endHand());
+			else if (r.done && !this.holdOpen()) events.push(...this.advance());
 			return { ok: true, events };
 		}
 		const r = this.cur.mod.apply(this, seat, found);
@@ -242,6 +271,7 @@ export class Hand {
 		const more = {};
 		if (s.round > 0) more.round = s.round;
 		if (s.out !== null) more.out = deepClone(s.out);
+		if (s.outs && s.outs.length) more.outs = deepClone(s.outs);
 		if (s.stockEmpty) more.stockEmpty = true;
 		if (s.piles !== null) more.piles = deepClone(s.piles);
 		if (s.shown.some((l) => l.length)) more.shown = bySeat(s.shown);
@@ -280,7 +310,8 @@ export class Hand {
 			toAct: this.toAct(),
 			hand: this.visibleHand(seat),
 			handCounts: counts(s.hands),
-			discard: { mine: s.discard[seat].slice(), counts: counts(s.discard) },
+			// the cards of a seat that went out lie face down: not even he sees them again
+			discard: { mine: this.outSeats().includes(seat) ? [] : s.discard[seat].slice(), counts: counts(s.discard) },
 			rest: { count: s.rest.length },
 			stock: { count: s.stock.length, drawn: s.drawn.filter((d) => seen(d.seat)).map((d) => ({ ...d })) },
 			trick: { leader: s.trick.length ? s.trick[0].seat : (m ? m.turn : null), cards: s.trick.map((t) => ({ ...t })) },
@@ -320,7 +351,7 @@ export function newHand(game, init) {
 		seed: String(init.seed), dealer: init.dealer, n, preset: init.preset || null, carry: init.carry ? deepClone(init.carry) : null,
 		pi: -1, phase: '', hands: arrs(), discard: arrs(), won: arrs(), rest: [], stock: [], trick: [], tricks: [], cut: null, packets: [],
 		foolGive: null, log: [], aCount: 0, drawn: [], m: {}, result: null, over: false,
-		round: 0, out: null, stockEmpty: false, piles: null, shown: arrs(),
+		round: 0, out: null, outs: [], stockEmpty: false, piles: null, shown: arrs(),
 		contract: null, declarer: null, sides: null, secret: null, allPassed: false,
 	};
 	const h = new Hand(game, s);

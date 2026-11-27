@@ -26,11 +26,11 @@ It is the restorer's rule applied to games: what we add must be recognisable as 
 
 ## Where we stand
 
-Rules revision 10, November 2026 (release 1, with its DOI, holds revision 4):
+Rules revision 11, November 2026 (release 1, with its DOI, holds revision 4):
 
 - 21 game files: one per game, and one per number of players where the deal differs.
-- 935 rules: 551 documented, 272 our readings, 112 where the sources are silent.
-- 34 open questions, 29 of them still open.
+- 969 rules: 565 documented, 289 our readings, 115 where the sources are silent.
+- 38 questions on the list: 16 still open, 15 settled by a decision of the project, 7 closed.
 - The rules engine plays all 21 game files today. The rules engine, the bots and the bot lab are in this repository.
 
 ## What is here
@@ -65,7 +65,7 @@ npm run botlab  -- --games sedici_2:2 --a normal --b easy --deals 20 --seed demo
 - `npm run play` plays one hand of a game and prints the deal, every move, the result and the money. The start and the end of the output:
 
   ```
-  game sedici_2, rules revision 10, 2 seats
+  game sedici_2, rules revision 11, 2 seats
   seed demo, hand 0, hand seed demo:sedici_2:2:0, dealer seat 0
   seat 0: normal
   seat 1: easy
@@ -86,7 +86,7 @@ npm run botlab  -- --games sedici_2:2 --a normal --b easy --deals 20 --seed demo
     points: side 0 72, side 1 240
     payments: seat 0 to seat 1 1 (loser_pays_winner)
     money: seat 0 -1, seat 1 +1 (sum 0)
-    checksum 7ffbcfce09e90a3e
+    checksum 8fbe8a8046d693ea
   ```
 
 - `npm run robots` plays many hands with a random robot and checks that the engine kept its rules. It prints one line per game, with a count for each kind of failure:
@@ -100,7 +100,7 @@ npm run botlab  -- --games sedici_2:2 --a normal --b easy --deals 20 --seed demo
 - `npm run botlab` plays one bot against another on the same hands and prints the share of hands won, with its interval, and the money per hand:
 
   ```
-  sedici_2:2 normal vs easy hands 20 share 0.600 [0.387..0.781] fair 0.500 margin 0.6 decisions 586 | money 0.200 [-0.241..0.641] per hand, thrown in 0.000, no declarer, contracts {}, a minus the others 0.400 [-0.482..1.282]
+  sedici_2:2 normal vs easy hands 20 share 0.600 [0.387..0.781] fair 0.500 margin 0.5 decisions 582 | money 0.200 [-0.241..0.641] per hand, thrown in 0.000, no declarer, contracts {}, a minus the others 0.400 [-0.482..1.282]
   written <WORK>/botlab/normal_vs_easy.json 5 s
   ```
 
@@ -121,6 +121,8 @@ Revision 8 is a second reading. The thirteen game files of revisions 6 and 7 wer
 Revision 9 follows two independent outside checks of revision 8. Each remark was checked against the page images or reproduced on the engine, and the pages that decide a point were read twice, the second time by a reader who had not seen the first reading. About two thirds of the remarks held. Three of them change the play of the short games. At Sedici, Trent'uno and Baronetti for two the deal alternates (1787, pp. 42-43, rule 44): the reading of revision 8, that the loser deals, is withdrawn. «Fuora» may be said on any turn of one's own (p. 40). At Baronetti the Fool is played into a trick in place of a card (pp. 50 and 54). In the games for three and four the card given for the Fool goes to the player who took the trick (Torino [1846], part I, p. 33), and Partita counted by four makes 72 points, with 36 each a tie. The rules pages had errors of their own: they said «half a point more» where the count takes half a point off, and 43 links gave a page of the book of 1787 under the name of another book. These are corrected, and a check now runs over every game, variant and option. Two questions came out of the check and stay open: how the book counted the cards left over at Venticinque, where its own example makes a tie that our count cannot produce, and where the steps of the payment at Permesso fall, on which two rules of the book disagree.
 
 Revision 10 plays what revision 9 had to leave on paper. The format gained three words: a result shared by the players level on the best score, a payment made once at the end of a match, and a rounding toward zero. At Meno one player pays, the one with the most points (Torino [1846], part I, p. 32), and players level on the fewest points all win; the sources are silent on that tie, and the other readings stay in the file. The two short forms of Meno of the book of 1787 (p. 78) are played again, each only at the numbers of players where a check of two hundred hands found a winner often enough. In Partita for four (the variant of four deals), in Consiglio (the sum of four deals) and in Venticinque for three one stake is paid once, at the end of the match (Torino [1846], part I, pp. 34-36). The five games for two play move for move as in revision 9: on fixed seeds the 1,700 checksums of hands and matches are the same. The revision also writes down the readings found since: the discard and the revoke at Venticinque, the steps of the payment at Permesso, and the Milanese almanac «Per chi tarocca» for 1794 as a neighbouring support.
+
+Revision 11 follows an outside check of all 21 game files against the books. Each remark was read against the page images or reproduced on the engine. At Sedici and Trent'uno a player says «fuora» of his own will: the book of 1787 prints no duty to say it at the end of a packet (pp. 39, 40, 46), and the old duty stays as the other reading. When the pack runs out, each player in turn may say it or pass; the books are silent on an empty pack, so that last window is our decision. The reprint of 1846 gives the game to the first player who made the points, not to the first who says so (*Prammatica*, p. 12, of Sedici and Trent'uno alike): Trent'uno plays that in its variant of 1846, Sedici keeps it as the other reading. Sedici for three plays «a scaricare»: the first out lays his cards down unseen, the other two play on, and the last pays for both (1787, pp. 43-44). At Meno with eight cards the player who takes every trick wins alone and all the others pay him (Torino [1846], part I, p. 32). At Bagatt'ultimo a player who declares Mitigati is paid ten for the three honours and ten more for Mitigati (1787, p. 94). At Mitigati for two the declarations are made until the first trick is covered (p. 86). At Permesso for six and seven a free game agreed beforehand has no auction and counts by one, two or three cards, as the table agrees (pp. 75-77); the second reading of the auction, where the word goes back at once to the player who was overbid (pp. 62-63, 82), is in the files as the other reading. At Baronetti the loser deals the next game (p. 41). The other reading of the discard at Venticinque for two, counted for nobody, now plays (pp. 53-55). One reason we had written ourselves was wrong and is gone: at Consiglio 46 points can be made counting by four, so the count in pairs is a reading, not a necessity. Still not played: the duty of a player who is «fuori» at Venticinque for three to lead his trumps (Torino [1846], part I, p. 34); the journal says why. The bots follow the new rules, and two defects found by an outside check are corrected: a bot no longer misses a card that wins at once at Sedici and Trent'uno, and it weighs a lawful equal bid at Permesso.
 
 ## How you can help
 

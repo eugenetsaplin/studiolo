@@ -4,8 +4,8 @@
 	"extends": "permesso_6",
 	"family": "permesso",
 	"status": "playable_with_decisions",
-	"about": "Settilio, Permesso for seven (Torino 1787, «Del giuoco di Permesso in sette persone, o sia Settilio», p. 77, and the Fool of pp. 77-78), «giuoco bizzarro»: 11 cards to each of the seven players and one card over «per lo scarto»; the rest is said to be as in Quintilio and Sestilio. The book does not say who takes the card over; ours, as the dealer, who then puts one card away. Giuoco sciolto is inherited from Sestilio because «come sopra è stato detto di Quintilio, e Sestilio» (p. 77); that it applies with seven is our reading.",
-	"revision": 10,
+	"about": "Settilio, Permesso for seven (Torino 1787, «Del giuoco di Permesso in sette persone, o sia Settilio», p. 77, and the Fool of pp. 77-78), «giuoco bizzarro»: 11 cards to each of the seven players and one card over «per lo scarto»; the rest is said to be as in Quintilio and Sestilio. The book does not say who takes the card over; ours, as the dealer, who then puts one card away. Giuoco sciolto is inherited from Sestilio because «come sopra è stato detto di Quintilio, e Sestilio» (p. 77); that it applies with seven is our reading, and so is the card over: in the free game too it is the dealer's and he puts one card away, since 7 × 11 leaves one (the book's «no discard» of p. 77 is said of six).",
+	"revision": 11,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -33,7 +33,7 @@
 	"variants": [
 		{
 			"id": "sciolto_chosen",
-			"source": "[R] Torino 1787, p. 76: «Per giuocar però meglio in sei persone … Permesso, potrassi giuocare a giuoco sciolto»: the table agrees before the deal to play giuoco sciolto instead of Permesso. For seven the page says only «Il rimanente si farà come sopra è stato detto di Quintilio, e Sestilio» (p. 77): carried over to Settilio, our reading.",
+			"source": "[R] Torino 1787, p. 76: «potrassi giuocare a giuoco sciolto, in cui chi fa più punti guadagna la partita»: the table agrees before the deal to play giuoco sciolto instead of Permesso, with no auction: nobody asks «Permesso», the cards are dealt and play begins at once, each for himself. For seven the page says only «Il rimanente si farà come sopra è stato detto di Quintilio, e Sestilio» (p. 77): carried over to Settilio, our reading; the one card over (p. 77, «per lo scarto») is still put away by the dealer.",
 			"patch": {
 				"hand": {
 					"phases": [
@@ -41,7 +41,7 @@
 							"id": "bidding",
 							"module": "bidding",
 							"settings": {
-								"contracts": {"value":["sciolto"],"source":"[R] Torino 1787, p. 76: only giuoco sciolto is played; nobody asks «Permesso». Said for six; carried over to seven (p. 77)."},
+								"contracts": {"value":["sciolto"],"source":"[R] Torino 1787, p. 76: only giuoco sciolto is played; nobody asks «Permesso», so there is no auction. Said for six; carried over to seven (p. 77)."},
 								"all_pass": {"value":"contract:sciolto","source":"[R] Torino 1787, p. 76: the table plays «a giuoco sciolto» as agreed. Said for six; carried over to seven (p. 77)."}
 							}
 						}
@@ -70,6 +70,13 @@
 	"hand": {
 		"phases": [
 			{
+				"id": "bidding",
+				"module": "bidding",
+				"settings": {
+					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; p. 77 sends to it, «come sopra è stato detto di Quintilio, e Sestilio»): the second reading of «dirà subito», carried over to seven: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours."}
+				}
+			},
+			{
 				"id": "deal",
 				"module": "deal",
 				"settings": {
@@ -95,6 +102,50 @@
 			}
 		]
 	},
+	"penalties": [
+		{
+			"id": "wrong_discard_count",
+			"offence": "wrong_discard_count",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other","if_lost":"double"},"source":"[R] Torino 1787, pp. 59-60 (Permesso for three): a card more or fewer in the discard: «si faran tutti, quantunque abbi guadagnato, da … semplice, se la faran pagar doppia»; carried over to the one card the dealer puts away at Settilio (p. 77); the engine checks the count."}
+		},
+		{
+			"id": "change_discard",
+			"offence": "change_discard",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"allowed":false},"source":"[R] Torino 1787, p. 60: «fatto lo scarto, e detto, ho scartato, più non potrai cambiar alcuna carta»; carried over to Settilio (p. 77)."}
+		},
+		{
+			"id": "call_without_laying",
+			"offence": "call_without_laying",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"onoranza","to":"each_other","then":"hand_is_played"},"source":"[D] Torino 1787, pp. 64-65: «pagherà la partita semplice a' compagni, cioè … … e la partita si giuocherà»."}
+		},
+		{
+			"id": "refuse_bid",
+			"offence": "refuse_bid",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"double_onoranza","to":"each_other","marcio_alt":"marcia_game"},"source":"[D] Torino 1787, p. 66: «dovrà andare irremissibilmente, o pagar l'Onoranza doppia … a guadagnar la partita col marcio»; a bid binds (bidding.bid_binds)."}
+		},
+		{
+			"id": "signal",
+			"offence": "signal",
+			"enforce": "text_only",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other","then":"lone_player_may_stop"},"source":"[D] Torino 1787, p. 73: «costui pagherà la partita semplice a tutti … giuocare, o far cessare il giuoco»; named for Permesso for three, four and five and for Chiamare il Re (and «a qualunque altro giuoco di Tarocchi»). [R] who the offender may be is not said (any player); the table cannot see a knock, so only the rules page tells it."}
+		},
+		{
+			"id": "revoke",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other"},"source":"[D] Torino 1787, pp. 33-34 (general rule 35): «sarà obbligato senza remissione a pagare a tutti i compagni la partita semplice»; p. 38 (said for Sedici; p. 79 (Meno) and p. 90 (Partita) send to it): «incorrere nella pena accennata … num. 35. di … tutti i giuocatori compagni»; the engine refuses a card that does not follow suit."}
+		}
+	],
 	"bot": {
 		"play": [
 			{"value":{"advice":"seven_player_permesso_bizarre"},"source":"[D] Torino 1787, p. 77: «A Settilio, giuoco bizzarro»."}

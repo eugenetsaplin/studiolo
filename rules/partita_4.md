@@ -1,6 +1,6 @@
 # Partita for four (Partita)
 
-4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Partita, two against two (Torino 1787, «Del giuocare in Partita», pp. 88-90), the game the book calls the proper one of four players: two fixed pairs, partners sit face to face, the cards are cut, dealt and discarded as in Permesso for four (19 cards to each, the dealer puts two away), no one may ever go alone («andar a solo mai e poi mai»), the two partners' points are one heap and the part with more points wins, even by a single unpaired card (pp. 88-90). The Bagatto and the kings may not be put away, the Fool is shown (p. 90). Each winner collects the agreed sum from one of the opponents (p. 90). The sum, the count by four or by two, the lead and who deals first («Chi coppa meglio») are our readings. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -107,8 +107,8 @@ This step: *Documented: from the book, p. 89.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
-- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 
@@ -116,16 +116,17 @@ This step: *Documented: from the book, p. 89.*
 - **Marcio vola premiums.** Not in the 1787 book; the stake is the agreed simple sum. *Our reading: Dummett 1980, p. 261 (his guesses, not printed in the book): a double payment when the loser has fewer than 18 points, a triple for a vola, an extra for each five points.* <!-- left_out: marcio_vola_premiums -->
 - **Fool discard for vola.** Vola is not played (open question 13); the exception is not offered. *Documented: Torino 1787, p. 34 (rule 38): the Fool may be put away «in un sol caso … guadagnar la partita vola»; Turin 1880, p. 9: «as peul dcò scartesse quand ch'a iè la certëssa d'fè la vola»; Dummett 1980, p. 259 reads the same.* <!-- left_out: fool_discard_for_vola -->
 - **Milan 1794.** Customs of Milan, not of Turin: the book of 1787 decides for its own games (a revoke pays the simple game to all, p. 33; kings may not be discarded, p. 90; the pairs are fixed, p. 88). Recorded so that the difference is seen; not played. *Documented: Per chi tarocca, Milan, 1794 (the neighbours of the Turin game): a revoke costs ten points of the count, «ordinariamente porta la penale di soli dieci punti» (p. 21); no trump may be discarded, «Se chi scarta scartasse un onore, od un tarocco perderà dieci punti» (pp. 23-24), while a king in the discard is ordinary play (p. 36); the partners change in the course of an evening (pp. 13, 31); one card turned by accident in the deal is no misdeal, «si volta per accidente una carta, non si va a monte» (p. 17).* <!-- left_out: milan_1794 -->
+- **Best cut names dealer.** Not played: the table has no choice for the winner of the cut; the first dealer is the one the table gives (seats.first_dealer best_cut says only that he is the one who cut best). Revision 11. *Documented: Torino 1787, p. 89: whoever cuts best of the other three «comanda agli altri di fare»: he deals himself («o fa, mischia, e scarta egli stesso») or tells whom he likes to deal; Torino [1846], part I, p. 35, says the same.* <!-- left_out: best_cut_names_dealer -->
 
 ## Sources
 
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
+| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
-| Milan 1794 | Per chi tarocca. Almanacco critico-istruttivo per l'anno 1794, Milano, Luigi Veladini [1793/94]; Biblioteca Trivulziana, Triv M 1542 (the Milanese neighbours of the Turin game; a support, not a source of these rules) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
+| Milan 1794 | Per chi tarocca. Almanacco critico-istruttivo per l'anno 1794, Milano, Luigi Veladini [1793/94]; Biblioteca Trivulziana, Triv M 1542 | held |
 | Turin 1880 | C. C. Tarocaire, La partia a taroch an quatr. Regolament e caprissi, Turin, Stamperia Leteraria, 1880 | held |
 
-Generated from `rulesets/partita_4.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/partita_4.json`, rules revision 11. Do not edit: change the game file.

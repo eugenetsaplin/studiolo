@@ -1,7 +1,7 @@
 // Perfect-Information Monte Carlo: sample worlds consistent with the view, play every legal action to the end of the
 // hand in each world, keep the action with the best mean world score. The same worlds judge every action.
 import { makeRng } from '../core/index.js';
-import { ctxOf, greedyPlay, greedyDiscard, foolGive, monte, claimAction, showAction, contractAction, isContractLegal } from './policy.js';
+import { ctxOf, greedyPlay, greedyDiscard, foolGive, monte, claimAction, winNowAction, showAction, contractAction, isContractLegal } from './policy.js';
 import { prepare, sampleWorld } from './worlds.js';
 import { rollout, scoreOf, marginOf, SLIP } from './rollout.js';
 import { isBidView, decideBid } from './bid.js';
@@ -41,8 +41,9 @@ function tieKey(ctx, a) {
 export function decide({ game, view, level, seed }) {
 	const ctx = ctxOf(game);
 	let legal = view.legal;
-	// the non-card actions are policies (no sampling): claim exactly when out, show the Fool at once
-	const policy = claimAction(ctx, view) || showAction(view);
+	// the non-card actions are policies (no sampling): claim exactly when out, play the card that wins the game now (before
+	// anything else, the noise of a level included), show the Fool at once
+	const policy = claimAction(ctx, view) || winNowAction(ctx, view) || showAction(view);
 	if (policy) return { action: policy, eval: [{ action: policy, value: 0 }], stats: { worlds: 0, plays: 0, candidates: legal.length } };
 	// a bid of an auction: judged by sampling the hidden hands and playing every bid and the pass to the end (bid.js)
 	if (isBidView(view)) return decideBid({ game, view, level, seed, ctx, makeRng });

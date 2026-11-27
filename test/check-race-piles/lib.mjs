@@ -77,7 +77,7 @@ export function playOut(h, rng, { claimOk = () => true, falseRate = 0, pShow = 0
 		let a;
 		if (claim && (claimOk(h, seat) || rng.int(1000) < falseRate * 1000)) a = claim;
 		else if (show && rng.int(1000) < pShow * 1000) a = show;
-		else a = plays.length ? plays[rng.int(plays.length)] : L[rng.int(L.length)];
+		else a = plays.length ? plays[rng.int(plays.length)] : L.find((x) => x.type === 'pass_fuora') || L[rng.int(L.length)]; // the last window: a seat that does not claim lets it pass
 		const r = must(h.apply(seat, a));
 		if (each) each(h, seat, a, r.events);
 	}

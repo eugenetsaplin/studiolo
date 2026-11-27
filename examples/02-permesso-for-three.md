@@ -13,7 +13,7 @@ $ npm run play -- permesso_3 --seats 3 --seed demo --bots normal
 The start of the output, with the long lines of the deal cut:
 
 ```
-game permesso_3, rules revision 10, 3 seats
+game permesso_3, rules revision 11, 3 seats
 seed demo, hand 0, hand seed demo:permesso_3:3:0, dealer seat 0
 seat 0: normal
 seat 1: normal
@@ -99,25 +99,25 @@ The deal is the same as in part 1, but the play is not. The bot hands its `seed`
 
 ```
 $ node tools/botlab.mjs --games permesso_3:3 --a-bot examples/my-bot.mjs --b normal --deals 10 --seed tune
-permesso_3:3 bot:my-bot vs normal hands 10 share 0.400 [0.168..0.687] fair 0.333 margin 3.3 decisions 863 | money 2.000 [-2.274..6.274] per hand, thrown in 0.000, declared 3 won 1.000, contracts {"one":2,"two":6,"three":2}, a minus the others 3.000 [-3.411..9.411]
-written <WORK>/botlab/bot_my-bot_vs_normal.json 109 s
+permesso_3:3 bot:my-bot vs normal hands 10 share 0.450 [0.201..0.726] fair 0.333 margin -0.2 decisions 864 | money 2.300 [-2.103..6.703] per hand, thrown in 0.000, declared 4 won 1.000, contracts {"one":2,"two":6,"three":2}, a minus the others 3.450 [-3.155..10.055]
+written <WORK>/botlab/bot_my-bot_vs_normal.json 100 s
 ```
 
 The run took under two minutes on two threads. Again 10 hands, and again a wide interval. Do not read the numbers as strength.
 
-Play `normal` against `normal` on the same 10 hands (`--a normal --b normal`) and the line is close but not equal: the money of `a` is 2.000 in both, the interval is [-3.497..7.497] there. The two differ because the bot of a solver gets its own stream of random numbers, and because its rule sometimes passes. On 10 hands neither difference can be told from noise. A rule that rarely changes a move is a rule that this measure cannot judge. Change `MIN_TRUMPS` and run it again to see the line move.
+Play `normal` against `normal` on the same 10 hands (`--a normal --b normal`) and the line is close but not equal: the money of `a` is 2.400 there against 2.300 above, and the interval is [-3.214..8.014]. The two differ because the bot of a solver gets its own stream of random numbers, and because its rule sometimes passes. On 10 hands neither difference can be told from noise. A rule that rarely changes a move is a rule that this measure cannot judge. Change `MIN_TRUMPS` and run it again to see the line move.
 
 ## 4. The baseline: `normal` against `normal`
 
-`normal` against `normal` at three seats, 100 hands, seed `tune` (it took 1894 s on one thread):
+`normal` against `normal` at three seats, 100 hands, seed `tune` (it took 716 s on three threads):
 
 ```
 $ node tools/botlab.mjs --games permesso_3:3 --a normal --b normal --deals 100 --seed tune
-permesso_3:3 normal vs normal hands 100 share 0.362 [0.274..0.459] fair 0.333 margin 0.77 decisions 8589 | money 0.420 [-0.891..1.731] per hand, thrown in 0.010, declared 36 won 0.722, contracts {"two":58,"three":29,"one":8,"sans_prendre":4}, a minus the others 0.630 [-1.336..2.597]
-written <WORK>/botlab/normal_vs_normal.json 1894 s
+permesso_3:3 normal vs normal hands 100 share 0.367 [0.279..0.464] fair 0.333 margin 1.07 decisions 8598 | money 0.450 [-0.852..1.752] per hand, thrown in 0.010, declared 37 won 0.676, contracts {"two":57,"three":29,"one":9,"sans_prendre":4}, a minus the others 0.675 [-1.278..2.628]
+written <WORK>/botlab/normal_vs_normal.json 716 s
 ```
 
-The levels are the same, so the true difference is zero. The line shows what zero looks like on 100 hands: `a minus the others` is 0.630 coins per hand, with the interval [-1.336..2.597]. The seat `a` declared 36 hands and won 72 % of them, as the card of problem 002 says for the declarers of all seats (0.70). A bot of your own must show a lower end above 0 on a measure like this one; with a width of 2 coins on each side, a small gain cannot be seen in 100 hands.
+The levels are the same, so the true difference is zero. The line shows what zero looks like on 100 hands: `a minus the others` is 0.675 coins per hand, with the interval [-1.278..2.628]. The seat `a` declared 37 hands and won 68 % of them, as the card of problem 002 says for the declarers of all seats (0.70). A bot of your own must show a lower end above 0 on a measure like this one; with a width of 2 coins on each side, a small gain cannot be seen in 100 hands.
 
 The 100 hands use the same seed `tune` as the 10 hands of part 3: they are hands 0 to 9 of this run.
 

@@ -1,6 +1,6 @@
 # Permesso for three (Permesso)
 
-3 players. In the book of 1787: pp. 58-70. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+3 players. In the book of 1787: pp. 58-70. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Permesso for three («Trilio»), the first of the Turin rulebook's games of one against two (Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787, «Del giuoco del Permesso in tre persone», pp. 58-70), on the whole 78-card pack: 25 cards to each of the two players and 28 to the dealer, who puts three away (p. 59); after «Ho scartato» the player first in hand asks «Permesso?», the players bid how few cards they will change (three, two, one or none: «sans prendre»), the winner of the bidding lays his worst cards face down, calls the same number by name from the other hands and plays alone against the other two, who count their points together (pp. 60-66). He wins with 46 of the 91 points counted in pairs; the stake is the Onoranza of his contract (2, 3, 4 or 5 coins) and one coin for each five points beyond 45 (pp. 66-70). The book is silent on the dealer's place in the auction (read from Torino [1846], marked [R]), on a general pass and on a called card that lies in the discard; those two are our decisions, marked [S]. Played in coins agreed before the deal (p. 67); a match is one round of dealers (ours). Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -82,6 +82,7 @@ This step: *Documented: from the book, pp. 60-66.*
 - Whoever passes may not come back into the bidding. *Documented: from the book, p. 66.* <!-- rule: hand.bidding.pass_is_final -->
 - If everyone passes, the next dealer deals again. *Sources silent, our decision, after Dummett (1980), p. 265.* Other reading: If everyone passes, the same dealer deals again. Open question 22: could be settled by a document in which the rule is printed (the bidding of the dealer and a general pass); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.bidding.all_pass -->
 - A bid binds: whoever takes it must play it. *Documented: from the book, p. 66.* <!-- rule: hand.bidding.bid_binds -->
+- After a raise the word goes on in the order of speech. *Our reading: book, p. 62.* Other reading: After a raise the word goes back at once to the player who was overbid: he may hold with an equal bid, overbid or give way. <!-- rule: hand.bidding.overbid_returns -->
 - Whoever lays down fewer cards than he bid plays the bid of the cards laid. *Documented: from the book, p. 65.* <!-- rule: hand.bidding.lay_down_fewer -->
 
 ### The exchange
@@ -134,12 +135,12 @@ This step: *Documented: from the book, pp. 60-61.*
 
 ### Offences
 
-- Offence «a wrong number of cards in the discard»: impossible at the table; penalty: pays the simple stake to each of the others; if the hand is lost: doubled. *Documented: from the book, pp. 59-60.* <!-- rule: penalties.wrong_discard_count -->
-- Offence «changing the discard»: impossible at the table; penalty: not allowed. *Documented: from the book, p. 60.* <!-- rule: penalties.change_discard -->
-- Offence «calling for cards without laying a discard»: impossible at the table; penalty: pays the Onoranza to each of the others; then: the hand is played out. *Documented: from the book, pp. 64-65.* <!-- rule: penalties.call_without_laying -->
-- Offence «refusing the bid one made»: impossible at the table; penalty: pays a double Onoranza to each of the others; with a marcio: a game with a marcia. *Documented: from the book, p. 66.* <!-- rule: penalties.refuse_bid -->
-- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others; then: the lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- The offence «a wrong number of cards in the discard» cannot happen at this table. By the book, the offender pays the simple stake to each of the others; if the hand is lost, doubled. *Documented: from the book, pp. 59-60.* <!-- rule: penalties.wrong_discard_count -->
+- The offence «changing the discard» cannot happen at this table. By the book: it is not allowed. *Documented: from the book, p. 60.* <!-- rule: penalties.change_discard -->
+- The offence «calling for cards without laying a discard» cannot happen at this table. By the book, the offender pays the Onoranza to each of the others; then the hand is played out. *Documented: from the book, pp. 64-65.* <!-- rule: penalties.call_without_laying -->
+- The offence «refusing the bid one made» cannot happen at this table. By the book, the offender pays a double Onoranza to each of the others; with a marcio, a game with a marcia. *Documented: from the book, p. 66.* <!-- rule: penalties.refuse_bid -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others; then the lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
@@ -154,9 +155,9 @@ This step: *Documented: from the book, pp. 60-61.*
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
-| RI 1830 (after Dummett) | [Carlo O…], Regole inalterabili per tutti i giuochi di Tarocco detti di commercio, Torino, 1830 (known to us only through Dummett 1980) | not held: known to us only through another source |
+| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
+| RI 1830 (after Dummett) | [Carlo O…], Regole inalterabili per tutti i giuochi di Tarocco detti di commercio, Torino, 1830 | not held: known to us only through another source |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/permesso_3.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/permesso_3.json`, rules revision 11. Do not edit: change the game file.

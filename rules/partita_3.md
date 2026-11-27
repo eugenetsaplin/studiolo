@@ -1,6 +1,6 @@
 # Partita for three (Partita)
 
-3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+3 players. In the book of 1787: pp. 87-88. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -16,7 +16,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - Players at the table: 3. *Documented: from the book, p. 87.* <!-- rule: seats.count -->
 - Play passes to the right. *Documented: from the book, p. 35.* <!-- rule: seats.direction -->
-- The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
+- The first dealer is whoever first draws a trump from the cards turned up. *Our reading: book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-17.* <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
 - The deal passes to the right. *Our reading: book, p. 70.* Other reading: Change of dealer: to the left. <!-- rule: seats.dealer_rotation -->
@@ -95,16 +95,16 @@ This step: *Documented: from the book, p. 88.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Sources
 
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
+| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/partita_3.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/partita_3.json`, rules revision 11. Do not edit: change the game file.

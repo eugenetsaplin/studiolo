@@ -34,7 +34,7 @@ $ npm run play -- sedici_2 --seats 2 --seed demo --bots normal,easy
 The start of the output:
 
 ```
-game sedici_2, rules revision 10, 2 seats
+game sedici_2, rules revision 11, 2 seats
 seed demo, hand 0, hand seed demo:sedici_2:2:0, dealer seat 0
 seat 0: normal
 seat 1: easy
@@ -63,6 +63,10 @@ Three moves, read with the file:
 The end of the output:
 
 ```
+  32  seat 0  play batons:2
+        trick won by seat 1 (coins:K batons:2)
+        round_dealt {"index":4}
+        dealt {"round":1}
   33  seat 1  claim_fuora
         fuora_claimed {"seat":1,"valid":true,"points":20}
 result
@@ -71,10 +75,12 @@ result
   points: side 0 72, side 1 240
   payments: seat 0 to seat 1 1 (loser_pays_winner)
   money: seat 0 -1, seat 1 +1 (sum 0)
-  checksum 7ffbcfce09e90a3e
+  checksum 8fbe8a8046d693ea
 ```
 
-Points are in twelfths of a book point: 240 is 20 points. Seat 1 had 16 or more, said «fuora» on their own turn (the setting `claim_when` above) and won the hand. Run the command again: the output is the same byte for byte, because the cards and the bots depend on the seed and nothing else.
+Points are in twelfths of a book point: 240 is 20 points. Seat 1 had 16 or more, said «fuora» on their own turn (the setting `claim_when` above) and won the hand.
+
+Nobody says «fuora» for a player. At move 32 seat 1 takes the last trick of a packet, and the claim at move 33 counts 20 points, so the points were already made. The engine does not claim at that moment: the next packet is dealt (`round_dealt`) and the claim is made on a turn of one's own, because the leaf `fuora.at_round_end` is `deal_on` (`[D]`, Torino 1787, pp. 39, 40, 46: the book prints no duty to say «fuora» when the last trick of a packet is taken). Its `alt` is `must_claim`: the taker of the last trick who has the points must claim before the next deal. Seat 1, the taker of the last trick, leads the new packet, and the first thing it does is to claim. Run the command again: the output is the same byte for byte, because the cards and the bots depend on the seed and nothing else.
 
 ## 3. Change one reading
 
@@ -82,22 +88,22 @@ The bot lab can play the same bot against itself on the same deals with a game a
 
 ```
 $ node tools/botlab.mjs --games sedici_2:2 --a normal --alts --only-alt plain_value --deals 40 --seed demo
-sedici_2:2 hand.phases[count].settings.plain_value: dealer 0.575 -> 0.525, leader 0.425 -> 0.475, ties 0.000 -> 0.000, dealer margin 2.175 -> 1.375, z -0.4/0.4/0.0/-0.3
-written <WORK>/botlab/alts.json 97 s
+sedici_2:2 hand.phases[count].settings.plain_value: dealer 0.575 -> 0.525, leader 0.425 -> 0.475, ties 0.000 -> 0.000, dealer margin 2.3 -> 1.375, z -0.4/0.4/0.0/-0.3
+written <WORK>/botlab/alts.json 79 s
 ```
 
 ```
 $ node tools/botlab.mjs --games sedici_2:2 --a normal --alts --only-alt claim_when --deals 40 --seed demo
-sedici_2:2 hand.phases[fuora].settings.claim_when: dealer 0.575 -> 0.575, leader 0.425 -> 0.425, ties 0.000 -> 0.000, dealer margin 2.175 -> 2.175, z 0.0/0.0/0.0/0.0
-written <WORK>/botlab/alts.json 97 s
+sedici_2:2 hand.phases[fuora].settings.claim_when: dealer 0.575 -> 0.600, leader 0.425 -> 0.400, ties 0.000 -> 0.000, dealer margin 2.3 -> 2.175, z 0.2/-0.2/0.0/-0.0
+written <WORK>/botlab/alts.json 86 s
 ```
 
 How to read the line: the share of hands won by the dealer and by the leader, the share of ties, the dealer's margin in points, each as the value of the file `->` the value with the alt. The last four numbers are z-scores of the four differences (dealer share, leader share, ties, margin). A difference with `|z|` above 2.6 is marked as a difference in the table the command writes. With 40 hands the intervals are wide, so a difference that is not marked does not show that the two readings play alike.
 
 What the two lines say, on 40 hands:
 
-- With a plain card worth 1 in place of 0, the dealer wins 0.525 of the hands in place of 0.575 and the dealer's margin falls from 2.175 to 1.375 points. The z-scores are all below 0.5 in size: with 40 hands the lab cannot tell this change from none. A bigger run would be needed to say more.
-- With «fuora» allowed right after a trick and at no other time, the line is the same to the last digit. The bots play every hand the same way under both readings. This does not say that the two readings are equal for people: a person may wait for their own turn in the middle of a trick, and the bot does not. The number tells how the bots behave under our readings, not what the book meant.
+- With a plain card worth 1 in place of 0, the dealer wins 0.525 of the hands in place of 0.575 and the dealer's margin falls from 2.3 to 1.375 points. The z-scores are all below 0.5 in size: with 40 hands the lab cannot tell this change from none. A bigger run would be needed to say more.
+- With «fuora» allowed right after a trick and at no other time, the line moves by one hand of the 40: the dealer wins 0.600 in place of 0.575 (24 hands in place of 23) and the margin goes from 2.3 to 2.175 points. The z-scores are all below 0.3 in size, so the lab cannot tell this reading from the file's either. This does not say that the two readings are equal for people. The number tells how the bots behave under our readings, not what the book meant.
 
 `play.mjs` has no switch for an `alt`. To play one hand by an alt, load the game with `loadGame('sedici_2', getFile, {seats: 2, alts: ['hand.phases[count].settings.plain_value']})` (see [`docs/ENGINE.md`](../docs/ENGINE.md)).
 

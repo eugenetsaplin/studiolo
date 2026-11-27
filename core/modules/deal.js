@@ -79,7 +79,7 @@ export function dealEntry(h) {
 // the cards the deal gives to every seat when hand_size is half_rest: what is left, less the dealer's extra, shared
 export function halfRestSize(h, set) {
 	const left = h.s.rest.length - (set.dealer_extra || 0);
-	return Math.floor(left / h.s.n);
+	return Math.floor(left / h.playing().length);
 }
 
 const fromRest = (st) => st.from === 'rest';
@@ -88,8 +88,10 @@ export function dealingOrder(h) {
 	const { n, dealer } = h.s;
 	const out = [];
 	const step = dealEntry(h).set.order === 'from_left' ? -1 : 1;
+	// a seat that has gone out (the others play on) is not dealt to
 	for (let i = 1; i <= n; i++) out.push(seatAt(dealer, i * step, n));
-	return out;
+	const quit = h.outSeats();
+	return quit.length ? out.filter((q) => !quit.includes(q)) : out;
 }
 
 // per round, per seat: the number of cards
@@ -99,16 +101,18 @@ function planRounds(h) {
 	if (Array.isArray(st.piles)) return { rounds: [], packets: [] };
 	const extra = st.dealer_extra || 0;
 	const base = [];
-	for (let s = 0; s < n; s++) base.push(st.hand_size === 'half_rest' ? halfRestSize(h, st) : roleValue(st.hand_size, s, dealer));
-	const packets = Array.isArray(st.packets) ? st.packets : [base[(dealer + 1) % n]];
+	const quit = h.outSeats();
+	for (let s = 0; s < n; s++) base.push(quit.includes(s) ? 0 : st.hand_size === 'half_rest' ? halfRestSize(h, st) : roleValue(st.hand_size, s, dealer));
+	// the seat that is dealt first speaks for the size of a packet
+	const first = h.firstPlaying((dealer + 1) % n);
+	const packets = Array.isArray(st.packets) ? st.packets : [base[first]];
 	const rounds = packets.map((p, r) => {
-		const row = base.map((b, s) => (Array.isArray(st.packets) ? p : b));
+		const row = base.map((b, s) => (quit.includes(s) ? 0 : Array.isArray(st.packets) ? p : b));
 		const at = st.extra_when === 'first' ? 0 : packets.length - 1;
 		if (r === at) row[dealer] += extra;
 		return row;
 	});
 	// the packets recorded are the rounds as dealt: the cards of the seat on the dealer's right in each round
-	const first = (dealer + 1) % n;
 	return { rounds, packets: Array.isArray(st.packets) ? [...st.packets] : rounds.map((r) => r[first]) };
 }
 
@@ -201,8 +205,7 @@ function laterRound(h) {
 // how many cards one round of this deal takes from the pack (the engine and the deal ask it for the empty stock)
 export function cardsNeeded(h) {
 	const st = dealEntry(h).set;
-	const { n } = h.s;
-	if (Array.isArray(st.piles)) return n * st.piles.reduce((a, b) => a + b, 0) + (st.dealer_extra || 0);
+	if (Array.isArray(st.piles)) return h.playing().length * st.piles.reduce((a, b) => a + b, 0) + (st.dealer_extra || 0);
 	return planRounds(h).rounds.reduce((a, row) => a + row.reduce((x, y) => x + y, 0), 0);
 }
 

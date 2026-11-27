@@ -116,7 +116,7 @@ export function apply(h, seat, action) {
 export function keeperOf(h, rec, forfeit) {
 	const s = h.s;
 	let rule = rec.counts_for;
-	if (forfeit !== undefined && s.m.discards.length <= 1) rule = forfeit ? 'discarder_unless_no_tricks' : 'discarder';
+	if (forfeit !== undefined && s.m.discards.length <= 1 && rule !== 'nobody') rule = forfeit ? 'discarder_unless_no_tricks' : 'discarder';
 	if (rule === 'nobody') return null;
 	if (rule === 'dealer') return s.dealer;
 	if (rule === 'discarder_unless_no_tricks') {

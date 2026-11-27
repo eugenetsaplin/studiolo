@@ -2,7 +2,7 @@
 	"format": 3,
 	"id": "morto",
 	"status": "playable_with_decisions",
-	"about": "Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"about": "Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent. A Fool drawn from the stock goes to the drawer's points like any card: Torino 1787, p. 57, «o buona, o cattiva, che capiti ad essere».",
 	"sources": {
 		"ours": {
 			"cite": "Studiolo decision; not a source",
@@ -12,7 +12,7 @@
 		}
 	},
 	"versions": {"big_rules": 2, "match_rules": 4},
-	"revision": 9,
+	"revision": 11,
 	"converted_from": {
 		"format": 2,
 		"file": "TRIONFI, our game on Steam: core/rulesets/morto.json",
@@ -94,7 +94,7 @@
 				"module": "count",
 				"settings": {
 					"count_unit": {"value": "half_point", "source": "[D] Torino 1787, pp. 52, 56: «ogni carta dee essere accompagnata con un'altra carta»: a king with a plain card is worth 5, a plain card with a plain card 1; so a card is worth its points less a half (a king with a plain card is 5). Two counting cards together are worth their points less one, our reading."},
-					"odd_card": {"value": "half_point", "source": "[D] Torino 1787, pp. 54-55: «Una carta sola, ancorchè scompagnata»; with the stock all 78 cards count, 91 points."},
+					"odd_card": {"value": "half_point", "source": "[D] Torino 1787, pp. 54-55: «Una carta sola, ancorchè scompagnata»; with the stock all 78 cards count, 91 points. [R] The half point for an odd plain card: Dummett 1980, p. 261."},
 					"trick_multipliers": {"value": false, "source": "[R] Torino 1787, pp. 52, 56: the count is the pairs alone; the book knows no trick multiplier and no war (the x2 and x4 are Duello's own)."},
 					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787, pp. 54, 56: the book names no bonus for the last trick (the +5 is Duello's own)."},
 					"dealer_forfeit": {"value": false, "source": "[R] Torino 1787, p. 55: «L'avvantaggio di questo giuoco ordinariamente è di chi scarta»: the discard is the dealer's; the book does not take it from a dealer who wins no trick (rule 10, p. 21, lets a player without tricks still hold his discard).", "alt": true, "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}}
@@ -115,7 +115,7 @@
 	},
 	"match": {
 		"target": {"value": 5, "source": "[S] Ours: counts only when `hands` is 0; here a match is a fixed number of hands.", "unused": true},
-		"max_stake": {"value": 1, "source": "[S] Ours: no Raddoppio, the sources know no doubling."},
+		"max_stake": {"value": 1, "source": "[S] Ours: no doubling during play. Torino 1787, p. 55 (Venticinque) allows agreed multiples, and p. 58 doubles the payment of a player who peeks (penalties.peek_morto); the table plays only the penalty."},
 		"crawford": {"value": false, "source": "[S] Ours: without doubling there is no Crawford rule.", "unused": true},
 		"tie_replay": {"value": true, "source": "[S] Ours: counts only in a race (`hands` 0); with four fixed hands a tied hand (45½ each) is played and gives no game point.", "unused": true},
 		"max_hands": {"value": 60, "source": "[S] Ours: a safety cap on the hands of a match, as in Duello.", "unused": true},
@@ -140,7 +140,6 @@
 		}
 	},
 	"left_out": [
-		{"id": "fool_from_morto", "source": "[S] Torino 1787, pp. 57-58 say nothing of the Fool drawn from the Morto; the page says only «e poi la metti ne' punti tuoi».", "why": "The engine puts a Fool drawn from the Morto among the drawer's won cards like any card: it counts its points and no plain card is given for it."},
 		{"id": "bagatto_discard", "source": "[D] Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.", "why": "The Venticinque section, which Morto follows, says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred)."},
 		{"id": "premium_scale", "source": "[D] Dummett and McLeod 2004, pp. 156-157: premiums beyond the single game point are agreed by the players; the authors suggest a scale of 1, 2, 3, 4 and 6.", "why": "Premiums by agreement are not played: a won hand is one game point, as in Venticinque."},
 		{"id": "vola", "source": "[D] Dummett 1980, p. 259: the Fool may be discarded by a dealer who means to win every trick (vola).", "why": "A bid to take all the tricks is a contract the engine has no place for."},

@@ -53,7 +53,7 @@ Each command prints the same numbers every time, except the times in `ms/hand` a
 
 ```
 $ npm run play -- sedici_2 --seats 2 --seed demo --bots normal,easy
-game sedici_2, rules revision 10, 2 seats
+game sedici_2, rules revision 11, 2 seats
 seed demo, hand 0, hand seed demo:sedici_2:2:0, dealer seat 0
 seat 0: normal
 seat 1: easy
@@ -74,7 +74,7 @@ result
   points: side 0 72, side 1 240
   payments: seat 0 to seat 1 1 (loser_pays_winner)
   money: seat 0 -1, seat 1 +1 (sum 0)
-  checksum 7ffbcfce09e90a3e
+  checksum 8fbe8a8046d693ea
 ```
 
 With `--json` the command prints the record of the hand, and `replayHand` plays it again. With `--hands 200 --summary` it plays many hands and prints shares and money per seat.
@@ -92,7 +92,7 @@ failures: 0; written <WORK>/robots_core.json
 
 ```
 $ npm run botlab -- --games sedici_2:2 --a normal --b easy --deals 20 --seed demo
-sedici_2:2 normal vs easy hands 20 share 0.600 [0.387..0.781] fair 0.500 margin 0.6 decisions 586 | money 0.200 [-0.241..0.641] per hand, thrown in 0.000, no declarer, contracts {}, a minus the others 0.400 [-0.482..1.282]
+sedici_2:2 normal vs easy hands 20 share 0.600 [0.387..0.781] fair 0.500 margin 0.5 decisions 582 | money 0.200 [-0.241..0.641] per hand, thrown in 0.000, no declarer, contracts {}, a minus the others 0.400 [-0.482..1.282]
 written <WORK>/botlab/normal_vs_easy.json 5 s
 ```
 

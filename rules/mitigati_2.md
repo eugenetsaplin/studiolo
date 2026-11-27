@@ -1,6 +1,6 @@
 # Mitigati for two (Mitigati)
 
-2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+2 players. In the book of 1787: pp. 85-87. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Mitigati for two, «il giuoco di tutte le carte in due persone» of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 85-87), read on the scan: the whole pack is used; because 78 cards in the hand are «una confusa faragine» the dealer discards thirteen cards and his opponent twelve (honours never; read as exact, the other reading, up to thirteen, is in the source text), then the dealer deals again all the cards that remain, half each, keeping three more for the usual dealer's discard (pp. 85-86); honours and ten or more trumps are declared before the first trick is covered and paid in marche, Mitigati (Angel, Bagatto, Fool) separately (p. 86, tariff of pp. 93-95); the rest is as in Venticinque for two; the hand is won with 46 points, the Fool's card deducted, counted in pairs (p. 87); a revoke or a misdeal costs ten marche, «una ficcia» (p. 87). The size of the first deal is not printed; the file follows Dummett's reading (26 and 25); 39 and 39 cannot be, as no cards would be left for the second deal. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -79,7 +79,7 @@ This step: *Documented: from the book, p. 86.*
 
 ### Declarations
 
-- A declaration may be made before the first trick. *Our reading: book, p. 86.* Open question 30: could be settled by a document in which the rule is printed or a trial with live players (when the declarations of Mitigati for two close); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.declarations.window -->
+- A declaration may be made before the first trick. *Documented: from the book, p. 86.* Other reading: A declaration may be made after the discard and before the first card. <!-- rule: hand.declarations.window -->
 - The kinds of declaration are listed in the game file. *Our reading: book, p. 86.* <!-- rule: hand.declarations.kinds -->
 - Whoever declares late loses the right to declare. *Our reading: book, p. 86.* <!-- rule: hand.declarations.late -->
 - The players make the declarations themselves. *Our reading: book, pp. 85-86.* Other reading: The engine makes the declarations for the players. <!-- rule: hand.declarations.mode -->
@@ -126,8 +126,8 @@ This step: *Documented: from the book, p. 86.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
-- Offence «misdeal»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
+- The offence «misdeal» cannot happen at this table. By the book, the offender pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
 
 ## Not played yet
 
@@ -140,7 +140,7 @@ This step: *Documented: from the book, p. 86.*
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/mitigati_2.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/mitigati_2.json`, rules revision 11. Do not edit: change the game file.

@@ -5,6 +5,7 @@
 //  - monte: the deal-throwing votes and proposals (judged on the cards dealt so far).
 import { INFO, FOOL, ALL, INDEX } from '../core/cards.js';
 import { countTwelfths } from '../core/points.js';
+import { countEntry } from '../core/score.js';
 
 const cache = new WeakMap();
 
@@ -27,13 +28,20 @@ export function ctxOf(game) {
 	for (const id of ALL) total += val[id] - 1;
 	const fuora = [...((game.hooks && game.hooks.tricks) || []), ...game.plan].find((e) => e.module === 'fuora');
 	const count = entry('count');
+	// the count phase of the contract played (a file may count a free game by its own rule), as options of countTwelfths
+	const countOf = (contract) => {
+		const e = countEntry(game, contract);
+		return e ? { table: game.tables.values, group: e.set.group, oddCard: e.set.odd_card, plainValue: e.set.plain_value } : null;
+	};
 	c = {
 		game,
 		// cards.fool "trump": the Fool is an ordinary (lowest) trionfo; every excuse special case is for "excuse" only
 		foolTrump: game.cfg.cards.fool === 'trump',
 		firstOut: !!result && result.set.winner === 'first_out',
 		target: fuora && Number.isFinite(fuora.set.target) ? fuora.set.target : null,
-		countOpts: count ? { table: game.tables.values, group: count.set.group, oddCard: count.set.odd_card, plainValue: count.set.plain_value } : null,
+		firstReached: !!fuora && fuora.set.winner_is === 'first_reached',
+		countOpts: count ? countOf(null) : null,
+		countOf,
 		sign: result && result.set.winner === 'fewest_points' ? -1 : 1,
 		val,
 		strength: (id) => (INFO[id].trump ? game.tables.trumpStrength[id] || 0 : game.tables.suitStrength[id]),
@@ -133,31 +141,37 @@ export function monte(ctx, view) {
 
 // Book points (twelfths / 12) of a list of cards, counted by the count phase's settings (the fallback when the view
 // carries no view.points).
-export function pointsOfCards(ctx, cards) {
-	if (!ctx.countOpts) return 0;
-	const o = ctx.countOpts;
+export function pointsOfCards(ctx, cards, contract = null) {
+	const o = contract === null || contract === undefined ? ctx.countOpts : ctx.countOf(contract);
+	if (!o) return 0;
 	return countTwelfths(cards, { table: o.table, group: o.group || 1, oddCard: o.oddCard || 'half_point', plainValue: o.plainValue === undefined ? 1 : o.plainValue }) / 12;
+}
+
+// The cards a seat has taken so far, from a view: the cards of the tricks it won (an excuse Fool goes back to its owner)
+// plus the cards it showed. Everything in it is public.
+export function cardsOf(ctx, view, seat) {
+	const cards = [];
+	for (const t of view.tricks) {
+		for (const { seat: q, card } of t.cards) {
+			if (card === FOOL && !ctx.foolTrump) { if (q === seat) cards.push(card); } else if (t.winner === seat) cards.push(card);
+		}
+	}
+	const shown = view.open_piles && view.open_piles.shown && view.open_piles.shown[seat];
+	if (shown) cards.push(...shown);
+	return cards;
 }
 
 // The seat's own book points so far in the whole hand, from a view: view.points.mine, else the cards of the tricks it
 // won (an excuse Fool goes back to its owner) plus the cards it showed.
 export function ownPoints(ctx, view) {
 	if (view.points && typeof view.points.mine === 'number') return view.points.mine;
-	const cards = [];
-	for (const t of view.tricks) {
-		for (const { seat, card } of t.cards) {
-			if (card === FOOL && !ctx.foolTrump) { if (seat === view.seat) cards.push(card); } else if (t.winner === view.seat) cards.push(card);
-		}
-	}
-	const shown = view.open_piles && view.open_piles.shown && view.open_piles.shown[view.seat];
-	if (shown) cards.push(...shown);
-	return pointsOfCards(ctx, cards);
+	return pointsOfCards(ctx, cardsOf(ctx, view, view.seat), view.contract ? view.contract.id : null);
 }
 
 // The same from a sampled Hand (rollouts): the cards won and the cards shown.
 export function handPoints(ctx, hand, seat) {
 	const sh = hand.s.shown && hand.s.shown[seat];
-	return pointsOfCards(ctx, sh && sh.length ? [...hand.s.won[seat], ...sh] : hand.s.won[seat]);
+	return pointsOfCards(ctx, sh && sh.length ? [...hand.s.won[seat], ...sh] : hand.s.won[seat], hand.s.contract);
 }
 
 // claim_fuora exactly when the points reach the target: never a false claim. Returns the action or null.
@@ -166,6 +180,33 @@ export function claimAction(ctx, view) {
 	const target = ctx.target !== null ? ctx.target : view.fuora && view.fuora.target;
 	if (!a || !Number.isFinite(target)) return null;
 	return ownPoints(ctx, view) >= target ? a : null;
+}
+
+// A card that wins the game now (revision 11, the first of the two tactical answers of the outside report): the seat plays
+// the last card of the trick, the card takes the trick, and the cards it then holds make the target. The claim follows at
+// once (claimAction), so the move is a certain win. Only public facts and the seat's own cards are used. Under "first
+// reached" wins the game goes to the seat that made the target first, so the move is certain only when no other seat has
+// made it. null when there is no such card.
+export function winNowAction(ctx, view) {
+	if (ctx.target === null || !ctx.firstOut) return null;
+	const table = view.trick.cards;
+	if (!table.length || table.length !== view.seats - 1) return null;
+	if (!ctx.foolTrump && table.some((t) => t.card === FOOL)) return null; // the Fool's trick is not read here
+	const plays = view.legal.filter((a) => a.type === 'play' && (ctx.foolTrump || a.card !== FOOL));
+	if (!plays.length) return null;
+	const led = catOf(table[0].card);
+	let top = -1;
+	for (const t of table) top = Math.max(top, keyOf(ctx, t.card, led));
+	const contract = view.contract ? view.contract.id : null;
+	if (ctx.firstReached) {
+		for (let q = 0; q < view.seats; q++) if (q !== view.seat && pointsOfCards(ctx, cardsOf(ctx, view, q), contract) >= ctx.target) return null;
+	}
+	const mine = cardsOf(ctx, view, view.seat);
+	const trick = table.map((t) => t.card);
+	for (const a of plays) {
+		if (keyOf(ctx, a.card, led) > top && pointsOfCards(ctx, [...mine, ...trick, a.card], contract) >= ctx.target) return a;
+	}
+	return null;
 }
 
 // show_fool at once when offered: showing the Fool loses nothing and the next card of its pile turns early.
@@ -213,12 +254,12 @@ export function bidAction(ctx, cards, legal, bidding = null) {
 	const ratio = worthOf(cards) / (Math.max(1, cards.length) * AVG_PER_CARD);
 	const bar = TUNE.bar + TUNE.perSeat * (ctx.seatCount - 3);
 	if (highTrumps(cards) < 3) return pass || bids[0];
-	// never matches the standing bid (two seats matching each other would never end): only a higher one
+	// a bid below the standing one is never legal; one equal to it is in the list only for a seat that may match it, and is judged like the rest
 	const standing = bidding && bidding.best ? ctx.contracts.find((x) => x.id === bidding.best.contract) : null;
 	let best = null;
 	for (const a of bids) {
 		const c = ctx.contracts.find((x) => x.id === bidId(a));
-		if (!c || (standing && c.rank <= standing.rank)) continue;
+		if (!c || (standing && c.rank < standing.rank)) continue;
 		if (ratio + TUNE.perExchange * c.exchange >= bar && (!best || c.rank > best.rank)) best = { a, rank: c.rank };
 	}
 	return best ? best.a : pass || bids[0];

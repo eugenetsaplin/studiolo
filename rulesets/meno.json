@@ -3,7 +3,7 @@
 	"id": "meno",
 	"status": "playable_with_decisions",
 	"about": "Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 10,
+	"revision": 11,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -60,7 +60,7 @@
 				"seats": {
 					"count": {
 						"value": [2, 3],
-						"source": "[S] Ours: the form is played at the numbers of seats where a hand of four cards has a winner often enough and rarely more than one (a check of 200 hands by random players at each number of seats: no winner at most 15 %, more than one winner at most 50 %). With four cards that holds for two and three seats only; with more seats most hands are shared by several players. The book of 1787 (p. 78) names the form for any number of seats."
+						"source": "[S] Ours: the form is played at the numbers of seats where a hand of four cards has a winner often enough and rarely more than one (a check of 200 hands by random players at each number of seats: no winner at most 15 %, more than one winner at most 50 %). With four cards that holds for two and three seats only; with more seats most hands are shared by several players. The book of 1787 (p. 78) gives the hand size only and names no number of players for it."
 					}
 				},
 				"hand": {
@@ -84,7 +84,7 @@
 				"seats": {
 					"count": {
 						"value": [2, 3, 4, 5],
-						"source": "[S] Ours: the form is played at the numbers of seats where a hand of eight cards has a winner often enough and rarely more than one (a check of 200 hands by random players at each number of seats: no winner at most 15 %, more than one winner at most 50 %). With eight cards that holds for two to five seats; with six and seven seats most hands are shared by several players. The book of 1787 (p. 78) names the form for any number of seats."
+						"source": "[S] Ours: the form is played at the numbers of seats where a hand of eight cards has a winner often enough and rarely more than one (a check of 200 hands by random players at each number of seats: no winner at most 15 %, more than one winner at most 50 %). With eight cards that holds for two to five seats; with six and seven seats most hands are shared by several players. The book of 1787 (p. 78) gives the hand size only and names no number of players for it."
 					}
 				},
 				"hand": {
@@ -95,15 +95,18 @@
 								"hand_size": {"value": 8, "source": "[D] Torino 1787, p. 78: «con otto carte, come al Trent'uno»."}
 							}
 						},
-						{"id": "count", "settings": {"group": {"value": 1, "source": "[D] Torino [1846], part I, pp. 30-31: «le carte si contano ad una ad una».", "by": "torino1846", "pages": [30, 31]}, "plain_value": {"value": 1, "source": "[D] Torino [1846], part I, p. 31: «I punti si contano precisamente come a Trent'uno al più»: a plain card counts one.", "by": "torino1846", "pages": [31], "alt": 0}}}
+						{"id": "count", "settings": {"group": {"value": 1, "source": "[D] Torino [1846], part I, pp. 30-31: «le carte si contano ad una ad una».", "by": "torino1846", "pages": [30, 31]}, "plain_value": {"value": 1, "source": "[R] Torino [1846], part I, p. 31: «I punti si contano precisamente come a Trent'uno al più»: the page does not name the price of a plain card and refers to the general rules (Torino 1787, pp. 13-14); a plain card counts one.", "by": "torino1846", "pages": [31], "alt": 0}}},
+						{
+							"id": "result",
+							"settings": {
+								"vola": {"value": "sole_winner", "source": "[D] Torino [1846], part I, p. 32: «nella vola non perde uno solo, ma tutti, ad eccezione di chi la fa ch'è l'unico vincitore»: the player who takes all eight tricks is the only winner and every other player pays him, whatever the points are. [S] Other reading (alt none): the short text of 1787, pp. 78-79, names no vola and the points alone decide; then the player who took every trick, holding all the cards that count, has the most points and loses.", "by": "torino1846", "pages": [32], "alt": "none"}
+							}
+						}
 					]
 				},
 				"cards": {"trump_order": {"value": ["T20", "T21", "T19", "T18", "T17", "T16", "T15", "T14", "T13", "T12", "T11", "T10", "T9", "T8", "T7", "T6", "T5", "T4", "T3", "T2", "T1", "T0"], "source": "[R] As Trent'uno (Torino 1787, p. 78: «come al Trent'uno»): the Fool an ordinary trionfo, the lowest, taken by Bagatto."}, "card_points": {"value": "book_1787_short", "source": "[D] Torino [1846], part I, p. 31: «I punti si contano precisamente come a Trent'uno al più».", "by": "torino1846", "pages": [31]}, "fool": {"value": "trump", "source": "[D] Prammatica [1846], p. 6: in Trent'uno al meno «il Matto è considerato come semplice tarocco».", "by": "prammatica1846", "pages": [6]}}
 			}
 		}
-	],
-	"left_out": [
-		{"id": "vola", "source": "[D] Torino [1846], part I, p. 32, of Trent'uno al meno: «nella vola non perde uno solo, ma tutti»: the player who takes every trick is the only winner and all the others pay him. [R] Carried to Meno, as the same page reads: usually one player loses.", "why": "Not played: the core plays settle.premiums only as an empty list (core/modules/settle.js). The book of 1787 (pp. 78-79) does not name the vola at Meno."}
 	],
 	"hand": {
 		"phases": [
@@ -133,6 +136,7 @@
 				"id": "result",
 				"module": "result",
 				"settings": {
+					"vola": {"value": "none", "source": "[S] Torino 1787, pp. 78-79 name no vola at Meno: the points alone decide. The form of eight cards reads the vola from Torino [1846], part I, p. 32 (variant eight_cards)."},
 					"winner": {"value": "fewest_points", "source": "[D] Torino 1787, p. 78: «guadagna chi fa meno punti»; «sempre vince colui, che di tutti gli altri compagni fa meno punti»."},
 					"game_points": {"value": "none", "source": "[S] Torino 1787, pp. 78-79: the book names no game points and no payment; the stake of the simple game is agreed for every game (p. 21).", "replace": {"with": ["document", "expert"], "what": "who wins and who pays in Meno, and what happens when the fewest points are equal", "q": 34}},
 					"tie": {"value": "share", "alt": "no_game_points", "source": "[S] Torino 1787, pp. 78-79, Torino [1846], part I, pp. 31-32 and Dummett 1980, p. 269 say nothing of equal fewest points. Ours: the players with equal fewest points all win and the one with the most points pays each of them a stake; when all are equal nobody pays. Other version (revision 9): a tie is a hand played out and nobody pays.", "by": "ours", "pages": [78, 79], "replace": {"with": ["document", "expert"], "what": "who wins and who pays in Meno, and what happens when the fewest points are equal", "q": 34}}
@@ -151,7 +155,7 @@
 	},
 	"match": {
 		"kind": {"value": "ledger", "source": "[S] Ours: the book describes a hand («la partita») and prints no payment; the marche are settled after every deal, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
-		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 78-79 are silent on the length of a match and on payment. Ours: one round of dealers, as many deals as players. Other version, for the forms of four and eight cards: a race to a set number of points, «non meno di cinque», as Prammatica [1846], pp. 11-13 has it for Sedici and Trent'uno (an analogy; it is not said of Meno). The table may agree on two or three rounds.", "by": "ours", "pages": [78, 79], "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 78-79 are silent on the length of a match and on payment. Ours: one round of dealers, as many deals as players. Other version, for the forms of four and eight cards: a race to a set number of points, «non meno di cinque», as Prammatica [1846], pp. 12-13 prints it for «Il Trent'uno al meno», the form of eight cards; for the long game and for four cards it is an analogy. The table may agree on two or three rounds.", "by": "ours", "pages": [78, 79], "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
 	},
 	"penalties": [
 		{

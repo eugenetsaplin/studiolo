@@ -1,6 +1,6 @@
 # Baronetti
 
-2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan: two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described, and a match of two games is our decision; the loser of a game deals the next (p. 41, through p. 47). Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.
 
@@ -19,7 +19,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, p. 48.* <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
-- The dealers alternate. *Our reading: book, p. 53.* Other reading: The winner hands the pack to his companion, who shuffles and deals. <!-- rule: seats.dealer_rotation -->
+- The winner hands the pack to his companion, who shuffles and deals. *Our reading: book, p. 41.* Other reading: The dealers alternate. <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, p. 47.* <!-- rule: sides.mode -->
 
 ### The cards
@@ -89,14 +89,14 @@ This step: *Documented: from the book, p. 50.*
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: the players deal in turn. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: the players deal in turn. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore, Meno and Baronetti); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: the winner hands the pack to his companion, who deals. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: the winner hands the pack to his companion, who deals. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore, Meno and Baronetti); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «two cards turned at once»: impossible at the table; penalty: the first time: a warning; the second time: pays the simple stake; forfeits the winnings. *Documented: from the book, pp. 50-51.* <!-- rule: penalties.open_two -->
-- Offence «looking at a covered card»: impossible at the table; penalty: pays the double stake; if inadvertent: the simple stake. *Documented: from the book, pp. 52-53.* <!-- rule: penalties.peek_pile -->
-- Offence «a wrong way of dealing»: impossible at the table; penalty: pays the stake agreed. *Documented: from the book, p. 53.* <!-- rule: penalties.deal_card_by_card -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others; while the trick is open, the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- The offence «two cards turned at once» cannot happen at this table. By the book: the first time, a warning; the second time, pays the simple stake and forfeits the winnings. *Documented: from the book, pp. 50-51.* <!-- rule: penalties.open_two -->
+- The offence «looking at a covered card» cannot happen at this table. By the book, the offender pays the double stake; if inadvertent, the simple stake. *Documented: from the book, pp. 52-53.* <!-- rule: penalties.peek_pile -->
+- The offence «a wrong way of dealing» cannot happen at this table. By the book, the offender pays the stake agreed. *Documented: from the book, p. 53.* <!-- rule: penalties.deal_card_by_card -->
 
 ## Not played yet
 
@@ -110,4 +110,4 @@ This step: *Documented: from the book, p. 50.*
 | Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
 | Piedicavallo (2008) | Zorio Prachin, Il gioco dei tarocchi in Alta Valle Cervo, Piedicavallo, S.O.M.S. and Pro Loco, 2008 | held |
 
-Generated from `rulesets/baronetti.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/baronetti.json`, rules revision 11. Do not edit: change the game file.

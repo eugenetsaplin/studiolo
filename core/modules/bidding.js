@@ -1,7 +1,9 @@
 // bidding: the auction for the contract. The order of speech is the order of priority. A seat earlier in it may MATCH
 // the standing bid of a later seat; a later seat must bid HIGHER (tie: challenger lets a seat match the bid of the dealer,
 // once: the dealer then has only a higher bid or a pass; dealer lets the dealer match). A pass is final. The auction ends when every seat but the last bidder has passed. When all pass:
-// a throw-in or a fallback contract (all_pass). State: s.m[phase id].
+// a throw-in or a fallback contract (all_pass). With one contract that is also the fallback (a game agreed beforehand) there is
+// nothing to bid: the contract is set on entering. overbid_returns: the word goes back at once to the seat that was overbid
+// (second reading of «subito»). State: s.m[phase id].
 import { seatAt } from '../util.js';
 
 export const name = 'bidding';
@@ -23,6 +25,7 @@ export const supports = {
 	bid_binds: [true],
 	lay_down_fewer: ['plays_at_laid'],
 	after_dealer_pass: ['call', 'others_bid'],
+	overbid_returns: [false, true],
 };
 
 export function check(set, ctx) {
@@ -51,10 +54,21 @@ export function speechOrder(h, set) {
 	return speaks === 'first' ? [s.dealer, ...rest] : [...rest, s.dealer];
 }
 
+// the only contract of the auction is the fallback of a general pass: the game is agreed, nothing is bid
+function agreed(set) {
+	return Array.isArray(set.contracts) && set.contracts.length === 1 && set.all_pass === 'contract:' + set.contracts[0];
+}
+
 export function enter(h) {
 	const set = h.cur.set;
 	const order = speechOrder(h, set);
 	h.s.m[h.cur.id] = { order, passed: [], bids: [], best: null, at: order[0], done: false };
+	if (agreed(set)) {
+		const id = set.contracts[0];
+		h.s.m[h.cur.id].done = true;
+		h.setContract(id, h.s.dealer);
+		return { events: [{ e: 'contract_won', contract: id, declarer: h.s.dealer }], done: true };
+	}
 	return { events: [], done: false };
 }
 
@@ -101,6 +115,7 @@ export function apply(h, seat, action) {
 	const set = entry.set;
 	const m = st(h, entry);
 	const events = [];
+	const overbid = action.type !== 'pass' && m.best ? m.best.seat : null;
 	if (action.type === 'pass') {
 		m.passed.push(seat);
 		m.bids.push({ seat, bid: 'pass' });
@@ -132,6 +147,8 @@ export function apply(h, seat, action) {
 		events.push({ e: 'contract_won', contract: m.best.contract, declarer: m.best.seat });
 		return { events, done: true };
 	}
+	// second reading: the seat that was overbid has the word at once (to hold with an equal bid, to overbid or to give way)
+	if (set.overbid_returns === true && overbid !== null && overbid !== seat && !m.passed.includes(overbid)) { m.at = overbid; return { events, done: false }; }
 	// the next seat still in the auction, after this one in the order of speech
 	const at = m.order.indexOf(seat);
 	for (let i = 1; i <= m.order.length; i++) {

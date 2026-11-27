@@ -90,3 +90,18 @@ test('seat counts the file does not allow are not runnable; by_seats resolves pe
 	assert.throws(() => load('meno', 8));
 	assert.throws(() => load('meno', 1));
 });
+
+// revision 11: «a scaricare» (Sedici for three, Torino 1787, pp. 43-44) is played; its two parts are refused where they stand alone
+test('the variant a_scaricare of Sedici for three is played; the settle mode and the first-out value are not played without each other or at other numbers of seats', () => {
+	assert.equal(load('sedici_3', 3, { variant: 'a_scaricare' }).support.runnable, true);
+	assert.equal(load('sedici_3', 3).support.runnable, true);
+	const mode = loadWith('sedici_3', 3, (f) => { phaseOf(f, 'settle').settings.mode.value = 'a_scaricare'; });
+	assert.equal(mode.support.runnable, false);
+	assert.ok(mode.support.missing.some((m) => m.path === 'hand.phases[settle].settings.mode'));
+	const first = loadWith('sedici_4', 4, (f) => { phaseOf(f, 'fuora').settings.after_first_out.value = 'others_continue'; });
+	assert.equal(first.support.runnable, false);
+	assert.ok(first.support.missing.some((m) => m.path === 'hand.phases[fuora].settings.after_first_out'));
+	const empty = loadWith('sedici_3', 3, (f) => { phaseOf(f, 'fuora').settings.stock_empty.value = 'others_pay_first'; });
+	assert.equal(empty.support.runnable, false);
+	assert.ok(empty.support.missing.some((m) => m.path === 'hand.phases[fuora].settings.stock_empty'));
+});

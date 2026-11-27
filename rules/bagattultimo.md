@@ -1,6 +1,6 @@
 # Bagatto last (Bagatt’ultimo)
 
-3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+3 players. In the book of 1787: pp. 91-96. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -61,7 +61,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 ### Declarations
 
 - A declaration may be made after the discard and before the first card. *Documented: from the book, p. 95.* <!-- rule: hand.declarations.window -->
-- The kinds of declaration are listed in the game file. *Documented: from the book, pp. 93-95.* <!-- rule: hand.declarations.kinds -->
+- The kinds of declaration are listed in the game file. *Documented: from the book, pp. 93-95.* Other reading: id: onori; counted for: set:honours; min: 3; show: announce count; pays: table: by: count; rows: 3: 10; 4: 15; 5: 20; beyond: for every: 1; add: 5, id: trionfi; counted for: the trumps; min: 10; show: expose; pays: table: by: the trumps; rows: ; same as count: yes, id: mitigati; counted for: any: Trump 20 — Angel, Trump 1 — Magician, Fool; min: 3; all of: yes; show: announce; pays: 10. <!-- rule: hand.declarations.kinds -->
 - Whoever declares late loses the right to declare. *Documented: from the book, p. 95.* <!-- rule: hand.declarations.late -->
 - The players make the declarations themselves. *Our reading: book, p. 93.* Other reading: The engine makes the declarations for the players. <!-- rule: hand.declarations.mode -->
 - Payment is made at once. *Documented: from the book, p. 94.* <!-- rule: hand.declarations.paid -->
@@ -105,9 +105,9 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
-- Offence «misdeal»: impossible at the table; penalty: pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
-- Offence «a card turned face up in the deal»: impossible at the table; penalty: a redeal for all; only before the cards are seen. *Documented: from the book, p. 92.* <!-- rule: penalties.faced_card -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia -->
+- The offence «misdeal» cannot happen at this table. By the book, the offender pays 10 marche. *Documented: from the book, p. 87.* <!-- rule: penalties.ficcia_misdeal -->
+- The offence «a card turned face up in the deal» cannot happen at this table. By the book: a redeal for all; only before the cards are seen. *Documented: from the book, p. 92.* <!-- rule: penalties.faced_card -->
 
 ## Not played yet
 
@@ -120,8 +120,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 | Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
-| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
+| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 
-Generated from `rulesets/bagattultimo.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/bagattultimo.json`, rules revision 11. Do not edit: change the game file.

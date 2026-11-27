@@ -179,8 +179,9 @@ test('sedici_2: the pack runs out: no winner, outcome none, no stake, no game po
 	assert.deepEqual(res.gamePoints, { 0: 0, 1: 0 });
 });
 
-test('sedici_2: after the last trick of a round only the taker who is out is held for his claim, before the next deal', () => {
-	const g = load('sedici_2');
+// revision 11: the file says deal_on; the old duty is the alt must_claim (the taker of the last trick of a packet who is out is held for his claim)
+test('sedici_2 (alt must_claim): after the last trick of a round only the taker who is out is held for his claim, before the next deal', () => {
+	const g = loadGame('sedici_2', getFile, { seats: 2, alts: ['hand.phases[fuora].settings.at_round_end'] });
 	const h = fresh(g, 'last');
 	setHands(h, { 1: [BA(2), BA(3), BA(4), BA(5)], 0: [BA(6), BA(7), BA(8), BA(9)] });
 	giveWon(h, 0, 16);

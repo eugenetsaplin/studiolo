@@ -464,7 +464,8 @@
 				"all_pass": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "string", "pattern": "^(redeal|redeal_next_dealer|contract:[a-z][a-z0-9_]*)$"}}}]},
 				"bid_binds": {"$ref": "#/$defs/r_bool"},
 				"lay_down_fewer": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["plays_at_laid", "forbidden"]}}}]},
-				"after_dealer_pass": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["call", "others_bid"]}}}]}
+				"after_dealer_pass": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["call", "others_bid"]}}}]},
+				"overbid_returns": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "boolean"}}}]}
 			}
 		},
 		"m_exchange": {
@@ -515,6 +516,7 @@
 				"of": {"$ref": "#/$defs/selector"},
 				"min": {"type": "integer", "minimum": 1},
 				"all_of": {"type": "boolean", "description": "true: the set must be held whole (Mitigati)."},
+				"includes": {"$ref": "#/$defs/ident", "description": "the id of another kind of the list that this kind pays with: declaring it pays that kind too (once, by the count of the hand) unless that kind was declared already; the declared kind of this one then leaves the offer (Mitigati pays the three honours)."},
 				"show": {"enum": ["announce_count", "announce", "expose"]},
 				"pays": {"$ref": "#/$defs/amount"}
 			}
@@ -561,8 +563,10 @@
 				"claim_when": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["any_time", "after_trick", "own_turn"]}}}]},
 				"false_claim": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/false_claim_row"}}}}]},
 				"after_false_claim": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["play_on", "hand_ends"]}}}]},
+				"at_round_end": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["deal_on", "must_claim"]}}}]},
+				"winner_is": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["claimer", "first_reached"]}}}]},
 				"after_first_out": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["hand_ends", "others_continue"]}}}]},
-				"stock_empty": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["reshuffle_untaken", "hand_ends_most_points", "hand_ends_no_winner"]}}}]}
+				"stock_empty": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["reshuffle_untaken", "hand_ends_most_points", "hand_ends_no_winner", "others_pay_first"]}}}]}
 			}
 		},
 		"false_claim_row": {
@@ -600,6 +604,7 @@
 				"tie": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["no_game_points", "redeal_next_dealer", "declarer_loses", "draw", "share"]}}}]},
 				"bands": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"type": "array", "items": {"$ref": "#/$defs/band"}}}}]},
 				"game_points": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["one", "one_or_two_dry", "none"]}}}]},
+				"vola": {"allOf": [{"$ref": "#/$defs/rule"}, {"properties": {"value": {"enum": ["sole_winner", "none"]}}}]},
 				"shut_num": {"$ref": "#/$defs/r_int"},
 				"shut_den": {"$ref": "#/$defs/r_int"}
 			}

@@ -79,7 +79,7 @@ test('variants: patched leaves, a variant the file lacks is an error; the meno s
 	for (const n of [6, 7]) assert.equal(playable('eight_cards', n), false, `eight_cards at ${n} seats`);
 	const meno = load('meno', 3);
 	assert.deepEqual(meno.rules.variants.map((x) => x.id), ['four_cards', 'eight_cards']);
-	assert.deepEqual((meno.rules.left_out || []).map((x) => x.id), ['vola'], 'only the vola stays out');
+	assert.deepEqual((meno.rules.left_out || []).map((x) => x.id), [], 'nothing stays out: the vola is played with eight cards (revision 11)');
 	assert.equal(load('meno', 3, { variant: 'four_cards' }).plan.find((e) => e.module === 'deal').set.hand_size, 4);
 	assert.equal(load('meno', 3, { variant: 'eight_cards' }).plan.find((e) => e.module === 'deal').set.hand_size, 8);
 	assert.throws(() => load('meno', 3, { variant: 'nothing' }));

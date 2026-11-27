@@ -115,6 +115,8 @@ Two structures of the third round of games are sampled by `bots/worlds_ext.js`; 
 ### Policies for the non-card actions
 
 - `claim_fuora`: claim exactly when `view.points.mine >= view.fuora.target`; never a false claim. When `view.points` is missing the bot counts the cards it won (tricks it took, the excuse Fool back to its owner, the cards it showed) by the count settings of the game. If the claim is the only action offered (a window that stands only for a right claim) it is answered at once. In rollouts every seat claims as soon as it is out.
+- Revision 11, «fuora» is said by the player: nobody says it for him. In his own turn the bot claims as soon as it has the target; in the last window (the pack is spent) it takes `claim_fuora` with the target and `pass_fuora` without it. Under the rule «the first to reach the target wins» it behaves the same.
+- A card that wins the game now (`winNowAction`, before any other choice and before the noise of a level): the seat plays the last card of a trick, the card takes the trick, and the cards it then holds make the target; the claim follows at once. Only the view is used. Under «the first to reach wins» the card is named only when no other seat has the target.
 - `show_fool`: shown at once when offered: it cannot be lost by showing it, and the next card of its pile turns early. No level key; it is the policy.
 
 ### Scoring a world of such a game
@@ -126,6 +128,8 @@ Two structures of the third round of games are sampled by `bots/worlds_ext.js`; 
 No false claim, ever (it does not bluff: the claim costs the false-claim payment). It does not choose the way of dealing (the core deals all packets at once). It does not model when an opponent shows a Fool: it is placed at random.
 
 ## Contracts, an exchange, a called partner, declarations
+
+Revision 11: a bid equal to the standing one (Permesso, an earlier seat answers «a due anch'io») is judged like every other bid of the legal list, in the search and in the cheap policy; the judge offers it only where the rules allow it. The book points of a hand with contracts are counted by the count phase of the contract played (the free game of the six and seven seat games is counted by one, two or three cards as agreed; the four contracts of Permesso in pairs), and `core/score.js` writes the score lines of the table by the same phase.
 
 The same bot plays the ten games with contracts. No game is named; the code reads `game.contracts`, the plan modules (`bidding`, `exchange`, `call_partner`, `declarations`) and the view (`view.contract`, `view.bidding`, `view.exchange`, `view.call`, `view.sides`, `view.declarations`). The level files did not change.
 
@@ -139,7 +143,7 @@ The same bot plays the ten games with contracts. No game is named; the code read
 Why: the cheap policy alone passed almost always (bots alone threw in 82 to 96 % of the hands at three to seven seats). Its bar sat where the hand would win as declarer nine times in ten, and the cards the declarer calls in the exchange counted for almost nothing.
 
 **Policies** (`bots/policy.js`, no sampling, no new level key). A view whose legal list holds `pass` (when sampling is not possible), `lay_down`, `lay_done`, `call`, `call_partner` or a `declare_*` action is answered at once:
-- `bid` (the cheap policy: inside rollouts for every seat, and the fallback): the hand is worth trumps above the tenth (the highest, from XVI, twice), kings, queens, a little for low trumps. The ratio to an average hand, plus a little for each card the exchange can still change, must reach a bar (`TUNE` in policy.js: 1.7 at three seats, +0.22 for each seat more; set by short labs of the declarer's money). It bids the highest legal contract that passes the bar, else passes. It never bids with fewer than three trumps above the tenth, never matches the standing bid (two matching seats would never end) and never bids an illegal contract.
+- `bid` (the cheap policy: inside rollouts for every seat, and the fallback): the hand is worth trumps above the tenth (the highest, from XVI, twice), kings, queens, a little for low trumps. The ratio to an average hand, plus a little for each card the exchange can still change, must reach a bar (`TUNE` in policy.js: 1.7 at three seats, +0.22 for each seat more; set by short labs of the declarer's money). It bids the highest legal contract that passes the bar, else passes. It never bids with fewer than three trumps above the tenth, judges an equal bid with the other bids and the pass when the judge offers it (revision 11: only an earlier seat may match the standing bid, a later seat is never offered one, so an auction always ends) and never bids an illegal contract.
 - `lay_down`: plain suits first, the fewest points, the shortest suit; never `lay_done` while a card can be laid.
 - `call`: the strongest card it lacks: high trumps, then kings of its long suits, then queens.
 - `call_partner`: a card of the highest rank offered (the ladder), in the suit where it is longest and holds a high card; never a card of its own hand while another can be called.
@@ -159,6 +163,10 @@ Only `view`. Never a snapshot, the log, or another seat's hand (a partner's hand
 ## Determinism
 
 World `i` is sampled from `makeRng(seed:w<i>:<try>)`, a rollout from `makeRng(seed:r<i>:<action>)`, noise and temperature have their own streams. There is no clock: the budget is a count. Two calls with the same arguments, or one with a view taken from `hand.clone()`, give the same answer.
+
+## Known limitations
+
+**A world scores a win and the margin together (`bots/rollout.js`, `scoreOf`: `win_weight * winSign + marginOf`).** The mixture can prefer a risk with a large margin in book points to a sure win; with `win_weight` 5 in `normal` the margin of a few points is worth about as much as a win. The outside report (`studiolo-solutions-2026-11-26`, section 2) names this as a candidate cause of the missed immediate wins in Sedici and Trent'uno, without proving that it is the cause. The formula is not changed. The two missed wins are now caught by a tactical check before the search (`winNowAction`); whether the mixture costs anything elsewhere has not been measured. There is no measurement yet, so nothing here says the mixture is wrong: a measurement is to be made (the same bot with the score of the win alone, against the present one, on the same deals) and this paragraph is to be changed after it.
 
 ## What the bot lab measures
 

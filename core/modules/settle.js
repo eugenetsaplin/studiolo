@@ -30,7 +30,7 @@ function amountOk(v, ctx) {
 
 export const supports = {
 	unit: ['stake', 'marca', 'soldo'],
-	mode: ['loser_pays_winner', 'losers_pay_winner', 'winners_from_losers', 'pair_split', 'declarer_vs_each'],
+	mode: ['loser_pays_winner', 'losers_pay_winner', 'winners_from_losers', 'pair_split', 'declarer_vs_each', 'a_scaricare'],
 	amount: (v, ctx) => amountOk(v, ctx) || 'only numbers, stake, option, contract, per_points, sum and times amounts are played',
 	premiums: [[]],
 	payments: paymentsSupport,
@@ -107,6 +107,15 @@ export function payPairs(mode, winners, losers, worst, n) {
 	return pairs;
 }
 
+// a_scaricare plays only where the first to go out leaves the others to play on (Torino 1787, pp. 43-44)
+export function check(set, ctx) {
+	if (set.mode !== 'a_scaricare') return [];
+	const f = ctx.phases.find((p) => p.module === 'fuora');
+	const leaf = f && f.settings ? f.settings.after_first_out : undefined;
+	if ((leaf && typeof leaf === 'object' && 'value' in leaf ? leaf.value : leaf) === 'others_continue') return [];
+	return [{ key: 'mode', value: 'a_scaricare', why: 'a_scaricare needs a fuora phase whose after_first_out is others_continue' }];
+}
+
 export function enter(h) {
 	const s = h.s;
 	const set = h.cur.set;
@@ -158,8 +167,15 @@ export function enter(h) {
 		if (mode === 'declarer_vs_each' || unequal) {
 			if (s.declarer !== null) declarerPays(partsOf(raw, 'declarer_vs_each'));
 		} else if (amount) {
-			const pairs = payPairs(mode, winners, losers, r.worst, s.n);
-			for (const p of pairs) add(p.from, p.to, amount, mode);
+			if (mode === 'a_scaricare') {
+				// the last pays the first for himself and for the second, who neither pays nor collects; with no last (the pack ran
+				// out before a second said «fuora») both pay the first one stake, as in the plain game of three
+				if (r.worst.length) for (const w of winners) add(r.worst[0], w, 2 * amount, mode);
+				else for (const p of payPairs('losers_pay_winner', winners, losers, r.worst, s.n)) add(p.from, p.to, amount, 'losers_pay_winner');
+			} else {
+				const pairs = payPairs(mode, winners, losers, r.worst, s.n);
+				for (const p of pairs) add(p.from, p.to, amount, mode);
+			}
 		}
 	}
 	return { events, done: true };

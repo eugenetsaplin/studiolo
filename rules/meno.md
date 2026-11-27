@@ -1,6 +1,6 @@
 # Less (Meno)
 
-2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+2 to 7 players. In the book of 1787: pp. 78-79. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Meno, «Del giuoco del Meno» (pp. 78-79) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787; the page seen again on the image for this file): the reverse game, in which the winner is «chi fa meno punti» (p. 78). It is described in one paragraph: it is played with four cards as at Sedici, eight as at Trent'uno, or with 25 cards for two players, 25 for three, 19 for four, 15 for five, 13 for six and 11 for seven; the answers are in the suit asked, a trionfo on a trionfo, and never a revoke; the penalties of the other rules hold for Meno too (pp. 78-79). The section says nothing of how the cards are counted, what is done with the cards that are not dealt, who leads, whether a void player must trump, the Fool, or what is paid. Where the section is silent the file follows Dummett 1980, p. 269, or our decision; each leaf says which. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -58,6 +58,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### The result of a hand
 
+- If one player takes every trick, the ordinary points decide. *Sources silent, our decision.* <!-- rule: hand.result.vola -->
 - Fewer points wins the hand. *Documented: from the book, p. 78.* <!-- rule: hand.result.winner -->
 - A hand gives no game points. *Sources silent, our decision.* Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins and who pays in Meno, and what happens when the fewest points are equal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.game_points -->
 - If several players tie for the best result, they all win; if all tie, the hand is a tie. *Sources silent, our decision.* Other reading: If the points are equal, nobody gains game points. Open question 34: could be settled by a document in which the rule is printed or the opinion of an expert (who wins and who pays in Meno, and what happens when the fewest points are equal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
@@ -75,11 +76,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, p. 79.* <!-- rule: penalties.revoke -->
-
-## Not played yet
-
-- **Vola.** Not played: the core plays settle.premiums only as an empty list (core/modules/settle.js). The book of 1787 (pp. 78-79) does not name the vola at Meno. *Documented: Torino [1846], part I, p. 32, of Trent'uno al meno: «nella vola non perde uno solo, ma tutti»: the player who takes every trick is the only winner and all the others pay him. [R] Carried to Meno, as the same page reads: usually one player loses.* <!-- left_out: vola -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others; while the trick is open, the card may be changed. *Documented: from the book, p. 79.* <!-- rule: penalties.revoke -->
 
 ## Sources
 
@@ -87,7 +84,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/meno.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/meno.json`, rules revision 11. Do not edit: change the game file.

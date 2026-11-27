@@ -4,8 +4,8 @@
 	"extends": "permesso_3",
 	"family": "permesso",
 	"status": "playable_with_decisions",
-	"about": "Permesso for four («Quadrilio», Torino 1787, «Del Permesso in quattro persone», pp. 71-74): «lo stesso, che il Permesso in tre persone». 19 cards to each of the four players; the dealer, who holds two over, puts away two. One goes alone against the other three, who count together. There is no draw: one of the two parts must win «per eguaglianza di punti» never being replayed (p. 74). The 21 cards of the dealer, the exact or at most two put away and the lone player's payment (three players in one) are our readings, marked. Everything not written here is as in Permesso for three.",
-	"revision": 10,
+	"about": "Permesso for four («Quadrilio», Torino 1787, «Del Permesso in quattro persone», pp. 71-74): «lo stesso, che il Permesso in tre persone». 19 cards to each of the four players; the dealer, who holds two over, puts away two. One goes alone against the other three, who count together. There is no draw: one of the two parts must win, and a hand is never replayed «per eguaglianza di punti» (p. 74). The lone player pays or is paid by each of the three, «come fosse egli tre giuocatori in un solo» (pp. 73-74). Two cards are put away (p. 71: «non può scartarne più di due»; p. 79: «due sole»); the dealer's 21 cards are counted from the pack. Everything not written here is as in Permesso for three.",
+	"revision": 11,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -39,6 +39,13 @@
 	"hand": {
 		"phases": [
 			{
+				"id": "bidding",
+				"module": "bidding",
+				"settings": {
+					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; the pages for four, pp. 71-74, send to it): the second reading of «dirà subito», carried over to four: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours."}
+				}
+			},
+			{
 				"id": "deal",
 				"module": "deal",
 				"settings": {
@@ -52,7 +59,7 @@
 				"module": "discard",
 				"settings": {
 					"count": {"value":2,"source":"[D] Torino 1787, p. 71: «chi dà le carte non può scartarne più di due»: the dealer has two over."},
-					"count_mode": {"value": "exact", "source": "[D] Torino [1846], part I, pp. 40-41: «non se ne scartano che due, perchè due sole ne sovrabbondano».", "by": "torino1846", "pages": [40, 41]}
+					"count_mode": {"value": "exact", "source": "[D] Torino 1787, p. 79 (Chiamare il Re, sending to p. 71): «scartansi pure, come ivi dicemmo, due sole»; p. 71 says «non può scartarne più di due». Torino [1846], part I, pp. 40-41: «non se ne scartano che due, perchè due sole ne sovrabbondano».", "by": "torino1846", "pages": [40, 41]}
 				}
 			},
 			{
@@ -60,7 +67,7 @@
 				"module": "result",
 				"settings": {
 					"tie": {"value": "declarer_loses", "source": "[S] Torino 1787, p. 74: «o l'una parte, o … vincere; non si … per eguaglianza di punti». Of 91 points 45½ each cannot arise: the card for the Fool goes to the taker of the trick (Dummett 1980, p. 267: «since each will have an even number of cards, no draw is possible»); ours: the lone player who does not make 46 loses (the Onoranza only, at 43½ to 45½) and nothing is replayed.", "replace": {"with": ["document"], "what": "equal points, 45½ each", "q": 14}},
-					"bands": {"value":[{"min":46,"outcome":"win","pays":"full"},{"min":43,"max":45.5,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}],"source":"[R] Torino 1787, pp. 66-67, 74: as for three (46 wins; 43 to 45 loses the Onoranza only, the line drawn where the payment puts it, see permesso_3) but «non si può mai rifare per eguaglianza di punti»: 45½ is not a draw; ours: it loses the Onoranza only.","alt":[{"min":46,"outcome":"win","pays":"full"},{"min":45.5,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43,"max":45,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}]}
+					"bands": {"value":[{"min":46,"outcome":"win","pays":"full"},{"min":43,"max":45.5,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}],"source":"[R] Torino 1787, pp. 66-67, 74: as for three (46 wins; 43 to 45 loses the Onoranza only, the line drawn where the payment puts it, see permesso_3) but «non si può mai rifare per eguaglianza di punti»: 45½ is not a draw; ours: it loses the Onoranza only. p. 74 allows no replay for equal points, so the draw of Permesso for three at 45½ is not offered as another reading."}
 				}
 			},
 			{
@@ -79,7 +86,6 @@
 		]
 	},
 	"left_out": [
-		{"id":"exact_21","source":"[R] Torino 1787, p. 71: the dealer's 21 cards are not printed.","why":"Taken from the sum of the pack (78 − 76 = 2), not from a printed number."},
 		{"id":"bagatto_declared_1846","source":"[D] Torino [1846], part I, pp. 44-46 (pp. 44-45 read on the Academy's separate image of the «pagine mancanti»; also Prammatica [1846], pp. 20-21): the lone player may declare the Bagatto last, played «in tre, in quattro»: «oltre alla Partita gli altri giuocatori ti pagheranno trenta marche per caduno»; failing, he pays thirty to each, apart from the game.","why":"The book of 1787 does not know it (Dummett 1980, p. 267: «also mentioned only in RI»). The engine cannot yet play a declaration by the lone player only, nor a payment that depends on it (question 17); a playable variant waits."},
 		{"id":"permesso_castrato","source":"[D] Torino [1846], part I, pp. 43-44; Prammatica [1846], p. 20: Permesso castrato, the pack without 24 small cards; for four 13 cards each, «e lo scarto sarà di sole due carte».","why":"A later custom of 1846, not in the book of 1787 (not in its index; Dummett 1980, p. 267: «mentioned only in RI»). Not played yet; a playable variant waits."}
 	]

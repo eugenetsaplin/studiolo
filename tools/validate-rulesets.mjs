@@ -390,6 +390,54 @@ function semanticTexts(texts, game) {
 		}
 		for (const r of Object.keys(L.rule_text || {})) if (resolvePath(game, r) === undefined) e.push(`${lang}.rule_text: «${r}» is not in the game file`);
 	}
+	for (const lang of Object.keys(texts)) if (/^[a-z]{2}$/.test(lang) && lang !== 'ru' && lang !== 'en') e.push(...textsParity(texts.en, texts[lang], lang));
+	return e;
+}
+
+// The placeholders of one text, sorted: «path» for {path}, «path|» for a plural {path|one:..|other:..}.
+// Card and set tokens and any other {…} count too: a translation keeps every one of them.
+const ANY_TOKEN = /\{([^{}|]+)(\|[^{}]*)?\}/g;
+const tokensOf = (s) => [...String(s).matchAll(ANY_TOKEN)].map((m) => (m[2] ? `${m[1]}|` : m[1])).sort();
+const pluralNames = (s) => [...String(s).matchAll(ANY_TOKEN)].filter((m) => m[2]).map((m) => [m[1], m[2].slice(1).split('|').map((p) => p.split(':')[0].trim())]);
+const NAME_MAPS = ['rule_text', 'terms', 'variant_names', 'option_names', 'penalty_names', 'contract_names', 'left_out'];
+
+// A language beside ru and en (it, fr, …) is checked against the English block: the same keys, the same lines with the
+// same ids, rules, phases and lesson steps; every text keeps the placeholders of the English text, a plural stays a
+// plural (with at least «one» and «other»); no Cyrillic letter (a Russian text left in by mistake).
+export function textsParity(en, L, lang) {
+	const e = [];
+	if (typeOf(en) !== 'object') return e;
+	if (typeOf(L) !== 'object') return [`${lang}: not an object`];
+	const keysEn = Object.keys(en).sort().join(',');
+	const keysL = Object.keys(L).sort().join(',');
+	if (keysEn !== keysL) e.push(`${lang}: keys «${keysL}» differ from en «${keysEn}»`);
+	const text = (where, a, b) => {
+		if (typeof a !== 'string') return;
+		if (typeof b !== 'string' || (a.trim() && !b.trim())) { e.push(`${where}: missing (en: «${a.slice(0, 40)}…»)`); return; }
+		if (CYRILLIC.test(b)) e.push(`${where}: a Cyrillic letter («${b.slice(0, 40)}…»)`);
+		const ta = tokensOf(a).join(' '), tb = tokensOf(b).join(' ');
+		if (ta !== tb) e.push(`${where}: placeholders «${tb}» differ from en «${ta}»`);
+		for (const [p, forms] of pluralNames(b)) if (!forms.includes('one') || !forms.includes('other')) e.push(`${where}: the plural of {${p}} needs «one» and «other» (has ${forms.join(', ')})`);
+	};
+	for (const k of ['name', 'subtitle', 'tagline']) text(`${lang}.${k}`, en[k], L[k]);
+	for (const sec of ['short', 'memo', 'hints', 'lesson']) {
+		const A = en[sec] || [], B = L[sec] || [];
+		if (A.length !== B.length) { e.push(`${lang}.${sec}: ${B.length} lines, en has ${A.length}`); continue; }
+		A.forEach((a, i) => {
+			const b = B[i] || {}, w = `${lang}.${sec}[${i}]`;
+			for (const k of ['id', 'phase', 'expect']) if (a[k] !== b[k]) e.push(`${w}.${k}: «${b[k]}», en has «${a[k]}»`);
+			if (!deepEqual(a.rules, b.rules)) e.push(`${w}.rules: differ from en`);
+			if (!deepEqual(a.setup, b.setup)) e.push(`${w}.setup: differs from en`);
+			text(`${w}.text`, a.text, b.text);
+			if ('title' in a) text(`${w}.title`, a.title, b.title);
+		});
+	}
+	for (const m of NAME_MAPS) {
+		const A = en[m] || {}, B = L[m] || {};
+		const ka = Object.keys(A).sort().join(','), kb = Object.keys(B).sort().join(',');
+		if (ka !== kb) { e.push(`${lang}.${m}: keys «${kb}» differ from en «${ka}»`); continue; }
+		for (const k of Object.keys(A)) text(`${lang}.${m}.${k}`, A[k], B[k]);
+	}
 	return e;
 }
 

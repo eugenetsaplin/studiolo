@@ -3,6 +3,7 @@
 // played sets the led suit and the Fool's owner never wins that trick.
 import { INFO, FOOL } from '../cards.js';
 import { seatAt } from '../util.js';
+import { trickLegal, trickApply, closingSeats, beginClosing } from './declarations.js';
 
 export const name = 'tricks';
 export const version = '1.0.0';
@@ -30,20 +31,24 @@ const cat = (c) => (INFO[c].trump ? 'trump' : INFO[c].suit);
 export function enter(h) {
 	const s = h.s;
 	const set = h.cur.set;
-	let leader = seatAt(s.dealer, 1, s.n);
+	let leader = h.firstPlaying(seatAt(s.dealer, 1, s.n));
 	if (set.first_leader === 'previous_last_taker' && s.carry && Number.isInteger(s.carry.lastTaker)) leader = s.carry.lastTaker;
 	// round_last_taker: a first round starts on the dealer's right; a later round of the same game, the taker of the last trick
 	if (set.first_leader === 'round_last_taker' && s.round > 0 && s.tricks.length) leader = s.tricks[s.tricks.length - 1].winner;
 	if (set.first_leader === 'previous_last_taker' && s.round > 0 && s.tricks.length) leader = s.tricks[s.tricks.length - 1].winner;
+	// a seat that has gone out does not lead: the next that plays does
+	leader = h.firstPlaying(leader);
 	s.m.tricks = { turn: leader, led: null, leader };
 	s.trick = [];
 	for (const hook of h.game.hooks.tricks || []) if (hook.mod && hook.mod.onEnter) hook.mod.onEnter(h, hook);
-	if (s.hands[0].length === 0) return { events: [], done: true };
+	if (h.playingEmpty()) return { events: [], done: true };
 	return { events: [], done: false };
 }
 
 export function toAct(h) {
 	const m = h.s.m.tricks;
+	// the last card of the first trick lies and a declaration may still come before the trick is closed
+	if (m && m.closing) return closingSeats(h);
 	return m ? [m.turn] : [];
 }
 
@@ -63,6 +68,12 @@ export function legal(h, seat) {
 	const s = h.s;
 	const set = h.cur.set;
 	const m = s.m.tricks;
+	if (m.closing) return trickLegal(h, seat);
+	return playsOf(h, seat, set, m).concat(trickLegal(h, seat));
+}
+
+function playsOf(h, seat, set, m) {
+	const s = h.s;
 	const hand = playableOf(h, seat);
 	let cards = hand;
 	if (s.trick.length === 0) {
@@ -125,6 +136,13 @@ export function reasonOf(h, rec) {
 export function apply(h, seat, action) {
 	const s = h.s;
 	const m = s.m.tricks;
+	// a declaration of the first trick (the declarations module owns it): «continue» at the end closes the trick
+	if (action.type.startsWith('declare_')) {
+		const r = trickApply(h, seat, action);
+		if (!r.close) return { events: r.events, done: false };
+		m.closing = false;
+		return closeTrick(h, r.events);
+	}
 	const events = [];
 	const hand = s.hands[seat];
 	hand.splice(hand.indexOf(action.card), 1);
@@ -134,11 +152,26 @@ export function apply(h, seat, action) {
 	// the listeners of the other phases (a called partner shows himself by the called card)
 	for (const e of h.game.plan) if (e.mod && e.mod.onCardPlayed && h.runs(e)) events.push(...e.mod.onCardPlayed(h, e, seat, action.card));
 	if (m.led === null && !excuseOf(h, action.card)) m.led = cat(action.card);
-	if (s.trick.length < s.n) {
-		m.turn = seatAt(seat, 1, s.n);
+	if (s.trick.length < h.playing().length) {
+		m.turn = h.nextPlaying(seat);
 		return { events, done: false };
 	}
-	// the trick is complete
+	// the trick is complete; the first one is held open while somebody may still declare
+	if (beginClosing(h)) { m.closing = true; return { events, done: false }; }
+	return closeTrick(h, events);
+}
+
+function closeTrick(h, events) {
+	events.push(...finishTrick(h));
+	return { events, done: h.playingEmpty() };
+}
+
+// The trick has a card from each seat that plays: the winner takes it, the hooks are told, the winner leads. A hook that
+// removes a seat from the hand calls this when the trick on the table is then complete.
+export function finishTrick(h) {
+	const s = h.s;
+	const m = s.m.tricks;
+	const events = [];
 	const winner = winnerOf(h, s.trick, m.led);
 	let foolOwner = null;
 	const taken = [];
@@ -157,5 +190,5 @@ export function apply(h, seat, action) {
 	m.led = null;
 	m.leader = winner;
 	m.turn = winner;
-	return { events, done: s.hands[0].length === 0 };
+	return events;
 }

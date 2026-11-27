@@ -12,13 +12,27 @@ export const SCORE_LINE_KEYS = KEYS;
 const entryOf = (game, module) => game.plan.find((e) => e.module === module) || null;
 const setOf = (game, module) => { const e = entryOf(game, module); return (e && e.set) || {}; };
 
+/**
+ * The count phase of the game that is played in a hand of this contract. A file may hold several count phases that run
+ * for different contracts (when.contract: a free game without the auction is counted by its own rule): the one that
+ * names the contract wins, else the one that names none, else the first. `contract` is the id the hand was played
+ * under (view.contract.id or result.contract), or null/undefined when the game has no contracts.
+ */
+export function countEntry(game, contract) {
+	const all = game.plan.filter((e) => e.module === 'count');
+	if (all.length < 2 || contract === null || contract === undefined) return all[0] || null;
+	const names = (e) => e.when && Array.isArray(e.when.contract);
+	return all.find((e) => names(e) && e.when.contract.includes(contract)) || all.find((e) => !names(e)) || all[0];
+}
+
 // the rule path of a phase as the support check names it: hand.phases[id] or hand.phases[group].phases[id]
 function phasePath(game, module) {
 	const e = entryOf(game, module);
 	if (!e) return null;
 	return e.group ? `hand.phases[${e.group.id}].phases[${e.id}]` : `hand.phases[${e.id}]`;
 }
-const settingPath = (game, module, key) => { const p = phasePath(game, module); return p ? `${p}.settings.${key}` : null; };
+const pathOfEntry = (e) => (e.group ? `hand.phases[${e.group.id}].phases[${e.id}]` : `hand.phases[${e.id}]`);
+const settingPath = (game, module, key, e = entryOf(game, module)) => (e ? `${pathOfEntry(e)}.settings.${key}` : null);
 
 // the units counted together: the sides of this hand (a contract made them), else every seat or every pooled side
 export function unitsOfView(game, view) {
@@ -41,8 +55,9 @@ export function unitsOfView(game, view) {
 	return Array.from({ length: n }, (_, s) => ({ id: `seat${s}`, seats: [s] }));
 }
 
-function countSet(game) {
-	const set = setOf(game, 'count');
+function countSet(game, contract) {
+	const e = countEntry(game, contract);
+	const set = (e && e.set) || {};
 	return { group: set.group || 2, oddCard: set.odd_card || 'half_point', plainValue: set.plain_value === undefined ? 1 : set.plain_value };
 }
 
@@ -104,7 +119,9 @@ export function scoreLines(game, view) {
 	const units = unitsOfView(game, view);
 	const out = { units: units.map((u) => ({ id: u.id, seats: u.seats.slice() })), totals: {}, lines: [] };
 	if (res.outcome === 'thrown_in') return out;
-	const cs = countSet(game);
+	const contract = res.contract !== undefined && res.contract !== null ? res.contract : (view.contract && view.contract.id);
+	const countE = countEntry(game, contract);
+	const cs = countSet(game, contract);
 	const { won, prize } = wonOfView(view);
 	const hasPrizeStock = ((game.hooks && game.hooks.tricks) || []).some((e) => e.module === 'prize_stock');
 	const per = {};
@@ -123,8 +140,8 @@ export function scoreLines(game, view) {
 	const roundTarget = (game.cfg.match && game.cfg.match.round_target) || 0;
 	for (const key of after) {
 		let line = null;
-		if (key === 'groups' || key === 'pairs') line = { rule: settingPath(game, 'count', 'group'), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.won) };
-		else if (key === 'odd_card') line = { rule: settingPath(game, 'count', 'odd_card'), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.odd) };
+		if (key === 'groups' || key === 'pairs') line = { rule: settingPath(game, 'count', 'group', countE), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.won) };
+		else if (key === 'odd_card') line = { rule: settingPath(game, 'count', 'odd_card', countE), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.odd) };
 		else if (key === 'fool_card') line = { rule: 'cards.fool_exchange', by: 'unit', unit: 'twelfths', values: byUnit((p) => p.fool) };
 		else if (key === 'discard') line = { rule: settingPath(game, 'discard', 'counts_for'), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.discard) };
 		else if (key === 'stock_cards') line = { rule: phasePath(game, 'prize_stock'), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.stock) };

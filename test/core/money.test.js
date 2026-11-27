@@ -157,3 +157,60 @@ test('every payment of a contract hand balances: what is paid is what is receive
 		}
 	}
 });
+
+// Permesso for three, 45 and 45½ with the card for the Fool (pp. 66-70): the numbers of the book are named before that card
+// changes hands, and the card is worth half a point. The piles are set by hand; the count and the result run on the real file.
+test('permesso_3: the Fool card is half a point: 45 with a card owed is a draw, 46 with a card to pay is a draw, 45 with none is a loss of the Onoranza', async () => {
+	const count = await import('../../core/modules/count.js');
+	const KINGS = ['swords:K', 'batons:K', 'cups:K', 'coins:K'];
+	const QUEENS = ['swords:Q', 'batons:Q', 'cups:Q', 'coins:Q'];
+	const KNIGHTS = ['swords:N', 'batons:N', 'cups:N'];
+	const PLAIN = ['swords:1', 'swords:2', 'swords:3', 'swords:4', 'swords:5', 'swords:6', 'swords:7', 'swords:8', 'swords:9', 'swords:10', 'batons:1'];
+	const pairs = [...KINGS, ...QUEENS, ...KNIGHTS].flatMap((c, i) => [c, PLAIN[i]]); // 11 pairs: 4 x 5 + 4 x 4 + 3 x 3 = 45
+	const settled = (extra, fool, toOpp = []) => {
+		let h;
+		for (let i = 0; i < 80 && !h; i++) {
+			const c = playRandom(load('permesso_3', 3), 'f45:' + i, i % 3);
+			if (c.s.declarer !== null && c.s.result.outcome !== 'thrown_in') h = c;
+		}
+		const w = h.clone();
+		const s = w.s;
+		const d = s.declarer;
+		const o = (d + 1) % 3;
+		const mine = [...pairs, ...extra];
+		s.won = [[], [], []];
+		s.won[d] = mine.slice();
+		s.won[o] = [...toOpp, 'cups:2', 'cups:3', 'cups:4'];
+		s.tricks = [];
+		s.shown = null;
+		s.drawn = [];
+		s.m.discards = [];
+		s.foolGive = fool ? { from: fool.from === 'declarer' ? d : o, to: fool.from === 'declarer' ? o : d, options: [], card: fool.card } : null;
+		s.result = null;
+		s.payments = undefined;
+		s.pi = w.game.plan.findIndex((e) => e.module === 'count');
+		count.enter(w);
+		s.pi = w.game.plan.findIndex((e) => e.module === 'result');
+		result.enter(w);
+		return w;
+	};
+	const pts = (w) => w.s.m.count.sidePoints[w.sides().of[w.s.declarer]] / 12;
+	// 45 before the card, and the lone player is owed a plain card for the Fool the opponents hold: 45 + 1/2
+	const owed = settled(['batons:2'], null);
+	assert.equal(pts(owed), 45.5);
+	assert.equal(owed.s.result.band.outcome, 'draw');
+	assert.equal(owed.s.result.outcome, 'draw');
+	// 46 before the card, and the lone player holds the Fool and pays a plain card: 45 + 1/2 after it
+	const pays = settled(['batons:2'], { from: 'declarer', card: 'batons:3' }, ['batons:3']);
+	assert.equal(pts(pays), 45.5);
+	assert.equal(pays.s.result.band.outcome, 'draw');
+	// 45 and no card owed or paid: the Onoranza is lost
+	const plain = settled([], null);
+	assert.equal(pts(plain), 45);
+	assert.equal(plain.s.result.band.outcome, 'loss');
+	assert.equal(plain.s.result.band.pays, 'onoranza_only');
+	// 46 with no card to pay wins
+	const win = settled(['batons:2', 'batons:3'], null);
+	assert.equal(pts(win), 46);
+	assert.equal(win.s.result.band.outcome, 'win');
+});

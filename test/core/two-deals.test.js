@@ -76,10 +76,13 @@ test('hand_size half_rest needs from rest, and from rest needs half_rest', () =>
 	assert.equal(bad2.support.runnable, false);
 });
 
-test('the declarations come after both discards, before the first card, in play order', () => {
+// the window before revision 11 (the alt): one declaring turn for each seat before the first card
+const oldWindow = loadPatched('mitigati_2', 2, exact, { alts: ['hand.phases[declarations].settings.window'] });
+
+test('the alt window: the declarations come after both discards, before the first card, in play order', () => {
 	let seen = 0;
 	for (let i = 0; i < 60; i++) {
-		const h = newHand(game, { seed: 'k3-m2d-' + i, dealer: i % 2 });
+		const h = newHand(oldWindow, { seed: 'k3-m2d-' + i, dealer: i % 2 });
 		while (['discard_first', 'discard_second'].includes(h.s.phase)) discardAll(h);
 		if (h.s.phase !== 'declarations') { assert.equal(h.s.phase, 'tricks'); continue; }
 		seen++;
@@ -89,6 +92,69 @@ test('the declarations come after both discards, before the first card, in play 
 		assert.ok(h.legal(first).some((a) => a.type === 'declare_done'));
 	}
 	assert.ok(seen > 0, 'some deal offers a declaration');
+});
+
+// a hand at the first card of the first trick
+function atFirstCard(i) {
+	const h = newHand(game, { seed: 'p' + i, dealer: i % 2 });
+	while (h.s.phase !== 'tricks') discardAll(h);
+	return h;
+}
+const declTypes = (h, seat) => h.legal(seat).filter((a) => a.type.startsWith('declare_')).map((a) => a.type);
+const play = (h, seat) => assert.ok(h.apply(seat, h.legal(seat).find((a) => a.type === 'play')).ok);
+const got = (h, seat) => handPayments(h, { payments: [] }).filter((p) => p.to === seat);
+
+test('window of the first trick: no turns before the first card; the declaring is at the seat own choice, with its card', () => {
+	const h = atFirstCard(3);
+	assert.equal(h.s.phase, 'tricks');
+	const lead = h.toAct()[0];
+	assert.deepEqual(declTypes(h, lead), ['declare_onori', 'declare_trionfi']);
+	assert.ok(h.legal(lead).slice(0, -2).every((a) => a.type === 'play'), 'the cards come first');
+	assert.deepEqual(h.legal(1 - lead), [], 'not his turn');
+	assert.deepEqual(h.view(lead).declarations.offer, ['onori', 'trionfi']);
+	assert.equal(h.view(lead).declarations.open, true);
+});
+
+test('declared after the answer of the opponent, before the first trick is closed: it is paid', () => {
+	const h = atFirstCard(3);
+	const lead = h.toAct()[0];
+	play(h, lead);
+	assert.deepEqual(declTypes(h, lead), [], 'the opponent is to play');
+	play(h, 1 - lead);
+	assert.equal(h.s.tricks.length, 0, 'the trick is not closed: somebody may still declare');
+	assert.deepEqual(h.toAct(), [lead]);
+	assert.equal(h.legal(lead)[0].type, 'declare_done', 'continue comes first');
+	assert.deepEqual(h.legal(1 - lead), []);
+	assert.deepEqual(h.view(lead).declarations.closing, true);
+	assert.ok(h.apply(lead, { type: 'declare_onori' }).ok);
+	assert.ok(got(h, lead).length > 0 && got(h, lead).every((p) => p.from === 1 - lead));
+	// the seat is still on turn for a kind left; the opponent follows, then the trick closes
+	while (h.s.tricks.length === 0) { const q = h.toAct()[0]; assert.ok(h.apply(q, h.legal(q)[0]).ok); }
+	assert.equal(h.s.tricks.length, 1);
+});
+
+test('declared with the first card and before it: paid once, not offered again at the end', () => {
+	const h = atFirstCard(3);
+	const lead = h.toAct()[0];
+	assert.ok(h.apply(lead, { type: 'declare_onori' }).ok);
+	assert.ok(!declTypes(h, lead).includes('declare_onori'));
+	play(h, lead);
+	play(h, 1 - lead);
+	assert.ok(!declTypes(h, lead).includes('declare_onori'));
+	assert.equal(got(h, lead).length, 1);
+});
+
+test('after the first trick is closed nothing can be declared', () => {
+	const h = atFirstCard(3);
+	const lead = h.toAct()[0];
+	play(h, lead);
+	play(h, 1 - lead);
+	while (h.s.tricks.length === 0) { const q = h.toAct()[0]; assert.ok(h.apply(q, h.legal(q)[0]).ok); }
+	assert.equal(h.view(lead).declarations.open, false);
+	for (const q of [0, 1]) assert.deepEqual(declTypes(h, q), []);
+	const q = h.toAct()[0];
+	assert.ok(!h.apply(q, { type: 'declare_trionfi' }).ok);
+	assert.ok(!h.apply(q, { type: 'declare_done' }).ok);
 });
 
 test('whole hands: the log replays, cards are kept, the payments balance', () => {

@@ -56,7 +56,7 @@ for (const id of ['sedici_2', 'trentuno']) {
 
 // rules revision 9 (answer 2): for two the players deal in turn (dealer_rotation alternate; rule 44, pp. 42-43, p. 70, p. 53);
 // the match is still two partite (one round of dealers = rounds x seats hands)
-test('baronetti: a ledger match ends after two partite; the players deal in turn; the balance decides', () => {
+test('baronetti: a ledger match ends after two partite; the loser deals the next; the balance decides', () => {
 	const g = load('baronetti');
 	assert.equal(g.cfg.match.kind, 'ledger');
 	assert.equal(g.cfg.match.dealer_rounds, 1);
@@ -76,8 +76,9 @@ test('baronetti: a ledger match ends after two partite; the players deal in turn
 			assert.ok(n < 3);
 		}
 		assert.equal(n, 2);
-		assert.equal(g.cfg.seats.dealer_rotation, 'alternate');
-		assert.equal(dealers[1], 1 - dealers[0], 'the other player deals the second partita');
+		// revision 11: the winner hands the pack to his companion (Torino 1787, p. 41), the loser deals; a tied partita passes the deal on
+		assert.equal(g.cfg.seats.dealer_rotation, 'winner_passes_to_companion');
+		assert.equal(dealers[1], firstWinners.length ? 1 - firstWinners[0] : 1 - dealers[0], 'the loser of the first partita deals the second');
 		const st = match.standing();
 		if (st.ledger[0] !== st.ledger[1]) assert.deepEqual(st.winners, [st.ledger[0] > st.ledger[1] ? 0 : 1]);
 		else assert.deepEqual(st.winners, []);

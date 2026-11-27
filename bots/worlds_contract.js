@@ -138,6 +138,21 @@ function moveCalled(preset, info, rng) {
 	return { ...preset, hands, rest };
 }
 
+// Declarations made inside the first trick (the window before the first trick is covered): the moments are not in the view,
+// so each declaration of the view is made when its seat may first make it, and «continue» is said where nobody declares. With
+// `view` given (the end of the replay) it stops where the view stops: at the seat that is still to speak in the closing window.
+function declareInTricks(h, made, view) {
+	for (let guard = 0; guard < 16 && !h.isOver(); guard++) {
+		const q = h.toAct()[0];
+		const legal = h.legal(q);
+		const d = made.find((x) => !x.used && x.seat === q && legal.some((a) => a.type === 'declare_' + x.kind));
+		if (d) { d.used = true; h.apply(q, { type: 'declare_' + d.kind }); continue; }
+		const closing = legal.length > 0 && legal.every((a) => a.type.startsWith('declare_'));
+		if (!closing || (view && view.declarations && view.declarations.closing && q === view.toAct[0])) return;
+		h.apply(q, { type: 'declare_done' });
+	}
+}
+
 // Rebuilds the deal as a Hand at the seat's decision. null when it does not match the view.
 function rebuildContract(game, view, info, p, seed, rng) {
 	const { n, me } = info;
@@ -176,7 +191,12 @@ function rebuildContract(game, view, info, p, seed, rng) {
 	try {
 		h = newHand(game, { seed, dealer: view.dealer, preset: { hands: preset.hands, rest: preset.rest }, carry });
 		if (!prelude(game, view, info, h, D, patch)) return no('prelude ' + why.last);
-		for (const { seat, card } of info.plays) if (!h.apply(seat, { type: 'play', card }).ok) return no('replay of a play');
+		const inTrick = info.made.filter((d) => !d.via).map((d) => ({ ...d, used: false }));
+		for (const { seat, card } of info.plays) {
+			declareInTricks(h, inTrick, null);
+			if (!h.apply(seat, { type: 'play', card }).ok) return no('replay of a play');
+		}
+		declareInTricks(h, inTrick, view);
 	} catch (e) {
 		return no('throw ' + e.message);
 	} finally {

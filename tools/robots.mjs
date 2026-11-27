@@ -1,5 +1,5 @@
 // Robots through the core: random hands, whole matches, every check after every action, the census of rare cases.
-// Usage: node tools/robots.mjs --games <id[:seats],...|runnable> --deals N --seed S [--secrecy M] [--alts N]
+// Usage: node tools/robots.mjs --games <id[:seats],...|runnable> --deals N --seed S [--secrecy M] [--alts N] [--variants N]
 //        [--workers K] [--out file] [--census-out file] [--false-claims P]
 // --false-claims P: with chance P the random robot claims «fuora» although it is not out (to exercise the payment); off by default.
 // The secrecy check also demands that covered pile cards (own too) and the order of the undealt cards change nothing a seat sees.
@@ -75,7 +75,7 @@ export function hyperAtMost(total, special, h, max) {
 // Written from the format (GAME_FILE_FORMAT 11.12) and CORE_API 7: who keeps the discard, how the units (seats or pooled sides) are counted.
 function keeperOf(rule, forfeit, nDiscards, discarder, dealer, tricks, sidesOf) {
 	let r = rule || 'discarder';
-	if (forfeit !== undefined && nDiscards <= 1) r = forfeit ? 'discarder_unless_no_tricks' : 'discarder';
+	if (forfeit !== undefined && nDiscards <= 1 && r !== 'nobody') r = forfeit ? 'discarder_unless_no_tricks' : 'discarder';
 	if (r === 'nobody') return null;
 	if (r === 'dealer') return dealer;
 	if (r === 'discarder_unless_no_tricks') {
@@ -92,7 +92,9 @@ export function recountHand(game, snap, result, sidesOf) {
 	const n = game.seats;
 	const pool = game.cfg.sides.pool === 'side';
 	const discarders = [];
-	for (let q = 0; q < n; q++) if ((snap.discard[q] || []).length) discarders.push(q);
+	// the cards a seat laid face down when it went out (a scaricare) belong to nobody's count
+	const quit = (snap.outs || []).map((o) => o.seat);
+	for (let q = 0; q < n; q++) if ((snap.discard[q] || []).length && !quit.includes(q)) discarders.push(q);
 	const kept = {};
 	for (const q of discarders) {
 		const k = keeperOf(discSet.counts_for, countSet.dealer_forfeit, discarders.length, q, snap.dealer, snap.tricks, sidesOf);
@@ -353,7 +355,8 @@ export function conserved(snap) {
 
 // ---------- one case ----------
 export function runCase(spec) {
-	const { id, seats, alt = null, deals, seed = 'r1', secrecy = 0, falseClaims = 0 } = spec; // spec.getFile: another way to read the game files (tests)
+	const { id, seats, variant = null, deals, seed = 'r1', secrecy = 0, falseClaims = 0 } = spec;
+	const alt = spec.alt || (variant ? 'variant:' + variant : null); // spec.getFile: another way to read the game files (tests)
 	const allCheck = spec.allCheck === undefined ? Math.min(secrecy, 50) : spec.allCheck;
 	const row = {
 		game: id, seats, alt, hands: 0, matches: 0, actions: 0, tried: 0, refusedOk: 0, ms: 0,
@@ -361,7 +364,7 @@ export function runCase(spec) {
 		census: newCensus(), info: { dealerHandSize: null, barredMax: null }, samples: [], error: null,
 	};
 	let game;
-	try { game = loadGame(id, spec.getFile || getFile, { seats, alts: alt ? [alt] : [] }); } catch (e) { row.error = e.message; return row; }
+	try { game = loadGame(id, spec.getFile || getFile, { seats, alts: spec.alt ? [spec.alt] : [], ...(variant ? { variant } : {}) }); } catch (e) { row.error = e.message; return row; }
 	if (!game.support.runnable) { row.error = 'not runnable: ' + game.support.missing.map((m) => m.path).join(', '); return row; }
 	const modOf = Object.fromEntries(game.plan.map((e) => [e.id, e.module]));
 	const barred = barredPredicate(game);
@@ -555,13 +558,13 @@ export const totalFailures = (rows) => sum(rows.map((r) => (r.error ? 1 : sum(Ob
 export function exactFewTrumps(handSize) { return hyperAtMost(78, 21, handSize, 3); }
 
 function parseArgs(argv) {
-	const a = { games: 'runnable', deals: 200, seed: 'r1', secrecy: 0, alts: 0, workers: Math.min(8, os.cpus().length), append: 0, out: path.join(WORK, 'robots_core.json'), censusOut: path.join(WORK, 'census.json') };
+	const a = { games: 'runnable', deals: 200, seed: 'r1', secrecy: 0, alts: 0, variants: 0, workers: Math.min(8, os.cpus().length), append: 0, out: path.join(WORK, 'robots_core.json'), censusOut: path.join(WORK, 'census.json') };
 	for (let i = 0; i < argv.length; i += 2) {
 		const k = argv[i].replace(/^--/, '');
 		const v = argv[i + 1];
 		if (k === 'games') a.games = v; else if (k === 'seed') a.seed = v;
 		else if (k === 'out') a.out = v; else if (k === 'census-out') a.censusOut = v;
-		else if (['deals', 'secrecy', 'alts', 'workers', 'append', 'false-claims'].includes(k)) a[k === 'false-claims' ? 'falseClaims' : k] = Number(v);
+		else if (['deals', 'secrecy', 'alts', 'variants', 'workers', 'append', 'false-claims'].includes(k)) a[k === 'false-claims' ? 'falseClaims' : k] = Number(v);
 		else throw new Error('unknown option --' + k);
 	}
 	return a;
@@ -589,6 +592,19 @@ export function selectCases(spec) {
 	return out;
 }
 
+// the variants of the given cases that the core plays at this number of seats (--variants N deals each)
+export function variantTasks(cases) {
+	const out = [];
+	for (const c of cases) {
+		let rules;
+		try { rules = loadGame(c.id, getFile, { seats: c.seats }).rules; } catch { continue; }
+		for (const v of rules.variants || []) {
+			try { if (loadGame(c.id, getFile, { seats: c.seats, variant: v.id }).support.runnable) out.push({ id: c.id, seats: c.seats, variant: v.id }); } catch { /* not offered at this number of seats */ }
+		}
+	}
+	return out;
+}
+
 // the alt leaves of the given cases whose alt the core plays
 export function altTasks(cases) {
 	const out = [];
@@ -604,6 +620,7 @@ async function main() {
 	const run = cases.filter((c) => c.support && c.support.runnable);
 	const tasks = a.deals > 0 ? run.map((c) => ({ id: c.id, seats: c.seats, deals: a.deals, seed: a.seed, secrecy: a.secrecy, falseClaims: a.falseClaims || 0 })) : [];
 	if (a.alts > 0) for (const t of altTasks(run)) tasks.push({ ...t, deals: a.alts, seed: a.seed, secrecy: Math.min(a.secrecy, a.alts) });
+	if (a.variants > 0) for (const t of variantTasks(run)) tasks.push({ ...t, deals: a.variants, seed: a.seed, secrecy: Math.min(a.secrecy, a.variants) });
 	let rows = await runTasks(tasks, a.workers);
 	if (a.append && fs.existsSync(a.out)) rows = [...JSON.parse(fs.readFileSync(a.out, 'utf8')).rows, ...rows];
 	console.log(formatTable(rows));

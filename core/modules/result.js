@@ -12,6 +12,8 @@ export const supports = {
 	tie: ['no_game_points', 'draw', 'redeal_next_dealer', 'declarer_loses', 'share'],
 	bands: (v) => bandsOk(v) || 'bands: a list of {min, max, outcome win|draw|loss, pays full|onoranza_only|nothing}',
 	game_points: ['one', 'none', 'one_or_two_dry'],
+	// vola: the player who takes every trick wins alone and all the others lose (more_points, fewest_points); none: the points decide
+	vola: ['sole_winner', 'none'],
 	shut_num: '*',
 	shut_den: '*',
 };
@@ -40,6 +42,15 @@ export function check(set, ctx) {
 		return [{ key: 'winner', value: 'first_out', why: 'first_out needs a fuora phase' }];
 	}
 	return [];
+}
+
+// the side that took every trick of the hand, or null
+function volaSide(h) {
+	const t = h.s.tricks;
+	if (!t.length) return null;
+	const of = h.sides().of;
+	const side = of[t[0].winner];
+	return t.every((x) => of[x.winner] === side) ? side : null;
 }
 
 export function enter(h) {
@@ -82,6 +93,10 @@ export function enter(h) {
 		outcome = winSides.length ? 'threshold' : 'none';
 		// equal points with a declarer: the declarer's side loses, the others win
 		if (!winSides.length && set.tie === 'declarer_loses' && declSide !== null) { winSides = ids.filter((i) => i !== declSide); outcome = 'threshold'; }
+	} else if (set.vola === 'sole_winner' && volaSide(h) !== null) {
+		// a vola: one side took every trick; it wins alone whatever the points say and every other side loses
+		winSides = [volaSide(h)];
+		outcome = 'win';
 	} else {
 		const best = winner === 'fewest_points' ? Math.min(...ids.map((i) => sp[i])) : Math.max(...ids.map((i) => sp[i]));
 		winSides = ids.filter((i) => sp[i] === best);
@@ -94,10 +109,23 @@ export function enter(h) {
 		else outcome = 'win';
 		if (outcome === 'tie' && set.tie === 'redeal_next_dealer') outcome = 'draw';
 	}
+	const vola = winSides.length === 1 && set.vola === 'sole_winner' && winner !== 'first_out' && winner !== 'declarer_threshold' && volaSide(h) === winSides[0];
 	const worstVal = winner === 'declarer_threshold' ? 0 : winner === 'first_out' ? 0 : winner === 'fewest_points' ? Math.max(...ids.map((i) => sp[i])) : Math.min(...ids.map((i) => sp[i]));
-	const worstSides = outcome === 'tie' || outcome === 'draw' || winner === 'first_out' || winner === 'declarer_threshold' ? [] : ids.filter((i) => sp[i] === worstVal && !winSides.includes(i));
+	const worstSides = vola ? ids.filter((i) => !winSides.includes(i)) : outcome === 'tie' || outcome === 'draw' || winner === 'first_out' || winner === 'declarer_threshold' ? [] : ids.filter((i) => sp[i] === worstVal && !winSides.includes(i));
 	const winners = winSides.flatMap((id) => seatsOfSide(sides, id)).sort((a, b) => a - b);
-	const worst = worstSides.flatMap((id) => seatsOfSide(sides, id)).sort((a, b) => a - b);
+	let worst = worstSides.flatMap((id) => seatsOfSide(sides, id)).sort((a, b) => a - b);
+	// the others play on after the first «fuora» (a scaricare): the order of going out is first, second, last; the worst is
+	// the last, who pays for two. With no second (the pack ran out) there is no last and no worst.
+	let order = null;
+	const outs = winner === 'first_out' ? (s.outs || []) : [];
+	if (outs.length) {
+		order = outs.map((o) => o.seat);
+		if (outs.length >= 2) {
+			const lastSeat = Array.from({ length: s.n }, (_, q) => q).find((q) => !order.includes(q));
+			order.push(lastSeat);
+			worst = [lastSeat];
+		}
+	}
 	const gamePoints = {};
 	for (let q = 0; q < s.n; q++) gamePoints[q] = 0;
 	if (winners.length && set.game_points !== 'none') {
@@ -123,6 +151,7 @@ export function enter(h) {
 		breakdown: JSON.parse(JSON.stringify(c.breakdown)), worst,
 	};
 	if (winner === 'first_out') s.result.reason = reason;
+	if (order) s.result.order = order;
 	if (s.contract !== null) { s.result.contract = s.contract; s.result.declarer = s.declarer; }
 	if (band) s.result.band = band;
 	return { events: [{ e: 'result', outcome, winners: [...winners] }], done: true };

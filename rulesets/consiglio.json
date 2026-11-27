@@ -4,8 +4,8 @@
 	"extends": "partita_4",
 	"family": "partita",
 	"status": "playable_with_decisions",
-	"about": "Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two.",
-	"revision": 10,
+	"about": "Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two. The book's own cross-reference «pag. 92» for the seating means p. 89.",
+	"revision": 11,
 	"sources": {
 		"prammatica1846": {
 			"cite": "L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846])",
@@ -42,7 +42,7 @@
 				"module": "count",
 				"when": {"seats": [4]},
 				"settings": {
-					"group": {"value":2,"source":"[D] Torino 1787, p. 97: «presso cert'uni poter contare quarantasei punti»: 46 of 91, the count in pairs of p. 52. Counting by four (Partita, p. 89) is not offered here: 46 of 72 is out of reach (revision 9, answer 6 of the lead session)."}
+					"group": {"value":2,"source":"[R] Torino 1787, p. 97 names only 46 («quarantasei punti»); 46 fits the count in pairs (91 points). Partita, p. 89: by four or by two «ciò non importa». Dummett 1980, p. 263 reads Consiglio in pairs: «91 points altogether». Counting by four (Partita, p. 89) is not offered here; a lawful hand can give 46 : 26 counted by four, so the pairs are chosen as the reading that explains the printed 46 as a majority of 91, not because 46 would be out of reach by fours.","by":"dummett1980","pages":[263]}
 				}
 			},
 			{
@@ -50,7 +50,7 @@
 				"module": "result",
 				"settings": {
 					"winner": {"value":"threshold","source":"[R] Torino 1787, p. 97: «Per vincere basta presso … contare quarantasei punti; … in tutto il giro»: the first custom is the base, the second a variant; the table must agree beforehand («fa ancor mestiere d'intendersela prima di giuocare»).","alt":"more_points"},
-					"target": {"value": 46, "source": "[D] Torino 1787, p. 97: «presso cert'uni poter contare quarantasei punti»: 46, counted in pairs."}
+					"target": {"value": 46, "source": "[D] Torino 1787, p. 97: «presso cert'uni poter contare quarantasei punti»: 46. [R] Counted in pairs (see hand.count.group)."}
 				}
 			}
 		]
@@ -83,6 +83,18 @@
 	"match": {
 		"dealer_rounds": {"value": 1, "source": "[R] Torino 1787, p. 97: the second custom counts the points «in tutto il giro», the cards dealt «tutte quattro le volte»: a round of four deals. The base file plays the first custom (46 points in one deal) and keeps the same round as the length of a match, our reading; the marche are settled after every deal, as at Partita («tutto è simile al giuoco di Partita in quattro»). The second custom with one stake at the end waits for the format; Prammatica [1846], pp. 29-30 has such a stake, the «coda». The table may agree on two or three rounds.", "alt": 2, "replace": {"with": ["document", "people"], "what": "one stake at the end of the partita, or the marche after every deal", "q": 24}}
 	},
+	"penalties": [
+		{"id": "revoke", "offence": "revoke", "enforce": "prevent", "hand": "continues", "effect": {"value": {"pays": "simple_game", "to": "each_other"}, "source": "[D] Torino 1787, p. 90: «Chi rinega, paga secondo le regole sovradette», i.e. rule 35 (pp. 33-34; p. 38 sends to it): the game to all; [S] whether the offender's partner shares the payment is not said. The engine refuses a card that does not follow suit."}},
+		{"id": "signal", "offence": "signal", "enforce": "text_only", "hand": "continues", "effect": {"value": {"pays": "simple_game", "to": "each_other"}, "source": "[D] Torino 1787, p. 73: a signal costs the simple game to all («a qualunque altro giuoco di Tarocchi»). [D] Torino 1787, p. 97: the partners show each other their cards and «si consultano liberamente», so nothing passed between partners is a signal. [R] The rule binds a signal to an opponent only; the table cannot see it, so only the rules page tells it."}}
+	],
+	"left_out": [
+		{"id": "go_alone", "source": "[D] Torino 1787, p. 89: «non sarà lecito poi, giuocando in Partita, di andar a solo mai».", "why": "The table has no lone contract at Partita, so nobody can go alone; no penalty is needed."},
+		{"id": "marcio_vola_premiums", "source": "[R] Dummett 1980, p. 261 (his guesses, not printed in the book): a double payment when the loser has fewer than 18 points, a triple for a vola, an extra for each five points.", "why": "Not in the 1787 book; the stake is the agreed simple sum."},
+		{"id": "fool_discard_for_vola", "source": "[D] Torino 1787, p. 34 (rule 38): the Fool may be put away «in un sol caso … guadagnar la partita vola»; Turin 1880, p. 9: «as peul dcò scartesse quand ch'a iè la certëssa d'fè la vola»; Dummett 1980, p. 259 reads the same.", "why": "Vola is not played (open question 13); the exception is not offered."},
+		{"id": "milan_1794", "source": "[D] Per chi tarocca, Milan, 1794 (the neighbours of the Turin game): a revoke costs ten points of the count, «ordinariamente porta la penale di soli dieci punti» (p. 21); no trump may be discarded, «Se chi scarta scartasse un onore, od un tarocco perderà dieci punti» (pp. 23-24), while a king in the discard is ordinary play (p. 36); the partners change in the course of an evening (pp. 13, 31); one card turned by accident in the deal is no misdeal, «si volta per accidente una carta, non si va a monte» (p. 17).", "why": "Customs of Milan, not of Turin: the book of 1787 decides for its own games (a revoke pays the simple game to all, p. 33; kings may not be discarded, p. 90; the pairs are fixed, p. 88). Recorded so that the difference is seen; not played."},
+		{"id": "partners_consult", "source": "[D] Torino 1787, p. 97: «le due persone, che sono insieme, seggono vicine, e mostransi il giuoco, e si consultano liberamente»: the partners sit side by side, show each other their cards and consult freely.", "why": "Played in part only: the view shows each partner's cards to the other, but the table has no consultation of its own (the talk goes on outside the program) and a bot partner takes no advice. The penalty for a sign to the partner, inherited from Partita, does not bind partners here: advice between partners is allowed (penalties[signal])."},
+		{"id": "best_cut_names_dealer", "source": "[D] Torino 1787, p. 89: whoever cuts best of the other three «comanda agli altri di fare»: he deals himself («o fa, mischia, e scarta egli stesso») or tells whom he likes to deal; Torino [1846], part I, p. 35, says the same.", "why": "Not played: the table has no choice for the winner of the cut; the first dealer is the one the table gives (seats.first_dealer best_cut says only that he is the one who cut best). Revision 11."}
+	],
 	"view": {
 		"partners_hands": "shown"
 	},

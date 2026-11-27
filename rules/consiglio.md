@@ -1,10 +1,10 @@
 # Council (Consiglio)
 
-4 players. In the book of 1787: p. 97. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+4 players. In the book of 1787: p. 97. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 This game is written as [Partita for four](partita_4.md) with differences.
 
-Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two.
+Consiglio (Torino 1787, «Del giuoco del Consiglio», p. 97): four players as in Partita, with the one difference that the two partners sit side by side, show each other their cards and talk freely; «tutto è simile al giuoco di Partita in quattro». To win some players need 46 points, others the most points over a round in which the cards are dealt four times; the table agrees which before the deal (p. 97). The base file plays the first custom; the second is the variant «sum_of_four_deals». Everything not written here is as in Partita, two against two. The book's own cross-reference «pag. 92» for the seating means p. 89.
 
 ## How to read the marks
 
@@ -80,7 +80,7 @@ This step: *Documented: from the book, p. 89.*
 ### The count
 
 - Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Our reading: book, pp. 88-90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.count_unit -->
-- Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Documented: from the book, p. 97.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.group -->
+- Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Our reading: Dummett (1980), p. 263.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.group -->
 - A card left without a pair is worth its value less half a point, as in a pair. *Documented: from the book, p. 90.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.odd_card -->
 - The card given for the Fool is part of the count. *Our reading: Turin 1880, p. 8.* Same as in [Partita for four](partita_4.md). <!-- rule: hand.count.fool_card -->
 
@@ -104,8 +104,8 @@ This step: *Documented: from the book, p. 89.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
-- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
+- This table does not charge the offence «a signal (not between partners)»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 
@@ -113,16 +113,18 @@ This step: *Documented: from the book, p. 89.*
 - **Marcio vola premiums.** Not in the 1787 book; the stake is the agreed simple sum. *Our reading: Dummett 1980, p. 261 (his guesses, not printed in the book): a double payment when the loser has fewer than 18 points, a triple for a vola, an extra for each five points.* <!-- left_out: marcio_vola_premiums -->
 - **Fool discard for vola.** Vola is not played (open question 13); the exception is not offered. *Documented: Torino 1787, p. 34 (rule 38): the Fool may be put away «in un sol caso … guadagnar la partita vola»; Turin 1880, p. 9: «as peul dcò scartesse quand ch'a iè la certëssa d'fè la vola»; Dummett 1980, p. 259 reads the same.* <!-- left_out: fool_discard_for_vola -->
 - **Milan 1794.** Customs of Milan, not of Turin: the book of 1787 decides for its own games (a revoke pays the simple game to all, p. 33; kings may not be discarded, p. 90; the pairs are fixed, p. 88). Recorded so that the difference is seen; not played. *Documented: Per chi tarocca, Milan, 1794 (the neighbours of the Turin game): a revoke costs ten points of the count, «ordinariamente porta la penale di soli dieci punti» (p. 21); no trump may be discarded, «Se chi scarta scartasse un onore, od un tarocco perderà dieci punti» (pp. 23-24), while a king in the discard is ordinary play (p. 36); the partners change in the course of an evening (pp. 13, 31); one card turned by accident in the deal is no misdeal, «si volta per accidente una carta, non si va a monte» (p. 17).* <!-- left_out: milan_1794 -->
+- **Partners consult.** Played in part only: the view shows each partner's cards to the other, but the table has no consultation of its own (the talk goes on outside the program) and a bot partner takes no advice. The penalty for a sign to the partner, inherited from Partita, does not bind partners here: advice between partners is allowed (penalties[signal]). *Documented: Torino 1787, p. 97: «le due persone, che sono insieme, seggono vicine, e mostransi il giuoco, e si consultano liberamente»: the partners sit side by side, show each other their cards and consult freely.* <!-- left_out: partners_consult -->
+- **Best cut names dealer.** Not played: the table has no choice for the winner of the cut; the first dealer is the one the table gives (seats.first_dealer best_cut says only that he is the one who cut best). Revision 11. *Documented: Torino 1787, p. 89: whoever cuts best of the other three «comanda agli altri di fare»: he deals himself («o fa, mischia, e scarta egli stesso») or tells whom he likes to deal; Torino [1846], part I, p. 35, says the same.* <!-- left_out: best_cut_names_dealer -->
 
 ## Sources
 
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
+| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
-| Milan 1794 | Per chi tarocca. Almanacco critico-istruttivo per l'anno 1794, Milano, Luigi Veladini [1793/94]; Biblioteca Trivulziana, Triv M 1542 (the Milanese neighbours of the Turin game; a support, not a source of these rules) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
+| Milan 1794 | Per chi tarocca. Almanacco critico-istruttivo per l'anno 1794, Milano, Luigi Veladini [1793/94]; Biblioteca Trivulziana, Triv M 1542 | held |
 | Turin 1880 | C. C. Tarocaire, La partia a taroch an quatr. Regolament e caprissi, Turin, Stamperia Leteraria, 1880 | held |
 
-Generated from `rulesets/consiglio.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/consiglio.json`, rules revision 11. Do not edit: change the game file.

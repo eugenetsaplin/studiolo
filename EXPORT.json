@@ -1,11 +1,11 @@
 {
-  "revision": 10,
-  "tag": "rules-r10",
-  "rules_tag": "rules-r10",
-  "ref": "open-r10.3",
-  "ref_commit": "3acf8e13710681c2d432d0591d9afa4e622a08e3",
-  "commit": "3acf8e13710681c2d432d0591d9afa4e622a08e3",
-  "commit_date": "2026-11-25T14:18:35+01:00",
+  "revision": 11,
+  "tag": "rules-r11",
+  "rules_tag": "rules-r11",
+  "ref": "open-r11.1",
+  "ref_commit": "197f29a044b2f8ef8ab0fb895720c11fe3f5f96c",
+  "commit": "197f29a044b2f8ef8ab0fb895720c11fe3f5f96c",
+  "commit_date": "2026-11-27T03:07:42+01:00",
   "tool": "export-open 2",
   "layers": [
     "rules",
@@ -13,9 +13,9 @@
   ],
   "node": "24.18.0",
   "tests": {
-    "passed": 995,
+    "passed": 1094,
     "failed": 0,
-    "skipped": 61
+    "skipped": 59
   },
   "trial": false,
   "files": [
@@ -31,8 +31,8 @@
     },
     {
       "path": "bots/bid.js",
-      "sha256": "c46bc898103d573ebe85bafd3977b0a1f1fef4d36917185302739fcda87ac1e0",
-      "bytes": 6285
+      "sha256": "f5b4e8f224c945e4f2ef3b4dcbea8983ccc9c27bdb61c9325cfddec9d499696a",
+      "bytes": 6426
     },
     {
       "path": "bots/index.js",
@@ -56,13 +56,13 @@
     },
     {
       "path": "bots/pimc.js",
-      "sha256": "9afc68a7ff70a13511b0487b8c72f2bcdb1287ebb9bcbb2a1fb19effe5b43098",
-      "bytes": 6095
+      "sha256": "451fd5cbd84f8321e23c93799e55a0bda0be7d3bb1c1b28c16ac7db751dc7447",
+      "bytes": 6232
     },
     {
       "path": "bots/policy.js",
-      "sha256": "9ee3ed1495cb58534dfc740db2ca837a001a55c1685d08b617c60cb80c9a0e98",
-      "bytes": 14022
+      "sha256": "cd4bf4ce2e17ecf4ca0fbda6073431b3c3370df7e77275d57a0dd6bf7d35a0ac",
+      "bytes": 16364
     },
     {
       "path": "bots/random.js",
@@ -71,8 +71,8 @@
     },
     {
       "path": "bots/rollout.js",
-      "sha256": "016b462386ed9bff0ab59a7e3707a2e77e8124e01dd5dda8df3e915a640752b3",
-      "bytes": 4443
+      "sha256": "5d62434cd62e1dae9970f0e97ca204dc96d372c5258c01d4f3c51b6de9a4ab86",
+      "bytes": 4627
     },
     {
       "path": "bots/worlds.js",
@@ -81,8 +81,8 @@
     },
     {
       "path": "bots/worlds_contract.js",
-      "sha256": "966bba21de9fa9c308bba55e5d2f2e67a165101cef2681e1538419b476629bc5",
-      "bytes": 11272
+      "sha256": "f8ffc6f2e2c1e07855028ec4328f14b9a81963dee2b81dd75682c8979b56e348",
+      "bytes": 12412
     },
     {
       "path": "bots/worlds_ext.js",
@@ -96,8 +96,8 @@
     },
     {
       "path": "core/engine.js",
-      "sha256": "e528ebb04fea777f1786368a8e0c350c311b31853fe0a1f483e7ddbd1677773d",
-      "bytes": 14156
+      "sha256": "8d00cda372df2adbb78d690a5359a9000946a8b8384df07cfda9eea9cdba0013",
+      "bytes": 15665
     },
     {
       "path": "core/hash.js",
@@ -126,8 +126,8 @@
     },
     {
       "path": "core/modules/bidding.js",
-      "sha256": "72b3d16eb4cee5c0ab26c8ffa38d17f1684626bafdd98aea1a32e5dfa2810bd0",
-      "bytes": 5837
+      "sha256": "d90c588cf277a8b118435d45d99563b71f22be19252dd915afce41e4a4ad8a49",
+      "bytes": 6925
     },
     {
       "path": "core/modules/call_partner.js",
@@ -136,18 +136,18 @@
     },
     {
       "path": "core/modules/count.js",
-      "sha256": "439c203fcc0915b698cd871ad6b1b9d28169910972f7c120de2c7b0f707f6922",
-      "bytes": 7597
+      "sha256": "887c92b8f0474ff36dc6b8983867a50870a9281dd3b92024282094ce76c08b3c",
+      "bytes": 7618
     },
     {
       "path": "core/modules/deal.js",
-      "sha256": "996c32ae48a796f199465c6e8320b09496774248dd398cc463abb5332fc91202",
-      "bytes": 11736
+      "sha256": "fdf465e2587153df68e12f89e010117788123263017ed5df735ce6e4a631e34e",
+      "bytes": 12037
     },
     {
       "path": "core/modules/declarations.js",
-      "sha256": "6991eb8680db5439288590ab048a2b6ef3d7d87be3942c231d7590de809de47c",
-      "bytes": 7368
+      "sha256": "03140fabc29a96a443eea65c853e443075bb74b315cb51c9f40b077cf7da675a",
+      "bytes": 12266
     },
     {
       "path": "core/modules/discard.js",
@@ -161,8 +161,8 @@
     },
     {
       "path": "core/modules/fuora.js",
-      "sha256": "0656ed0b3b2534a74c7820f6a9e4756b87371a4956f1fe4fbfbe2ff66b3f9876",
-      "bytes": 5836
+      "sha256": "395187675b5a09c939deed5fd9ac631ec78f45e1335421d8d9d0bd7c88b08b92",
+      "bytes": 13203
     },
     {
       "path": "core/modules/index.js",
@@ -191,18 +191,18 @@
     },
     {
       "path": "core/modules/result.js",
-      "sha256": "b7b0ce8b57303d825a7f893b5b7387b438f3aa85b5ecb004dd032d7050c08f97",
-      "bytes": 6841
+      "sha256": "033550e89b62c4c3be92f7120de5fd9e4a9a051d3f0815d139cc4d282f84c406",
+      "bytes": 8247
     },
     {
       "path": "core/modules/settle.js",
-      "sha256": "6e0c2db1f4ff9e98f2a7fd5ba396608966cc79f84e850b83991a83c41dfa2400",
-      "bytes": 8132
+      "sha256": "eeeba1b72f70f463508af6e870974b3e5b7d0e31b68a8b48ed6579e578151aa7",
+      "bytes": 9204
     },
     {
       "path": "core/modules/tricks.js",
-      "sha256": "d16a2fc339b7bc7804d52df9f6a683cdaa592a01974a68a341686a810b01a9e6",
-      "bytes": 6927
+      "sha256": "2527842830856182dce364c7331e4c74418167af3efc16c35a908d976c47f920",
+      "bytes": 8314
     },
     {
       "path": "core/points.js",
@@ -216,8 +216,8 @@
     },
     {
       "path": "core/score.js",
-      "sha256": "e81ff6ccf51c86a570ef267a369be19e8aef56960c6cd97f68e80e4ea353a7c3",
-      "bytes": 8342
+      "sha256": "cc0145be037d1c3ed0f9c854b6d39428f2a63362e4197acdfba0bc650013aeb2",
+      "bytes": 9522
     },
     {
       "path": "core/selectors.js",
@@ -236,17 +236,17 @@
     },
     {
       "path": "docs/BOT.md",
-      "sha256": "d3f15885698d1d28ed8a2220633747e3af417d6ffeed4c48c93d058c06cb9b3a",
-      "bytes": 19755
+      "sha256": "6f53997189c4f0dbc8204b87615d5ca7ee8b157c2c55408aee5d1d5c166bf8d5",
+      "bytes": 22037
     },
     {
       "path": "docs/CORE_API.md",
-      "sha256": "a657e30e8058a5f7f2c5f40675af04e5deaf01fd3ae44c1f490fa905f14c62fc",
-      "bytes": 33750
+      "sha256": "91046c67590b528abb43457001985672b13ce526f63c768aab5b79e251ce8398",
+      "bytes": 35166
     },
     {
       "path": "docs/ENGINE.md",
-      "sha256": "2528b46f0b76fd81962879de30ceda6911a09adea6faddef32333f3d211c1ab0",
+      "sha256": "27dcfcd21aafb198721df0ca49872ee9f0ecb252737298acc212fd06d3865c30",
       "bytes": 7517
     },
     {
@@ -256,18 +256,18 @@
     },
     {
       "path": "docs/GAME_FILE_FORMAT.md",
-      "sha256": "e81451d8a440227b9d22291d95d098d9995c451e0637c93fc83fb8f4dedc90a7",
-      "bytes": 89954
+      "sha256": "5282c2919345bf0672b1dbe015c96da740e7b5293cc7a2c45d20b895a5d5907f",
+      "bytes": 93844
     },
     {
       "path": "examples/01-sedici-for-two.md",
-      "sha256": "57b5258c34d76b4b9fb85d871ea388b1311043fdbcb9186d7d822ac169d95854",
-      "bytes": 6472
+      "sha256": "28cf5c95a3343759523c834509cfa2e38b178c19fbfad188181db6c80b704380",
+      "bytes": 7340
     },
     {
       "path": "examples/02-permesso-for-three.md",
-      "sha256": "25719c9d5de97608b72d23f8161a1c6678e7aa8bdf4b1b9dbfb72ab3b4570234",
-      "bytes": 9008
+      "sha256": "e112f8c1ef74709f3446ae7da97e3bc075e3c53c0a5831748dadace2b1865365",
+      "bytes": 9027
     },
     {
       "path": "examples/03-is-the-deal-fair.md",
@@ -291,18 +291,18 @@
     },
     {
       "path": "problems/001-stronger-opponent/TASK.md",
-      "sha256": "d73b3b2da8fbf1504c7c230f033888b6114f68ef5f7fc5dcb6b006f985233ddf",
-      "bytes": 4006
+      "sha256": "a7ab10aa7afa38afba2a8eed4c3ca186e065d4fe999fc035799acac01459cf04",
+      "bytes": 4597
     },
     {
       "path": "problems/002-bidding-at-permesso/TASK.md",
-      "sha256": "60c45e8a0a94a0f3a1229aea4f005cda98cd1cd0275c389450572e6c65db8c1a",
-      "bytes": 5026
+      "sha256": "7ebea865d30a5d77e4cdf9f23f3a0649c96be9892bdd71deea24432dbe19375b",
+      "bytes": 5719
     },
     {
       "path": "problems/003-meno-short-form-for-three/TASK.md",
-      "sha256": "32e61ac80c10d18eee89ea1fb684e0c9d956c2057fd633edd422adb4f0878c04",
-      "bytes": 3390
+      "sha256": "841e630cdb31face0d07496c20230585e55c09979518471c5565d8f6feffe51c",
+      "bytes": 3823
     },
     {
       "path": "problems/README.md",
@@ -316,198 +316,198 @@
     },
     {
       "path": "rules/bagattultimo.md",
-      "sha256": "883419bc5bd643b39bc1fb6776012771d1b5efa5af9a02247883784335e5d849",
-      "bytes": 13750
+      "sha256": "5c82feb28271a46ee570f8b8405ec0c7beb83811e71a25526f63525909a4a92a",
+      "bytes": 13996
     },
     {
       "path": "rules/baronetti.md",
-      "sha256": "5322cdf1b04c294c8536b3698c61a19cb13612a5f51b45b225aa09927a8ce8f4",
-      "bytes": 11369
+      "sha256": "6e372cc23a7ba225d3467e780ca7581b9efcf1408afca6bfc1204e01f9a26ab4",
+      "bytes": 11515
     },
     {
       "path": "rules/chiamare_il_re.md",
-      "sha256": "0f1db9b6dbe39f0787d05818dc27be65f73e99410e99ae9debc417131af55bee",
-      "bytes": 16940
+      "sha256": "0e14159615f55cc6cd054dd3777f97d58ee878fdef9ba6c98c56ae98d2a6542c",
+      "bytes": 17656
     },
     {
       "path": "rules/consiglio.md",
-      "sha256": "9a0cde67545141b75427032621db540c69bb411fb38706680903099ebf5cef07",
-      "bytes": 16022
+      "sha256": "e5629917c8eea5767e26bb65d0c776be2a6acc5c7ecca1da9dc7687440d29b73",
+      "bytes": 16995
     },
     {
       "path": "rules/dottore.md",
-      "sha256": "a16db057930ed6978da4d7ed6aee3f1fae0b253cfd4316c86ff7b5612465423c",
-      "bytes": 10951
+      "sha256": "c23e459cb8d24624043abf74aaa1ae487969bff3bf26ef481f98032eca9358eb",
+      "bytes": 10918
     },
     {
       "path": "rules/meno.md",
-      "sha256": "8dd419a27b37ddbf09cccd855a3260ee06479c0324fadc18e07190748af6fa8b",
-      "bytes": 9983
+      "sha256": "787e6d9444f9189b7fb2dce4cf03b96891c5cbddc90b1639f72633b2dbe9cdaf",
+      "bytes": 9443
     },
     {
       "path": "rules/mitigati_2.md",
-      "sha256": "34eb21d6128c44b317ce3e1f2296f80236b81958e67fe620e3f2ae7dfc6ed149",
-      "bytes": 15148
+      "sha256": "81170eb085748dd8784190ee32477e52ef2fd88e437ba8d70f462f612afc201e",
+      "bytes": 14854
     },
     {
       "path": "rules/morto.md",
-      "sha256": "76c17e7b8b3d10d3dfc997298943e88423d4a10ece0ab4e7fab13cf99d5a2d04",
-      "bytes": 10186
+      "sha256": "154f5ba37c0f69928291df80dda992cfd2964949755a431177f68af261f2a699",
+      "bytes": 9979
     },
     {
       "path": "rules/partita_3.md",
-      "sha256": "6a51fbe06496264154e6a28247fe4fb29800c7f191bb3f38bff6d6724f84788d",
-      "bytes": 11204
+      "sha256": "868a3ec5327df5abfdf17e29ee37c26a35de1352fcf0005089b29b9be6fccd85",
+      "bytes": 11053
     },
     {
       "path": "rules/partita_4.md",
-      "sha256": "abc8f43be939329de7fe3fe2c5f49b0e4f7ea310aca3e3ac7bfec30051d17a6b",
-      "bytes": 14309
+      "sha256": "58e19ff36b0d82805e5a86f7a710221488b62be9a13775f5c0d3f2f1643013ce",
+      "bytes": 14582
     },
     {
       "path": "rules/permesso_3.md",
-      "sha256": "d08dd32fde86fb5d2e98035ca8eb2038083f72bcc46e33ac4115643df26f31ec",
-      "bytes": 19869
+      "sha256": "ca7d187d3c116a806d21d892caf85ee6c23a6c15c45236441cf07ca119150bc8",
+      "bytes": 20039
     },
     {
       "path": "rules/permesso_4.md",
-      "sha256": "2d08ab758199234ec1679e8ccd960c03e9c77e4c8dc895551654b534869f0131",
-      "bytes": 21794
+      "sha256": "983682ce9ca7f6973f2e7a0b59fbe7efbfd87bb094b0a28a9e4d61805b726ef6",
+      "bytes": 21744
     },
     {
       "path": "rules/permesso_5.md",
-      "sha256": "6fcc2005819548020d92b53b240c46d5282de916162542fab3e443e5b7523ce8",
-      "bytes": 22373
+      "sha256": "3e6f54da7a3e6bc313b0b81de84991a87eff445cad96be5c195e7c0e6b5ffc26",
+      "bytes": 22630
     },
     {
       "path": "rules/permesso_6.md",
-      "sha256": "d43b65a0044df55aa4c1827b82693ac79ecafbe72f34ef0e3ea2cc6a4c2cbcdc",
-      "bytes": 21836
+      "sha256": "49bafda702069aac959e090b3d144e6cba24a87a05d8e4d958b037cef4901f46",
+      "bytes": 22715
     },
     {
       "path": "rules/permesso_7.md",
-      "sha256": "2288f0f013d74db58169160a3b55854f4f23efef864e2869e71f234cfbebe736",
-      "bytes": 23444
+      "sha256": "68598f4189e192c28055c34db09838d86d4f1a98526053d30080888c7bfc2527",
+      "bytes": 24993
     },
     {
       "path": "rules/sedici_2.md",
-      "sha256": "fb9933971a64d340a4c8d2e9ce17c33bb78eae006a4597fe1869e66b22316c9e",
-      "bytes": 11131
+      "sha256": "e2fcca70e34156be340a4dfceeb02cb6ddafc9732d62eddaf2a555463aa40675",
+      "bytes": 12135
     },
     {
       "path": "rules/sedici_3.md",
-      "sha256": "d43936ecc95c5679c5a0b7f4c0059984523e4898100bb3016a972aeced8699b5",
-      "bytes": 11006
+      "sha256": "81c7535933977c023a1d4bbe91262a4e982f26d28483ec462feacd75102dcc3b",
+      "bytes": 12010
     },
     {
       "path": "rules/sedici_4.md",
-      "sha256": "2d6996c598180ed2a4d3e6fc75cdbd9c22001efae3d6cb87f9079813a4d8154b",
-      "bytes": 10860
+      "sha256": "d1eb2463a6a5d6661aec25cd582b89ead2e7cc17088bc37b899e67c79e798f3b",
+      "bytes": 11856
     },
     {
       "path": "rules/trentuno.md",
-      "sha256": "8773465a657d855fae3b7e782ddb812ab4aaf43f4821a6486142e5006f09eedb",
-      "bytes": 11360
+      "sha256": "a7fdfbf528979be18beade1f5952d591b62d2ee47c03656c5dfb7fab05c0f9e2",
+      "bytes": 12291
     },
     {
       "path": "rules/venticinque.md",
-      "sha256": "9d79828dadbf2ab2489f67a8212ff214258c4e63ffd68bd5ad47d74dd5617978",
-      "bytes": 9693
+      "sha256": "cd5a00088591286c3673d377dcbe9621e91a9557c2bcc38c166e158749021c3b",
+      "bytes": 9681
     },
     {
       "path": "rules/venticinque_3.md",
-      "sha256": "c45dcef4844ea378784a6ae3aff23bb703bcd265c322168c77d2154c47fa089f",
-      "bytes": 11151
+      "sha256": "451c28b3256ad7028b1882b7cb4d40e59145f2389cd8f2776a76e956d942288f",
+      "bytes": 11487
     },
     {
       "path": "rulesets/OPEN_QUESTIONS.md",
-      "sha256": "1e6ed806c3a839859073c4a243e42b45b1fdfd2f9b4ef986992e0588537e1678",
-      "bytes": 27002
+      "sha256": "92bd34ed353af2fcc2a515e09171799ac463f548ba8c3dbf5453e47bcb4e9fa8",
+      "bytes": 33200
     },
     {
       "path": "rulesets/REVISIONS.md",
-      "sha256": "afb99bef6ca640357e5a5b91e7ba4a83cd60df9be655245d8f206c18402d339c",
-      "bytes": 73749
+      "sha256": "e5d79fc02de5765d4f6d3f97d47bfb32fdf317733f444603c2e13f5ddc667836",
+      "bytes": 94414
     },
     {
       "path": "rulesets/bagattultimo.json",
-      "sha256": "eb862472c9e0716f557966676a71ed30e4a0384a24358a29e626bc35621bd7d8",
-      "bytes": 22756
+      "sha256": "7e8134190448bec3a3131bb94f653d74c873ef1de66d0f2099252e9e45b11165",
+      "bytes": 24290
     },
     {
       "path": "rulesets/baronetti.json",
-      "sha256": "2f8592ce63be1cf660c46b85d7aa34df96b3e4ac7f7b076b4cacc7aebf7f1147",
-      "bytes": 17720
+      "sha256": "cf27234a97397f701e3d7af44a907212d56b2b012304038aedb488599f18e0cf",
+      "bytes": 18306
     },
     {
       "path": "rulesets/chiamare_il_re.json",
-      "sha256": "cc9d7936160b1c10af3300a9d19e588cbdfc943c01e7f85c64c1c01a450d983b",
-      "bytes": 25285
+      "sha256": "37dc3ee7080e56144735173842ae7b69e0ced11f4fca17a66f29d9e0019d552a",
+      "bytes": 26246
     },
     {
       "path": "rulesets/consiglio.json",
-      "sha256": "7d2a777732a080ea481be273ac7616e39739bb3d642ad44d0cc27aed24975dc8",
-      "bytes": 6816
+      "sha256": "e32fbea008b481b8ef3c07bdf024121be50688d2941237b36bae07734f189b69",
+      "bytes": 10926
     },
     {
       "path": "rulesets/dottore.json",
-      "sha256": "b371baf3bba101021129075a5b266eef8f5ed8054ad6aa8b4e65f6dcc6c6a57a",
-      "bytes": 14928
+      "sha256": "42e19f2643186ee0e5f503ce02064d96f253d025d2641c896bda87d5f26ad7b7",
+      "bytes": 15122
     },
     {
       "path": "rulesets/meno.json",
-      "sha256": "c68b2324f854b1e6dcd59c3da00a19517fe716a98ca4a664efe68fa9a56a2841",
-      "bytes": 17418
+      "sha256": "5d79c5f5395884f5f8d0d5a4956bb98c584984f0682e018d9497ae21e3450260",
+      "bytes": 18005
     },
     {
       "path": "rulesets/mitigati_2.json",
-      "sha256": "f580f7c747729be315b5999a21c79db530a68c07e2bd6e8138c71cb63a0c1442",
-      "bytes": 25617
+      "sha256": "df17ec3e3be8e3210f1745b286c513d96bfb594a1160b352a111e71f68673aba",
+      "bytes": 26281
     },
     {
       "path": "rulesets/morto.json",
-      "sha256": "9dbfb365711dfa31cfb78e6e50fb44b239a9ecea490d3c45f26fc1df687397a7",
-      "bytes": 16296
+      "sha256": "cea639193f2d374045e803a151dd9de9a6db9bc608aa3b485d08b34815ad8a5c",
+      "bytes": 16324
     },
     {
       "path": "rulesets/partita_3.json",
-      "sha256": "31650afa8b426a3bf99f87d25775b6521bbfa5354ce62fc0af6dae6ca58cf611",
-      "bytes": 15410
+      "sha256": "70c83d7698aa228e4764c4ad3a15d682cf9a2d5642b2e0233b4da9e6f314c661",
+      "bytes": 15532
     },
     {
       "path": "rulesets/partita_4.json",
-      "sha256": "db812d852ac62176035035fb559a2b4b439e65843e54acb7d3243dbdd3f1e8f1",
-      "bytes": 25494
+      "sha256": "96a46b865c73665695ee18b0c5ba87a086684afaf6683353625a04eba8c309da",
+      "bytes": 26129
     },
     {
       "path": "rulesets/permesso_3.json",
-      "sha256": "68355355f07432e232f0d3b774304bb4750d8409f9382403766fc5d61d2d90cb",
-      "bytes": 31930
+      "sha256": "eb18ff5965ea7fc32dea5c42fbdb4c0787cbb9b3223b8ebec42d7bf4350bf73d",
+      "bytes": 32781
     },
     {
       "path": "rulesets/permesso_4.json",
-      "sha256": "896a81cd9ff2e2332f98f635becf98d49c752c4d2db4c0b8b2b6f5d0247d9156",
-      "bytes": 7257
+      "sha256": "cc0389bdde9e96a2cb417b2b60a717c8cfb2296e3bb10c0db28654734737e91d",
+      "bytes": 7705
     },
     {
       "path": "rulesets/permesso_5.json",
-      "sha256": "8c8ebe835541c2c14f257094325592b51d55bf20867e2dfa102217afadc3f705",
-      "bytes": 7006
+      "sha256": "6a2fea707c9d93b2dac63312fd047ed13c05c0868fa8ab45ef186a7430adf31d",
+      "bytes": 7823
     },
     {
       "path": "rulesets/permesso_6.json",
-      "sha256": "da6195c43d12220dce52e58ccb9e216de0623967de12a4d8f8d6d35bae55eaed",
-      "bytes": 10189
+      "sha256": "123031ff77c63651add9c69be23a8e7e63087e605ad7d4ff6c6bd3b838162b4f",
+      "bytes": 14694
     },
     {
       "path": "rulesets/permesso_7.json",
-      "sha256": "698a2911eec3017133e6907b01c62fff6024a19af245d840eb0dc695238fb70f",
-      "bytes": 7523
+      "sha256": "10ba94af0c007a392ec1de87c2c1dffb8c1a92ed7b7df2fc3f9f8a2898b6b319",
+      "bytes": 10980
     },
     {
       "path": "rulesets/schema/game.schema.json",
-      "sha256": "a456734e6466f4b8beba2bd4b130168a9558fc9001e74563fef52cfb19b49289",
-      "bytes": 35659
+      "sha256": "624516245b37951084d043ed7afa0094f8e29239d616342dd1419f1b8393a88e",
+      "bytes": 36461
     },
     {
       "path": "rulesets/schema/texts.schema.json",
@@ -516,33 +516,33 @@
     },
     {
       "path": "rulesets/sedici_2.json",
-      "sha256": "ad7913d6f4936a04039f0e11a12e42f20a0aadcb7eb7a49ce9248da6b0d9b0f4",
-      "bytes": 19629
+      "sha256": "5183def1e47021af23e0cbeef0cee61185131e67aa9f6999fda32fb8cb4a1710",
+      "bytes": 22642
     },
     {
       "path": "rulesets/sedici_3.json",
-      "sha256": "24d4ba05e59698d0db19333344ff27776e4d7c74e6045551d257f204efbf467f",
-      "bytes": 23464
+      "sha256": "6a58e763534322bdadde547808a1e25eee3bc2ccff8308efe8662b5fae156ba0",
+      "bytes": 26615
     },
     {
       "path": "rulesets/sedici_4.json",
-      "sha256": "2aff2ec81fff3a46b8323020c1febd3e9ed027bab1bc0838db424c0302e94967",
-      "bytes": 19470
+      "sha256": "2efd15ce9eb7c4f0fcca32f5cc885f67636e14be5f76f510ec9d31808ec90728",
+      "bytes": 22553
     },
     {
       "path": "rulesets/trentuno.json",
-      "sha256": "56d9da884b4c34c9c1f55eb000157e54d1379a58d553c95c1a13672247ebc50a",
-      "bytes": 21448
+      "sha256": "359dc32101f48d23e0ac2b7ebd75c292286eafa24b8a5fe3298911e2e26974ba",
+      "bytes": 25054
     },
     {
       "path": "rulesets/venticinque.json",
-      "sha256": "d9e489dc0aa61bcb6fa33e44227a976aca965d82bfb88896fb04dfc90c92e6d3",
-      "bytes": 17479
+      "sha256": "9ef803615710a96e9906456c54257939eb164dea1c05882ce2a22c18e3146be3",
+      "bytes": 17802
     },
     {
       "path": "rulesets/venticinque_3.json",
-      "sha256": "4385fb9752b58d02e782ce6c65298891c571714ba60e382ed0df6774c5e93ef2",
-      "bytes": 17758
+      "sha256": "e30e7ff522af7bea4babbb984e351ebf8f790d158ae3f311b0c5a44af70d3d42",
+      "bytes": 18431
     },
     {
       "path": "test/botlab/botlab.test.mjs",
@@ -595,6 +595,31 @@
       "bytes": 5703
     },
     {
+      "path": "test/bots/declare-window.test.mjs",
+      "sha256": "3d766b418311b62a26d011e28caa2c3e86d037474ed3608a341d2e7672394317",
+      "bytes": 2165
+    },
+    {
+      "path": "test/bots/equal-bid.test.mjs",
+      "sha256": "6a7455d2001d64fcdda2d4de93c2dcabde15f2967fd607b8502edac5346a2627",
+      "bytes": 4132
+    },
+    {
+      "path": "test/bots/free-game-count.test.mjs",
+      "sha256": "b186aaefae206fbf227793cb385203f8fb98246ce64675ae88e9feb7d838a0d5",
+      "bytes": 4187
+    },
+    {
+      "path": "test/bots/fuora-bot.test.mjs",
+      "sha256": "7de362c757d59c61b31e2a7ecb1ec9c41a5d358623e9859acd7d7d88b4c67940",
+      "bytes": 5267
+    },
+    {
+      "path": "test/bots/immediate-win.test.mjs",
+      "sha256": "73d16fc212563af9e2b17aa1c740c42d1aadee5929909d068fbd025bf14e310a",
+      "bytes": 4498
+    },
+    {
       "path": "test/bots/lib.mjs",
       "sha256": "a8ed139698847d83036372c9d8edb6337c56aaf92c60a6b98eb49d732ea100dd",
       "bytes": 902
@@ -610,9 +635,19 @@
       "bytes": 1146
     },
     {
+      "path": "test/bots/scaricare-bot.test.mjs",
+      "sha256": "79373ce5ccb73f96ea08c76a10c53ca986821939e338f7875538f5e76172323c",
+      "bytes": 1494
+    },
+    {
       "path": "test/bots/slip.test.mjs",
       "sha256": "703d76415082048e470548b5cc857c8036fefee3ee2ed92ad2614b12e5c97f81",
       "bytes": 2203
+    },
+    {
+      "path": "test/bots/vola-bot.test.mjs",
+      "sha256": "c4a78419bc2c3a3d84fc0001ea46dc0bc6edb7e4fe7d764a2e6c2761513846ce",
+      "bytes": 4130
     },
     {
       "path": "test/check-bot/det-worker.mjs",
@@ -721,13 +756,23 @@
     },
     {
       "path": "test/check-core/support.test.js",
-      "sha256": "ac1c3802c9b60505a571807f0e9a4ec120d95b332fd57a7d79c5803f7f86dc4e",
-      "bytes": 5833
+      "sha256": "7abe456ffc077b63be987a40c125dd725fdd606c844c10ed0d7d11bad3731666",
+      "bytes": 7084
     },
     {
       "path": "test/check-core/tricks.test.js",
       "sha256": "704ee9e5386abfee8d2e4f2e1bfad53c572e694d999e29c5b0113f59f85e4a01",
       "bytes": 7661
+    },
+    {
+      "path": "test/check-core/venticinque-nobody.test.js",
+      "sha256": "2e89c814cc11fcdff703aba0a157d3b1de11d8dbd9853b7460bb4a3f3b38ceb3",
+      "bytes": 2280
+    },
+    {
+      "path": "test/check-core/vola.test.js",
+      "sha256": "641dba5cbeb3bf65caf5ad50b964be2daa8b021c9c1ad19f9e84eebe410a4562",
+      "bytes": 2683
     },
     {
       "path": "test/check-race-piles/baronetti.test.mjs",
@@ -736,13 +781,13 @@
     },
     {
       "path": "test/check-race-piles/lib.mjs",
-      "sha256": "34d0d8accda545d91fb00577371d85a650a34fe3ef5006b21995bfa679856072",
-      "bytes": 3795
+      "sha256": "440e36b94abd8bbb7332492daff09e06a2d9471e14212f06774f52262e7ead8e",
+      "bytes": 3897
     },
     {
       "path": "test/check-race-piles/match.test.mjs",
-      "sha256": "792526cbe8ac97ba54ea5afea87110c43270f61f61e19f3040ea2525581b5307",
-      "bytes": 3948
+      "sha256": "8a565fa0a55e99a4a61247477b48825704b479b9911ffbb5b7b173fcb6011af5",
+      "bytes": 4149
     },
     {
       "path": "test/check-race-piles/replay.test.mjs",
@@ -756,13 +801,13 @@
     },
     {
       "path": "test/check-race-piles/sedici-trentuno.test.mjs",
-      "sha256": "8e937ca5b22c1f57c19311b175c9cc6f9533a82b72e6150777f77ac818865ce7",
-      "bytes": 9961
+      "sha256": "3b2071bd1f62b3addaf2e801968b70350c845bfccbfabdfb07b01acadb6dcb4d",
+      "bytes": 10206
     },
     {
       "path": "test/core/auction.test.js",
-      "sha256": "383ba8afa9d270af4a4d1c70f4ba3f76edbf9394ab1bda31dd0e5593f84f4b44",
-      "bytes": 7095
+      "sha256": "8b0d8b82d4b865af640744d50f315e313086815fa36b5d81c9d3f5746c99c755",
+      "bytes": 11728
     },
     {
       "path": "test/core/call-king.test.js",
@@ -786,8 +831,8 @@
     },
     {
       "path": "test/core/declarations.test.js",
-      "sha256": "2a621c1ccccc6ed10881c9a06ad96b070639632c4c13eb2d868a9d0d453aedc1",
-      "bytes": 6429
+      "sha256": "f9d72021e2a3d196d2f8b3684f9a835c7abf19405c880e3700d7053052da270f",
+      "bytes": 8099
     },
     {
       "path": "test/core/exchange.test.js",
@@ -811,8 +856,8 @@
     },
     {
       "path": "test/core/fuora.test.js",
-      "sha256": "15095d0c44488a058a237822d0188fb1d166a6c5f26576cd39a205c0a168c176",
-      "bytes": 9411
+      "sha256": "2ee8494780895083cee57284131dafba741eac8265baed41430805f4f5783aa7",
+      "bytes": 18033
     },
     {
       "path": "test/core/helpers.js",
@@ -826,8 +871,8 @@
     },
     {
       "path": "test/core/money.test.js",
-      "sha256": "10a3fb6ec3039f391c2b222b450db3289993aeafd0e286e6f0a562b972a6b6a5",
-      "bytes": 6964
+      "sha256": "84279d851cd785e86fd5eb6c5a0b668351ea6d41ef6bc4a8cd4e94877a074ccc",
+      "bytes": 9833
     },
     {
       "path": "test/core/piles-deal.test.js",
@@ -866,8 +911,8 @@
     },
     {
       "path": "test/core/r9-general.test.js",
-      "sha256": "d71c1a9f12176104147fa1e1a6f3705e73947285afaed0aab2d0020a030f4cb7",
-      "bytes": 10599
+      "sha256": "2657a582624d41386c804c5b28f774764daf756c587a49f37f277297a296e239",
+      "bytes": 10684
     },
     {
       "path": "test/core/r9-lib.js",
@@ -890,6 +935,11 @@
       "bytes": 2854
     },
     {
+      "path": "test/core/scaricare.test.js",
+      "sha256": "63ce6c4ba1478c3f5ed0954f5d74be7a40a113b31619410519b6328d5362bd21",
+      "bytes": 11039
+    },
+    {
       "path": "test/core/sides.test.js",
       "sha256": "6f9c3c8f7c4c58998bfc2cb64291f5ba76d9a296751950685ca0df2e1c4401e5",
       "bytes": 3463
@@ -901,13 +951,13 @@
     },
     {
       "path": "test/core/support.test.js",
-      "sha256": "601a05616a8d283a2e48efc8213a8102944c52bf49fc2b6f207e1c908cd40bbb",
-      "bytes": 12063
+      "sha256": "b1181c846e19dcd2ca9b8033d7b0762b653107ba8d00c777526c1fc6a6104428",
+      "bytes": 12102
     },
     {
       "path": "test/core/two-deals.test.js",
-      "sha256": "89f3336b66d8bdd6ab958336753d7094208d0e73f420be1dd58c5409b129ff34",
-      "bytes": 5010
+      "sha256": "a926ccad5b9027a77310dada1ef7fe515193bc1744d5d3c50bbca17701c9d7c0",
+      "bytes": 8209
     },
     {
       "path": "test/core/view.test.js",
@@ -1066,8 +1116,8 @@
     },
     {
       "path": "tools/robots.mjs",
-      "sha256": "958b6a21a6bd4db3a05e0f022d4d2c63bcde21496b9de1c7420107583e036510",
-      "bytes": 33662
+      "sha256": "23e0515aac7658a8f0928884d8a70c7f090516ae0719e055e62526a2cf03fae9",
+      "bytes": 34703
     },
     {
       "path": "tools/same-five.mjs",
@@ -1076,8 +1126,8 @@
     },
     {
       "path": "tools/validate-rulesets.mjs",
-      "sha256": "2fb6b5cd8e9a871fedee099c0d092d16331c62726a60072e52f31edd3d27f9d5",
-      "bytes": 31064
+      "sha256": "f7f6e6673d9df98a3e3438ceb9eea21d006ca70cf231ce7c8c5890221c5aae2b",
+      "bytes": 34283
     },
     {
       "path": "tools/workdir.mjs",

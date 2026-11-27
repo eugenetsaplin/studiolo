@@ -1,6 +1,6 @@
 # Twenty-five cards (Venticinque)
 
-2 players. In the book of 1787: pp. 53-56. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+2 players. In the book of 1787: pp. 53-56. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Venticinque is a family of Piedmontese games (Dummett 1980: for three players p. 260, for two players p. 261); this file is the game for two as the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, «Del giuoco di venticinque carte in due persone», pp. 53-56) gives it, read on its scan, on the 78-card deck: 25 cards to the dealer's opponent, 28 to the dealer who discards 3 (p. 53), the other 25 cards out of play, covered on the table (p. 57), 25 tricks, the cards counted in pairs (p. 52). The rules are the book's: the trionfi rank by their printed numbers with the Angel XX above the World XXI (pp. 9-10, 13), the Angel is the honour that may not be discarded (pp. 14, 34, 54), the Fool is never taken and its owner gives one plain card at the end of the hand (pp. 50, 52, 54), the discard counts for the dealer (p. 55), the hand is won by more points (p. 54) and has no dry premium, the premiums are agreed before the deal (pp. 21, 55, 99). Ours, where the book is silent: the Fool may be led, the engine chooses the card the Fool's owner gives, and the match of four hands around the hand. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -81,7 +81,7 @@ This step: *Documented: from the book, p. 53.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others; while the trick is open: the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others; while the trick is open, the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
@@ -93,6 +93,6 @@ This step: *Documented: from the book, p. 53.*
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 (partial scan held, p. 268 missing) | held |
+| Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 
-Generated from `rulesets/venticinque.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/venticinque.json`, rules revision 11. Do not edit: change the game file.

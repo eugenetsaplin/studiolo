@@ -4,8 +4,8 @@
 	"extends": "permesso_5",
 	"family": "permesso",
 	"status": "playable_with_decisions",
-	"about": "Sestilio, Permesso for six (Torino 1787, «Del giuoco di Permesso in sei persone, o sia Sestilio», pp. 76-77), a game the book calls «inusitato»: 13 cards to each of the six players, the dealer too, and no discard (p. 76); whoever wants to go alone asks «Permesso» as before. The book offers «giuoco sciolto» instead, played by the rules of Dottore without a discard, where the most points wins (pp. 76-77); here it is the variant «sciolto_chosen», and the outcome of a general pass in Dummett (1980, p. 267) is the variant «all_pass_sciolto». The payments of both are not printed. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 9,
+	"about": "Sestilio, Permesso for six (Torino 1787, «Del giuoco di Permesso in sei persone, o sia Sestilio», pp. 76-77), a game the book calls «inusitato»: 13 cards to each of the six players, the dealer too, and no discard (p. 76); whoever wants to go alone asks «Permesso» as before. The book offers «giuoco sciolto» instead, played by the rules of Dottore without a discard, where the most points wins (pp. 76-77); here it is the variant «sciolto_chosen» (nobody bids: the cards are dealt and play begins at once, each for himself), and the outcome of a general pass in Dummett (1980, p. 267) is the variant «all_pass_sciolto». The cards are counted one by one, two by two or three by three as agreed (p. 75). The payments of both are not printed. Marks: [D] documented, [R] our reading, [S] sources silent.",
+	"revision": 11,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -34,12 +34,12 @@
 		{"id":"two","rank":2,"exchange":2,"onoranza":3,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 62, 67: «A due»; «chi va a due carte guadagna l'Onoranza di tre»."},
 		{"id":"one","rank":3,"exchange":1,"onoranza":4,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 63, 67: «io vado ad una»; «chi va a una carta sola, guadagna l'Onoranza di quattro»."},
 		{"id":"sans_prendre","rank":4,"exchange":0,"onoranza":5,"sides":"declarer_vs_rest","source":"[D] Torino 1787, pp. 64, 67: «aller sans prendre», no card changed; «chi va a sans prendre, guadagna l'Onoranza di cinque»."},
-		{"id":"sciolto","rank":0,"exchange":0,"sides":"each_for_self","source":"[D] Torino 1787, pp. 76-77: «giuoco sciolto, in cui chi fa più punti guadagna la partita»; rules of the Dottore, without discard."}
+		{"id":"sciolto","rank":0,"exchange":0,"sides":"each_for_self","source":"[D] Torino 1787, pp. 76-77: «giuoco sciolto, in cui chi fa più punti guadagna la partita»; rules of the Dottore, without discard (p. 77: «non si può, e non si deve fare scarto veruno»)."}
 	],
 	"variants": [
 		{
 			"id": "sciolto_chosen",
-			"source": "[D] Torino 1787, p. 76: «Per giuocar però meglio in sei persone … Permesso, potrassi giuocare a giuoco sciolto»: the table agrees before the deal to play giuoco sciolto instead of Permesso.",
+			"source": "[D] Torino 1787, p. 76: «potrassi giuocare a giuoco sciolto, in cui chi fa più punti guadagna la partita»; p. 77: «abbiansi le regole date di sopra al giuoco del Dottore», where «non si chiamano, nè si cambiano carte» (p. 75). The table agrees before the deal to play giuoco sciolto instead of Permesso: nobody bids or asks «Permesso»; the cards are dealt, 13 each and no discard (p. 77: «non si può, e non si deve fare scarto veruno»), and play begins at once, each for himself.",
 			"patch": {
 				"hand": {
 					"phases": [
@@ -47,7 +47,7 @@
 							"id": "bidding",
 							"module": "bidding",
 							"settings": {
-								"contracts": {"value":["sciolto"],"source":"[D] Torino 1787, p. 76: only giuoco sciolto is played; nobody asks «Permesso»."},
+								"contracts": {"value":["sciolto"],"source":"[D] Torino 1787, pp. 76-77: giuoco sciolto is played by the rules of the Dottore (p. 77: «abbiansi le regole date di sopra al giuoco del Dottore»), where «non si chiamano, nè si cambiano carte» (p. 75): nobody asks «Permesso», so there is no auction (the engine sets the contract on entering the phase)."},
 								"all_pass": {"value":"contract:sciolto","source":"[D] Torino 1787, p. 76: the table plays «a giuoco sciolto» as agreed."}
 							}
 						}
@@ -93,6 +93,7 @@
 				"id": "bidding",
 				"module": "bidding",
 				"settings": {
+					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; p. 76 sends to it, «come è stato detto di sopra»): the second reading of «dirà subito», carried over to six: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours."},
 					"all_pass": {"value": "redeal_next_dealer", "source": "[S] Torino 1787, pp. 76-77 say nothing of a hand in which everyone passes; ours as in Permesso for three. Other reading: Dummett 1980, p. 267 makes it giuoco sciolto (variant all_pass_sciolto).", "by": "dummett1980", "pages": [267], "alt": "contract:sciolto", "replace": {"with": ["document"], "what": "the bidding of the dealer and a general pass", "q": 22}}
 				}
 			},
@@ -124,6 +125,28 @@
 					"must_trump": {"value": true, "source": "[D] Torino [1846], part I, p. 36, for Partita and «anche negli altri giuochi»: «si risponderà e prenderà con un Trionfo». Torino 1787, p. 36 only shows it. Torino 1787, p. 49 (Baronetti) prints the same duty: «se non ho carte della medesima sequenza prendo con Trionfi».", "by": "torino1846", "pages": [36]},
 					"must_overtrump": {"value":false,"source":"[R] Torino 1787, pp. 36-37: no duty to beat the trump on the table."},
 					"fool_may_lead": {"value":true,"source":"[S] Ours: as in the other games; the Fool is only shown (p. 77)."}
+				}
+			},
+			{
+				"id": "count",
+				"module": "count",
+				"when": {
+					"contract": ["three","two","one","sans_prendre"]
+				}
+			},
+			{
+				"id": "count_sciolto",
+				"module": "count",
+				"when": {
+					"contract": ["sciolto"]
+				},
+				"after": "count",
+				"settings": {
+					"count_unit": {"value":"half_point","source":"[R] Torino 1787, p. 75: counted «ad una ad una, o a due a due, o a tre a tre»; the half-point arithmetic of the format covers all three."},
+					"group": {"value":"option:group","source":"[D] Torino 1787, p. 75: «purchè tutti contino sull'istesso metodo»: one, two or three by agreement (option group); the rules of the Dottore are those of giuoco sciolto (p. 77)."},
+					"odd_card": {"value":"half_point","source":"[S] Torino 1787, p. 75 does not say how cards left over a whole group count; ours, as in the Dottore: the odd card counts its value less the half."},
+					"fool_card": {"value":"counted","source":"[S] Torino 1787, p. 75 is silent on the Fool's card; ours: counted, as in the Dottore."},
+					"plain_value": {"value":1,"source":"[R] Torino 1787, p. 75: counting one by one makes every plain card worth a point, as in the Dottore."}
 				}
 			},
 			{
@@ -169,6 +192,7 @@
 		]
 	},
 	"options": [
+		{"id":"group","choices":[1,2,3],"default":2,"source":"[D] Torino 1787, p. 75: «ad una ad una, o a due a due, o a tre a tre» («purchè tutti contino sull'istesso metodo»): the giuoco sciolto uses the rules of the Dottore (p. 77), and its cards are counted one, two or three by agreement; the default is ours. Permesso itself is counted in pairs.","affects":["hand.count_sciolto.group"]},
 		{"id":"stake","choices":[1,2,5,10],"default":1,"source":"[S] Torino 1787, p. 76: the giuoco sciolto has no printed payment; the stake is agreed before the deal (p. 21); the choices are ours.","affects":["hand.settle.amount"]}
 	],
 	"bot": {
@@ -176,6 +200,36 @@
 			{"value":{"advice":"six_player_permesso_unusual"},"source":"[D] Torino 1787, p. 76: «Il giuoco di Permesso in sei persone è un giuoco inusitato»."}
 		]
 	},
+	"penalties": [
+		{
+			"id": "call_without_laying",
+			"offence": "call_without_laying",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"onoranza","to":"each_other","then":"hand_is_played"},"source":"[D] Torino 1787, pp. 64-65: «pagherà la partita semplice a' compagni, cioè … … e la partita si giuocherà»."}
+		},
+		{
+			"id": "refuse_bid",
+			"offence": "refuse_bid",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"double_onoranza","to":"each_other","marcio_alt":"marcia_game"},"source":"[D] Torino 1787, p. 66: «dovrà andare irremissibilmente, o pagar l'Onoranza doppia … a guadagnar la partita col marcio»; a bid binds (bidding.bid_binds)."}
+		},
+		{
+			"id": "signal",
+			"offence": "signal",
+			"enforce": "text_only",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other","then":"lone_player_may_stop"},"source":"[D] Torino 1787, p. 73: «costui pagherà la partita semplice a tutti … giuocare, o far cessare il giuoco»; named for Permesso for three, four and five and for Chiamare il Re (and «a qualunque altro giuoco di Tarocchi»). [R] who the offender may be is not said (any player); the table cannot see a knock, so only the rules page tells it."}
+		},
+		{
+			"id": "revoke",
+			"offence": "revoke",
+			"enforce": "prevent",
+			"hand": "continues",
+			"effect": {"value":{"pays":"simple_game","to":"each_other"},"source":"[D] Torino 1787, pp. 33-34 (general rule 35): «sarà obbligato senza remissione a pagare a tutti i compagni la partita semplice»; p. 38 (said for Sedici; p. 79 (Meno) and p. 90 (Partita) send to it): «incorrere nella pena accennata … num. 35. di … tutti i giuocatori compagni»; the engine refuses a card that does not follow suit."}
+		}
+	],
 	"left_out": [
 		{"id":"vola","source":"[D] Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).","why":"The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played."},
 		{"id":"marcio","source":"[D] Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».","why":"Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played."},

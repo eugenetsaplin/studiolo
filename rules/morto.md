@@ -1,8 +1,8 @@
 # Morto
 
-2 players. In the book of 1787: pp. 57-58. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+2 players. In the book of 1787: pp. 57-58. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
-Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent.
+Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent. A Fool drawn from the stock goes to the drawer's points like any card: Torino 1787, p. 57, «o buona, o cattiva, che capiti ad essere».
 
 ## How to read the marks
 
@@ -91,11 +91,10 @@ This step: *Documented: from the book, p. 57.*
 
 ### Offences
 
-- Offence «looking at a card of the covered stock»: impossible at the table; penalty: on a loss: doubled; on a double win: simple; on a simple win: nothing. *Documented: from the book, p. 58.* <!-- rule: penalties.peek_morto -->
+- The offence «looking at a card of the covered stock» cannot happen at this table. By the book: on a loss, doubled; on a double win, simple; on a simple win, nothing. *Documented: from the book, p. 58.* <!-- rule: penalties.peek_morto -->
 
 ## Not played yet
 
-- **Fool from morto.** The engine puts a Fool drawn from the Morto among the drawer's won cards like any card: it counts its points and no plain card is given for it. *Sources silent, our decision: Torino 1787, pp. 57-58 say nothing of the Fool drawn from the Morto; the page says only «e poi la metti ne' punti tuoi».* <!-- left_out: fool_from_morto -->
 - **Bagatto discard.** The Venticinque section, which Morto follows, says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred). *Documented: Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.* <!-- left_out: bagatto_discard -->
 - **Premium scale.** Premiums by agreement are not played: a won hand is one game point, as in Venticinque. *Documented: Dummett and McLeod 2004, pp. 156-157: premiums beyond the single game point are agreed by the players; the authors suggest a scale of 1, 2, 3, 4 and 6.* <!-- left_out: premium_scale -->
 - **Vola.** A bid to take all the tricks is a contract the engine has no place for. *Documented: Dummett 1980, p. 259: the Fool may be discarded by a dealer who means to win every trick (vola).* <!-- left_out: vola -->
@@ -107,4 +106,4 @@ This step: *Documented: from the book, p. 57.*
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 
-Generated from `rulesets/morto.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/morto.json`, rules revision 11. Do not edit: change the game file.

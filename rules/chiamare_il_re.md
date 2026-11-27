@@ -1,6 +1,6 @@
 # Call the King (Chiamare il Re)
 
-4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 10.
+4 players. In the book of 1787: pp. 79-84. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
 Chiamare il Re (Torino 1787, «Del giuoco, che dicesi volgarmente chiamare il Re», pp. 79-84), a game for four that the book describes in passing: dealt as Permesso for four (19 cards, the dealer puts two away), the dealer, who has «un doppio vantaggio», calls any king and its secret holder is his partner, two against two, who count together to 46 points «dedotta la carta del Folle» (pp. 80-81). If he holds all four kings he may call a queen, with all kings and queens a knight, with all of those a jack (pp. 81-82). The dealer may instead go alone, changing one card («ad una») or none («sans prendre»), against the other three; another player may take the «ad una» first (p. 82). The payments are «secondo il convenuto» (p. 83): the book names no figure. A king that lies in the dealer's discard, the lead and the first hand's rules are not printed; ours, marked [S] (the lead [R], by the general rule of p. 35).
 
@@ -74,6 +74,7 @@ This step: *Documented: from the book, pp. 80-82.*
 - The dealer speaks first. *Documented: from the book, pp. 80-82.* <!-- rule: hand.bidding.dealer_speaks -->
 - With equal bids the later bidder wins the bidding. *Our reading: book, p. 82.* Other reading: With equal bids the dealer wins the bidding. <!-- rule: hand.bidding.tie -->
 - If the dealer passes, the bidding ends: he calls a king. The others may only overcall a bid of the dealer. *Our reading: book, p. 80.* Other reading: If the dealer passes, the others bid. Open question 29: could be settled by a document in which the rule is printed (the auction after the dealer passes); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.bidding.after_dealer_pass -->
+- After a raise the word goes on in the order of speech. *Our reading: book, p. 82.* Other reading: After a raise the word goes back at once to the player who was overbid: he may hold with an equal bid, overbid or give way. <!-- rule: hand.bidding.overbid_returns -->
 - If everyone passes, the bid «call the king» is played. *Documented: from the book, p. 80.* <!-- rule: hand.bidding.all_pass -->
 
 ### Calling a partner
@@ -142,23 +143,24 @@ This step: *Documented: from the book, p. 82.*
 
 ### Offences
 
-- Offence «calling a card of one's own»: applies; penalty: plays alone; unless: all the others forgive it unanimously. *Our reading: book, p. 83.* <!-- rule: penalties.call_own_card -->
-- Offence «a hint to the partner»: in the text of the rules only; penalty: the one who hinted plays alone; unless: the hint was in the plain way of play. *Our reading: book, p. 83.* <!-- rule: penalties.hint_partner -->
-- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others; then: the lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- The offence «calling a card of one's own» can happen at this table, and the table does what the book says. By the book, the offender plays alone, unless all the others forgive it unanimously. *Our reading: book, p. 83.* <!-- rule: penalties.call_own_card -->
+- This table does not charge the offence «a hint to the partner»: the penalty stands in the text of the rules only. By the book: the one who hinted plays alone, unless the hint was in the plain way of play. *Our reading: book, p. 83.* <!-- rule: penalties.hint_partner -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others; then the lone player may stop. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 
 ## Not played yet
 
 - **Onoranza of ad una.** Not printed in the 1787 book; the payment is the agreed stake. *Our reading: Dummett 1980, p. 269 (our scan lacks page 268): a basic payment of 2 for «ad una»; only the 1 for calling a king is his conjecture. His 1 for «a due» belongs to Permesso: this game has none (Torino 1787, p. 84: «col chiamare due, o tre carte, non potrà mai»).* <!-- left_out: onoranza_of_ad_una -->
 - **Fool discard for vola.** Vola is not played (open question 13); the exception is not offered. *Documented: Torino 1787, p. 34 (rule 38): the Fool may be put away «in un sol caso … guadagnar la partita vola».* <!-- left_out: fool_discard_for_vola -->
+- **Own card forgiveness.** Not played: the partners cannot know that the called card is the caller's own, so nobody can be asked to forgive; the caller plays alone (penalties.call_own_card, hand.call_partner.own_card). *Documented: Torino 1787, p. 83: «se non gli verrà da tutti il fallo passato per buono» (all the partners, «dico concordemente»), then «egli allora sarà tenuto ad andar solo senza altra chiamata».* <!-- left_out: own_card_forgiveness -->
 
 ## Sources
 
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
+| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/chiamare_il_re.json`, rules revision 10. Do not edit: change the game file.
+Generated from `rulesets/chiamare_il_re.json`, rules revision 11. Do not edit: change the game file.

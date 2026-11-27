@@ -8,6 +8,8 @@ The bot plays every game of the book by sampling the hidden cards ([`docs/BOT.md
 
 All numbers are for rules revision 10, with seats swapped on each deal (one deal is two games), the bot of level `strong` against `normal`. A share is the share of games won by `strong`.
 
+Revision 11 (`rulesets/REVISIONS.md`, an outside check of the game files against the books) may move some of these numbers, and they were not measured again. In Sedici and Trent'uno «fuora» is now said by the player and not for him, and the bot plays a card that wins the game now before any other choice (`docs/BOT.md`): both can change the games of `sedici_2` and `trentuno` for both levels. In Baronetti the loser now deals next. Venticinque and Morto are played as before. The known limitation in `docs/BOT.md` (a world scores the win and the margin together) is not measured either.
+
 | Game | Deals (games) | Share, with 95 % interval |
 |---|---|---|
 | `sedici_2` | 200 (400) | 0.495 [0.466..0.524] |

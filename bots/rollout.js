@@ -64,6 +64,8 @@ function unitOf(result, ctx) {
 }
 
 function winSign(result, seat) {
+	// a scaricare: the second to go out neither wins nor pays (result.order is first, second, last)
+	if (result.order && result.order.length === 3 && result.order[1] === seat) return 0;
 	return result.winners.includes(seat) ? 1 : result.winners.length ? -1 : 0;
 }
 

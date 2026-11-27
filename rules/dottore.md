@@ -1,8 +1,8 @@
 # Doctor (Dottore)
 
-5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 9.
+5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
 
-Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The payment, the value of each card, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.
+Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The cards keep their usual values (Torino 1787, pp. 13-14; Torino [1846], part I, p. 47: «Le carte hanno lo stesso valore come al venticinque»). The payment, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.
 
 ## How to read the marks
 
@@ -42,7 +42,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### The deal
 
-- Cards dealt to each player: 15. *Documented: from Torino [1846], part I, p. 46.* <!-- rule: hand.deal.hand_size -->
+- Cards dealt to each player: 15. *Documented: from the book, p. 75.* <!-- rule: hand.deal.hand_size -->
 - The dealer gets 3 more. *Documented: from the book, p. 75.* <!-- rule: hand.deal.dealer_extra -->
 - The cards are dealt in packets as the dealer chooses. *Our reading: book, p. 59.* <!-- rule: hand.deal.packets -->
 - The dealer names the packets before dealing. *Our reading: book, p. 59.* <!-- rule: hand.deal.packets_announced -->
@@ -96,8 +96,8 @@ This step: *Documented: from the book, p. 75.*
 
 ### Offences
 
-- Offence «revoke»: impossible at the table; penalty: pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- Offence «a signal to the partner»: in the text of the rules only; penalty: pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 
@@ -108,8 +108,8 @@ This step: *Documented: from the book, p. 75.*
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
-| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing) | held |
+| Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
-| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] (separate issue, cover dated 1846, deposited 27 December 1845; reprinted from the same setting, same pages, as part II of Il giuocatore di tarocchi al tavoliere, Torino, Serra, [1846]) | held |
+| Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/dottore.json`, rules revision 9. Do not edit: change the game file.
+Generated from `rulesets/dottore.json`, rules revision 11. Do not edit: change the game file.

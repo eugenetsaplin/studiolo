@@ -8,6 +8,8 @@ In Meno the player with the fewest points wins. The book names two short forms: 
 
 All numbers are for rules revision 10 (`rulesets/REVISIONS.md`). Each is a check of 200 hands played by random players at that number of seats, made in our lab. The core of this repository does not play Meno at four seats and more, so the command below repeats the three-seat line and not the others.
 
+Revision 11 (`rulesets/REVISIONS.md`, an outside check of the game files against the books) does not change the form of four cards, nor the full game: the new rule of the vola (a player who takes all eight tricks is the only winner) is for the form of eight cards. The eight-card figures below were not measured again and may move a little. The two commands below were run again on revision 11 and print the same 44.0 % and 50.0 %.
+
 - We offer a form at a number of seats when no winner happens in at most 15 % of the hands and more than one winner in at most 50 %.
 - Four cards, three seats: 46 % of the hands have two winners or more (our lab, 200 hands of random players, on its own deals). It passes, close to the limit. The command below, on the seed `play` that it uses when no seed is named, 200 hands, random players, gives 44.0 % [37.3..50.9] (88 hands of 200). The two numbers come from different deals, and both are honest: with 200 hands the interval is wide. From four seats up it fails: 83 %, 97 %, 100 % and 100 % at four, five, six and seven seats.
 - Eight cards passes at two to five seats (29 % at most) and fails at six and seven (57 % and 80 %).

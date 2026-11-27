@@ -77,12 +77,13 @@ function isHalvingStep(done) {
 
 // The bid of a seat: {action, eval, stats}. The pass is never dropped by the halving: every bid is measured against it.
 export function decideBid({ game, view, level, seed, ctx, makeRng }) {
-	// never match the standing bid (two seats matching each other would never end): only a higher one, or the pass
+	// the judge offers a bid equal to the standing one only to a seat that may match it (an earlier seat in the order of speech;
+	// two seats cannot pass one bid to each other for ever): every bid of the legal list is judged, the equal one with the rest
 	const standing = view.bidding.best ? ctx.contracts.find((x) => x.id === view.bidding.best.contract) : null;
 	const higher = (a) => {
 		if (a.type === 'pass') return true;
 		const c = ctx.contracts.find((x) => 'bid_' + x.id === a.type);
-		return !!c && (!standing || c.rank > standing.rank);
+		return !!c && (!standing || c.rank >= standing.rank);
 	};
 	const legal = view.legal.filter(higher);
 	const stats = { worlds: 0, plays: 0, candidates: legal.length };
