@@ -8,7 +8,7 @@ You do not need to know the old games. You need Node 24 (nothing else to install
 
 | Card | The question in one line | How we measure |
 |---|---|---|
-| [001 A stronger opponent](001-stronger-opponent/TASK.md) | Can a bot beat our `normal` level clearly at two players? | Share of games won against `normal`, 1,000 deals, and time per move |
+| [001 A stronger opponent](001-stronger-opponent/TASK.md) | Can a bot beat our `normal` level clearly at two players? A first solution passes the measure in three games of five; it is not published here yet. | Share of games won against `normal`, 1,000 deals, and time per move |
 | [002 Bidding at Permesso](002-bidding-at-permesso/TASK.md) | Do the bots leave money on the table at the auction? | Money per deal against the other seats, 400 deals, at three and five seats |
 | [003 Meno for three](003-meno-short-form-for-three/TASK.md) | Closed by rules revision 14. The many-winner share of the short form came from our reading of the count. | The share fell from 44 % to 21.5 % of 200 hands when a plain card counts 1 |
 

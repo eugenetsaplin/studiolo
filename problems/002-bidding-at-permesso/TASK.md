@@ -32,7 +32,7 @@ With these payments, is a declarer share of 0.66 at three seats and 0.76 at five
 
 For code: 400 deals on our seeds, one solver seat among `normal` seats, `permesso_3:3` and `permesso_5:5`: money per deal minus the others with the 95 % interval above 0.
 
-Two identical `normal` bots differ by -0.270 [-2.284..1.745] on 100 deals at three seats (seed `tune`) and by 0.600 [-1.636..2.836] at five: the noise is large. 100 deals take about 4 minutes at three seats and 3 minutes at five on four threads. We have no paired measure yet (the same set of deals for two bots at the same seat, the difference taken deal by deal); if you build one, that is a result too.
+Two identical `normal` bots differ by -0.270 [-2.284..1.745] on 100 deals at three seats (seed `tune`) and by 0.600 [-1.636..2.836] at five: the noise is large. 100 deals take about 4 minutes at three seats and 3 minutes at five on four threads. Since revision 14 the lab has a cyclic mode (`--mode cyclic`, `docs/BOT.md`), where every deal is played once from every seat: `node tools/botlab.mjs --games permesso_3:3 --a normal --b normal --mode cyclic --budget-games 200 --seed tune` plays 66 deals (198 games, 371 s on eight threads) and gives the money of two identical `normal` bots within 0.67 coins per deal either way, where the default way gives 0.91 on the same games. That is still wide. A measure that pairs two bots at the same seat on the same deals, the difference taken deal by deal, we do not have; if you build one, that is a result too.
 
 For a written answer: a calculation or an argument with numbers that we can check by playing. We play the hands your answer talks about, 100 deals per table, on our seeds.
 

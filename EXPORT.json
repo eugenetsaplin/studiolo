@@ -2,10 +2,10 @@
   "revision": 14,
   "tag": "rules-r14",
   "rules_tag": "rules-r14",
-  "ref": "open-r14.1",
-  "ref_commit": "c38c6e0737ac4abccd82f4d5b17f988ace56fb6c",
-  "commit": "c38c6e0737ac4abccd82f4d5b17f988ace56fb6c",
-  "commit_date": "2026-11-28T02:14:06+01:00",
+  "ref": "open-r14.2",
+  "ref_commit": "70888fafc4b14732e4bd1e4ae233a9c62c1933d3",
+  "commit": "70888fafc4b14732e4bd1e4ae233a9c62c1933d3",
+  "commit_date": "2026-11-28T03:38:47+01:00",
   "tool": "export-open 2",
   "layers": [
     "rules",
@@ -241,8 +241,8 @@
     },
     {
       "path": "docs/BOT.md",
-      "sha256": "69e05c86c154153b5c7135a2e8604aceab31b66460f9dffdcbb451e4358b0dcf",
-      "bytes": 26405
+      "sha256": "ce03f75d04931c794818a22c85604278b603f6d672104779d585b2e35fe96b8f",
+      "bytes": 26592
     },
     {
       "path": "docs/CORE_API.md",
@@ -296,13 +296,13 @@
     },
     {
       "path": "problems/001-stronger-opponent/TASK.md",
-      "sha256": "7ec70d8d86894c5495978695945f6916c491790ebdf61b3bb8025cac060d9bf3",
-      "bytes": 4704
+      "sha256": "87835cd1f65bc9aa6603cbf892e39df1f0d22a9de06bb1bd24bbb3ca419bf9b3",
+      "bytes": 7185
     },
     {
       "path": "problems/002-bidding-at-permesso/TASK.md",
-      "sha256": "e6e74f6fa029634a49a20ad533e58003089ac49b10723123056ca614099da51e",
-      "bytes": 6603
+      "sha256": "556c79ab3a228aed8a75a687a603b639ce524b2acd9c31e8505e45de3cfcda6c",
+      "bytes": 7052
     },
     {
       "path": "problems/003-meno-short-form-for-three/TASK.md",
@@ -311,8 +311,8 @@
     },
     {
       "path": "problems/README.md",
-      "sha256": "132c5a5df8521aa360a566904e506e7d7bbab383367de5448eebe7f4b6c920a7",
-      "bytes": 3433
+      "sha256": "b9b1aab913fb0f170dc1a4c0d02cb583875bf2abcfa68f6fb0de4b6e2438f6f0",
+      "bytes": 3523
     },
     {
       "path": "rules/README.md",
