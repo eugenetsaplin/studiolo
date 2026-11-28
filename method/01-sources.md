@@ -32,7 +32,7 @@ Each game file has a table of sources. Each entry has a field `held`.
 - **Held** (`true`): for example Torino [1846], part I; Prammatica [1846]; Dummett 1980.
 - **Not held** (`false`): the rules of 1830. A rule taken from them is cited as «after RI» or «after the rules of 1830», and the page is Dummett's.
 
-Held is not the same as whole. Our scan of Dummett's chapter is partial: printed page 268 is missing. The list of open questions names that page among the documents that could close question 8.
+Held is not the same as whole. Our scan of Dummett's chapter is partial: printed page 268 is missing from it. That page was read separately on 27 November 2026; what it says stands in the list of open questions, at questions 8 and 17.
 
 ## Lawful copies
 

@@ -26,11 +26,11 @@ It is the restorer's rule applied to games: what we add must be recognisable as 
 
 ## Where we stand
 
-Rules revision 13, November 2026 (release 1, with its DOI, holds revision 4):
+Rules revision 14, November 2026 (release 1, with its DOI, holds revision 4):
 
 - 21 game files: one per game, and one per number of players where the deal differs.
-- 971 rules: 567 documented, 289 our readings, 115 where the sources are silent.
-- 38 questions on the list: 16 still open, 15 settled by a decision of the project, 7 closed.
+- 988 rules: 563 documented, 329 our readings, 96 where the sources are silent.
+- 38 questions on the list: 15 still open, 15 settled by a decision of the project, 8 closed.
 - The rules engine plays all 21 game files today. The rules engine, the bots and the bot lab are in this repository.
 
 ## What is here
@@ -41,6 +41,7 @@ Rules revision 13, November 2026 (release 1, with its DOI, holds revision 4):
 | [`rulesets/`](rulesets/) | The rule files themselves, machine-readable, with their schema. |
 | [`rulesets/REVISIONS.md`](rulesets/REVISIONS.md) | The journal: every change to every rule, numbered, with its reason. |
 | [`rulesets/OPEN_QUESTIONS.md`](rulesets/OPEN_QUESTIONS.md) | The placeholders, each with its alternatives and with how often the disputed case comes up in play. |
+| [`QUESTIONS.md`](QUESTIONS.md) | Where we are stuck, in plain words: two books we are looking for, six passages we could not settle, and the problems that wait for a calculation or a program. |
 | [`method/`](method/) | How we look for sources, read them, turn them into rules, and test the result with robots. |
 | [`docs/`](docs/) | The format of a rule file, and the rules it cannot express yet; how the engine and the bots work. |
 | [`core/`](core/) | The rules engine: it reads a rule file and plays a hand by those rules. It knows no game by name. |
@@ -128,6 +129,8 @@ Revision 12 plays the last point of that check that was still on paper. At Venti
 
 Revision 13 changes no rule and no mark. Six source lines named notes of the project that are not part of this record; the references are removed, and the journal lists the files.
 
+Revision 14 follows a third outside check: of the 21 game files, the engine and the rules pages against the books. Each remark was read against the page images or reproduced on the engine; of the 208 remarks on the game files, 110 held in full and 70 in part. One rule changes its value. A plain card counted one by one is worth 1 at Sedici and in the form of four cards of Meno, not 0: the Turin book of 1846 speaks of Sedici and Trent'uno in one sentence (*Prammatica*, p. 12; Torino [1846], part I, pp. 30 and 37), and until now our Sedici counted 0 and our Trent'uno 1. The value 0 stays as the other reading. The same reading closes a problem we had put to others: in the short form of Meno for three, 44 % of the hands ended with several winners, and we asked whether that was the game or our misreading. With a plain card worth 1 it is 21.5 %. The engine had errors of its own that a player could see. At Mitigati for two a declaration made after one's own first card was counted without that card (1787, p. 86). The Fool was exchanged for a card between two partners of one side. The lines of the score on the table did not always add up to its total. Counted by threes, a hand in which the owner of the Fool took no trick made 79 points out of a pack of 78. These are repaired, and the journal describes each. On the first reading of the check we were ready to change two more values, and to take the Fool and the discard from a player who took no trick, after the *Prammatica* of 1846. A second reading, made to refute the first, went back to the book of 1787, which as we read it lets him keep both (pp. 21 and 50). The values stay, and the rule of 1846 stands beside them as the other reading. The revision also says when we count a game as finished, and what can still change a finished rule: a new document, the argument of a specialist, or a defect met by a live player.
+
 ## How you can help
 
 - **You know a source we lack.** We list what we are looking for.
@@ -135,7 +138,7 @@ Revision 13 changes no rule and no mark. Six source lines named notes of the pro
 - **You play these games.** Tell us how your table rules the cases the book leaves open.
 - **You are a mathematician.** Some open questions wait for a calculation, not for a document.
 
-The Discussions tab is the place; [`CONTRIBUTING.md`](CONTRIBUTING.md) says what helps us most. We answer.
+[`QUESTIONS.md`](QUESTIONS.md) gathers the questions on which we are stuck now. The Discussions tab is the place; [`CONTRIBUTING.md`](CONTRIBUTING.md) says what helps us most. We answer.
 
 ## What we do not claim
 

@@ -18,7 +18,7 @@ A check can test a game when the engine plays it, and not otherwise. A number be
 
 **The revision check.** It compares the hash of each file with the hash block of the journal. It tells us that no rule changed without an entry. It does not look at the rule.
 
-**The unit tests.** At revision 1 there were 376 tests, and 375 passed; the one that failed was a question about the rules. At revision 2 there are 396, and all pass. At revision 4 there are 707, and none fails. At revision 12 this repository holds 1,166 (`npm test`): 1,107 pass, 59 are skipped, none fails. They tell us that the engine does what we meant. They do not tell us that what we meant is what the book says.
+**The unit tests.** At revision 1 there were 376 tests, and 375 passed; the one that failed was a question about the rules. At revision 2 there are 396, and all pass. At revision 4 there are 707, and none fails. At revision 12 this repository holds 1,166 (`npm test`): 1,107 pass, 59 are skipped, none fails. At revision 14 it holds 1,218: 1,159 pass, 59 are skipped, none fails. They tell us that the engine does what we meant. They do not tell us that what we meant is what the book says.
 
 **Random-play robots through the engine.** A robot picks a legal move at random. After each move the checks look at the cards: none lost, none doubled. The robots also try forbidden moves, and the engine must refuse them.
 
@@ -60,7 +60,7 @@ Which rules each side plays:
 
 So the comparison uses the Steam game's own rules, not our published game files alone.
 
-At revision 2: Venticinque, 10,000 of 10,000 hands agree; Morto, 2,000 of 2,000 hands agree. Revisions 3 and 4 changed no rule, and the comparison gave the same numbers after each. At revision 12 it gives them again: 10,000 of 10,000 and 2,000 of 2,000.
+At revision 2: Venticinque, 10,000 of 10,000 hands agree; Morto, 2,000 of 2,000 hands agree. Revisions 3 and 4 changed no rule, and the comparison gave the same numbers after each. At revision 12 it gives them again: 10,000 of 10,000 and 2,000 of 2,000. At revision 14, after the changes to the count, the same.
 
 This tells us that two programs, written apart, play the same hands the same way. It does not test the deal, and it does not tell us that the rules are those of the book.
 

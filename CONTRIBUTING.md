@@ -19,6 +19,7 @@ We restore the rules of old tarot games from the books that describe them. Where
 - Open a discussion for a question, a reading or a custom.
 - Open an issue for an error in a file: a wrong page number, a quotation that does not match the book, a broken link.
 - The list of open questions is in [`rulesets/OPEN_QUESTIONS.md`](rulesets/OPEN_QUESTIONS.md). Each has a number: use it.
+- The questions on which we are stuck now, in plain words, are in [`QUESTIONS.md`](QUESTIONS.md).
 
 ## What happens next
 
