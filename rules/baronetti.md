@@ -1,6 +1,6 @@
 # Baronetti
 
-2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+2 players. In the book of 1787: pp. 47-53. Status: playable, with decisions of ours where the book is silent. Rules revision 14.
 
 Baronetti («De' Baronetti»), the boys' game of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, pp. 47-53), read on its scan: two players, the whole 78-card pack dealt into four piles each of 10, 10, 10 and 9 cards with only the top card of every pile face up (pp. 48-49); only open cards are played, the next card of the pile a player played from is turned after both have played (pp. 49-50); the trick-taker leads (p. 50); the cards are counted in pairs and 46 points win the hand (pp. 51-52); the Fool is never given up, it is only shown and laid among one's points, and its owner gives one plain card of his choice (pp. 50, 52). The book's own purpose is to teach boys to answer in the suit asked (p. 47). Where the book is silent (what a Fool shown inside a trick does to the trick, the tie at 45½, the order of dealers, the Fool led) nothing is invented: the leaf is a [R] reading or the rule is listed in left_out. The money is the simple stake of p. 21; no match is described, and a match of two games is our decision; the loser of a game deals the next (p. 41, through p. 47). Marks: [D] documented, [R] our reading, [S] sources silent. When the piles run unequal the play simply goes on from the open cards (p. 49); that is the engine's behaviour, not a rule.
 
@@ -30,11 +30,11 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Kings, the Angel, the Bagatto and the Fool are worth 5, queens 4, knights 3, jacks 2, every other card 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Documented: from the book, p. 47.* <!-- rule: cards.fool -->
 - Whoever plays the Fool keeps it and gives another card in its place. *Documented: from the book, p. 52.* <!-- rule: cards.fool_exchange -->
-- The owner of the Fool picks the card he gives. *Documented: from the book, p. 52.* <!-- rule: cards.fool_exchange_card -->
+- The owner of the Fool picks the card he gives. *Partly printed (p. 52), partly our decision.* <!-- rule: cards.fool_exchange_card -->
 - The card for the Fool goes to the opponent. *Documented: from the book, p. 52.* <!-- rule: cards.fool_exchange_to -->
 - The Fool is never lost, not even in the last trick. *Documented: from the book, p. 50.* <!-- rule: cards.fool_last_trick -->
-- The Fool may be shown at any time. *Our reading: book, p. 50.* Other reading: yes. <!-- rule: cards.fool_show_any_time -->
-- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- An open Fool is shown only by playing it to a trick in place of a card; it takes nothing. *Our reading: book, p. 50.* Other reading: On his own turn the owner of an open Fool may show it and lay it among his won cards. <!-- rule: cards.fool_show_any_time -->
+- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 50.* Other reading: A player who took no trick gives up the Fool itself. Question 2 of the list: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
@@ -53,7 +53,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The dealer's opponent leads first. *Documented: from the book, p. 48.* <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 50.* <!-- rule: hand.tricks.next_leader -->
 - Cards are played from the tops of the piles. *Documented: from the book, p. 49.* <!-- rule: hand.tricks.play_from -->
-- You must follow suit if you can. *Documented: from the book, p. 49.* <!-- rule: hand.tricks.follow_suit -->
+- You must follow suit if you can. *Partly printed (p. 49), partly our reading.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from the book, p. 49.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, p. 49.* <!-- rule: hand.tricks.must_overtrump -->
 - The Fool may be led. *Sources silent, our decision.* <!-- rule: hand.tricks.fool_may_lead -->
@@ -62,7 +62,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 This step: *Documented: from the book, p. 50.*
 
-- The next top card of a pile is turned up after a trick. *Documented: from the book, p. 50.* <!-- rule: hand.piles.reveal -->
+- The next top card of a pile is turned up after a trick. *Partly printed (p. 50), partly our reading.* <!-- rule: hand.piles.reveal -->
 - When one of your piles is used up, you play from your other piles. *Our reading: book, pp. 49-50.* <!-- rule: hand.piles.empty_pile -->
 
 ### The count
@@ -78,7 +78,7 @@ This step: *Documented: from the book, p. 50.*
 - Whoever reaches the threshold wins. *Documented: from the book, p. 51.* <!-- rule: hand.result.winner -->
 - The threshold is 46 points. *Documented: from the book, p. 51.* <!-- rule: hand.result.target -->
 - A hand gives no game points. *Sources silent, our decision.* <!-- rule: hand.result.game_points -->
-- If the points are equal, nobody gains game points. *Sources silent, our decision.* Open question 14: could be settled by a document in which the rule is printed (equal points, 45½ each); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
+- If the points are equal, nobody gains game points. *Sources silent, our decision.* Question 14 of the list: could be settled by a document in which the rule is printed (equal points, 45½ each); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.result.tie -->
 
 ### Settling
 
@@ -89,7 +89,7 @@ This step: *Documented: from the book, p. 50.*
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: the winner hands the pack to his companion, who deals. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: the winner hands the pack to his companion, who deals. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore, Meno and Baronetti); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: the winner hands the pack to his companion, who deals. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: the winner hands the pack to his companion, who deals. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
@@ -110,4 +110,4 @@ This step: *Documented: from the book, p. 50.*
 | Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
 | Piedicavallo (2008) | Zorio Prachin, Il gioco dei tarocchi in Alta Valle Cervo, Piedicavallo, S.O.M.S. and Pro Loco, 2008 | held |
 
-Generated from `rulesets/baronetti.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/baronetti.json`, rules revision 14. Do not edit: change the game file.

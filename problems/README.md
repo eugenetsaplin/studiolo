@@ -10,9 +10,9 @@ You do not need to know the old games. You need Node 24 (nothing else to install
 |---|---|---|
 | [001 A stronger opponent](001-stronger-opponent/TASK.md) | Can a bot beat our `normal` level clearly at two players? | Share of games won against `normal`, 1,000 deals, and time per move |
 | [002 Bidding at Permesso](002-bidding-at-permesso/TASK.md) | Do the bots leave money on the table at the auction? | Money per deal against the other seats, 400 deals, at three and five seats |
-| [003 Meno for three](003-meno-short-form-for-three/TASK.md) | Is the many-winner share of the short form a property of the game or a misreading? | A calculation or an argument; we check the number by playing hands |
+| [003 Meno for three](003-meno-short-form-for-three/TASK.md) | Closed by rules revision 14. The many-winner share of the short form came from our reading of the count. | The share fell from 44 % to 21.5 % of 200 hands when a plain card counts 1 |
 
-All three are open.
+Cards 001 and 002 are open. Card 003 was closed by rules revision 14, and its answer is in the card.
 
 ## How a card is built
 
@@ -25,7 +25,7 @@ All three are open.
 ## How to send a solution
 
 - **With git.** Make a branch in your own copy and open a pull request that adds new files, and no changed ones, in `solutions/NNN-<name>/<your name>/`. Put there: the bot module (a file with `chooseAction`, as `bots/index.js` has) or a level file; a `REPORT.md` with what you did and your numbers on the tuning seeds; the command that checks it. Do not change `core/`, `bots/` or `rulesets/`.
-- **Without git.** Open a discussion and attach the file, or write the answer on paper, in a message or in a document. For cards 002 and 003 a written argument with numbers is a full answer. Code is welcome but not needed.
+- **Without git.** Open a discussion and attach the file, or write the answer on paper, in a message or in a document. For card 002 a written argument with numbers is a full answer. Code is welcome but not needed.
 
 You may use any name you like, or none.
 

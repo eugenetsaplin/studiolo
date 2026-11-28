@@ -11,6 +11,9 @@
 // bots/index.js; the answer must be one of view.legal. The bot gets only the view of its seat (a copy), the level of a (--a-level
 // or --a) and a seed string; a wrong answer or an exception stops the run with the hand number and its seed. Not with --alts, --alone.
 // --timing: decision times (run with --workers 1 and nothing else running: parallel runs distort time).
+// --mode cyclic: every deal is played once for every seat of level a (the others play level b); the observation is the mean over the
+// deal, the interval is the paired Student interval over deals (--safe-t: the share with a wider, protected one). --deals is then the
+// number of deals; --budget-games N plays N games in all (N / seats deals). Not with --alts, --alone, --timing.
 // --alts: level a against itself on the same deals with the value and with each alt of the game file; one table.
 // --alone: every seat plays level a (--b is ignored): the share of hands thrown in, the share with a declarer, the
 // share the declarer won and its money per declared hand. --targets id:seats=alone checks at most 30 % thrown in and
@@ -22,8 +25,8 @@ import { fileURLToPath } from 'node:url';
 import { loadGame } from '../core/index.js';
 import { WORK } from './workdir.mjs';
 import { Pool } from './botlab/pool.mjs';
-import { getFile, gameOf, isPairGame } from './botlab/play.mjs';
-import { rowOf } from './botlab/aggregate.mjs';
+import { getFile, gameOf, isPairGame, turnsOf } from './botlab/play.mjs';
+import { rowOf, cyclicRowOf } from './botlab/aggregate.mjs';
 import { zShares, zMeans } from './botlab/stats.mjs';
 import { SolverError, levelFromFile, botUrl, loadBot } from './botlab/solver.mjs';
 
@@ -92,7 +95,9 @@ export function parseArgs(argv) {
 		aLabel: aBotFile ? 'bot:' + label(aBotFile) : aLevel ? label(aLevel) : a, bLabel: bLevel ? label(bLevel) : b,
 		games: g === 'runnable' ? runnablePairs() : g.split(',').map((s) => { const [id, n] = s.split(':'); return { id, seats: Number(n) }; }),
 		a, b,
-		deals: Number(arg('--deals', 100)), seed: arg('--seed', 'lab'),
+		deals: Number(arg('--deals', 100)),
+			mode: arg('--mode', 'unpaired'), budgetGames: arg('--budget-games', null) === null ? null : Number(arg('--budget-games', null)), dealsGiven: argv.includes('--deals'), safeT: argv.includes('--safe-t'),
+			 seed: arg('--seed', 'lab'),
 		workers: Number(arg('--workers', Math.max(1, os.availableParallelism() - 2))),
 		alone: argv.includes('--alone'),
 		alts: argv.includes('--alts'), timing: argv.includes('--timing'), append: argv.includes('--append'),
@@ -101,7 +106,7 @@ export function parseArgs(argv) {
 	};
 }
 
-const rowKey = (r) => [r.game, r.seats, r.a, r.b, (r.alts ?? []).join(','), r.deals ?? ''].join('|');
+const rowKey = (r) => [r.game, r.seats, r.a, r.b, (r.alts ?? []).join(','), r.deals ?? '', r.mode === 'cyclic' ? 'cyclic' : ''].join('|');
 
 function save(file, meta, rows, append) {
 	fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -129,13 +134,46 @@ export function aloneText(r) {
 	const won = tb.declarerWon === null ? '-' : `${f2(tb.declarerWon)} [${f2(tb.declarerWonLo)}..${f2(tb.declarerWonHi)}]`;
 	return ` | alone: thrown in ${f2(r.thrownIn)}, a declarer ${f2(tb.declaredShare)}, declarer won ${won}, declarer money ${m ? `${f2(m.mean)} [${f2(m.lo)}..${f2(m.hi)}] per declared hand (${m.n})` : '-'}, contracts ${JSON.stringify(r.contracts)}`;
 }
+// the cyclic line: deals and games, the paired interval with its half width, the old interval of the same games for comparison
+export function cyclicText(r) {
+	const h = (x) => (x === null || x === undefined ? '-' : f2(x));
+	const iv = r.interval.share, sf = r.interval.safeShare;
+	const main = r.safeT ? sf : iv, other = r.safeT ? iv : sf;
+	let t = ` | cyclic ${r.deals} deals x ${r.turns} = ${r.hands} games, share ${f2(r.share)} [${h(r.lo)}..${h(r.hi)}] half ${h(main.half)}${r.safeT ? ' (safe-t)' : ''}`;
+	t += `, ${r.safeT ? 'plain' : 'safe-t'} [${h(other.lo)}..${h(other.hi)}] half ${h(other.half)}, old way on the same games [${f2(r.old.share.lo)}..${f2(r.old.share.hi)}] half ${f2(r.old.share.half)}`;
+	if (r.money) {
+		t += `, money half ${h(r.money.half)} (old way ${f2(r.old.money.half)})`;
+		if (r.moneyVsRest) t += `, a minus the others half ${h(r.moneyVsRest.half)} (old way ${f2(r.old.moneyVsRest.half)})`;
+	}
+	return t;
+}
 export function line(r, targets = {}) {
 	const t = r.ms ? ` | think p50 ${r.ms.think?.p50 ?? '-'} p95 ${r.ms.think?.p95 ?? '-'} max ${r.ms.think?.max ?? '-'} ms` : '';
 	if (r.alone) return `${r.game}:${r.seats} ${r.a} alone hands ${r.hands}${t}${r.errors ? ' ERRORS ' + r.errors : ''}${aloneText(r)}${verdict(r, targets)}`;
-	return `${r.game}:${r.seats} ${r.a} vs ${r.b} hands ${r.hands} share ${f2(r.share)} [${f2(r.lo)}..${f2(r.hi)}] fair ${f2(r.fair)} margin ${r.margin} decisions ${r.decisions}${t}${r.errors ? ' ERRORS ' + r.errors : ''}${moneyText(r)}${verdict(r, targets)}`;
+	return `${r.game}:${r.seats} ${r.a} vs ${r.b} hands ${r.hands} share ${f2(r.share)} [${f2(r.lo)}..${f2(r.hi)}] fair ${f2(r.fair)} margin ${r.margin} decisions ${r.decisions}${t}${r.errors ? ' ERRORS ' + r.errors : ''}${moneyText(r)}${r.mode === 'cyclic' ? cyclicText(r) : ''}${verdict(r, targets)}`;
+}
+
+// the number of deals of a cyclic run: --deals, or --budget-games divided by the turns of a deal
+export function cyclicDeals(o, game) {
+	const turns = turnsOf(game);
+	if (o.budgetGames !== null) {
+		if (!(o.budgetGames >= turns)) throw new SolverError(`--budget-games ${o.budgetGames} is less than the ${turns} games of one deal`);
+		return Math.floor(o.budgetGames / turns);
+	}
+	return o.deals;
 }
 
 export async function runPair(pool, o, { id, seats }, a, b, alts = [], deals = o.deals) {
+	if (o.mode === 'cyclic') {
+		const game = gameOf(id, seats, alts);
+		const D = cyclicDeals(o, game);
+		const turns = turnsOf(game);
+		const recs = await pool.run({ id, seats, alts, seed: o.seed, from: 0, to: D, mode: 'cyclic', a, b, timing: false, aJson: o.aJson ?? null, bJson: o.bJson ?? null, aBot: o.aBot ?? null });
+		const bad = recs.find((r) => r.botError);
+		if (bad) throw new SolverError(bad.error);
+		const row = cyclicRowOf({ id, seats, alts, a: o.aLabel ?? a, b: o.bLabel ?? b, pairs: isPairGame(game), recs, turns, timing: false, safeT: o.safeT });
+		return { row, recs };
+	}
 	const recs = await pool.run({ id, seats, alts, seed: o.seed, from: 0, to: deals, a, b, timing: o.timing, aJson: o.aJson ?? null, bJson: o.bJson ?? null, aBot: o.aBot ?? null });
 	const bad = recs.find((r) => r.botError);
 	if (bad) throw new SolverError(bad.error);
@@ -177,6 +215,10 @@ async function altsRun(pool, o) {
 
 export async function main(argv) {
 	const o = parseArgs(argv);
+	if (o.mode !== 'unpaired' && o.mode !== 'cyclic') throw new SolverError(`--mode ${o.mode}: it is unpaired (the default) or cyclic`);
+	if (o.mode === 'cyclic' && (o.alts || o.alone || o.timing)) throw new SolverError('--mode cyclic does not go with --alts, --alone or --timing');
+	if (o.mode !== 'cyclic' && (o.budgetGames !== null || o.safeT)) throw new SolverError('--budget-games and --safe-t go with --mode cyclic only');
+	if (o.budgetGames !== null && o.dealsGiven) throw new SolverError('give --deals or --budget-games, not both');
 	if (o.aBot && (o.alts || o.alone)) throw new SolverError('--a-bot does not go with --alts or --alone');
 	if ((o.aJson || o.bJson) && o.alts) throw new SolverError('--a-level and --b-level do not go with --alts');
 	if (o.aBot) await loadBot(o.aBot);
@@ -184,7 +226,7 @@ export async function main(argv) {
 	if (o.timing) o.workers = 1;
 	const pool = new Pool(o.workers);
 	const t0 = Date.now();
-	const meta = { seed: o.seed, workers: o.workers, timing: o.timing, at: new Date().toISOString() };
+	const meta = { seed: o.seed, workers: o.workers, timing: o.timing, at: new Date().toISOString(), ...(o.mode === 'cyclic' ? { mode: 'cyclic', safeT: o.safeT } : {}) };
 	try {
 		if (o.alts) {
 			const { rows, table } = await altsRun(pool, o);
@@ -207,7 +249,7 @@ export async function main(argv) {
 			console.log(line(row, o.targets));
 		}
 		const safe = (t) => t.replace(/[^A-Za-z0-9._-]/g, '_');
-		const file = o.out ?? path.join(WORK, 'botlab', o.alone ? `${safe(o.aLabel)}_alone${o.timing ? '_timing' : ''}.json` : `${safe(o.aLabel)}_vs_${safe(o.bLabel)}${o.timing ? '_timing' : ''}.json`);
+		const file = o.out ?? path.join(WORK, 'botlab', o.alone ? `${safe(o.aLabel)}_alone${o.timing ? '_timing' : ''}.json` : `${safe(o.aLabel)}_vs_${safe(o.bLabel)}${o.mode === 'cyclic' ? '_cyclic' : ''}${o.timing ? '_timing' : ''}.json`);
 		save(file, { ...meta, a: o.aLabel, b: o.alone ? o.aLabel : o.bLabel, alone: o.alone }, rows, o.append);
 		console.log('written', file, ((Date.now() - t0) / 1000).toFixed(0) + ' s');
 	} finally { await pool.close(); }

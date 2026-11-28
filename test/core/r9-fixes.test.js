@@ -81,7 +81,9 @@ for (const [id, seats] of [['sedici_2', 2], ['sedici_3', 3], ['sedici_4', 4], ['
 		assert.equal(paid.length, seats - 1, 'the claimer pays each other seat');
 		assert.ok(paid.every((p) => p.from === claimer && p.amount > 0));
 		assert.equal(res.payments.length, seats - 1, 'the lost game is the row itself: no second payment');
-		for (let q = 0; q < seats; q++) assert.equal(res.gamePoints[q], q === claimer ? 0 : 1);
+		// revision 14: the race points follow the row that is paid (two for a marcia or a double row, one for a simple row)
+		const rowPoints = f.claims[f.claims.length - 1].stake === 'simple' ? 1 : 2;
+		for (let q = 0; q < seats; q++) assert.equal(res.gamePoints[q], q === claimer ? 0 : rowPoints);
 	});
 }
 

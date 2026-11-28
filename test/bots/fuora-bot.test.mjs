@@ -69,7 +69,8 @@ test('fuora: the bot claims exactly when it has the target, in every window and 
 });
 
 // the target is raised so that the pack runs out: the last window opens, each seat chooses pass_fuora or claim_fuora
-for (const [id, seats, target, variant] of [['sedici_2', 2, 36, null], ['trentuno', 2, 55, 'prammatica_1846'], ['sedici_3', 3, 25, null]]) {
+// (revision 14: a plain card of Sedici is worth 1, the pack holds 126 points, so the targets of Sedici are raised with it)
+for (const [id, seats, target, variant] of [['sedici_2', 2, 57, null], ['trentuno', 2, 55, 'prammatica_1846'], ['sedici_3', 3, 40, null]]) {
 	test(`fuora, the last window of ${id}${variant ? ' ' + variant : ''}: claim with the target, pass_fuora without it`, () => {
 		const g = withTarget(id, seats, target, variant);
 		const seen = { window: 0, claimed: 0, passed: 0, none: 0, ended: 0 };

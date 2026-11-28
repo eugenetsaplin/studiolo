@@ -5,7 +5,7 @@
 	"family": "permesso",
 	"status": "playable_with_decisions",
 	"about": "Settilio, Permesso for seven (Torino 1787, «Del giuoco di Permesso in sette persone, o sia Settilio», p. 77, and the Fool of pp. 77-78), «giuoco bizzarro»: 11 cards to each of the seven players and one card over «per lo scarto»; the rest is said to be as in Quintilio and Sestilio. The book does not say who takes the card over; ours, as the dealer, who then puts one card away. Giuoco sciolto is inherited from Sestilio because «come sopra è stato detto di Quintilio, e Sestilio» (p. 77); that it applies with seven is our reading, and so is the card over: in the free game too it is the dealer's and he puts one card away, since 7 × 11 leaves one (the book's «no discard» of p. 77 is said of six).",
-	"revision": 11,
+	"revision": 14,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -70,10 +70,18 @@
 	"hand": {
 		"phases": [
 			{
+				"id": "result",
+				"module": "result",
+				"settings": {
+					"tie": {"value":"redeal_next_dealer","source":"[D] Torino 1787, p. 70: «tu non guadagni, nè perdi: la partita … a mischiare, e dar i Tarocchi». [S] The drawn hand counts as a dealt hand in the round of dealers (match.dealer_rounds): nobody pays and the next player deals; ours."},
+					"bands": {"value":[{"min":46,"outcome":"win","pays":"full"},{"min":45.5,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43,"max":45,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}],"source":"[R] Torino 1787, pp. 66-70: 46 and more wins (p. 68); «quarantatrè punti e mezzo, ovvero quarantaquattro, … o quarantacinque» loses «solo dell'Onoranza» (pp. 66-67); «quarantacinque, e mezzo, ovvero quarantacinque, e non abbi avuto il Folle» is a draw (p. 70). The book does not contradict itself: the numbers are named before the card for the Fool changes hands (p. 68: «quarantasei punti, e a te non devo dare la carta del Folle»), and that card is worth half a point. After it is paid, 45½ is a draw, 46 and more win and 45 and less lose: the lone player who made 45 and is owed the card ends at 45½ (a draw), with 45 and no card owed he loses the Onoranza only. count.fool_card counts the points after the card is paid. [R] The line between the Onoranza alone and the full loss is drawn where the payment puts it: 43 is no step below 45 (settle.amount rounds 43 to 45), so 43 to 45 lose the Onoranza alone and 42½ or less lose in full; pp. 66-67 name 43½, 44, 44½ and 45. The money is the same as with the line at 43½; only the name of the band at 43 changes. Other reading (alt): the numbers of pp. 66-70 are the final count and 45 is a draw too.","alt":[{"min":46,"outcome":"win","pays":"full"},{"min":45,"max":45.5,"outcome":"draw","pays":"nothing"},{"min":43,"max":44.5,"outcome":"loss","pays":"onoranza_only"},{"max":42.5,"outcome":"loss","pays":"full"}]}
+				}
+			},
+			{
 				"id": "bidding",
 				"module": "bidding",
 				"settings": {
-					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; p. 77 sends to it, «come sopra è stato detto di Quintilio, e Sestilio»): the second reading of «dirà subito», carried over to seven: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours."}
+					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; p. 77 sends to it, «come sopra è stato detto di Quintilio, e Sestilio»): the second reading of «dirà subito», carried over to seven: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours. Torino [1846], part I, p. 42 (where the word goes round: the reading played) and Dummett 1980, p. 265 (the pair scheme of the other reading) are named at Permesso for three; the pages for this number of players have no example of their own.", "replace": {"with": ["document", "people"], "what": "who has the word after a raise in the auction", "q": 35}}
 				}
 			},
 			{
@@ -95,13 +103,23 @@
 					"count_mode": {"value":"exact","source":"[R] Torino 1787, p. 77: one card put away; exactly one, as the hand must have 11 cards for the tricks."},
 					"discard_honours_barred": {"value":true,"source":"[R] Torino 1787, p. 34 (general rule 38): «cioè nessun Re, nè l'Angelo, nè il Folle, nè Bagatto si potrà scartare»; the Permesso sections (pp. 59-60) do not repeat it, so the general rule is carried over. Other reading: the Permesso discard is free.","alt":false},
 					"allowed_exceptions": {"value": [{"if": {"hand_lacks": "T0", "hand_count": {"of": "trumps", "max": 1}}, "any": ["T1"]}], "source": "[R] Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: «solo» is read as the only trump of the hand, as Dummett 1980, p. 259 reads this rule («neither the Folle nor any other trump»). Revision 1 read it as «holding no Fool». The exception for the Fool «in un sol caso … vola» is not played (see left_out). Other reading: no exception, as the rules of 1830 have it (Dummett, p. 259).", "alt": []},
-					"counts_for": {"value": "discarder", "source": "[S] Torino 1787, pp. 59-60 do not say whose points the discard joins. Ours, as in Venticinque (p. 55, «L'avvantaggio di questo giuoco ordinariamente è di chi scarta»): the discard counts for the side of the player who put it away, the dealer. Dummett 1980, p. 259 supports the other reading: if the dealer's side makes no tricks, «they must surrender the discarded cards».", "alt": "discarder_unless_no_tricks", "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}},
+					"counts_for": {"value": "discarder", "alt": "discarder_unless_no_tricks", "source": "[R] Torino 1787, p. 21, rule 10 (for every game), lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may keep his discard, and no Turin book prints the contrary for a game with one discard. Pages 59-60 (Permesso for three) and p. 77 (seven, one card left for the discard) do not say whose points the discard joins; ours: the side of the player who put it away, the dealer. Other reading: a side with no trick gives the discard to the taker of the last trick. That a player with no trick loses his discard is printed only in Prammatica [1846], pp. 24-25, n. 15 «Mittigati in due collo scarto compito», a game for two: «La così detta vola … perde i punti dei due scarti, tanto piccolo che grande», and the Fool with them («e con essi anche il Folle»); the page does not say who gains them. Dummett 1980, p. 259 gives a rule for it («they must surrender the discarded cards to the player or side winning the last trick») and names no source. See OPEN_QUESTIONS.md, question 1.", "replace": {"with":["expert","document","bots"],"what":"the discard of a player who won no trick: kept or lost","q":1}},
 					"announce": {"value":"ho_scartato","source":"[D] Torino 1787, p. 60: «distintamente, e chiaramente ho scartato: … più non potrai cambiar alcuna carta»."}
 				},
 				"after": "deal"
 			}
 		]
 	},
+	"view": {
+		"score_panel": {
+			"after_hand": ["groups","odd_card","fool_card","discard","bands","payments"]
+		}
+	},
+	"left_out": [
+		{"id":"vola","source":"[D] Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).","why":"The book gives no figure and no rule of a vola inside Permesso; a premium of the table, not played."},
+		{"id":"marcio","source":"[D] Torino 1787, pp. 66, 99: the game may be played «unicamente a guadagnar la partita col marcio»; «Marcio, vale posta doppia … facendo o … a cui la partita è fissata».","why":"Two ways of playing (in coins or only for the game with marcio) are named but the book gives neither a line for the marcio at Permesso nor its payment; only the coin game is played."},
+		{"id":"draw_money","source":"[S] Torino 1787, p. 70 prints only «tu non guadagni, nè perdi» for a drawn hand; it says nothing of the stakes on the table.","why":"A drawn hand pays nothing in the ledger."}
+	],
 	"penalties": [
 		{
 			"id": "wrong_discard_count",

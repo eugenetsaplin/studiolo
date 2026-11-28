@@ -1,8 +1,8 @@
 // call_partner: the caller names a card by its rank (the ladder: kings first; a rank below only when the caller holds
-// all four cards of the rank above, in his hand or his discard). The holder of the called card is the caller's partner,
+// all four cards of the rank above in his hand as it stands after the discard: a card of the rank put away does not make the rank whole). The holder of the called card is the caller's partner,
 // secret until that card is played (s.secret = {card, holder}). The caller may call a card he holds himself: he then
 // plays alone against the rest and nobody knows it until the card is played (own_card). A card of his own discard is
-// never called (card_in_discard forbidden). With every card of the ladder in his hand or discard he plays alone at the
+// never called (card_in_discard forbidden). With every card of the ladder in his hand he plays alone at the
 // contract without exchange and without a partner. State, by phase id: s.m.<id> = {caller, stage, card, holder, revealed}.
 import { ALL, INFO } from '../cards.js';
 
@@ -35,7 +35,7 @@ function callerOf(h, set) {
 	return set.caller === 'declarer' && Number.isInteger(h.s.declarer) ? h.s.declarer : h.s.dealer;
 }
 
-// the cards the caller may name: the first rank of the ladder he does not hold whole (hand and discard together),
+// the cards the caller may name: the first rank of the ladder he does not hold whole (judged on the hand alone, after the discard),
 // less his own discard, less his own cards when own_card is forbidden
 export function callableCards(h, entry, seat) {
 	const s = h.s;

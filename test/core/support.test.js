@@ -133,11 +133,11 @@ test('alts: every leaf with an alt is listed with whether the core plays it', ()
 	assert.equal(alts['cards.fool_no_tricks'].supported, true);
 	const v = load('venticinque', 2);
 	assert.deepEqual(v.support.alts.map((a) => [a.path, a.alt, a.supported]), [
-		['seats.dealer_rotation', 'loser_deals', true], ['cards.fool_exchange_card', 'owner_choice', true], ['hand.phases[discard].settings.counts_for', 'nobody', true], ['hand.phases[count].settings.dealer_forfeit', true, true],
+		['seats.dealer_rotation', 'loser_deals', true], ['cards.fool_exchange_card', 'owner_choice', true], ['cards.fool_no_tricks', 'give_fool', true], ['hand.phases[discard].settings.counts_for', 'nobody', true], ['hand.phases[count].settings.dealer_forfeit', true, true],
 	]);
 	const p4 = load('partita_4', 4);
 	assert.ok(p4.support.alts.some((a) => a.path === 'seats.first_dealer' && a.alt === 'draw_high' && a.supported));
-	assert.deepEqual(load('meno', 2).support.alts.map((a) => [a.path, a.alt, a.supported]), [['cards.fool_exchange_to', 'opponent_side', true], ['match.dealer_rounds', 2, true], ['hand.phases[result].settings.tie', 'no_game_points', true], ['hand.phases[settle].settings.mode', 'losers_pay_winner', true]]);
+	assert.deepEqual(load('meno', 2).support.alts.map((a) => [a.path, a.alt, a.supported]), [['cards.fool_exchange_to', 'opponent_side', true], ['cards.fool_exchange_card', 'cheapest', true], ['cards.fool_no_tricks', 'give_fool', true], ['match.dealer_rounds', 2, true], ['hand.phases[result].settings.tie', 'no_game_points', true], ['hand.phases[settle].settings.mode', 'losers_pay_winner', true]]);
 	assert.equal(load('meno', 3, { alts: ['match.dealer_rounds'] }).cfg.match.dealer_rounds, 2);
 });
 

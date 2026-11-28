@@ -1,11 +1,11 @@
 {
-  "revision": 13,
-  "tag": "rules-r13",
-  "rules_tag": "rules-r13",
-  "ref": "open-r13.2",
-  "ref_commit": "725d9b3733c6147d912cd3038612577c48e4fb55",
-  "commit": "725d9b3733c6147d912cd3038612577c48e4fb55",
-  "commit_date": "2026-11-27T12:52:43+01:00",
+  "revision": 14,
+  "tag": "rules-r14",
+  "rules_tag": "rules-r14",
+  "ref": "open-r14.1",
+  "ref_commit": "c38c6e0737ac4abccd82f4d5b17f988ace56fb6c",
+  "commit": "c38c6e0737ac4abccd82f4d5b17f988ace56fb6c",
+  "commit_date": "2026-11-28T02:14:06+01:00",
   "tool": "export-open 2",
   "layers": [
     "rules",
@@ -13,7 +13,7 @@
   ],
   "node": "24.18.0",
   "tests": {
-    "passed": 1107,
+    "passed": 1159,
     "failed": 0,
     "skipped": 59
   },
@@ -66,8 +66,8 @@
     },
     {
       "path": "bots/policy.js",
-      "sha256": "cd4bf4ce2e17ecf4ca0fbda6073431b3c3370df7e77275d57a0dd6bf7d35a0ac",
-      "bytes": 16364
+      "sha256": "13e34d1fe5d4ebf5fbe0092910f4f9a5b303a8ef0893452ed63f11fa1555cc14",
+      "bytes": 16722
     },
     {
       "path": "bots/random.js",
@@ -136,13 +136,13 @@
     },
     {
       "path": "core/modules/call_partner.js",
-      "sha256": "d0711cea992c1cbfdeeb3e2e61dff5f30b6487b64d9b25a3655330fa0fc3abe1",
-      "bytes": 5349
+      "sha256": "75429bdd541c9a604c6887f51b11abc62e427180ddba68129e2da8def3f39c18",
+      "bytes": 5429
     },
     {
       "path": "core/modules/count.js",
-      "sha256": "887c92b8f0474ff36dc6b8983867a50870a9281dd3b92024282094ce76c08b3c",
-      "bytes": 7618
+      "sha256": "1f79298e37554388219ee4d90c312718dc390632de71041846ac8750cbd6b00f",
+      "bytes": 8345
     },
     {
       "path": "core/modules/deal.js",
@@ -151,8 +151,8 @@
     },
     {
       "path": "core/modules/declarations.js",
-      "sha256": "03140fabc29a96a443eea65c853e443075bb74b315cb51c9f40b077cf7da675a",
-      "bytes": 12266
+      "sha256": "bd03aad60716b2ed2cd92ca81a0f2bd5f38919704350c314dfd63b042428bd71",
+      "bytes": 12612
     },
     {
       "path": "core/modules/discard.js",
@@ -166,8 +166,8 @@
     },
     {
       "path": "core/modules/fuora.js",
-      "sha256": "395187675b5a09c939deed5fd9ac631ec78f45e1335421d8d9d0bd7c88b08b92",
-      "bytes": 13203
+      "sha256": "2f3b33f9df189a1715dbfc5d49a87e2ea803c9c2439c5e7eb57403c9bfa2a66b",
+      "bytes": 14628
     },
     {
       "path": "core/modules/index.js",
@@ -196,8 +196,8 @@
     },
     {
       "path": "core/modules/result.js",
-      "sha256": "033550e89b62c4c3be92f7120de5fd9e4a9a051d3f0815d139cc4d282f84c406",
-      "bytes": 8247
+      "sha256": "64e5d48eb866b0cb4033a07226d93db9617fdd24dfef25325a9bd32b116cd0cc",
+      "bytes": 8588
     },
     {
       "path": "core/modules/settle.js",
@@ -211,8 +211,8 @@
     },
     {
       "path": "core/points.js",
-      "sha256": "f7780b3d93f2945157350d5b2c46f159f514a0255b5c1718d4e404f4884a4a3f",
-      "bytes": 3185
+      "sha256": "fd4dc645cfcb2594fd3507053de2f61023f038e794c4c9a480c0e7cb9e9ad1db",
+      "bytes": 3626
     },
     {
       "path": "core/rng.js",
@@ -221,8 +221,8 @@
     },
     {
       "path": "core/score.js",
-      "sha256": "cc0145be037d1c3ed0f9c854b6d39428f2a63362e4197acdfba0bc650013aeb2",
-      "bytes": 9522
+      "sha256": "18726a932f13d7014110e04ce10322ddf0271d800ca81c57330d855021609d5a",
+      "bytes": 9722
     },
     {
       "path": "core/selectors.js",
@@ -241,38 +241,38 @@
     },
     {
       "path": "docs/BOT.md",
-      "sha256": "6f53997189c4f0dbc8204b87615d5ca7ee8b157c2c55408aee5d1d5c166bf8d5",
-      "bytes": 22037
+      "sha256": "69e05c86c154153b5c7135a2e8604aceab31b66460f9dffdcbb451e4358b0dcf",
+      "bytes": 26405
     },
     {
       "path": "docs/CORE_API.md",
-      "sha256": "56db7b7c8358322d279cae35e5f2b3b141b8d45e56bf44f7afba2e338fcacdcf",
-      "bytes": 35426
+      "sha256": "8ee34a483eaca9b77e3b9201bf69b2768424417919d0d24ab9b029d02862efc9",
+      "bytes": 36718
     },
     {
       "path": "docs/ENGINE.md",
-      "sha256": "27dcfcd21aafb198721df0ca49872ee9f0ecb252737298acc212fd06d3865c30",
-      "bytes": 7517
+      "sha256": "7fb8395dcbe9870330000e1deef96b6d58a3f055483401e5729c0a14b4ffbe27",
+      "bytes": 7538
     },
     {
       "path": "docs/FORMAT_OPEN_POINTS.md",
-      "sha256": "c670b2f757aa62657d99a73d0c75642aa928f9d4c0d12417e1d6b970375f707d",
-      "bytes": 36668
+      "sha256": "4cf0af533838603f15d8d3faa801725ab4a3adc809925ec1504a5b5ef0e18123",
+      "bytes": 36757
     },
     {
       "path": "docs/GAME_FILE_FORMAT.md",
-      "sha256": "599371ec62a5fbe21979829b777fcb8d87b190bb344bba6791e4d0e318535621",
-      "bytes": 94414
+      "sha256": "e6fd04d45b4d25ad4b0638c07b3927cbe66c1d6fc4ca5115d1bcad97c13ca557",
+      "bytes": 95500
     },
     {
       "path": "examples/01-sedici-for-two.md",
-      "sha256": "28cf5c95a3343759523c834509cfa2e38b178c19fbfad188181db6c80b704380",
-      "bytes": 7340
+      "sha256": "ecb3bdfecfb345acb2fea9abad229587f30c23a32d197f21034846bcf2726586",
+      "bytes": 7862
     },
     {
       "path": "examples/02-permesso-for-three.md",
-      "sha256": "e112f8c1ef74709f3446ae7da97e3bc075e3c53c0a5831748dadace2b1865365",
-      "bytes": 9027
+      "sha256": "097d465c59417a0063c654145237c5d15894f5457f89701f2678b133b7ad6646",
+      "bytes": 9235
     },
     {
       "path": "examples/03-is-the-deal-fair.md",
@@ -296,23 +296,23 @@
     },
     {
       "path": "problems/001-stronger-opponent/TASK.md",
-      "sha256": "2f1cb8c2523cd69bfa8204533d20c290f5e2daf49656fc1a52e21b755fc51cfb",
-      "bytes": 4626
+      "sha256": "7ec70d8d86894c5495978695945f6916c491790ebdf61b3bb8025cac060d9bf3",
+      "bytes": 4704
     },
     {
       "path": "problems/002-bidding-at-permesso/TASK.md",
-      "sha256": "e2c6afbc3e4ad35e87a775b789580a6e83615383711272c48c84984dc1645492",
-      "bytes": 6512
+      "sha256": "e6e74f6fa029634a49a20ad533e58003089ac49b10723123056ca614099da51e",
+      "bytes": 6603
     },
     {
       "path": "problems/003-meno-short-form-for-three/TASK.md",
-      "sha256": "4b061f80b20133457e8988260d71c27a64b859984b00c4501c9fb9bbc47a83de",
-      "bytes": 4074
+      "sha256": "519e136f0c8c477888a97ca222523ab5c21024c474c28a04a390b536029b6a13",
+      "bytes": 5171
     },
     {
       "path": "problems/README.md",
-      "sha256": "55ea147cb3ed677526ad24c30839409ab29465ba5aa998896faa8164dffb2256",
-      "bytes": 3331
+      "sha256": "132c5a5df8521aa360a566904e506e7d7bbab383367de5448eebe7f4b6c920a7",
+      "bytes": 3433
     },
     {
       "path": "rules/README.md",
@@ -321,193 +321,193 @@
     },
     {
       "path": "rules/bagattultimo.md",
-      "sha256": "5c82feb28271a46ee570f8b8405ec0c7beb83811e71a25526f63525909a4a92a",
-      "bytes": 13996
+      "sha256": "a2a021984f2890db4f2517360b722cdc4c1e4d43548c8e390d4e9164b8b51cae",
+      "bytes": 15603
     },
     {
       "path": "rules/baronetti.md",
-      "sha256": "6e372cc23a7ba225d3467e780ca7581b9efcf1408afca6bfc1204e01f9a26ab4",
-      "bytes": 11515
+      "sha256": "29325bcf0dad3f4f1571b2bf6948a49b895fd22340ff8bbf3c6154a27657ad78",
+      "bytes": 11453
     },
     {
       "path": "rules/chiamare_il_re.md",
-      "sha256": "0e14159615f55cc6cd054dd3777f97d58ee878fdef9ba6c98c56ae98d2a6542c",
-      "bytes": 17656
+      "sha256": "017addf1a61a97590080dd1af6ebdf4cb99caa0e4bcc3f8d0de9b1ec2a5cca81",
+      "bytes": 19343
     },
     {
       "path": "rules/consiglio.md",
-      "sha256": "e5629917c8eea5767e26bb65d0c776be2a6acc5c7ecca1da9dc7687440d29b73",
-      "bytes": 16995
+      "sha256": "53226f91e51a42918b1492ab1016a4ba84e9209d09034fb2025a2bab9081318a",
+      "bytes": 18003
     },
     {
       "path": "rules/dottore.md",
-      "sha256": "c23e459cb8d24624043abf74aaa1ae487969bff3bf26ef481f98032eca9358eb",
-      "bytes": 10918
+      "sha256": "1969d1add7c2164b149ad6bec17ccbaa98395265d426b244100b8af6b6a2caad",
+      "bytes": 10837
     },
     {
       "path": "rules/meno.md",
-      "sha256": "b5d6f9c895452c4ba4cbcbb6cb2abeefe7d87aa7c8bcd5e34fabecb24e25f0b8",
-      "bytes": 9443
+      "sha256": "69ce36fd45a60e40ffbf496bb0ed00a4cdafa07a2193e357fc93d64a27b5aa07",
+      "bytes": 13515
     },
     {
       "path": "rules/mitigati_2.md",
-      "sha256": "81170eb085748dd8784190ee32477e52ef2fd88e437ba8d70f462f612afc201e",
-      "bytes": 14854
+      "sha256": "08c487926c833a994524784e95f74d8ae9c8a30ee77fbbd62200c17835908b8f",
+      "bytes": 14798
     },
     {
       "path": "rules/morto.md",
-      "sha256": "154f5ba37c0f69928291df80dda992cfd2964949755a431177f68af261f2a699",
-      "bytes": 9979
+      "sha256": "2c80f63b15df5b161726efb04ce446036e6e24de06b93be8770f9a7688ff80dc",
+      "bytes": 11666
     },
     {
       "path": "rules/partita_3.md",
-      "sha256": "d666959e723975d6820e1cd74785ab9464bc7a0bf83d72b9038b123926b8e3b9",
-      "bytes": 11053
+      "sha256": "ea755fd3f5908af7b0c98cf6a84f01e266bc9de12301e209144e55e4fcf3f827",
+      "bytes": 11216
     },
     {
       "path": "rules/partita_4.md",
-      "sha256": "1dc01b10ec08b6437d1088bcae9c72565282aa68356b08a19ca819fc68d6785c",
-      "bytes": 14582
+      "sha256": "f8aadc4732cfaaf8cd2fa9488f889bd3cfa08d23dad40f0c556699be54e26fc4",
+      "bytes": 15477
     },
     {
       "path": "rules/permesso_3.md",
-      "sha256": "dd4e1240f7a63335b325911c1211c868a1f189631251228f4af2db07693cd865",
-      "bytes": 20039
+      "sha256": "6cbcd8148a863544c3e5eb0bcb233c8f9b154b072d61734cab330984fb808324",
+      "bytes": 20622
     },
     {
       "path": "rules/permesso_4.md",
-      "sha256": "983682ce9ca7f6973f2e7a0b59fbe7efbfd87bb094b0a28a9e4d61805b726ef6",
-      "bytes": 21744
+      "sha256": "c5ba01bbf48f93fefcd93118547785e97800877787af594b06965fa591c7a5f2",
+      "bytes": 21921
     },
     {
       "path": "rules/permesso_5.md",
-      "sha256": "3e6f54da7a3e6bc313b0b81de84991a87eff445cad96be5c195e7c0e6b5ffc26",
-      "bytes": 22630
+      "sha256": "09358de118c6dd4ba013af54c012825d79b31f0a40c236a7e905fbb4a9eb9fbe",
+      "bytes": 21966
     },
     {
       "path": "rules/permesso_6.md",
-      "sha256": "49bafda702069aac959e090b3d144e6cba24a87a05d8e4d958b037cef4901f46",
-      "bytes": 22715
+      "sha256": "bbba4edcfa6c1d7c6a8cfec6f6f8b682b2f0a4bab54d2398f0a24142c3ec1a0b",
+      "bytes": 22173
     },
     {
       "path": "rules/permesso_7.md",
-      "sha256": "68598f4189e192c28055c34db09838d86d4f1a98526053d30080888c7bfc2527",
-      "bytes": 24993
+      "sha256": "eb1351c2efb5d28b3d9b9d6d7b939dbe9525acebb5c7740e6b149dc352171f3d",
+      "bytes": 25181
     },
     {
       "path": "rules/sedici_2.md",
-      "sha256": "3a70fc720b24e0ff8a7dbb5762fa5e2b4b3046dfb9372b6c5d89c68e8575dcd7",
-      "bytes": 12135
+      "sha256": "4f719bb8600cfe6042658abfe3705bb5575f0b268406b4a91dd25fbbe4392741",
+      "bytes": 12459
     },
     {
       "path": "rules/sedici_3.md",
-      "sha256": "81c7535933977c023a1d4bbe91262a4e982f26d28483ec462feacd75102dcc3b",
-      "bytes": 12010
+      "sha256": "386e5a669c32e9520a4479a92128960bf00c1e112bb96583c89025fc1f4abd94",
+      "bytes": 15257
     },
     {
       "path": "rules/sedici_4.md",
-      "sha256": "d1eb2463a6a5d6661aec25cd582b89ead2e7cc17088bc37b899e67c79e798f3b",
-      "bytes": 11856
+      "sha256": "8cf597481e61cb8d3edff60356dae3353e419354a428b522bfac2d91a3da9270",
+      "bytes": 12234
     },
     {
       "path": "rules/trentuno.md",
-      "sha256": "6404c1fce9d4072a3b335918544700bf562f8220796c9f3397d0e7712d4ed124",
-      "bytes": 12291
+      "sha256": "5ee0e4de8a606759abc35cec3ee5916c3075bc89bf06098fabb13c91bb581a42",
+      "bytes": 13675
     },
     {
       "path": "rules/venticinque.md",
-      "sha256": "cd5a00088591286c3673d377dcbe9621e91a9557c2bcc38c166e158749021c3b",
-      "bytes": 9681
+      "sha256": "3a8e3c2cb4b374977c79b14c315f0021ea2e7073f454e224b9d56a50505a89d6",
+      "bytes": 10279
     },
     {
       "path": "rules/venticinque_3.md",
-      "sha256": "2edd71044744a76a3feab3837f89917ed19e1860b3b14bf7164e9fcdca0b6f1d",
-      "bytes": 12235
+      "sha256": "b8beb167e5314e1f126dcedfcedd9a855b87cf17021214631d63d3f2d3d5a270",
+      "bytes": 12759
     },
     {
       "path": "rulesets/OPEN_QUESTIONS.md",
-      "sha256": "2b86b7b9dabd7d00986c6295f39cb24defb5bdb64bf261b1f3bcdaf9252e2035",
-      "bytes": 33903
+      "sha256": "57b4e5b9994f24f81b9c771edfdeb68dcd66904e34b0dba496ab61849ff07d7e",
+      "bytes": 41126
     },
     {
       "path": "rulesets/REVISIONS.md",
-      "sha256": "bb9212f2c4314b68c0f2e2ffbeb6925624e7c352be3dbe3b78a08887a0949ec9",
-      "bytes": 104788
+      "sha256": "0f0fe4324782debbb0fcd839104f9fbdb6efd640ab7ab34e7974d9b9fb1768ae",
+      "bytes": 123998
     },
     {
       "path": "rulesets/bagattultimo.json",
-      "sha256": "7e8134190448bec3a3131bb94f653d74c873ef1de66d0f2099252e9e45b11165",
-      "bytes": 24290
+      "sha256": "cc619763b7805535c49d1b451efb14ddd4a39185188d55269e2788bb04ffc2ea",
+      "bytes": 26729
     },
     {
       "path": "rulesets/baronetti.json",
-      "sha256": "cf27234a97397f701e3d7af44a907212d56b2b012304038aedb488599f18e0cf",
-      "bytes": 18306
+      "sha256": "a32cc637473d76129ad8828a1e97ea7d3f6a7f37f6070776a026a859fd471fd1",
+      "bytes": 19039
     },
     {
       "path": "rulesets/chiamare_il_re.json",
-      "sha256": "37dc3ee7080e56144735173842ae7b69e0ced11f4fca17a66f29d9e0019d552a",
-      "bytes": 26246
+      "sha256": "8d1b569c001d124733d4dfb61b533c903f970235fa10e2d33bb3a6d6a679c447",
+      "bytes": 29993
     },
     {
       "path": "rulesets/consiglio.json",
-      "sha256": "e32fbea008b481b8ef3c07bdf024121be50688d2941237b36bae07734f189b69",
-      "bytes": 10926
+      "sha256": "1e41511bdfec62bab6a73170cf64889f25e072c7b3d071fa0afcebef3b77ebb9",
+      "bytes": 12497
     },
     {
       "path": "rulesets/dottore.json",
-      "sha256": "42e19f2643186ee0e5f503ce02064d96f253d025d2641c896bda87d5f26ad7b7",
-      "bytes": 15122
+      "sha256": "e375e959545b3b5c0998d7a2375efeb928e27e9420ba194502fa35aae2cb5cc1",
+      "bytes": 16736
     },
     {
       "path": "rulesets/meno.json",
-      "sha256": "fc40579fa468d7708c8dd32c7e8e29d3890cbb9b111b17f6f239ea131e226bf9",
-      "bytes": 17974
+      "sha256": "b1bddd6d1598ab8cb8edcdf73c9f291bc223239fa19f1c5f514ff1a9f263de88",
+      "bytes": 22069
     },
     {
       "path": "rulesets/mitigati_2.json",
-      "sha256": "df17ec3e3be8e3210f1745b286c513d96bfb594a1160b352a111e71f68673aba",
-      "bytes": 26281
+      "sha256": "4307dc21ee6c60ceb8835f1511a9f94dadc968671d6acad151a53e913e645aba",
+      "bytes": 28809
     },
     {
       "path": "rulesets/morto.json",
-      "sha256": "cea639193f2d374045e803a151dd9de9a6db9bc608aa3b485d08b34815ad8a5c",
-      "bytes": 16324
+      "sha256": "683a199ad6166078b51ec862e3b6f1d3dc415b52b4ff9835d1e1c1c3d271e3f4",
+      "bytes": 21247
     },
     {
       "path": "rulesets/partita_3.json",
-      "sha256": "30dc16f80843faa38ac47ad748b85121ef169db9bcf25098aeaa68047b5e3bfd",
-      "bytes": 15501
+      "sha256": "b0a65f21cf6a0f161ca43a730f3404e5ed7bf99cee407c7f4618a147b01e4e92",
+      "bytes": 17337
     },
     {
       "path": "rulesets/partita_4.json",
-      "sha256": "4cbf99040c0e69c2d94f40a74eee391c52706935e4c715772564f9ae02c4d8ff",
-      "bytes": 26098
+      "sha256": "fa0b82c3fd63db7307c06ddd298b99e8adcfb4c954b34d0654060c1e2e0499b7",
+      "bytes": 27885
     },
     {
       "path": "rulesets/permesso_3.json",
-      "sha256": "4473a8c12a368b548f8dcfa76993d1a7e189010bcc0c1c27cdbd4b6b06a2cfc6",
-      "bytes": 32750
+      "sha256": "90b4bbf93b9cd84f013ba70b946e535bf320f8b284088cb75dd1b5cd639af219",
+      "bytes": 35330
     },
     {
       "path": "rulesets/permesso_4.json",
-      "sha256": "cc0389bdde9e96a2cb417b2b60a717c8cfb2296e3bb10c0db28654734737e91d",
-      "bytes": 7705
+      "sha256": "ede59184d36bb26d612ee0ae7978214c6763cc4c2ad00340d5840b90509eec45",
+      "bytes": 8721
     },
     {
       "path": "rulesets/permesso_5.json",
-      "sha256": "6a2fea707c9d93b2dac63312fd047ed13c05c0868fa8ab45ef186a7430adf31d",
-      "bytes": 7823
+      "sha256": "dfa34a53eefaff6e8d59319d06ea73ec6f7596ae045bdadc5b81b00498543afe",
+      "bytes": 8782
     },
     {
       "path": "rulesets/permesso_6.json",
-      "sha256": "123031ff77c63651add9c69be23a8e7e63087e605ad7d4ff6c6bd3b838162b4f",
-      "bytes": 14694
+      "sha256": "350aeb73b152533f5a421a78e4ed400c16037cb6ac4bd88aa6db0d823311874d",
+      "bytes": 16667
     },
     {
       "path": "rulesets/permesso_7.json",
-      "sha256": "10ba94af0c007a392ec1de87c2c1dffb8c1a92ed7b7df2fc3f9f8a2898b6b319",
-      "bytes": 10980
+      "sha256": "50bc8f84ffd9d9ddb9760c72219c64c668b7000b9c3b973f9ebd570b00240bf9",
+      "bytes": 15046
     },
     {
       "path": "rulesets/schema/game.schema.json",
@@ -521,38 +521,43 @@
     },
     {
       "path": "rulesets/sedici_2.json",
-      "sha256": "08758414b5934048143b055c4d90fd50f2cce8ac18843de36a8b88fc8c6d46ec",
-      "bytes": 22601
+      "sha256": "3fa7e4a739aed38a967e9ec0793b48a7626562bf6fe5e90f422b0daad8252398",
+      "bytes": 24147
     },
     {
       "path": "rulesets/sedici_3.json",
-      "sha256": "6a58e763534322bdadde547808a1e25eee3bc2ccff8308efe8662b5fae156ba0",
-      "bytes": 26615
+      "sha256": "5862813c5d98dea31954d197f2ad3bcc2010e7101b309112907cb9e3ac914508",
+      "bytes": 28981
     },
     {
       "path": "rulesets/sedici_4.json",
-      "sha256": "2efd15ce9eb7c4f0fcca32f5cc885f67636e14be5f76f510ec9d31808ec90728",
-      "bytes": 22553
+      "sha256": "10c2142deb39c39425f16bd2aaf81a0caa8f7bea65a3421d427e515adf56a3ff",
+      "bytes": 24153
     },
     {
       "path": "rulesets/trentuno.json",
-      "sha256": "5fb28d12b42ee28dfb135dca4bb5e622cc97c2f36c807a07ca63f4fb7ddca3a8",
-      "bytes": 25023
+      "sha256": "61a721bea2ac09b5d9f5f7b3506c40c5ed2909ceac8277683fd33ad91dcb6784",
+      "bytes": 26379
     },
     {
       "path": "rulesets/venticinque.json",
-      "sha256": "9ef803615710a96e9906456c54257939eb164dea1c05882ce2a22c18e3146be3",
-      "bytes": 17802
+      "sha256": "047fb6e19c041d6419c4ddaf48c180a007736c5b6b0c7b71b4d54cb6f51130cb",
+      "bytes": 20397
     },
     {
       "path": "rulesets/venticinque_3.json",
-      "sha256": "d75c6736a94e7dc80335e451fcd6134b62029bd26f74429051f1bd14e39e39b1",
-      "bytes": 20982
+      "sha256": "deda1324cd80045818f6a48957817dfb54644285cd71018d543890a7aa778910",
+      "bytes": 22857
     },
     {
       "path": "test/botlab/botlab.test.mjs",
       "sha256": "ce4c375e7538d9e9217e367cc60fb08c0b7b57f0705695cfeaf41855349e3999",
       "bytes": 6397
+    },
+    {
+      "path": "test/botlab/cyclic.test.mjs",
+      "sha256": "f328c9910e52599623ede8e3a8bcdff073a0c3d8368a2def93b39edcc304a653",
+      "bytes": 6040
     },
     {
       "path": "test/botlab/fixtures/bare-action-bot.mjs",
@@ -568,6 +573,11 @@
       "path": "test/botlab/fixtures/illegal-bot.mjs",
       "sha256": "9e1f0c90708fcb8cb1614005ee3eea84fc4faf70a611200278fb056f9e8c6279",
       "bytes": 286
+    },
+    {
+      "path": "test/botlab/fixtures/old-mode-golden.json",
+      "sha256": "8c52db349203739cebd8592cc442579025f9ea8725cfa1522864658620191838",
+      "bytes": 1893
     },
     {
       "path": "test/botlab/fixtures/throwing-bot.mjs",
@@ -595,6 +605,11 @@
       "bytes": 6904
     },
     {
+      "path": "test/bots/call-order.test.mjs",
+      "sha256": "3ed88890d4363260381c4f4ceb3b3f7d0380cbe36ba77bd7b0d1eff3cb726c23",
+      "bytes": 1536
+    },
+    {
       "path": "test/bots/contract-bot.test.mjs",
       "sha256": "457ad75e7ca2d2421b3404ef79f00051fd806fcbc8abc1128fac3009e55a4bcd",
       "bytes": 5703
@@ -611,18 +626,18 @@
     },
     {
       "path": "test/bots/free-game-count.test.mjs",
-      "sha256": "b186aaefae206fbf227793cb385203f8fb98246ce64675ae88e9feb7d838a0d5",
-      "bytes": 4187
+      "sha256": "e9360ceb7430d9b5fd70bdab7713339327170eaab1b425c18973d81111a6e1c1",
+      "bytes": 4394
     },
     {
       "path": "test/bots/fuora-bot.test.mjs",
-      "sha256": "7de362c757d59c61b31e2a7ecb1ec9c41a5d358623e9859acd7d7d88b4c67940",
-      "bytes": 5267
+      "sha256": "2b5fdc5059386363d4f8a947185ab038ede914a5938a0b8ddfcfe753d89fe6a1",
+      "bytes": 5391
     },
     {
       "path": "test/bots/immediate-win.test.mjs",
-      "sha256": "73d16fc212563af9e2b17aa1c740c42d1aadee5929909d068fbd025bf14e310a",
-      "bytes": 4498
+      "sha256": "d856f824e017b175daa02dffbf69465317af4522fadbfe8fcff8e197e3e49ce3",
+      "bytes": 4659
     },
     {
       "path": "test/bots/lib.mjs",
@@ -731,8 +746,8 @@
     },
     {
       "path": "test/check-core/count.test.js",
-      "sha256": "f44f53523969d01e984c236af89ce55c8e6962dafb3e03c3eabe4a51b532a9c6",
-      "bytes": 9490
+      "sha256": "3f823631bc87001fc47b2aad1721dfd0bf4e94a4ea0fc236f395d9630f3fc1e6",
+      "bytes": 9793
     },
     {
       "path": "test/check-core/deal.test.js",
@@ -741,7 +756,7 @@
     },
     {
       "path": "test/check-core/discard.test.js",
-      "sha256": "a02f897bba1c9e5eb1403cb5893cc187d66dc9872ac35a707ad499945cba1121",
+      "sha256": "a00c9dac579d7be73b28f9ca3c0ec71466d690ff85bdead081f57171ab85410d",
       "bytes": 11157
     },
     {
@@ -758,6 +773,26 @@
       "path": "test/check-core/purity.test.js",
       "sha256": "c61ed1cc2cfeb9b5cc77e4f64aac90a06d72e8671e30c7977d1fa321cd4ad390",
       "bytes": 6252
+    },
+    {
+      "path": "test/check-core/r14-fool-side.test.js",
+      "sha256": "18ae854bfd8046fbccc53fca390b7cf246d55b7981990bb44f66c7c6fd39c0cf",
+      "bytes": 2359
+    },
+    {
+      "path": "test/check-core/r14-lines.test.js",
+      "sha256": "0d91c35a5afb1eaedc38c112f1e0a016c1c761ba1a86e13439dd7ae9ed75990a",
+      "bytes": 4151
+    },
+    {
+      "path": "test/check-core/r14-threes.test.js",
+      "sha256": "0999666993904d437844838b8659282f4f3a1ee66275f26655928b2294eb8811",
+      "bytes": 4171
+    },
+    {
+      "path": "test/check-core/score-rows.test.mjs",
+      "sha256": "37b049fadf6bde455fee05343bdc766ad3f979ba3789a6080d67c72c939ae551",
+      "bytes": 1859
     },
     {
       "path": "test/check-core/secrecy.test.js",
@@ -845,6 +880,11 @@
       "bytes": 8099
     },
     {
+      "path": "test/core/declare-after-own-card.test.js",
+      "sha256": "544151be2d1b36c0c883e7ca941bd30a521992eec519776c157d5c17002eacd4",
+      "bytes": 5479
+    },
+    {
       "path": "test/core/exchange.test.js",
       "sha256": "3988aee978208acb70d2d4a825ea74f4c35fb8bac44ebca7efcb9e9426d20981",
       "bytes": 7918
@@ -866,7 +906,7 @@
     },
     {
       "path": "test/core/fuora.test.js",
-      "sha256": "2ee8494780895083cee57284131dafba741eac8265baed41430805f4f5783aa7",
+      "sha256": "2774a20e752071462370c7e51afa3fdef28a56e8265189aa5ead0f1491ad3192",
       "bytes": 18033
     },
     {
@@ -895,6 +935,11 @@
       "bytes": 7591
     },
     {
+      "path": "test/core/plain-value.test.js",
+      "sha256": "805f496370eb0d5371359cb555bef895f87c6df0c09288f8490e25c95911dc19",
+      "bytes": 2364
+    },
+    {
       "path": "test/core/play.test.js",
       "sha256": "ee92fddb282d91abc965784442e029318cb3567d8a666939c0724e74828c35ec",
       "bytes": 8443
@@ -915,14 +960,24 @@
       "bytes": 10550
     },
     {
+      "path": "test/core/r14-fuora.test.js",
+      "sha256": "a2476bad27b0906d7ecfc727c7c99f3fc7fe3e1d3e89efb386f05111a552a04f",
+      "bytes": 4772
+    },
+    {
+      "path": "test/core/r14-notricks.test.js",
+      "sha256": "a8daf505955ba4cf385e0129925194435d7643d66967b159ee0dbf4f0e0eaf38",
+      "bytes": 4383
+    },
+    {
       "path": "test/core/r9-claims.test.js",
       "sha256": "2d84f14b1c102228eecb09c365178372c8e6ef4b95af60daa4a77aeb3c43372f",
       "bytes": 4493
     },
     {
       "path": "test/core/r9-fixes.test.js",
-      "sha256": "fa9a88ab469f0826b66f72e4879cc045a23de791802b29825c7221b4f96ca30a",
-      "bytes": 6046
+      "sha256": "df18a7f7df7b1d9e05dd78119f9d6ba8adaf3cc4832d6dd9b029f2d0b65773a5",
+      "bytes": 6251
     },
     {
       "path": "test/core/r9-general.test.js",
@@ -966,8 +1021,8 @@
     },
     {
       "path": "test/core/support.test.js",
-      "sha256": "b1181c846e19dcd2ca9b8033d7b0762b653107ba8d00c777526c1fc6a6104428",
-      "bytes": 12102
+      "sha256": "c709937abaefd5e91b60d42d87bc6123228d8321633e2e324ed0ab63d164e3b2",
+      "bytes": 12240
     },
     {
       "path": "test/core/two-deals.test.js",
@@ -986,8 +1041,8 @@
     },
     {
       "path": "test/lib/invariants.mjs",
-      "sha256": "28ef79243567bbed2a83e95c00dfc4b12fafe9bb3c29256326800192df6ebc87",
-      "bytes": 3792
+      "sha256": "02bfa47618f109db4768aa2191ab0f26d0629d1b0d8c8c0892ee7ebab2ccf654",
+      "bytes": 3894
     },
     {
       "path": "test/lib/secrecy.mjs",
@@ -1056,13 +1111,13 @@
     },
     {
       "path": "tools/botlab.mjs",
-      "sha256": "0da973da97542b887789a69e24eeb1f7778d7bfeb85f31177c7d7535ca5ae906",
-      "bytes": 13039
+      "sha256": "64fdb1d3eaa5268edd7d6839ac69bbbe9afb08c790f333902a0b59401447e8c2",
+      "bytes": 16306
     },
     {
       "path": "tools/botlab/aggregate.mjs",
-      "sha256": "d4eeef560ff5a5be08c13980c14b8d07e5c5d61b17e35ae8a1552a6deb4110d1",
-      "bytes": 3766
+      "sha256": "95b64792b13df022f942fa5b4c9962677b9dc7aff5ac3531d986cd71e8d95b04",
+      "bytes": 6344
     },
     {
       "path": "tools/botlab/census.mjs",
@@ -1071,8 +1126,8 @@
     },
     {
       "path": "tools/botlab/play.mjs",
-      "sha256": "1840f131f4539ab9b80d013041f89bf30792796c3be178d6e8b0f5a0ffbf0949",
-      "bytes": 7472
+      "sha256": "c4317b4489edbbd32d567bbddd13383fd107cbe514dd7c3918c7b7279706fa36",
+      "bytes": 8279
     },
     {
       "path": "tools/botlab/pool.mjs",
@@ -1086,8 +1141,8 @@
     },
     {
       "path": "tools/botlab/stats.mjs",
-      "sha256": "904a2414956cb78b6c1b48885d7ad7c23cc978413926c4ac1b2c7379e96e1b01",
-      "bytes": 1643
+      "sha256": "e302003f654576b0ef76510a8eb6128b772521f7d580e72db4b0ffc1b7540a9c",
+      "bytes": 3156
     },
     {
       "path": "tools/botlab/table-worker.mjs",
@@ -1101,8 +1156,8 @@
     },
     {
       "path": "tools/botlab/worker.mjs",
-      "sha256": "3bca7656c705e70b5adcb94adfb8458e167097ee8e86a9ded510e3873d680bd5",
-      "bytes": 970
+      "sha256": "5701851413a4c432abf387edca4cb9d5a0bad5834c00cf44658f8965ce7810c3",
+      "bytes": 1402
     },
     {
       "path": "tools/check-core-pure.mjs",

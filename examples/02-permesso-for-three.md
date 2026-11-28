@@ -13,7 +13,7 @@ $ npm run play -- permesso_3 --seats 3 --seed demo --bots normal
 The start of the output, with the long lines of the deal cut:
 
 ```
-game permesso_3, rules revision 11, 3 seats
+game permesso_3, rules revision 14, 3 seats
 seed demo, hand 0, hand seed demo:permesso_3:3:0, dealer seat 0
 seat 0: normal
 seat 1: normal
@@ -72,18 +72,18 @@ Measure it. Seat `a` plays the level of the file; the other two seats play `norm
 
 ```
 $ node tools/botlab.mjs --games permesso_3:3 --a-level examples/my-level.json --b normal --deals 10 --seed tune
-permesso_3:3 my-level vs normal hands 10 share 0.283 [0.099..0.588] fair 0.333 margin 2.1 decisions 785 | money -0.300 [-5.137..4.537] per hand, thrown in 0.100, declared 2 won 1.000, contracts {"two":6,"three":2,"one":1}, a minus the others -0.450 [-7.705..6.806]
-written <WORK>/botlab/my-level_vs_normal.json 155 s
+permesso_3:3 my-level vs normal hands 10 share 0.300 [0.108..0.603] fair 0.333 margin 0.7 decisions 866 | money 0.300 [-4.590..5.190] per hand, thrown in 0.000, declared 2 won 1.000, contracts {"two":3,"three":5,"one":2}, a minus the others 0.450 [-6.885..7.785]
+written <WORK>/botlab/my-level_vs_normal.json 39 s
 ```
 
-The run took 155 s on one thread. How to read the line:
+The numbers of this part and of the next are measured at revision 14, on 27 and 28 November 2026; the run took 39 s on four threads (`--workers 4`). How to read the line:
 
-- `money -0.300 [-5.137..4.537] per hand`: the money of the seat `a` per hand, in the coins of the game, with its 95 % interval.
-- `a minus the others -0.450 [-7.705..6.806]`: the money of `a` less the mean money of the other seats. The money of a table adds up to zero, so with `n` seats this is the money of `a` times `n/(n-1)`. This is the number problem 002 asks about.
-- `thrown in 0.100`: the share of hands where nobody bid and the cards were thrown in.
+- `money 0.300 [-4.590..5.190] per hand`: the money of the seat `a` per hand, in the coins of the game, with its 95 % interval.
+- `a minus the others 0.450 [-6.885..7.785]`: the money of `a` less the mean money of the other seats. The money of a table adds up to zero, so with `n` seats this is the money of `a` times `n/(n-1)`. This is the number problem 002 asks about.
+- `thrown in 0.000`: the share of hands where nobody bid and the cards were thrown in.
 - `declared 2 won 1.000`: the declarer won two hands of the two where the seat `a` was declarer. `contracts` counts the contracts of all declarers.
 
-With 10 hands the interval is wide: from -5 to +4.5 coins. The interval narrows with the square root of the number of hands: four times as many hands give half the width. This run cannot say that the level is better or worse than `normal`. The card of problem 002 names 100 hands.
+With 10 hands the interval is wide: from -4.6 to +5.2 coins. The interval narrows with the square root of the number of hands: four times as many hands give half the width. This run cannot say that the level is better or worse than `normal`. The card of problem 002 names 100 hands.
 
 ## 3. Make a bot
 
@@ -99,25 +99,25 @@ The deal is the same as in part 1, but the play is not. The bot hands its `seed`
 
 ```
 $ node tools/botlab.mjs --games permesso_3:3 --a-bot examples/my-bot.mjs --b normal --deals 10 --seed tune
-permesso_3:3 bot:my-bot vs normal hands 10 share 0.450 [0.201..0.726] fair 0.333 margin -0.2 decisions 864 | money 2.300 [-2.103..6.703] per hand, thrown in 0.000, declared 4 won 1.000, contracts {"one":2,"two":6,"three":2}, a minus the others 3.450 [-3.155..10.055]
-written <WORK>/botlab/bot_my-bot_vs_normal.json 100 s
+permesso_3:3 bot:my-bot vs normal hands 10 share 0.350 [0.137..0.646] fair 0.333 margin -3.3 decisions 862 | money 0.900 [-3.878..5.678] per hand, thrown in 0.000, declared 4 won 0.750, contracts {"one":3,"two":5,"three":2}, a minus the others 1.350 [-5.817..8.517]
+written <WORK>/botlab/bot_my-bot_vs_normal.json 44 s
 ```
 
-The run took under two minutes on two threads. Again 10 hands, and again a wide interval. Do not read the numbers as strength.
+The run took 44 s on four threads. Again 10 hands, and again a wide interval. Do not read the numbers as strength.
 
-Play `normal` against `normal` on the same 10 hands (`--a normal --b normal`) and the line is close but not equal: the money of `a` is 2.400 there against 2.300 above, and the interval is [-3.214..8.014]. The two differ because the bot of a solver gets its own stream of random numbers, and because its rule sometimes passes. On 10 hands neither difference can be told from noise. A rule that rarely changes a move is a rule that this measure cannot judge. Change `MIN_TRUMPS` and run it again to see the line move.
+Play `normal` against `normal` on the same 10 hands (`--a normal --b normal`) and the line is close but not equal: the money of `a` is 0.900 there, the same as above, but the interval is [-4.577..6.377] against [-3.878..5.678], `a` declared 5 hands in place of 4, and the share is 0.400 in place of 0.350. The two differ because the bot of a solver gets its own stream of random numbers, and because its rule sometimes passes. On 10 hands neither difference can be told from noise. A rule that rarely changes a move is a rule that this measure cannot judge. Change `MIN_TRUMPS` and run it again to see the line move.
 
 ## 4. The baseline: `normal` against `normal`
 
-`normal` against `normal` at three seats, 100 hands, seed `tune` (it took 716 s on three threads):
+`normal` against `normal` at three seats, 100 hands, seed `tune` (it took 216 s on four threads):
 
 ```
 $ node tools/botlab.mjs --games permesso_3:3 --a normal --b normal --deals 100 --seed tune
-permesso_3:3 normal vs normal hands 100 share 0.367 [0.279..0.464] fair 0.333 margin 1.07 decisions 8598 | money 0.450 [-0.852..1.752] per hand, thrown in 0.010, declared 37 won 0.676, contracts {"two":57,"three":29,"one":9,"sans_prendre":4}, a minus the others 0.675 [-1.278..2.628]
-written <WORK>/botlab/normal_vs_normal.json 716 s
+permesso_3:3 normal vs normal hands 100 share 0.332 [0.247..0.429] fair 0.333 margin 1.7 decisions 8551 | money -0.180 [-1.523..1.163] per hand, thrown in 0.010, declared 38 won 0.605, contracts {"two":52,"three":25,"one":18,"sans_prendre":4}, a minus the others -0.270 [-2.284..1.745]
+written <WORK>/botlab/normal_vs_normal.json 216 s
 ```
 
-The levels are the same, so the true difference is zero. The line shows what zero looks like on 100 hands: `a minus the others` is 0.675 coins per hand, with the interval [-1.278..2.628]. The seat `a` declared 37 hands and won 68 % of them, as the card of problem 002 says for the declarers of all seats (0.70). A bot of your own must show a lower end above 0 on a measure like this one; with a width of 2 coins on each side, a small gain cannot be seen in 100 hands.
+The levels are the same, so the true difference is zero. The line shows what zero looks like on 100 hands: `a minus the others` is -0.270 coins per hand, with the interval [-2.284..1.745]. The seat `a` declared 38 hands and won 61 % of them (0.605), and the card of problem 002 says 0.66 for the declarers of all seats. A bot of your own must show a lower end above 0 on a measure like this one; with a width of 2 coins on each side, a small gain cannot be seen in 100 hands.
 
 The 100 hands use the same seed `tune` as the 10 hands of part 3: they are hands 0 to 9 of this run.
 

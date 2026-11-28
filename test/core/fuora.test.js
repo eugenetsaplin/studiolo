@@ -111,7 +111,7 @@ test('after_false_claim hand_ends: a false claim loses the partita and the other
 	const res = h.result();
 	assert.deepEqual(res.winners, [0]);
 	assert.equal(res.reason, 'false_claim');
-	assert.deepEqual(res.gamePoints, { 0: 1, 1: 0 });
+	assert.deepEqual(res.gamePoints, { 0: 2, 1: 0 });
 });
 
 test('the pack runs out: no winner, no game point, no payment', () => {

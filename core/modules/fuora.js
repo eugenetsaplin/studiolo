@@ -168,6 +168,7 @@ export function extraLegal(h, entry, seat) {
 	const w = lastWindow(h, entry);
 	// pass_fuora stands first: a player who has nothing to say takes the first action
 	if (w !== null) return w === seat ? [{ type: 'pass_fuora' }, { type: 'claim_fuora' }] : [];
+	if (packetEndClaim(h, entry) === seat) return [{ type: 'pass_fuora' }, { type: 'claim_fuora' }];
 	if (turnSeat(h, entry) === seat) return [{ type: 'claim_fuora' }];
 	if (finished(h, entry) || isOut(h, seat) || st.claimant !== seat || h.s.trick.length !== 0) return [];
 	// after the last trick of a round only a right claim is offered; it is the only thing left to do
@@ -175,9 +176,19 @@ export function extraLegal(h, entry, seat) {
 	return [{ type: 'claim_fuora' }];
 }
 
+// claim_when after_trick with deal_on: the packet is spent, a packet is still to come, and the taker of its last trick has the
+// points: the window of the claim is his before the next deal (he says «fuora» or lets it pass; the last packet has its own window)
+function packetEndClaim(h, entry) {
+	if (!dealOn(entry) || ownTurn(entry) || finished(h, entry) || h.s.over || !h.cur || h.cur.module !== 'tricks') return null;
+	const c = stateOf(h).claimant;
+	if (c === null || isOut(h, c) || h.s.trick.length !== 0 || !h.s.hands.every((l) => l.length === 0)) return null;
+	if (h.s.rest.length < h.dealNeed() || !enough(h, entry, c)) return null;
+	return c;
+}
+
 // the round is over and the taker of its last trick can go out: the engine waits for him
 export function hold(h, entry) {
-	if (dealOn(entry)) return lastWindow(h, entry) !== null;
+	if (dealOn(entry)) return lastWindow(h, entry) !== null || packetEndClaim(h, entry) !== null;
 	const st = stateOf(h);
 	return st.claimant !== null && !finished(h, entry) && h.s.trick.length === 0 && h.s.hands.every((l) => l.length === 0) && enough(h, entry, st.claimant);
 }
@@ -210,6 +221,11 @@ export function applyExtra(h, entry, seat, action) {
 	const st = ensure(h);
 	const wnd = windowOf(h, entry);
 	const windowOpen = !!wnd && wnd.seat === seat;
+	if (action && action.type === 'pass_fuora' && !wnd) {
+		// he let the end of the packet pass: the next deal follows
+		st.claimant = null;
+		return { events: [{ e: 'fuora_passed', seat }], done: true };
+	}
 	if (action && action.type === 'pass_fuora') {
 		const events = [{ e: 'fuora_passed', seat }];
 		return nextInWindow(h, st, wnd.at) ? { events } : windowEnds(h, entry, events);
@@ -231,6 +247,12 @@ export function applyExtra(h, entry, seat, action) {
 	if (entry.set.after_false_claim === 'hand_ends') {
 		// the claimer loses the hand: the row is what the lost game costs him, paid to each other seat
 		const lost = rowFor(entry.set, points);
+		if (entry.set.winner_is === 'first_reached' && st.reached !== null && st.reached !== seat) {
+			// the seat that made the points first has won already: it stays the winner, the false claim only ends the hand
+			s.out = { seat: st.reached, points: livePoints(h, st.reached) };
+			st.claims.push({ seat, valid: false, points, stake: lost ? lost.pays.stake : null, ends: true });
+			return { events: [ev], endHand: true };
+		}
 		st.claims.push({ seat, valid: false, points, stake: lost ? lost.pays.stake : null, ends: true });
 		st.ended = { reason: 'false_claim', seat };
 		return { events: [ev], endHand: true };

@@ -88,9 +88,13 @@ export function kindAmount(kind, n, options) {
 const entryOf = (h) => h.game.plan.find((e) => e.module === 'declarations') || null;
 
 // what the hand of a seat holds of a kind: {n, cards} or null when it does not qualify
+// while the first trick is open the card the seat has put into it still counts (Torino 1787, p. 86: the declaring may
+// be made until the first trick is covered)
 export function qualifies(h, kind, seat) {
 	const pred = compileSelector(kind.of, h.game.env);
-	const cards = h.s.hands[seat].filter((c) => pred(c));
+	const played = inTrickWindow(entryOf(h)) && h.s.tricks.length === 0 && Array.isArray(h.s.trick)
+		? h.s.trick.filter((t) => t.seat === seat).map((t) => t.card) : [];
+	const cards = h.s.hands[seat].concat(played).filter((c) => pred(c));
 	if (cards.length < kind.min) return null;
 	if (kind.all_of && cards.length !== ALL.filter((c) => pred(c)).length) return null;
 	return { n: cards.length, cards };

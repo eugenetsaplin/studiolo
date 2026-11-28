@@ -1,5 +1,5 @@
 // From the records of one run to one table row.
-import { wilson, percentile, mean, sd, threshold } from './stats.mjs';
+import { wilson, percentile, mean, sd, threshold, pairedInterval } from './stats.mjs';
 
 const r3 = (x) => Math.round(x * 1000) / 1000;
 
@@ -74,4 +74,40 @@ function moneyRow(ok) {
 			declarerMoney: decl.length ? { mean: r3(dmu), lo: r3(dmu - 1.96 * dse), hi: r3(dmu + 1.96 * dse), n: decl.length } : null,
 		},
 	};
+}
+
+// Cyclic mode: the records are one per (deal, turn). Records are grouped by deal; a deal counts only when every turn of it was played
+// without an error, and its observation is the mean over its turns. The row is the old row of the same games (rowOf: the games are
+// the unit, Wilson interval, the interval of money by games) with the numbers of the interval replaced by the paired ones, and the old
+// interval of those same games kept in `old` for comparison.
+export function cyclicRowOf({ id, seats, alts, a, b, pairs, recs, turns, timing, safeT = false }) {
+	const byDeal = new Map();
+	for (const r of recs) { if (!byDeal.has(r.h)) byDeal.set(r.h, []); byDeal.get(r.h).push(r); }
+	const full = [...byDeal.entries()].filter(([, rs]) => rs.length === turns && rs.every((r) => !r.error)).sort((x, y) => x[0] - y[0]);
+	const okRecs = full.flatMap(([, rs]) => rs);
+	const base = rowOf({ id, seats, alts, a, b, pairs, recs: okRecs, timing });
+	const errors = recs.filter((r) => r.error);
+	const half = (iv) => (iv.half === null ? null : r3(iv.half));
+	const ivOut = (iv) => ({ mean: r3(iv.mean), lo: iv.lo === null ? null : r3(iv.lo), hi: iv.hi === null ? null : r3(iv.hi), half: half(iv) });
+	const dealShare = full.map(([, rs]) => mean(rs.map((r) => r.credit)));
+	const plain = pairedInterval(dealShare, { clamp: [0, 1] });
+	const safe = pairedInterval(dealShare, { safe: true, clamp: [0, 1] });
+	const old = { share: { lo: base.lo, hi: base.hi, half: r3((base.hi - base.lo) / 2) } };
+	const row = {
+		...base, mode: 'cyclic', turns, deals: full.length, hands: okRecs.length, errors: errors.length, errorSamples: errors.slice(0, 3),
+		share: r3(plain.mean), lo: r3((safeT ? safe : plain).lo ?? 0), hi: r3((safeT ? safe : plain).hi ?? 1), safeT,
+		interval: { share: ivOut(plain), safeShare: ivOut(safe) }, old,
+	};
+	if (base.money) {
+		const dealMoney = full.map(([, rs]) => mean(rs.map((r) => r.money)));
+		const iv = pairedInterval(dealMoney);
+		row.money = { ...base.money, mean: r3(iv.mean), lo: iv.lo === null ? 0 : r3(iv.lo), hi: iv.hi === null ? 0 : r3(iv.hi), sd: r3(iv.sd), n: iv.n, half: half(iv) };
+		old.money = { lo: base.money.lo, hi: base.money.hi, half: r3((base.money.hi - base.money.lo) / 2) };
+		if (seats > 1) {
+			const k = seats / (seats - 1);
+			row.moneyVsRest = { mean: r3(iv.mean * k), lo: iv.lo === null ? 0 : r3(iv.lo * k), hi: iv.hi === null ? 0 : r3(iv.hi * k), half: iv.half === null ? null : r3(iv.half * k), n: iv.n };
+			old.moneyVsRest = { half: r3((base.moneyVsRest.hi - base.moneyVsRest.lo) / 2) };
+		}
+	}
+	return row;
 }

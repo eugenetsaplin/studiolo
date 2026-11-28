@@ -122,7 +122,7 @@ Page numbers and quotations come from the first reading of the games; I did not 
 
 ### 18. Sedici (pp. 14-18, 35-45)
 
-- **fuzzy.** The pack running out before anyone goes out (p. 39), the value of plain cards counted singly (pp. 13-14, 51), the next dealer at three or four (p. 41), two going out together: `fuora.stock_empty`, `count.plain_value`, `seats.dealer_rotation`, all `[S]`. Two claims at once need one more key: proposal `fuora.simultaneous: earlier_claim | higher_points`, `[S]`.
+- **fuzzy.** The pack running out before anyone goes out (p. 39), the next dealer at three or four (p. 41), two going out together: `fuora.stock_empty`, `seats.dealer_rotation`, all `[S]`. (The value of plain cards counted singly, `count.plain_value`, is `[R]` 1 since revision 14: Prammatica [1846], p. 12, Torino [1846], part I, pp. 30, 37; question 9.) Two claims at once need one more key: proposal `fuora.simultaneous: earlier_claim | higher_points`, `[S]`.
 - **fuzzy.** When a claim may be made («ti basterà far sedici punti», «fuora» only when sure, pp. 35, 39-41): `fuora.claim_when` `[S]`.
 - **gap.** A player who shows his cards loses his payment, which the second player takes (pp. 44-45): the penalty moves a payment to another seat. Proposal: penalty effect `{"pays_to": "second_out"}` (see 20).
 - **fuzzy.** Ruinous false claim at exactly 8 points (p. 39): the simple game  `[R]`.

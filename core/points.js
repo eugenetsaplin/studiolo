@@ -43,6 +43,13 @@ function effective(table, id, g, plainValue) {
 	return g === 1 && !table.named[id] && plainValue !== undefined ? plainValue : table.v[id];
 }
 
+// as_group: what the short group of k left-over cards (k < g) takes off the sum of its values, in twelfths. The book
+// takes (k - 1) points off a short group; counted by threes a lone card loses one point too (Torino 1880, p. 8: the Fool
+// is «quatr pont da chiel sol»), so a lone card and a pair of the other side make one group of three.
+export function shortGroupCut(g, k) {
+	return g === 3 && k === 1 ? 12 : 12 * (k - 1);
+}
+
 export function cardTwelfths(table, id, g, plainValue) {
 	return 12 * effective(table, id, g, plainValue) - groupCut(g);
 }
@@ -65,7 +72,7 @@ export function countTwelfths(cards, { table, group = 2, oddCard = 'half_point',
 		if (oddCard === 'as_group') {
 			let sum = 0;
 			for (let i = full; i < cards.length; i++) sum += 12 * effective(table, cards[i], g, plainValue);
-			total += sum - 12 * (k - 1);
+			total += sum - shortGroupCut(g, k);
 		} else {
 			for (let i = full; i < cards.length; i++) total += cardTwelfths(table, cards[i], g, plainValue);
 		}

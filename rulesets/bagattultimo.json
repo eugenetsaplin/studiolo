@@ -4,7 +4,7 @@
 	"family": "mitigati",
 	"status": "playable_with_decisions",
 	"about": "Bagatt'ultimo, «ossia Mitigati» (the game is played «comunemente in tre persone»), pp. 91-96 of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan and checked again on 23 November 2026 (every page 87-100 compared with the image): three players each for himself, 25 cards each and 28 for the dealer, who discards three; dealt in three rounds, by custom 5, 10, 10 (pp. 91-92); before the first card the players declare honours (three or more, without naming them), ten or more trumps (laid on the table) and Mitigati (Angel, Bagatto and Fool), the dealer having said «Ho scartato» (pp. 93, 95); declarations are paid at once in marche (pp. 94-95); a hand is won with 26 points, the cards counted in threes (pp. 95-96); Bagatto taken in the last trick pays or is paid thirty marche, in the course of the game five (p. 96). Silent in the section: how the dealer's three extra cards are dealt, the order of play and the rules of the trick (taken from the general rules), who pays the game and how much, the odd card of a count in threes. Those are left_out or [R]. Dummett's payments (10 from each for 26, ghinghetta, Bagatto ultimo as a declaration) belong to the rules of 1830, not to the book; since revision 2 the payment of the hand is played as he gives it: 10 marche from each player short of 26 to each who reached it. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 11,
+	"revision": 14,
 	"sources": {
 		"torino1846": {
 			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
@@ -56,11 +56,11 @@
 		"sets": {
 			"honours": {"value": ["rank:K", "T20", "T0", "T1"], "source": "[D] Torino 1787, p. 34 (rule 38): «cioè nessun Re, nè l'Angelo, nè il Folle, nè Bagatto»: the honours are the four kings, the Angel XX, the Fool and Bagatto. On p. 94 «Angelo, Bagatto, e Re di Coppe» are three honours; the Fool is the third of Mitigati (p. 93)."}
 		},
-		"fool": {"value": "excuse", "source": "[R] Torino 1787, pp. 91-96: the section says nothing of the Fool in a trick. Read after Venticinque, dealt the same way (25 and 28), where «Folle non vien preso mai» (p. 54), and Dummett 1980, p. 259 (the Excuse in every game but Sedici and Trent'uno). Other reading: an ordinary trionfo.", "alt": "trump"},
+		"fool": {"value": "excuse", "source": "[R] Torino 1787, pp. 91-96: the section says nothing of the Fool in a trick. Read after Venticinque, dealt the same way (25 and 28), where «Folle non vien preso mai» (p. 54), and Dummett 1980, p. 259 (the Excuse in every game but Sedici and Trent'uno). Other reading: an ordinary trionfo (recorded only; the engine does not play this reading).", "alt": "trump"},
 		"fool_exchange": {"value": true, "source": "[R] Torino 1787, pp. 52, 54: the owner of the Fool gives a plain card; carried over from Baronetti and Venticinque, the section does not repeat it."},
 		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three, «come nei giuochi posteriori»): the plain card goes to «chi ha presa o coperta la mano».", "by": "torino1846", "pages": [33]},
 		"fool_exchange_card": {"value": "owner_choice", "source": "[D] Torino [1846], part I, p. 33: «dare in compenso un'altra cartuccia qualunque»; Torino 1787, p. 52: «qualunque gli piaccia».", "by": "torino1846", "pages": [33]},
-		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 21, rule 10, lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may hold the Fool, so the Fool stays with him. The pages of this game (pp. 91-96) do not say what a player with no trick does with the Fool, and they do not send to p. 50. Our reading: a player with no trick keeps the Fool; an owner without a plain card gives nothing. Other reading (alt give_fool): Prammatica [1846], p. 6: «chi non potesse coprirlo, alla fine della mano è obbligato di cederlo alla parte vincente»; Torino 1880, p. 9 says only that the Fool of a side with no trick may be taken («as peul piesse»); Dummett 1980, p. 259: «if they have won no tricks, they must surrender the Folle». See OPEN_QUESTIONS.md, question 2.", "alt": "give_fool", "replace": {"with":["expert","bots"],"what":"the Fool of a player who won no trick: kept or given up","q":2}}
 	},
 	"options": [
 		{"id": "marca_value", "choices": [1, 2, 5, 10], "default": 1, "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: before the game the players settle what a marca is worth. The book names no value; the list of choices is the table's. The sums printed in marche are the honours, the trumps and Mitigati (pp. 94-95), the three Bagatto payments (p. 96) and the ficcia (p. 87). [S] Revision 10: the engine does not multiply them yet: the honours and the trumps are a table it cannot scale, and scaling the other sums alone would set Mitigati against the honours; the payment for 26 points (Dummett's ten) has no page.", "affects": ["hand.settle.unit"]}
@@ -111,7 +111,7 @@
 					"packets_announced": {"value": true, "source": "[D] Torino 1787, p. 92: another method is allowed «purchè avvisi i compagni, prima che siano i Tarocchi coppati»."},
 					"order": {"value": "from_right", "source": "[D] Torino 1787, pp. 91-92: «cinque carte in prima … destra, cinque a … prendere cinque per te»."},
 					"dead": {"value": "none", "source": "[D] Torino 1787, p. 91: 25 + 25 + 28 is the whole pack (the sum is ours); nothing is left over."},
-					"extra_when": {"value": "last", "source": "[S] Torino 1787, pp. 91-92 and Torino [1846], part I, p. 51 do not say when the dealer takes his three; ours: the last three, as Dummett 1980, p. 260 (said of Venticinque for three) and p. 262, and Nice 1930, p. 284 (Mitigati for three at Nice: the dealer takes his three in the last round, «s'en réserve pour lui-même 13 à la dernière tournée»).", "by": "dummett1980", "pages": [260]}
+					"extra_when": {"value": "last", "source": "[S] Torino 1787, pp. 91-92 and Torino [1846], part I, p. 51 do not say when the dealer takes his three; ours: the last three, as Dummett 1980, p. 260 (said of Venticinque for three) and p. 262, and Nice 1930, p. 284 (Mitigati for three at Nice: the dealer takes his three in the last round, «s'en réserve pour lui-même 13 à la dernière tournée»).", "by": "dummett1980", "pages": [260, 262]}
 				}
 			},
 			{
@@ -121,7 +121,8 @@
 					"who": {"value": "dealer", "source": "[D] Torino 1787, pp. 91, 95: the dealer discards and says «Ho scartato» before the declarations."},
 					"count": {"value": 3, "source": "[D] Torino 1787, p. 91: «tre di più di quelle date agli altri, che sono per lo scarto»: the three extra cards are the discard."},
 					"discard_honours_barred": {"value": true, "source": "[R] Torino 1787, pp. 34, 85: no honour is discarded (the general rule; at Mitigati for two «mai»); the section does not repeat it. The two exceptions of p. 34 are left out."},
-					"announce": {"value": "ho_scartato", "source": "[D] Torino 1787, p. 95: «dovrà avere scartato colui, che diede le … importerà nulla, e si pagherà nulla»."}
+					"announce": {"value": "ho_scartato", "source": "[D] Torino 1787, p. 95: before honours and trumps are declared, «dovrà avere scartato colui, che diede le carte, e dir: Ho scartato»."},
+					"counts_for": {"value": "discarder", "alt": "discarder_unless_no_tricks", "source": "[R] Torino 1787, p. 21, rule 10 (for every game), lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may keep his discard, and no Turin book prints the contrary for a game with one discard. Pages 91-96 do not say whose points the discard joins; ours: the dealer's, who put it away. Other reading: a side with no trick gives the discard to the taker of the last trick. That a player with no trick loses his discard is printed only in Prammatica [1846], pp. 24-25, n. 15 «Mittigati in due collo scarto compito», a game for two: «La così detta vola … perde i punti dei due scarti, tanto piccolo che grande», and the Fool with them («e con essi anche il Folle»); the page does not say who gains them. Dummett 1980, p. 259 gives a rule for it («they must surrender the discarded cards to the player or side winning the last trick») and names no source. See OPEN_QUESTIONS.md, question 1.", "replace": {"with":["expert","document","bots"],"what":"the discard of a player who won no trick: kept or lost","q":1}}
 				}
 			},
 			{
@@ -154,7 +155,7 @@
 					"group": {"value": 3, "source": "[D] Torino 1787, p. 96: «le carte si contano a tre a tre»."},
 					"trick_multipliers": {"value": false, "source": "[R] Torino 1787: the count is the one the section names; the book prints no trick multiplier and no war in these games (x2 and x4 are Duello's own)."},
 					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787: the book prints no bonus for the last trick (the +5 is Duello's own)."},
-					"odd_card": {"value": "as_group", "source": "[S] Torino 1787, p. 96 and Torino [1846], part I, p. 52 say only «a tre a tre»; ours: one or two cards left over are counted as a short group.", "by": "ours", "pages": [96]},
+					"odd_card": {"value": "as_group", "source": "[R] Torino 1787, p. 96 and Torino [1846], part I, p. 52 say only «a tre a tre»; ours: one or two cards left over are counted as a short group. A lone left-over card also loses one point counted by threes, so the lone Fool and the two other cards of the pack make one short group and the pack counts 78: Torino 1880, p. 8, «'L Fol a val quatr pont da chiel sol».", "pages": [96]},
 					"fool_card": {"value": "counted", "source": "[R] Torino 1787, pp. 91-96 do not deduct the Fool's card; the compensation card is counted by its receiver (Torino [1846], part I, p. 33).", "by": "torino1846", "pages": [33]}
 				}
 			},
@@ -174,7 +175,7 @@
 					"unit": {"value": "marca", "source": "[D] Torino 1787, p. 93: «siasi conchiuso di quanto vaglia la marca»: the game is paid in marche."},
 					"amount": {"value": 10, "source": "[S] Torino 1787, pp. 91-96 name no payment of their own for the game. Ours after Dummett 1980, p. 262 (three-handed Mitigati, after the rules of 1830): «the remaining player pays each of them 10 game points»: ten marche from each player under 26 to each who reached it. Revision 1 played the simple stake of p. 21.", "alt": {"stake": "simple"}, "by": "dummett1980", "pages": [262], "replace": {"with": ["document"], "what": "the payment for the game at 26 points", "q": 7}},
 					"payments": [
-						{"id": "bagatto_last", "on": "last_trick_won_with:T1", "from": "each_other", "to": "event_seat", "amount": 30, "alt": "together", "source": "[D] Torino 1787, p. 96: «Chi farà Bagatto l'ultima carta della mano, ritirerà dai compagni trenta marche». [R] From each of the two or thirty in all; read as from each (the same page says «pagherà trenta a ciascuno» for the loser; Torino [1846], part I, p. 45, for the declared Bagatto: «trenta marche per caduno»). Other reading: thirty from the two together."},
+						{"id": "bagatto_last", "on": "last_trick_won_with:T1", "from": "each_other", "to": "event_seat", "amount": 30, "alt": "together", "source": "[D] Torino 1787, p. 96: «Chi farà Bagatto l'ultima carta della mano, ritirerà dai compagni trenta marche». [R] From each of the two or thirty in all; read as from each (the same page says «pagherà trenta a ciascuno» for the loser; Torino [1846], part I, p. 45, for the declared Bagatto: «trenta marche per caduno»). Other reading: thirty from the two together (recorded only; the engine does not play this reading)."},
 						{"id": "bagatto_lost_last", "on": "lost_in_last_trick:T1", "from": "event_seat", "to": "each_other", "amount": 30, "source": "[D] Torino 1787, p. 96: «l'ultima mano se lo lascierà prendere dall'uno degli avversarj, ne pagherà trenta a ciascuno»."},
 						{"id": "bagatto_lost", "on": "lost_before_last_trick:T1", "from": "event_seat", "to": "each_other", "amount": 5, "source": "[D] Torino 1787, p. 96: «chi se lo lascierà prendere fra la partita, perderà cinque marche per ciascuno»; to take Bagatto in the course of the game pays nothing and wins nothing («importerà nulla, pagherà nulla»)."}
 					],
@@ -185,7 +186,7 @@
 	},
 	"match": {
 		"kind": {"value": "ledger", "source": "[S] Ours: the book describes one hand and its marche; they are settled after every hand, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
-		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 91-96 are silent on the length of a match: the book describes one hand and its payment. Ours: one round of dealers, three hands, each player dealing once; the payments are made after every hand and the greatest balance wins. A thrown-in hand (everybody passed, or a hand that is dealt again after equal points) counts as a dealt hand: nobody pays, the next player deals and the round goes on. The table may agree on two or three rounds.", "by": "ours", "pages": [91, 92, 93, 94, 95, 96], "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match", "q": 23}}
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 91-96 are silent on the length of a match: the book describes one hand and its payment. Ours: one round of dealers, three hands, each player dealing once; the payments are made after every hand and the greatest balance wins. A thrown-in hand (everybody passed, or a hand that is dealt again after equal points) counts as a dealt hand: nobody pays, the next player deals and the round goes on. The table may agree on two or three rounds.", "by": "ours", "pages": [91, 92, 93, 94, 95, 96], "alt": 2}
 	},
 	"penalties": [
 		{
@@ -213,10 +214,10 @@
 	"view": {
 		"piles": {"rest": "face_down_count", "discard": "owner_only"},
 		"declarations": "cards",
-		"score_panel": {"live_points": "hidden", "after_hand": ["groups", "declarations", "payments"]}
+		"score_panel": {"live_points": "hidden", "after_hand": ["groups", "fool_card", "discard", "declarations", "premiums", "payments"]}
 	},
 	"left_out": [
-		{"id": "bagatto_discard", "source": "[D] Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.", "why": "The engine bars the honours from the discard without this exception in this game."},
+		{"id": "bagatto_discard", "source": "[D] Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: the Bagatto may be put away when it is the only trump of the hand («solo» is so read since revision 2, as Dummett 1980, p. 259 reads it).", "why": "Not played in this game: the file bars the honours from the discard without exception (discard_honours_barred); the engine could play the exception (discard.allowed_exceptions), but the file does not list it."},
 		{"id": "bagatto_ultimo_declaration", "source": "[D] Torino [1846], part I, pp. 44-45 (read on the Academy's separate image of the missing pages): Bagatto last is declared, «ponendolo a tal uopo in tavola avanti di sè»; p. 53, Mitigati for three: «quando l'abbia per tale dichiarato». Dummett 1980, p. 262 (after RI 1830, «not allowed for in PE»): also ghinghetta, a pool for it, and a counter-announcement to take Bagatto, 60 marche.", "why": "The declaration is printed in Torino [1846], but Torino 1787, p. 96 pays Bagatto last without one, and the book of 1787 decides; not played (open question 17)."}
 	]
 }

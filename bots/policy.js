@@ -280,9 +280,12 @@ export function layAction(ctx, cards, legal) {
 export function callAction(ctx, cards, legal) {
 	const len = {};
 	for (const c of cards) len[catOf(c)] = (len[catOf(c)] || 0) + 1;
+	// the place of a trump in the order of the game file (trump_order), counted from the lowest plain trump: the printed number in a game
+	// where the order is the printed one, the Angel above the World where the file puts it so
+	const place = (c) => 1 + ALL.filter((x) => INFO[x].trump && !INFO[x].fool && ctx.strength(x) < ctx.strength(c)).length;
 	const score = (c) => {
 		const i = INFO[c];
-		if (i.trump) return i.fool ? 30 : i.num > 10 ? 50 + i.num : 5 + i.num;
+		if (i.trump) return i.fool ? 30 : place(c) > 10 ? 50 + place(c) : 5 + place(c);
 		return i.rank === 'K' ? 40 + 2 * (len[i.suit] || 0) : i.rank === 'Q' ? 20 + (len[i.suit] || 0) : ctx.strength(c) * 0.01;
 	};
 	const calls = legal.filter((a) => a.type === 'call');

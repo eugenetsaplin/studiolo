@@ -18,7 +18,7 @@ function refCount(cards, g, odd) {
 	const full = cards.length - k;
 	let t = 0;
 	cards.forEach((c, i) => { if (i < full || odd === 'half_point') t += 12 * VAL(c) - (12 * (g - 1)) / g; });
-	if (k && odd === 'as_group') t += cards.slice(full).reduce((a, c) => a + 12 * VAL(c), 0) - 12 * (k - 1);
+	if (k && odd === 'as_group') t += cards.slice(full).reduce((a, c) => a + 12 * VAL(c), 0) - (g === 3 && k === 1 ? 12 : 12 * (k - 1)); // by threes a lone card loses one point (Torino 1880, p. 8)
 	return t;
 }
 
@@ -28,7 +28,7 @@ const SPEC = {
 	venticinque_3: { g: 3, odd: 'as_group', win: 'threshold', gp: 0, settle: null, give: 'choice', to: 'winner', giveFool: true },
 	partita_3: { g: 2, odd: 'half_point', win: 'more', gp: 0, settle: 'losers', give: 'choice', to: 'winner' },
 	partita_4: { g: 2, odd: 'half_point', win: 'more', gp: 0, settle: 'pair', give: 'choice', to: 'winner', pairs: true },
-	meno: { g: 2, odd: 'half_point', win: 'fewest', gp: 0, settle: 'worst', share: true, give: 'cheapest', to: 'winner' },
+	meno: { g: 2, odd: 'half_point', win: 'fewest', gp: 0, settle: 'worst', share: true, give: 'choice', to: 'winner' },
 };
 
 function units(n, pairs) {
@@ -49,7 +49,10 @@ function checkHand(id, n, h, sp, stake = 1, g = sp.g) {
 		const to = sp.to === 'opp' ? 1 - owner : sp.to === 'winner' ? foolTrick.winner : (owner + 1) % n;
 		const before = side.flatMap((q) => sn.won[q]).filter((c) => c !== 'T0');
 		if (fg && fg.card && fg.card !== 'T0') before.push(fg.card);
-		if (!before.length) {
+		if (sp.pairs && side.includes(to)) {
+			// revision 14: the partner took the trick and the pair counts one heap: no exchange at all
+			assert.ok(!fg, `${id}: no card is given for the Fool inside the pair`);
+		} else if (!before.length) {
 			if (sp.giveFool) { assert.equal(fg && fg.card, 'T0', `${id}: a side without tricks gives the Fool`); assert.equal(fg.to, to); }
 			else assert.ok(!fg || !fg.card, `${id}: an owner without won cards gives nothing`);
 		} else {

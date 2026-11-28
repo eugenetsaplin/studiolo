@@ -4,8 +4,8 @@
 	"extends": "permesso_3",
 	"family": "permesso",
 	"status": "playable_with_decisions",
-	"about": "Permesso for five («Quintilio», Torino 1787, «Del Permesso in cinque persone», pp. 74-75, and the Fool of pp. 77-78): 15 cards to each of the five players, 18 to the dealer, who puts away three of them, any he likes but no honour (pp. 74, 34); the rest as in Permesso for three. The book advises the lone player to hold at least four of the greatest trumps (p. 74). The payment against four is not printed. The Fool is only shown, and its card goes to the taker of that trick (pp. 77-78).",
-	"revision": 11,
+	"about": "Permesso for five («Quintilio», Torino 1787, «Del Permesso in cinque persone», pp. 74-75, and the Fool of pp. 77-78): 15 cards to each of the five players, 18 to the dealer, who puts away three of them, any he likes but no honour (pp. 74, 34); the rest as in Permesso for three. The book advises the lone player to hold at least four of the greatest trumps (p. 74). The payment when the lone player plays against four opponents is not printed. The Fool is only shown, and its card goes to the taker of that trick (pp. 77-78).",
+	"revision": 14,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -38,7 +38,7 @@
 		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà … quando il Folle è stato giuocato»; read as the card given in place of the Fool (p. 52, p. 54), one plain card. Other reading: the Fool itself goes to the taker of that trick (no format key).","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»; carried over to the three games of pp. 77-78."},
 		"fool_exchange_to": {"value": "trick_winner", "source": "[D] Torino 1787, pp. 77-78: «la carta poscia del Folle si dovrà sempre dare a chi ha preso»: to the taker of the trick in which the Fool was shown (Quintilio, Sestilio, Settilio)."},
-		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed. Dummett 1980, p. 259 supports the other reading: «if they have won no tricks, they must surrender the Folle». [R] The plain card is sought in the tricks of the owner's whole side; this key applies only when that side has won no trick.", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 21, rule 10, lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may hold the Fool, so the Fool stays with him. The pages of this game (pp. 74-75, 77-78) do not say what a player with no trick does with the Fool, and they do not send to p. 50. Our reading: a player with no trick keeps the Fool; an owner without a plain card gives nothing. [R] The plain card is sought in the tricks of the owner's whole side; this key applies only when that side has won no trick. Other reading (alt give_fool): Prammatica [1846], p. 6: «chi non potesse coprirlo, alla fine della mano è obbligato di cederlo alla parte vincente»; Torino 1880, p. 9 says only that the Fool of a side with no trick may be taken («as peul piesse»); Dummett 1980, p. 259: «if they have won no tricks, they must surrender the Folle». See OPEN_QUESTIONS.md, question 2.", "alt": "give_fool", "replace": {"with":["expert","bots"],"what":"the Fool of a player who won no trick: kept or given up","q":2}}
 	},
 	"hand": {
 		"phases": [
@@ -46,7 +46,7 @@
 				"id": "bidding",
 				"module": "bidding",
 				"settings": {
-					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; p. 74 sends to it): the second reading of «dirà subito», carried over to five: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours."}
+					"overbid_returns": {"value": false, "alt": true, "source": "[R] Torino 1787, p. 62 (Permesso for three; p. 74 sends to it): the second reading of «dirà subito», carried over to five: the word returns at once to the seat that was overbid, who holds with an equal bid, overbids or gives way. Said of three players; the transfer is ours. Torino [1846], part I, p. 42 (where the word goes round: the reading played) and Dummett 1980, p. 265 (the pair scheme of the other reading) are named at Permesso for three; the pages for this number of players have no example of their own.", "replace": {"with": ["document", "people"], "what": "who has the word after a raise in the auction", "q": 35}}
 				}
 			},
 			{

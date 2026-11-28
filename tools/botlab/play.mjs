@@ -41,6 +41,9 @@ export function gameOf(id, seats, alts = []) {
 
 const sidesOf = (game) => game.sides.of;
 export const isPairGame = (game) => new Set(sidesOf(game)).size < game.seats;
+// Turns of a deal in the cyclic mode: level a sits once on every seat (once on every side in the games of pairs).
+export const turnsOf = (game) => new Set(sidesOf(game)).size;
+
 const lowWins = (game) => JSON.stringify(game.rules).includes('"fewest_points"');
 
 // margin of a seat's side in book points (positive: good for it), from result.sidePoints
@@ -86,13 +89,17 @@ function moneyOf(result, aSeat) {
 // solver.mjs; a wrong answer or a throw ends the hand with a record that has botError); onDecision(info) (a test hook).
 // Hand h: dealer h mod n; the seat of level a is (h + floor(h/n)) mod n, so it meets every dealer position.
 // The deal seed depends on (seed, game, h) only: the same deals for every pairing.
+// Cyclic mode (spec.mode 'cyclic', spec.turn r): h is the number of the DEAL; the dealer is h mod n as before, the seat of level a is the
+// turn r, and the deal is the same in every turn. The seed of a decision carries the role of the seat (A or B), the seat and the turn, so that
+// the same level on both sides does not play the same hand again in every turn.
 export function playHand(spec) {
 	const { id, seats: n, alts = [], seed, h, a, b, timing = false } = spec;
 	const game = gameOf(id, n, alts);
 	const la = levelFor(a, spec.aJson);
 	const lb = levelFor(b, spec.bJson);
 	const of = sidesOf(game);
-	const aSeat = (h + Math.floor(h / n)) % n;
+	const cyclic = spec.mode === 'cyclic';
+	const aSeat = cyclic ? spec.turn : (h + Math.floor(h / n)) % n;
 	const dealer = h % n;
 	const gk = `${id}:${n}`;
 	const hand = newHand(game, { seed: `${seed}:${gk}:${h}`, dealer });
@@ -102,12 +109,14 @@ export function playHand(spec) {
 	let searched = 0;
 	let decisions = 0;
 	let firstLeader = null;
-	const fail = (what, extra = {}) => ({ h, error: what, aSeat, dealer, seedOfHand: `${seed}:${gk}:${h}`, ...extra });
+	const fail = (what, extra = {}) => ({ h, ...(cyclic ? { turn: spec.turn } : {}), error: what, aSeat, dealer, seedOfHand: `${seed}:${gk}:${h}`, ...extra });
 	for (let step = 0; step < 6000 && !hand.isOver(); step++) {
 		const seat = hand.toAct()[0];
 		const level = of[seat] === of[aSeat] ? la : lb;
 		const view = viewForLevel(level, hand.view(seat), hand, seat);
-		const dseed = `${seed}|${gk}|${h}|${seat}|${count[seat]++}`;
+		const dseed = cyclic
+			? `${seed}|cyclic|${gk}|${h}|${of[seat] === of[aSeat] ? 'A' : 'B'}|${seat}|r${spec.turn}|${count[seat]++}`
+			: `${seed}|${gk}|${h}|${seat}|${count[seat]++}`;
 		const solver = spec.botFn && of[seat] === of[aSeat];
 		if (spec.onDecision) spec.onDecision({ hand, seat, solver: !!solver });
 		const t0 = performance.now();
@@ -138,6 +147,7 @@ export function playHand(spec) {
 	return {
 		...money,
 		h,
+		...(cyclic ? { turn: spec.turn } : {}),
 		aSeat,
 		dealer,
 		firstLeader,

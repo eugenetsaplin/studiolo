@@ -1,0 +1,112 @@
+{
+	"sedici_2:2": {
+		"money": {
+			"mean": 0,
+			"lo": -0.877,
+			"hi": 0.877,
+			"sd": 1.095,
+			"n": 6
+		},
+		"thrownIn": 0,
+		"contracts": {},
+		"aDeclared": 0,
+		"declaredWonShare": null,
+		"declaredWonLo": null,
+		"table": {
+			"declaredShare": 0,
+			"declarerWon": null,
+			"declarerWonLo": null,
+			"declarerWonHi": null,
+			"declarerMoney": null
+		},
+		"moneyVsRest": {
+			"mean": 0,
+			"lo": -1.754,
+			"hi": 1.754,
+			"n": 6
+		},
+		"game": "sedici_2",
+		"seats": 2,
+		"alts": [],
+		"a": "easy",
+		"b": "random",
+		"pairs": false,
+		"hands": 6,
+		"share": 0.5,
+		"fair": 0.5,
+		"lo": 0.188,
+		"hi": 0.812,
+		"margin": 0.5,
+		"marginSd": 13.353,
+		"decisions": 100,
+		"meanWorlds": 0.902,
+		"threshold": 0.7,
+		"ms": null,
+		"errors": 0,
+		"errorSamples": [],
+		"dealerShare": 0.167,
+		"leaderShare": 0.833,
+		"dealerMargin": -7.5,
+		"dealerMarginSd": 10.54,
+		"tieShare": 0
+	},
+	"permesso_3:3": {
+		"money": {
+			"mean": 9.167,
+			"lo": 6.825,
+			"hi": 11.509,
+			"sd": 2.927,
+			"n": 6
+		},
+		"thrownIn": 0,
+		"contracts": {
+			"sans_prendre": 5,
+			"one": 1
+		},
+		"aDeclared": 0,
+		"declaredWonShare": null,
+		"declaredWonLo": null,
+		"table": {
+			"declaredShare": 1,
+			"declarerWon": 0,
+			"declarerWonLo": 0,
+			"declarerWonHi": 0.39,
+			"declarerMoney": {
+				"mean": -18.333,
+				"lo": -23.017,
+				"hi": -13.649,
+				"n": 6
+			}
+		},
+		"moneyVsRest": {
+			"mean": 13.75,
+			"lo": 10.238,
+			"hi": 17.264,
+			"n": 6
+		},
+		"game": "permesso_3",
+		"seats": 3,
+		"alts": [],
+		"a": "easy",
+		"b": "random",
+		"pairs": false,
+		"hands": 6,
+		"share": 0.5,
+		"fair": 0.333,
+		"lo": 0.188,
+		"hi": 0.812,
+		"margin": -13.833,
+		"marginSd": 50.424,
+		"decisions": 497,
+		"meanWorlds": 2,
+		"threshold": 0.6,
+		"ms": null,
+		"errors": 0,
+		"errorSamples": [],
+		"dealerShare": 0.5,
+		"leaderShare": 0.333,
+		"dealerMargin": -14.333,
+		"dealerMarginSd": 39.687,
+		"tieShare": 0
+	}
+}

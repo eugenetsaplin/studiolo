@@ -65,7 +65,7 @@ export function recount(cardsBySeat, { cardPoints, group = 2, oddCard = 'half_po
 		const odd = v.slice(full);
 		if (odd.length) {
 			if (oddCard === 'half_point') total += sum(odd) - (odd.length * 12 * (group - 1)) / group;
-			else if (oddCard === 'as_group') total += sum(odd) - 12 * (odd.length - 1);
+			else if (oddCard === 'as_group') total += sum(odd) - (group === 3 && odd.length === 1 ? 12 : 12 * (odd.length - 1)); // by threes a lone card loses one point (Torino 1880, p. 8)
 			else if (oddCard !== 'drop') throw new Error('unknown odd_card ' + oddCard);
 		}
 		out[seat] = total;

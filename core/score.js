@@ -3,14 +3,13 @@
 // (a seat, or a side when the game pools its cards) or by seat (payments). No words: the table names the lines.
 // Built from the seat's own view (the result, the tricks it saw, the stock cards shown to it) and the rules, so a
 // line tells nothing the seat does not learn at the end of the hand. The result itself is never changed.
-import { cardTwelfths } from './points.js';
+import { cardTwelfths, shortGroupCut } from './points.js';
 import { FOOL } from './cards.js';
 
 const KEYS = ['pairs', 'groups', 'odd_card', 'fool_card', 'discard', 'stock_cards', 'declarations', 'premiums', 'bands', 'payments', 'running_total'];
 export const SCORE_LINE_KEYS = KEYS;
 
 const entryOf = (game, module) => game.plan.find((e) => e.module === module) || null;
-const setOf = (game, module) => { const e = entryOf(game, module); return (e && e.set) || {}; };
 
 /**
  * The count phase of the game that is played in a hand of this contract. A file may hold several count phases that run
@@ -19,7 +18,13 @@ const setOf = (game, module) => { const e = entryOf(game, module); return (e && 
  * under (view.contract.id or result.contract), or null/undefined when the game has no contracts.
  */
 export function countEntry(game, contract) {
-	const all = game.plan.filter((e) => e.module === 'count');
+	return phaseFor(game, 'count', contract);
+}
+
+// the same for any phase kind that a file holds several times for different contracts (the settle phases of a game
+// with a lone player and a pair: the payment line names the rule of the phase that paid)
+function phaseFor(game, module, contract) {
+	const all = game.plan.filter((e) => e.module === module);
 	if (all.length < 2 || contract === null || contract === undefined) return all[0] || null;
 	const names = (e) => e.when && Array.isArray(e.when.contract);
 	return all.find((e) => names(e) && e.when.contract.includes(contract)) || all.find((e) => !names(e)) || all[0];
@@ -92,7 +97,7 @@ function grouped(cards, game, cs) {
 	let oddTw = 0;
 	if (pool.length) {
 		if (cs.oddCard === 'drop') oddTw = 0;
-		else if (cs.oddCard === 'as_group') oddTw = pool.reduce((a, m) => a + 12 * table.v[m.card], 0) - 12 * (pool.length - 1);
+		else if (cs.oddCard === 'as_group') oddTw = pool.reduce((a, m) => a + 12 * table.v[m.card], 0) - shortGroupCut(g, pool.length);
 		else oddTw = pool.reduce((a, m) => a + m.tw, 0);
 	}
 	return { groupsTw, oddTw, tw: groupsTw + oddTw };
@@ -123,19 +128,19 @@ export function scoreLines(game, view) {
 	const countE = countEntry(game, contract);
 	const cs = countSet(game, contract);
 	const { won, prize } = wonOfView(view);
-	const hasPrizeStock = ((game.hooks && game.hooks.tricks) || []).some((e) => e.module === 'prize_stock');
 	const per = {};
 	for (const u of units) {
 		const bd = res.breakdown[u.seats[0]] || { won: 0, discard: 0, fool: 0, stock: 0 };
 		const g = grouped(u.seats.flatMap((s) => won[s]), game, cs);
-		// a card given for the Fool that came from the stock leaves the stock's cards, not the tricks' (as the table shows it)
-		const moved = hasPrizeStock && cs.oddCard === 'half_point' ? bd.won - g.tw : 0;
-		per[u.id] = { won: bd.won - moved, odd: g.oddTw, fool: bd.fool, discard: bd.discard, stock: bd.stock + moved, stockCards: u.seats.reduce((a, s) => a + prize[s].length, 0) };
+		// the lines are the steps of the unit's count (core/modules/count.js): the cards of the tricks as the table lists them
+		// (before the Fool's exchange), the stock cards, the exchange, the discard; they add up to the total
+		per[u.id] = { won: bd.won, odd: g.oddTw, fool: bd.fool, discard: bd.discard, stock: bd.stock, stockCards: u.seats.reduce((a, s) => a + prize[s].length, 0) };
 		out.totals[u.id] = res.points[u.seats[0]];
 	}
 	const byUnit = (f) => Object.fromEntries(units.map((u) => [u.id, f(per[u.id], u)]));
 	const pays = res.payments || [];
-	const settle = setOf(game, 'settle');
+	const settleE = phaseFor(game, 'settle', contract);
+	const settle = (settleE && settleE.set) || {};
 	const fileIds = new Set((settle.payments || []).map((p) => p.id));
 	const roundTarget = (game.cfg.match && game.cfg.match.round_target) || 0;
 	for (const key of after) {
@@ -146,9 +151,9 @@ export function scoreLines(game, view) {
 		else if (key === 'discard') line = { rule: settingPath(game, 'discard', 'counts_for'), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.discard) };
 		else if (key === 'stock_cards') line = { rule: phasePath(game, 'prize_stock'), by: 'unit', unit: 'twelfths', values: byUnit((p) => p.stock) };
 		else if (key === 'declarations') line = { rule: phasePath(game, 'declarations'), by: 'seat', unit: 'stake', values: netBySeat(n, pays, (p) => p.why === 'declaration') };
-		else if (key === 'premiums') line = { rule: settingPath(game, 'settle', 'payments'), by: 'seat', unit: 'stake', values: netBySeat(n, pays, (p) => fileIds.has(p.why)) };
+		else if (key === 'premiums') line = { rule: settingPath(game, 'settle', 'payments', settleE), by: 'seat', unit: 'stake', values: netBySeat(n, pays, (p) => fileIds.has(p.why)) };
 		else if (key === 'bands') line = { rule: settingPath(game, 'result', 'bands'), by: 'unit', unit: 'twelfths', values: byUnit((p, u) => res.points[u.seats[0]]), band: res.band ? { ...res.band } : null };
-		else if (key === 'payments') line = { rule: settingPath(game, 'settle', 'amount'), by: 'seat', unit: 'stake', values: netBySeat(n, pays, () => true) };
+		else if (key === 'payments') line = { rule: settingPath(game, 'settle', 'amount', settleE), by: 'seat', unit: 'stake', values: netBySeat(n, pays, () => true) };
 		else if (key === 'running_total') line = { rule: 'match.round_target', by: 'unit', unit: 'twelfths', values: byUnit((p, u) => (res.points[u.seats[0]] || 0) - roundTarget * 12) };
 		if (line) out.lines.push({ key, ...line });
 	}

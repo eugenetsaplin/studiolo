@@ -2,7 +2,7 @@
 // points of every seat or side, in twelfths of a book point. The discard counts for whom the discard says, or the
 // count's dealer_forfeit says when it is given (one discard).
 import { FOOL, INDEX } from '../cards.js';
-import { countTwelfths, cardTwelfths } from '../points.js';
+import { countTwelfths } from '../points.js';
 import { seatsOfSide, seatAt } from '../util.js';
 
 export const name = 'count';
@@ -66,7 +66,10 @@ export function enter(h) {
 		const to = receiverOf(h, owner, rec);
 		const cands = [];
 		for (const q of seatsOfSide(sides, sides.of[owner])) for (const c of s.won[q]) if (c !== FOOL) cands.push(c);
-		if (!cands.length) {
+		if (sides.pool === 'side' && sides.of[to] === sides.of[owner]) {
+			// the one who took the trick is on the owner's own side and the side counts one heap: the card would only
+			// pass from one hand of the heap to another, so there is no exchange, no question and no event
+		} else if (!cands.length) {
 			if (cc.fool_no_tricks === 'give_fool') {
 				transfer(s, owner, to, FOOL);
 				s.foolGive = { from: owner, to, options: [], card: FOOL };
@@ -148,7 +151,6 @@ function finish(h) {
 	const set = h.cur.set;
 	const sides = h.sides();
 	const table = h.game.tables.values;
-	const g = set.group || 2;
 	const opt = countOptions(set, table);
 	const pool = sides.pool === 'side';
 	// units: the seats counted together
@@ -167,22 +169,23 @@ function finish(h) {
 	const sidePoints = {};
 	const breakdown = {};
 	const unitTotals = [];
+	// the lines of the breakdown are steps of one count of the unit's own heap, so they add up to the total whatever the
+	// group is (one card alone is worth a part of a point at groups of three or four, a step never is): the cards of the
+	// tricks, then the stock cards drawn, then the Fool's exchange, then the discard kept
 	for (const seats of units) {
-		const won = [];
+		const after = [];
 		const disc = [];
-		for (const q of seats) { won.push(...s.won[q]); disc.push(...(kept[q] || [])); }
-		const total = countTwelfths([...won, ...disc], opt);
-		const val = (c) => cardTwelfths(table, c, g, opt.plainValue);
-		let stock = 0;
-		let fool = 0;
-		for (const c of won) {
-			const drawn = seats.some((q) => drawnBy[q] && drawnBy[q].has(c));
-			if (drawn) stock += val(c);
-			else if (fg && c === fg.card && seats.includes(fg.to) && !seats.includes(fg.from)) fool += val(c);
-		}
-		if (fg && seats.includes(fg.from) && !seats.includes(fg.to)) fool -= val(fg.card);
-		const discard = disc.reduce((a, c) => a + val(c), 0);
-		const bd = { won: total - discard - fool - stock, discard, fool, stock };
+		for (const q of seats) { after.push(...s.won[q]); disc.push(...(kept[q] || [])); }
+		const total = countTwelfths([...after, ...disc], opt);
+		// the heap before the exchange: the card given for the Fool goes back to the one who gave it
+		const before = after.slice();
+		if (fg && seats.includes(fg.to) && !seats.includes(fg.from)) { const at = before.indexOf(fg.card); if (at >= 0) before.splice(at, 1); }
+		else if (fg && seats.includes(fg.from) && !seats.includes(fg.to)) before.push(fg.card);
+		const drawn = (c) => seats.some((q) => drawnBy[q] && drawnBy[q].has(c));
+		const wonTw = countTwelfths(before.filter((c) => !drawn(c)), opt);
+		const beforeTw = countTwelfths(before, opt);
+		const afterTw = countTwelfths(after, opt);
+		const bd = { won: wonTw, discard: total - afterTw, fool: afterTw - beforeTw, stock: beforeTw - wonTw };
 		unitTotals.push({ seats, total, bd });
 	}
 	for (const u of unitTotals) {

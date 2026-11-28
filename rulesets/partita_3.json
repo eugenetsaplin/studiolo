@@ -4,7 +4,7 @@
 	"family": "partita",
 	"status": "playable_with_decisions",
 	"about": "Partita for three (Torino 1787, «Del giuoco di Partita in tre persone», pp. 87-88): the game of four, played by three: «non altro hassi a fare, che mischiare, … regole sovradette; poi scartare, e giuocare». No calling, no exchange, no partner; whoever can count more points alone wins, «e si può guadagnare benissimo per una carta sola, e scompagnata». The book gives neither the number of cards nor the count nor the payment; the deal is taken from the three-player deal of p. 59 (25, 25, 28; the dealer puts three away), as Dummett (1980, p. 260) does; the payment is the agreed stake. Marks: [D] documented, [R] our reading, [S] sources silent.",
-	"revision": 13,
+	"revision": 14,
 	"sources": {
 		"dummett1980": {
 			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
@@ -52,7 +52,7 @@
 		"fool_exchange": {"value":true,"source":"[R] Torino 1787, pp. 52, 90: «Il Folle si mostra» in the Partita pages; the card owed for the Fool is printed for Baronetti (p. 52) and Venticinque (p. 54) and carried over; it is not printed in the Partita pages.","alt":false},
 		"fool_exchange_card": {"value":"owner_choice","source":"[R] Torino 1787, p. 52: «una cartaccia, qualunque gli piaccia»."},
 		"fool_exchange_to": {"value": "trick_winner", "source": "[R] Torino [1846], part I, p. 33 (Venticinque for three): «onde chi ha presa o coperta la mano non abbia ad averne danno»: the plain card for the Fool goes to whoever took the trick; Torino 1787, pp. 77-78 says the same of Permesso for five to seven: «la carta poscia del Folle si dovrà sempre dare a chi ha preso». Carried over (revision 9). Other reading (stood until revision 8): the card goes to the opposing side.", "by": "torino1846", "pages": [33], "alt": "opponent_side"},
-		"fool_no_tricks": {"value": "give_none", "source": "[S] Torino 1787, p. 50: «non sarò io obbligato a dartelo mai»; Prammatica [1846], p. 6 disagrees («cederlo»), not followed.", "by": "ours", "pages": [50], "alt": "give_fool", "replace": {"with": ["expert", "bots"], "what": "the Fool of a player who won no trick: kept or given up", "q": 2}}
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Torino 1787, p. 21, rule 10, lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may hold the Fool, so the Fool stays with him. The pages of this game (pp. 87-88) do not say what a player with no trick does with the Fool, and they do not send to p. 50. Our reading: a player with no trick keeps the Fool; an owner without a plain card gives nothing. Other reading (alt give_fool): Prammatica [1846], p. 6: «chi non potesse coprirlo, alla fine della mano è obbligato di cederlo alla parte vincente»; Torino 1880, p. 9 says only that the Fool of a side with no trick may be taken («as peul piesse»); Dummett 1980, p. 259: «if they have won no tricks, they must surrender the Folle». See OPEN_QUESTIONS.md, question 2.", "alt": "give_fool", "replace": {"with":["expert","bots"],"what":"the Fool of a player who won no trick: kept or given up","q":2}}
 	},
 	"options": [
 		{"id":"stake","choices":[1,2,5,10],"default":1,"source":"[S] Torino 1787, pp. 87-88: no payment is printed; Dummett 1980, p. 260 («apparently» a fixed sum from each loser) is not a source of the book; the stake is agreed before the deal (p. 21); the choices are ours.","affects":["hand.settle.amount"]}
@@ -81,7 +81,7 @@
 					"count_mode": {"value":"exact","source":"[R] Torino 1787, pp. 59, 88: exactly three, as at Permesso for three."},
 					"discard_honours_barred": {"value":true,"source":"[R] Torino 1787, p. 90 «Il Folle si mostra, Bagatto non iscartasi, … secondo è stato detto di sopra» (said for Partita for four): the honours of rule 38 (p. 34) are not put away.","alt":false},
 					"allowed_exceptions": {"value": [{"if": {"hand_lacks": "T0", "hand_count": {"of": "trumps", "max": 1}}, "any": ["T1"]}], "source": "[R] Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: «solo» is read as the only trump of the hand, as Dummett 1980, p. 259 reads this rule («neither the Folle nor any other trump»). Revision 1 read it as «holding no Fool». Page 90 says flatly «Bagatto non iscartasi» (of Partita for four). Other reading: no exception, as the rules of 1830 have it (Dummett, p. 259).", "alt": []},
-					"counts_for": {"value": "discarder", "source": "[S] Torino 1787, pp. 87-88 do not say whose points the discard joins; ours: the discarder's, as in Venticinque (p. 55).", "alt": "discarder_unless_no_tricks", "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}},
+					"counts_for": {"value": "discarder", "alt": "discarder_unless_no_tricks", "source": "[R] Torino 1787, p. 21, rule 10 (for every game), lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may keep his discard, and no Turin book prints the contrary for a game with one discard. Pages 87-88 do not say whose points the discard joins; ours: the discarder's. Other reading: a side with no trick gives the discard to the taker of the last trick. That a player with no trick loses his discard is printed only in Prammatica [1846], pp. 24-25, n. 15 «Mittigati in due collo scarto compito», a game for two: «La così detta vola … perde i punti dei due scarti, tanto piccolo che grande», and the Fool with them («e con essi anche il Folle»); the page does not say who gains them. Dummett 1980, p. 259 gives a rule for it («they must surrender the discarded cards to the player or side winning the last trick») and names no source. See OPEN_QUESTIONS.md, question 1.", "replace": {"with":["expert","document","bots"],"what":"the discard of a player who won no trick: kept or lost","q":1}},
 					"announce": {"value":"ho_scartato","source":"[R] Torino 1787, p. 60: after «ho scartato» the discard cannot change."}
 				}
 			},
@@ -112,7 +112,7 @@
 				"module": "result",
 				"settings": {
 					"winner": {"value":"more_points","source":"[D] Torino 1787, p. 88: «Chi dei tre compagni può contare più punti da se solo … questi guadagna»."},
-					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, p. 88 does not say what equal points are worth; ours: a tie is a hand played out; nobody pays."},
+					"tie": {"value": "no_game_points", "source": "[S] Torino 1787, p. 88 does not say what equal points are worth; ours: a tie is a hand played out; nobody pays. Another reading, not played by the engine: two players equal at the best total both win.", "by": "ours", "pages": [88]},
 					"game_points": {"value":"none","source":"[S] Torino 1787, pp. 87-88 name no game points; the hand is settled in stakes."}
 				}
 			},
@@ -129,7 +129,7 @@
 	},
 	"match": {
 		"kind": {"value":"ledger","source":"[S] Ours: the book describes one hand and prints no payment; the marche are settled after every deal, the match ends after one round of dealers (match.dealer_rounds); the greatest balance wins, equal balances are a draw («pace»)."},
-		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 87-88 are silent on the length of a match, and Torino [1846] has no Partita for three. Ours, by analogy with Venticinque for three, which is dealt the same way (25, 25, 28) and whose partita is made «in tre scarti» (Torino [1846], part I, p. 34): three deals, each player dealing once. The table may agree on two or three rounds.", "by": "ours", "pages": [87, 88], "alt": 2, "replace": {"with": ["document", "people"], "what": "the length of a match in Partita for three, Dottore and Meno", "q": 23}}
+		"dealer_rounds": {"value": 1, "source": "[S] Torino 1787, pp. 87-88 are silent on the length of a match, and Torino [1846] has no Partita for three. Ours, by analogy with Venticinque for three, which is dealt the same way (25, 25, 28) and whose partita is made «in tre scarti» (Torino [1846], part I, p. 34): three deals, each player dealing once. The table may agree on two or three rounds.", "by": "ours", "pages": [87, 88], "alt": 2}
 	},
 	"penalties": [
 		{
@@ -156,5 +156,8 @@
 			"live_points": "hidden",
 			"after_hand": ["groups","odd_card","fool_card","discard","payments"]
 		}
-	}
+	},
+	"left_out": [
+		{"id":"vola","source":"[D] Torino 1787, p. 100: «Vola, dicesi del fare tutte le basi»; the stake of a vola is agreed before the deal (p. 21 rule 10).","why":"The book gives no figure and no rule of a vola inside this game; a premium of the table, not played (open question 13)."}
+	]
 }

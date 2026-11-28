@@ -42,9 +42,11 @@ for (const [id, seats] of [['permesso_6', 6], ['permesso_7', 7]]) {
 				const line = (k) => sl.lines.find((l) => l.key === k);
 				assert.equal(line('groups').rule, 'hand.phases[count_sciolto].settings.group');
 				assert.equal(line('odd_card').rule, 'hand.phases[count_sciolto].settings.odd_card');
+				// revision 14: at six there is no discard and no row for it; at seven there is one
+				assert.equal(line('discard') !== undefined, id === 'permesso_7', id);
 				for (const u of sl.units) {
-					// the cards of the groups plus the Fool's card and the discard are the whole count of the seat
-					const sum = line('groups').values[u.id] + line('fool_card').values[u.id] + line('discard').values[u.id];
+					// the cards of the groups plus the Fool's card and the discard (where there is one) are the whole count of the seat
+					const sum = line('groups').values[u.id] + line('fool_card').values[u.id] + (line('discard') ? line('discard').values[u.id] : 0);
 					assert.equal(sum, sl.totals[u.id], `${id} group ${group} deal ${d} ${u.id}`);
 				}
 				// the groups line is the count of the cards the seat took, by the group of the agreement

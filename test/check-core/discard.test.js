@@ -118,7 +118,7 @@ test('partita_3: the Bagatto may go only when it is the only trump of the hand a
 
 test('the Bagatto exception is the same leaf in every game that has it, with the alt "no exception"', () => {
 	const want = [{ if: { hand_lacks: 'T0', hand_count: { of: 'trumps', max: 1 } }, any: ['T1'] }];
-	const games = [['partita_3', 3], ['partita_4', 4], ['consiglio', 4], ['dottore', 3], ['chiamare_il_re', 5], ['permesso_3', 3], ['permesso_7', 7]];
+	const games = [['partita_3', 3], ['partita_4', 4], ['consiglio', 4], ['dottore', 5], ['chiamare_il_re', 4], ['permesso_3', 3], ['permesso_7', 7]];
 	for (const [id, n] of games) {
 		assert.ok(allIds().includes(id), id);
 		const leaf = phaseOf(load(id, n).rules, 'discard').settings.allowed_exceptions;

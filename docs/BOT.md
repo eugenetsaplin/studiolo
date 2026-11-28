@@ -145,7 +145,7 @@ Why: the cheap policy alone passed almost always (bots alone threw in 82 to 96 %
 **Policies** (`bots/policy.js`, no sampling, no new level key). A view whose legal list holds `pass` (when sampling is not possible), `lay_down`, `lay_done`, `call`, `call_partner` or a `declare_*` action is answered at once:
 - `bid` (the cheap policy: inside rollouts for every seat, and the fallback): the hand is worth trumps above the tenth (the highest, from XVI, twice), kings, queens, a little for low trumps. The ratio to an average hand, plus a little for each card the exchange can still change, must reach a bar (`TUNE` in policy.js: 1.7 at three seats, +0.22 for each seat more; set by short labs of the declarer's money). It bids the highest legal contract that passes the bar, else passes. It never bids with fewer than three trumps above the tenth, judges an equal bid with the other bids and the pass when the judge offers it (revision 11: only an earlier seat may match the standing bid, a later seat is never offered one, so an auction always ends) and never bids an illegal contract.
 - `lay_down`: plain suits first, the fewest points, the shortest suit; never `lay_done` while a card can be laid.
-- `call`: the strongest card it lacks: high trumps, then kings of its long suits, then queens.
+- `call`: the strongest card it lacks: high trumps, then kings of its long suits, then queens. The rank of a trump is taken from the game's trump order, so the Angel is called before the World where the game puts it above.
 - `call_partner`: a card of the highest rank offered (the ladder), in the suit where it is longest and holds a high card; never a card of its own hand while another can be called.
 - declarations: everything offered, one at a time, then `declare_done`.
 The same policies drive every seat inside rollouts (bids from the real standing bid of the sampled hand). So a bot that judges a bid by sampling models the others' later bids with the cheap, timid policy.
@@ -173,3 +173,26 @@ World `i` is sampled from `makeRng(seed:w<i>:<try>)`, a rollout from `makeRng(se
 `node tools/botlab.mjs --alone --a normal --games <id:seats,...>`: every seat plays level a. The line gives, for the whole table, the share of hands thrown in, the share with a declarer, the share of declared hands the declarer won (Wilson 95 % interval) and its money per declared hand (95 % interval, in the coins of the game). `--targets id:seats=alone` checks a bar of our own: at most 30 % thrown in, and the declarer wins 45 % to 75 % of the declared hands.
 
 Strength between levels and against the random robot, time per decision per (game, seats), the share of worlds that could not be built, and calibration of `win_weight`, `forget` and `temperature`. Known so far: greedy rollouts with a 0.3 slip beat random rollouts at every table size; `strong` is not clearly stronger than `normal` (more worlds add little).
+
+### Cyclic mode: every deal from every seat
+
+By default the lab seats level `a` at one seat per deal and turns the seat from deal to deal. The luck of a deal then sits in the number of every game, and 100 to 200 deals cannot tell a share of 0.56 from 0.50. `--mode cyclic` removes most of that luck:
+
+```
+node tools/botlab.mjs --games permesso_3:3 --a <level> --b normal --mode cyclic --budget-games 300 --seed tune
+node tools/botlab.mjs --games sedici_2:2 --a <level> --b normal --mode cyclic --deals 200 --seed tune
+```
+
+- **What is played.** Each deal is played once for every seat of level `a` (twice at two seats; in the games of pairs once for each pair), the other seats play level `b`. The cards and the dealer are the same in every turn; only the seat of `a` changes.
+- **The unit is the deal.** The observation is the mean of `a` over the turns of one deal (its share of wins, its money). The interval is Student's interval for paired data over the deals, `mean ± t · s / √D`, with D the number of deals. The games of one deal are not independent, so they are never counted as independent games. A deal with a failed game is left out whole.
+- **Budget.** `--deals D` is the number of deals, each played as many times as there are turns. `--budget-games N` is the number of games to play in all: D = N divided by the turns, rounded down. Give one of them. With several games in `--games` the budget is taken for each game.
+- **`--safe-t`.** For a share the lab prints a second interval next to the plain one, `safe-t`: its error is `√(SS + 0.25) / D`, with SS the sum of squares of the deal means about their mean, cut to 0..1. It is wider, and it does not shrink to a point when every deal comes out 1:1. `--safe-t` makes it the interval of the row, the verdicts and the file. The money has no such variant.
+- **Seeds.** The deal is the same in every turn. The random choices of a decision take the role of the seat (`A` or `B`), the seat and the turn into their seed, so `normal` against `normal` plays different games in the turns and the interval is not falsely narrow. The rival does not share random numbers with `a`. The seeds of the default mode are unchanged: its numbers stay as they were.
+- **The report.** The line and the JSON row carry `mode`, the deals, the games, the share (or the money) with its interval and half width, the safe-t interval, and for comparison the interval the default mode gives on the same games (`old`, where the games count as independent). `ms` stays empty.
+- **Not with** `--alts`, `--alone`, `--timing`.
+
+What it promises. The mean over the seats is unbiased: it is the same quantity the default mode measures. Luck of the cards and the advantage of a seat cancel in the mean fully only when `a` and `b` are the same level, and only on average; when they differ, how much `a` gains on one deal and how much on another still varies, and that part stays in the interval. So the interval is narrower than the default one by a factor you read off the row (`half` against `old ... half`), not by a fixed one. The level itself is noisy: two runs of `normal` on the same cards may bid or lay off differently, and that noise remains; it is smaller than the luck of the cards but it is not zero. In `permesso_3`, `normal` against `normal` with 200 games is expected to give an interval around zero of about ±0.8 coins per deal (a forecast from 12 deals, to be confirmed by a run); do not expect to see a difference of 0.3 coins with that.
+
+What it does not promise. The coverage of the interval has not been checked for the games with money, where payments come in steps and have long tails and few deals; a small number of deals (under 30) makes the Student interval doubtful. Games of pairs and games with a secret partner have not been checked in this mode. It is not a test of play alone: the bids are played by `a` too.
+
+When to use it. To tell two levels or two bots apart by a small difference; to check that a level is not stronger than itself (`normal` against `normal` must give an interval around the fair value); for a verdict with `--targets`. Use the default mode for the bar against random robots, where the gap is large, and when you need `--alts`, `--alone` or `--timing`.

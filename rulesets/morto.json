@@ -2,8 +2,20 @@
 	"format": 3,
 	"id": "morto",
 	"status": "playable_with_decisions",
-	"about": "Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. Ours, not in the sources: the match around the hand and who draws for a trick won with the Fool shown. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent. A Fool drawn from the stock goes to the drawer's points like any card: Torino 1787, p. 57, «o buona, o cattiva, che capiti ad essere».",
+	"about": "Morto, «Del giuoco del Morto» (Torino 1787, pp. 57-58, read on the scan; Torino [1846], part I, pp. 47-49): two players, played as Venticinque for two (p. 57), but the 25 cards left over are a closed stock and the winner of every trick takes its top card, shows it and adds it to his points (pp. 57-58). All 78 cards count (91 points). Trumps, card values, Fool, deal, discard, play and count are those of venticinque.json. The match around the hand is ours [S]; who draws for a trick won with the Fool shown is our reading [R] of p. 57 («Chi pertanto prende il punto piglia volta per volta»): pp. 57-58 are silent on the Fool shown in a trick. The 1846 book adds declarations and Bagatto ultimo to this game; Torino 1787 has none, so they are not played. Marks: [D] documented, [R] our reading, [S] sources silent. A Fool drawn from the stock goes to the drawer's points like any card: Torino 1787, p. 57, «o buona, o cattiva, che capiti ad essere».",
 	"sources": {
+		"dummett1980": {
+			"cite": "Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 (our scan is partial: printed page 268 is missing)",
+			"short_ru": "Даммет (1980)",
+			"short_en": "Dummett (1980)",
+			"held": true
+		},
+		"torino1846": {
+			"cite": "L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846]",
+			"short_ru": "Турин [1846], ч. I",
+			"short_en": "Torino [1846], part I",
+			"held": true
+		},
 		"ours": {
 			"cite": "Studiolo decision; not a source",
 			"short_ru": "наше решение",
@@ -12,7 +24,7 @@
 		}
 	},
 	"versions": {"big_rules": 2, "match_rules": 4},
-	"revision": 11,
+	"revision": 14,
 	"converted_from": {
 		"format": 2,
 		"file": "TRIONFI, our game on Steam: core/rulesets/morto.json",
@@ -37,6 +49,7 @@
 		"fool": {"value": "excuse", "source": "[D] Torino 1787, p. 54: «Il Folle non vien preso mai da alcun Trionfo»: the Fool is shown, takes nothing and is taken by nothing."},
 		"fool_exchange": {"value": true, "source": "[D] Torino 1787, p. 52: «sarà in obbligo di dare al compagno una cartaccia» (the Baronetti rule to which p. 54 sends); the count on p. 54, «darai a me la carta del Folle», settles it at the end of the hand: the owner keeps the Fool among his points and gives one plain card to the other side then."},
 		"fool_exchange_card": {"value": "cheapest", "source": "[S] Ours: the sources let the owner choose the card he gives; the engine gives the cheapest card of the cards he has won, the Fool left out (fewest points, then the lowest card number), and an owner who has won no other card gives none. Other reading [R]: the owner chooses, after pp. 52, 54 («come nel giuoco de' Baronetti»).", "alt": "owner_choice", "replace": {"with": ["bots", "people"], "what": "who chooses the card given for the Fool", "q": 18}},
+		"fool_no_tricks": {"value": "give_none", "source": "[R] Morto «non giuocasi altrimente che a Venticinque carte» (Torino 1787, p. 57), and the Fool of Venticinque (p. 54) «solamente si mostra, come nel giuoco de' Baronetti», which is p. 50: «non sarò io obbligato a dartelo mai, ma solo mi basterà mostrarlo» … «e poi metterlo ne' miei punti». Torino 1787, p. 21, rule 10, lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may hold the Fool, so the Fool stays with him. Our reading: «mai» is said of the play, but by its letter it covers every case, so a player with no trick keeps the Fool; an owner without a plain card gives nothing. Other reading (alt give_fool): Prammatica [1846], p. 6: «chi non potesse coprirlo, alla fine della mano è obbligato di cederlo alla parte vincente»; Torino 1880, p. 9 says only that the Fool of a side with no trick may be taken («as peul piesse»); Dummett 1980, p. 259: «if they have won no tricks, they must surrender the Folle». See OPEN_QUESTIONS.md, question 2.", "alt": "give_fool", "replace": {"with":["expert","bots"],"what":"the Fool of a player who won no trick: kept or given up","q":2}},
 		"fool_last_trick": {"value": "kept", "source": "[D] Torino 1787, pp. 50, 54: «non sarò io obbligato a dartelo mai» and «non vien preso mai»: the Fool is never lost, in the last trick as in every other; the book makes no exception for it."}
 	},
 	"hand": {
@@ -60,7 +73,8 @@
 					"who": {"value": "dealer", "source": "[D] Torino 1787, pp. 53, 57: as in Venticinque, the dealer takes three more cards «le quali diconsi di scarto»."},
 					"count": {"value": 3, "source": "[D] Torino 1787, pp. 53-54, 57: as in Venticinque, «ne scarterà bensì tre secondo suo piacimento»."},
 					"discard_honours_barred": {"value": true, "source": "[D] Torino 1787, p. 54: «Gli Onori, ho già detto, che non si scartano mai»; the honours are the kings, the Angel XX, the Fool and the Bagatto, the five-point cards (p. 34, rule 38); the queens, the knights, the jacks and the World are none. The two exceptions of rule 38 (the Bagatto alone without the Fool, the Fool for a sure vola) are left out."},
-					"announce": {"value": "ho_scartato", "source": "[D] Torino 1787, p. 54: after the dealer has said «io ho scartato», «l'altro compagno comincia a giuocare»."}
+					"announce": {"value": "ho_scartato", "source": "[D] Torino 1787, p. 54: after the dealer has said «io ho scartato», «l'altro compagno comincia a giuocare»."},
+					"counts_for": {"value": "discarder", "alt": "discarder_unless_no_tricks", "source": "[R] Torino 1787, p. 21, rule 10 (for every game), lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may keep his discard, and no Turin book prints the contrary for a game with one discard. The discard joins the dealer's points (p. 55, «L'avvantaggio di questo giuoco ordinariamente è di chi scarta», read for Morto through p. 57). Other reading: a side with no trick gives the discard to the taker of the last trick. That a player with no trick loses his discard is printed only in Prammatica [1846], pp. 24-25, n. 15 «Mittigati in due collo scarto compito», a game for two: «La così detta vola … perde i punti dei due scarti, tanto piccolo che grande», and the Fool with them («e con essi anche il Folle»); the page does not say who gains them. Dummett 1980, p. 259 gives a rule for it («they must surrender the discarded cards to the player or side winning the last trick») and names no source. See OPEN_QUESTIONS.md, question 1.", "replace": {"with":["expert","document","bots"],"what":"the discard of a player who won no trick: kept or lost","q":1}}
 				}
 			},
 			{
@@ -97,7 +111,7 @@
 					"odd_card": {"value": "half_point", "source": "[D] Torino 1787, pp. 54-55: «Una carta sola, ancorchè scompagnata»; with the stock all 78 cards count, 91 points. [R] The half point for an odd plain card: Dummett 1980, p. 261."},
 					"trick_multipliers": {"value": false, "source": "[R] Torino 1787, pp. 52, 56: the count is the pairs alone; the book knows no trick multiplier and no war (the x2 and x4 are Duello's own)."},
 					"last_trick_bonus": {"value": 0, "source": "[R] Torino 1787, pp. 54, 56: the book names no bonus for the last trick (the +5 is Duello's own)."},
-					"dealer_forfeit": {"value": false, "source": "[R] Torino 1787, p. 55: «L'avvantaggio di questo giuoco ordinariamente è di chi scarta»: the discard is the dealer's; the book does not take it from a dealer who wins no trick (rule 10, p. 21, lets a player without tricks still hold his discard).", "alt": true, "replace": {"with": ["expert", "document", "bots"], "what": "the discard of a player who won no trick: kept or lost", "q": 1}}
+					"dealer_forfeit": {"value": false, "source": "[R] Torino 1787, p. 21, rule 10 (for every game), lists among the things to be agreed before the deal whether a player «avendo o il Folle, o lo scarto» loses the «vola»: it supposes that a player with no trick may keep his discard, and no Turin book prints the contrary for a game with one discard. The discard is the dealer's (p. 55, «L'avvantaggio di questo giuoco ordinariamente è di chi scarta»); with one discard this leaf says who keeps it, unless discard.counts_for is chosen as nobody, which takes the discard out of the count whatever this leaf says (53 cards or 50, question 32). Other reading (alt true): a dealer with no trick gives the discard to the taker of the last trick. That a player with no trick loses his discard is printed only in Prammatica [1846], pp. 24-25, n. 15 «Mittigati in due collo scarto compito», a game for two: «La così detta vola … perde i punti dei due scarti, tanto piccolo che grande», and the Fool with them («e con essi anche il Folle»); the page does not say who gains them. Dummett 1980, p. 259 gives a rule for it («they must surrender the discarded cards to the player or side winning the last trick») and names no source. See OPEN_QUESTIONS.md, question 1.", "alt": true, "replace": {"with":["expert","document","bots"],"what":"the discard of a player who won no trick: kept or lost","q":1}}
 				}
 			},
 			{
@@ -124,6 +138,7 @@
 		"tiebreak": {"value": "card_points", "source": "[S] Ours, as in Venticinque: equal game points over the four hands are decided by the card points of all four hands together; if those are equal too the match is a draw.", "replace": {"with": ["bots", "people"], "what": "the length of a match", "q": 6}}
 	},
 	"penalties": [
+		{"id": "revoke", "offence": "revoke", "enforce": "prevent", "hand": "continues", "effect": {"value": {"pays": "simple_game", "to": "each_other", "while_trick_open": "change_card"}, "source": "[D] Torino 1787, pp. 33-34 (general rule 35): «sarà obbligato senza remissione a pagare a tutti i compagni la partita semplice», and the card may be changed while the trick is still on the table; p. 38 sends to it; p. 49 (Baronetti, named on p. 54 for the Fool of Venticinque; Morto is played as Venticinque for two, p. 57): «ti rispondo senza mai rinegare». The engine refuses a card that does not follow suit."}},
 		{
 			"id": "peek_morto",
 			"offence": "peek_stock",
@@ -136,11 +151,11 @@
 		"stock_draw": "show_to_all_then_cover",
 		"score_panel": {
 			"live_points": "hidden",
-			"after_hand": ["pairs", "odd_card", "fool_card", "discard"]
+			"after_hand": ["pairs", "odd_card", "fool_card", "discard", "stock_cards"]
 		}
 	},
 	"left_out": [
-		{"id": "bagatto_discard", "source": "[D] Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.", "why": "The Venticinque section, which Morto follows, says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred)."},
+		{"id": "bagatto_discard", "source": "[D] Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: the Bagatto may be put away when it is the only trump of the hand («solo» is so read since revision 2, as Dummett 1980, p. 259 reads it).", "why": "The Venticinque section, which Morto follows, says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred)."},
 		{"id": "premium_scale", "source": "[D] Dummett and McLeod 2004, pp. 156-157: premiums beyond the single game point are agreed by the players; the authors suggest a scale of 1, 2, 3, 4 and 6.", "why": "Premiums by agreement are not played: a won hand is one game point, as in Venticinque."},
 		{"id": "vola", "source": "[D] Dummett 1980, p. 259: the Fool may be discarded by a dealer who means to win every trick (vola).", "why": "A bid to take all the tricks is a contract the engine has no place for."},
 		{"id": "declarations_1846", "source": "[D] Torino [1846], part I, pp. 48-49: honours, Mitigati, ten trionfi and Bagatto ultimo are declared in Morto, under the rules of N° XII, pp. 44-46.", "why": "Torino 1787, p. 57 plays Morto as Venticinque, without declarations; the 1846 variant is not played."}

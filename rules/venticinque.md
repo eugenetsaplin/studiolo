@@ -1,6 +1,6 @@
 # Twenty-five cards (Venticinque)
 
-2 players. In the book of 1787: pp. 53-56. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+2 players. In the book of 1787: pp. 53-56. Status: playable, with decisions of ours where the book is silent. Rules revision 14.
 
 Venticinque is a family of Piedmontese games (Dummett 1980: for three players p. 260, for two players p. 261); this file is the game for two as the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787, «Del giuoco di venticinque carte in due persone», pp. 53-56) gives it, read on its scan, on the 78-card deck: 25 cards to the dealer's opponent, 28 to the dealer who discards 3 (p. 53), the other 25 cards out of play, covered on the table (p. 57), 25 tricks, the cards counted in pairs (p. 52). The rules are the book's: the trionfi rank by their printed numbers with the Angel XX above the World XXI (pp. 9-10, 13), the Angel is the honour that may not be discarded (pp. 14, 34, 54), the Fool is never taken and its owner gives one plain card at the end of the hand (pp. 50, 52, 54), the discard counts for the dealer (p. 55), the hand is won by more points (p. 54) and has no dry premium, the premiums are agreed before the deal (pp. 21, 55, 99). Ours, where the book is silent: the Fool may be led, the engine chooses the card the Fool's owner gives, and the match of four hands around the hand. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -19,7 +19,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - The first dealer is whoever first draws a trump from the cards turned up. *Documented: from the book, p. 16.* <!-- rule: seats.first_dealer -->
 - The player on the dealer's left cuts the pack. *Documented: from the book, pp. 16-18.* <!-- rule: seats.cut_by -->
 - A cut leaves at least 2 cards in each part. *Our reading: book, p. 16.* <!-- rule: seats.cut_min -->
-- The dealers alternate. *Sources silent, our decision.* Other reading: The loser deals. <!-- rule: seats.dealer_rotation -->
+- The dealers alternate. *Partly our decision (p. 41), partly our reading.* Other reading: The loser deals. <!-- rule: seats.dealer_rotation -->
 - Each player plays for himself. *Documented: from the book, pp. 53-54.* <!-- rule: sides.mode -->
 
 ### The cards
@@ -30,7 +30,8 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Kings, the Angel, the Bagatto and the Fool are worth 5, queens 4, knights 3, jacks 2, every other card 1. *Documented: from the book, pp. 13-14.* <!-- rule: cards.card_points -->
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Documented: from the book, p. 54.* <!-- rule: cards.fool -->
 - Whoever plays the Fool keeps it and gives another card in its place. *Documented: from the book, p. 52.* <!-- rule: cards.fool_exchange -->
-- The cheapest of the cards he has won is given for the Fool. *Sources silent, our decision.* Other reading: The owner of the Fool picks the card he gives. Open question 18: could be settled by statistics of games played by bots or a trial with live players (who chooses the card given for the Fool); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_exchange_card -->
+- The cheapest of the cards he has won is given for the Fool. *Sources silent, our decision.* Other reading: The owner of the Fool picks the card he gives. Question 18 of the list: could be settled by statistics of games played by bots or a trial with live players (who chooses the card given for the Fool); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_exchange_card -->
+- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 54.* Other reading: A player who took no trick gives up the Fool itself. Question 2 of the list: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 - The Fool is never lost, not even in the last trick. *Documented: from the book, p. 50.* <!-- rule: cards.fool_last_trick -->
 
 ### The deal
@@ -48,7 +49,7 @@ This step: *Documented: from the book, p. 53.*
 - Cards put away: 3. *Documented: from the book, pp. 53-54.* <!-- rule: hand.discard.count -->
 - The discard is announced with «ho scartato» and is final. *Documented: from the book, p. 54.* <!-- rule: hand.discard.announce -->
 - Honours may not be put away. *Documented: from the book, p. 54.* <!-- rule: hand.discard.discard_honours_barred -->
-- The discard counts for the player who put it away. *Our reading: book, p. 55.* Other reading: The discard counts for nobody. Open question 32: could be settled by a document in which the rule is printed or a mathematical analysis (whether the dealer's discard is in the count (53 cards or 50)); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
+- The discard counts for the player who put it away. *Our reading: book, p. 55.* Other reading: The discard counts for nobody. Question 32 of the list: could be settled by a document in which the rule is printed or a mathematical analysis (whether the dealer's discard is in the count (53 cards or 50)); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
 
 ### The tricks
 
@@ -65,19 +66,19 @@ This step: *Documented: from the book, p. 53.*
 - A card left without a pair is worth its value less half a point, as in a pair. *Documented: from the book, p. 52.* <!-- rule: hand.count.odd_card -->
 - There are no multipliers for tricks. *Our reading: book, p. 52.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book, p. 54.* <!-- rule: hand.count.last_trick_bonus -->
-- The dealer keeps his discard. *Our reading: book, p. 55.* Other reading: A dealer who takes no trick loses his discard. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.dealer_forfeit -->
+- The dealer keeps his discard. *Our reading: book, p. 21.* Other reading: A dealer who takes no trick loses his discard. Question 1 of the list: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.dealer_forfeit -->
 
 ### The result of a hand
 
 - More points wins the hand. *Documented: from the book, p. 54.* <!-- rule: hand.result.winner -->
-- If the points are equal, nobody gains game points. *Documented: from the book, p. 54.* <!-- rule: hand.result.tie -->
+- If the points are equal, nobody gains game points. *Partly printed (p. 54), partly our reading.* <!-- rule: hand.result.tie -->
 - The winner of a hand gains one game point. *Our reading: book, p. 54.* <!-- rule: hand.result.game_points -->
 
 ### The match
 
 - The stake is never doubled. *Sources silent, our decision.* <!-- rule: match.max_stake -->
-- A match is 4 hands. *Sources silent, our decision.* Open question 6: could be settled by statistics of games played by bots or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.hands -->
-- If the hands are tied, whoever has more card points over all the hands wins. *Sources silent, our decision.* Open question 6: could be settled by statistics of games played by bots or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.tiebreak -->
+- A match is 4 hands. *Sources silent, our decision.* Question 6 of the list: could be settled by statistics of games played by bots or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.hands -->
+- If the hands are tied, whoever has more card points over all the hands wins. *Sources silent, our decision.* Question 6 of the list: could be settled by statistics of games played by bots or a trial with live players (the length of a match); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.tiebreak -->
 
 ### Offences
 
@@ -86,7 +87,7 @@ This step: *Documented: from the book, p. 53.*
 ## Not played yet
 
 - **Vola.** A premium agreed in advance for all the tricks is a stake of the table, not a bid or a rule of the hand: the engine plays no premium. *Documented: Torino 1787, pp. 21, 55, 100: «Vola, dicesi del fare tutte le basi»: a premium for taking every trick, played «purchè si voglia, e dicasi avanti in termini chiari», that is by agreement before the deal; and the Fool may be put away for a sure vola (rule 38, p. 34).* <!-- left_out: vola -->
-- **Bagatto discard.** The Venticinque section says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred). *Documented: Torino 1787, p. 34 (rule 38): the Bagatto may be put away when it stands alone, without the Fool.* <!-- left_out: bagatto_discard -->
+- **Bagatto discard.** The Venticinque section says the honours are never put away (p. 54): the engine bars them without exception (discard_honours_barred). *Documented: Torino 1787, p. 34 (rule 38): «eccetto che Bagatto sia solo, senza il Folle»: the Bagatto may be put away when it is the only trump of the hand («solo» is so read since revision 2, as Dummett 1980, p. 259 reads it).* <!-- left_out: bagatto_discard -->
 
 ## Sources
 
@@ -95,4 +96,4 @@ This step: *Documented: from the book, p. 53.*
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 
-Generated from `rulesets/venticinque.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/venticinque.json`, rules revision 14. Do not edit: change the game file.

@@ -1,6 +1,6 @@
 # Doctor (Dottore)
 
-5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 11.
+5 players. In the book of 1787: pp. 75-76. Status: playable, with decisions of ours where the book is silent. Rules revision 14.
 
 Dottore (Torino 1787, «Del giuoco del Dottore», pp. 75-76), the game for five that the book describes in passing: dealt as Permesso for five (15 cards, 18 to the dealer who puts away three), but «non si chiamano, nè si cambiano carte» and «ognuno giuoca il suo giuoco»: each for himself, and the most points wins. The cards are counted one by one, two by two or three by three as the players agree (p. 75). The cards keep their usual values (Torino 1787, pp. 13-14; Torino [1846], part I, p. 47: «Le carte hanno lo stesso valore come al venticinque»). The payment, the lead of the first hand and the count of the Fool are not printed; those are ours, marked. Giuoco sciolto of Sestilio uses these rules.
 
@@ -33,7 +33,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Whoever plays the Fool keeps it and gives another card in its place. *Our reading: book, pp. 75-78.* Other reading: Nothing is given for the Fool. <!-- rule: cards.fool_exchange -->
 - The owner of the Fool picks the card he gives. *Our reading: book, p. 52.* <!-- rule: cards.fool_exchange_card -->
 - The card for the Fool goes to the winner of the trick. *Our reading: book, pp. 77-78.* <!-- rule: cards.fool_exchange_to -->
-- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 21.* Other reading: A player who took no trick gives up the Fool itself. Question 2 of the list: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
@@ -56,13 +56,13 @@ This step: *Documented: from the book, p. 75.*
 - Cards put away: 3. *Documented: from the book, p. 75.* <!-- rule: hand.discard.count -->
 - Exactly that many are put away. *Documented: from the book, p. 75.* <!-- rule: hand.discard.count_mode -->
 - Honours may not be put away. *Our reading: book, p. 75.* Other reading: Any card may be put away. <!-- rule: hand.discard.discard_honours_barred -->
-- There are exceptions to the ban, they depend on the hand. *Our reading: book, p. 34.* Other reading: . <!-- rule: hand.discard.allowed_exceptions -->
-- The discard counts for the player who put it away. *Sources silent, our decision.* Other reading: The discard counts for its owner if he took at least one trick. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
+- There are exceptions to the ban, they depend on the hand. *Our reading: book, p. 34.* Other reading: There are no exceptions to the ban. <!-- rule: hand.discard.allowed_exceptions -->
+- The discard counts for the player who put it away. *Our reading: book, p. 21.* Other reading: The discard counts for its owner if he took at least one trick. Question 1 of the list: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
 - The discard is announced with «ho scartato» and is final. *Our reading: book, p. 60.* <!-- rule: hand.discard.announce -->
 
 ### The tricks
 
-- The player on the dealer's right leads first. *Our reading: book, p. 35.* Other reading: The taker of the last trick of the previous hand leads first. Open question 20: could be settled by the opinion of an expert (who leads first: «Chi è ultimo a prendere giuoca il primo»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.tricks.first_leader -->
+- The player on the dealer's right leads first. *Our reading: book, p. 35.* Other reading: The taker of the last trick of the previous hand leads first. <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 75.* <!-- rule: hand.tricks.next_leader -->
 - You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
@@ -74,7 +74,7 @@ This step: *Documented: from the book, p. 75.*
 - Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Our reading: book, p. 75.* <!-- rule: hand.count.count_unit -->
 - Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Documented: from the book, p. 75.* <!-- rule: hand.count.group -->
 - A card left without a pair is worth its value less half a point, as in a pair. *Sources silent, our decision.* <!-- rule: hand.count.odd_card -->
-- The card given for the Fool is part of the count. *Sources silent, our decision.* <!-- rule: hand.count.fool_card -->
+- The Fool's card is part of the count. *Sources silent, our decision.* <!-- rule: hand.count.fool_card -->
 - A plain card is worth 1. *Our reading: Dummett (1980), p. 263.* <!-- rule: hand.count.plain_value -->
 
 ### The result of a hand
@@ -85,22 +85,23 @@ This step: *Documented: from the book, p. 75.*
 
 ### Settling
 
-- Settling is in stakes. *Sources silent, our decision, after Dummett (1980), p. 263.* <!-- rule: hand.settle.unit -->
+- Settling is in stakes. *Sources silent, our decision.* <!-- rule: hand.settle.unit -->
 - The losers pay the winner. *Sources silent, our decision.* <!-- rule: hand.settle.mode -->
 - The amount of the settlement: the stake as agreed. *Sources silent, our decision.* <!-- rule: hand.settle.amount -->
 
 ### The match
 
 - The match is kept as a ledger of hands. *Sources silent, our decision.* <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. Open question 23: could be settled by a document in which the rule is printed or a trial with live players (the length of a match in Partita for three, Dottore and Meno); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.dealer_rounds -->
+- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Sources silent, our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
 - The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
-- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Partly printed (p. 73), partly our reading.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 
+- **Declarations ri.** Not played: the book of 1787 prints no declarations for the Dottore, and no tariff is known. *Documented: Dummett 1980, p. 263: the rules of 1830 «mention declarations» at the Dottore. The Prammatica [1846] is said to have them too (pp. 8 and 22: not read here).* <!-- left_out: declarations_ri -->
 - **Dottore other numbers.** The book names only five players; other numbers are not offered. *Documented: Torino 1787, p. 76: «al Dottore si giuoca pure tra cinque persone».* <!-- left_out: dottore_other_numbers -->
 
 ## Sources
@@ -112,4 +113,4 @@ This step: *Documented: from the book, p. 75.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/dottore.json`, rules revision 11. Do not edit: change the game file.
+Generated from `rulesets/dottore.json`, rules revision 14. Do not edit: change the game file.

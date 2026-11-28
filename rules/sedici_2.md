@@ -1,8 +1,8 @@
 # Sixteen for two (Sedici)
 
-2 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
+2 players. In the book of 1787: p. 15. Status: playable, with decisions of ours where the book is silent. Rules revision 14.
 
-Sedici for two players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 0 (Dummett 1980, p. 269; our decision); when the pack runs out before anybody has said «fuora» the hand ends with no payment (ours; Dummett 1980, p. 269 gives this guess for Trentuno; for Sedici he guesses further deals until someone goes out). A match is a race to five points: each game won is one point, as Prammatica [1846], p. 11 says that a partita at Sedici seldom ends at the first point; the number five is our reading of p. 13. Prammatica [1846], p. 12 says that Sedici «va soggetto a quasi tutte le regole» of Trent'uno al più; where the two books differ (the Fool and Bagatto), this file follows Torino 1787. Marks: [D] documented, [R] our reading, [S] sources silent.
+Sedici for two players («il giuoco più facile ad impararsi, perchè in questo si danno poche carte», p. 15) of the Turin rulebook «Primi elementi e regole del giuoco de' tarocchi» (Torino, Soffietti, 1787), read on the scan (two readings and a check, 23 November 2026, pp. 7-46): four cards to each player (pp. 17-18, 35), dealt again and again from the same pack until a player says «fuora», which means the game is won (p. 39); a player says «fuora» when he is sure he has made sixteen points (p. 35), a false claim is paid double with fewer than eight points and simple with more (p. 39); the Fool here is an ordinary trionfo, the lowest, taken by Bagatto (pp. 14, 36, 38-39), and counts one point; the cards are counted one at a time (p. 51). A plain card counted singly is worth 1, as the Turin books of 1846 count Sedici and Trent'uno alike (Prammatica [1846], p. 12; Torino [1846], part I, p. 30; our reading, the book of 1787 prints no price); with that value the pack cannot run out before a player has sixteen, and when it does run out before anybody has said «fuora» (a player who does not see his points) the hand ends with no payment (ours; Dummett 1980, p. 269 gives this guess for Trentuno; at Sedici his guess is a further deal of four cards to each player after the first four tricks, the repeated deal this file plays). A match is a race to five points: each game won is one point, as Prammatica [1846], p. 11 says that a partita at Sedici seldom ends at the first point; the number five is our reading of p. 13. Prammatica [1846], p. 12 says that Sedici «va soggetto a quasi tutte le regole» of Trent'uno al più; where the two books differ (the Fool and Bagatto), this file follows Torino 1787. Marks: [D] documented, [R] our reading, [S] sources silent.
 
 ## How to read the marks
 
@@ -44,7 +44,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 ### The tricks
 
-- The next round of the same game starts with the taker of the last trick; the first round of each game starts with the player on the dealer's right. *Our reading: book, p. 37.* Other reading: The player on the dealer's right leads first. <!-- rule: hand.tricks.first_leader -->
+- The next round of the same game starts with the taker of the last trick; the first round of each game starts with the player on the dealer's right. *Partly our reading (p. 37), partly printed.* Other reading: The player on the dealer's right leads first. <!-- rule: hand.tricks.first_leader -->
 - Whoever takes a trick leads next. *Documented: from the book, p. 37.* <!-- rule: hand.tricks.next_leader -->
 - You must follow suit if you can. *Documented: from the book, p. 35.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Our reading: Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
@@ -56,19 +56,19 @@ This step: *Documented: from the book, p. 35.*
 
 - Fuora is played to 16 points. *Documented: from the book, p. 35.* <!-- rule: hand.fuora.target -->
 - You may say «fuora» at any turn of your own, even in the middle of a trick. *Our reading: book, p. 40.* Other reading: A claim of points is made after a trick. <!-- rule: hand.fuora.claim_when -->
-- Nothing forces you to say «fuora» at the end of a packet: the next one is dealt. Only when the pack is spent does a last window ask each player in turn, from the taker of the last trick, to say «fuora» or not. *Documented: from the book, p. 39.* Other reading: The taker of the last trick of a packet who has the points must say «fuora» before the next deal. <!-- rule: hand.fuora.at_round_end -->
+- Nothing forces you to say «fuora» at the end of a packet: the next one is dealt. Only when the pack is spent does a last window ask each player in turn, from the taker of the last trick, to say «fuora» or not. *Partly our reading (p. 39), partly our decision.* Other reading: The taker of the last trick of a packet who has the points must say «fuora» before the next deal. <!-- rule: hand.fuora.at_round_end -->
 - The game goes to the player who says «fuora» rightly. *Documented: from the book, p. 35.* Other reading: The game goes to the first player to have made the points, whoever says «fuora». <!-- rule: hand.fuora.winner_is -->
-- A false claim is paid for; the size of the penalty is in the game file. *Documented: from the book, p. 39.* Other reading: below: 9; pays: stake: marcia; to: each of the others, from: 9; pays: stake: simple; to: each of the others. <!-- rule: hand.fuora.false_claim -->
-- A player who claims wrongly pays for it and the play goes on. *Our reading: book, p. 20.* Other reading: A player who claims wrongly loses the partita. Open question 25: could be settled by a document in which the rule is printed or statistics of games played by bots (a false «fuora»: does the game go on or end); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.after_false_claim -->
+- A false claim is paid for: fewer than 8 points: pays the double stake (marcia) to each of the others; 8 points or more: pays the simple stake to each of the others. *Partly printed (p. 39), partly our reading.* Other reading: A false claim is paid for: fewer than 9 points: pays the double stake (marcia) to each of the others; 9 points or more: pays the simple stake to each of the others. <!-- rule: hand.fuora.false_claim -->
+- A player who claims wrongly pays for it and the play goes on. *Our reading: book, p. 20.* Other reading: A player who claims wrongly loses the partita. Question 25 of the list: could be settled by a document in which the rule is printed or statistics of games played by bots (a false «fuora»: does the game go on or end); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.after_false_claim -->
 - When the first player is out, the hand ends. *Documented: from the book, pp. 40-41.* <!-- rule: hand.fuora.after_first_out -->
-- If the stock runs out, the hand ends with no winner. *Sources silent, our decision, after Dummett (1980), p. 269.* Open question 10: could be settled by a document in which the rule is printed or statistics of games played by bots (the pack runs out and nobody has said «fuora»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.stock_empty -->
+- If the stock runs out, the hand ends with no winner. *Sources silent, our decision, after Dummett (1980), p. 269.* Question 10 of the list: could be settled by a document in which the rule is printed or statistics of games played by bots (the pack runs out and nobody has said «fuora»); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.fuora.stock_empty -->
 
 ### The count
 
 - Each card is counted alone. *Documented: from the book, pp. 51-52.* <!-- rule: hand.count.group -->
 - There are no multipliers for tricks. *Our reading: book.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book.* <!-- rule: hand.count.last_trick_bonus -->
-- A plain card is worth 0. *Sources silent, our decision, after Dummett (1980), p. 269.* Other reading: A plain card is worth 1. Open question 9: could be settled by a document in which the rule is printed or statistics of games played by bots (the value of a plain card counted singly); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.count.plain_value -->
+- A plain card is worth 1. *Our reading: Prammatica [1846], p. 12.* Other reading: A plain card is worth 0. <!-- rule: hand.count.plain_value -->
 
 ### The result of a hand
 
@@ -84,13 +84,13 @@ This step: *Documented: from the book, p. 35.*
 ### The match
 
 - The match is a race: each partita won gives points, and whoever reaches the target first wins. When the leaders are level at the target or above, another game is played, until one leads alone. *Documented: from Prammatica [1846], p. 11.* Other reading: The match is kept as a ledger of hands. <!-- rule: match.kind -->
-- A match is played to 5 points. *Our reading: Prammatica [1846], p. 13.* Open question 26: could be settled by a document in which the rule is printed or a trial with live players (which custom was played, a race or «al primo vada», to how many points, and what is done when the leaders are level); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.target -->
+- A match is played to 5 points. *Partly our reading (Prammatica [1846], p. 13), partly our decision.* Question 26 of the list: could be settled by a document in which the rule is printed or a trial with live players (which custom was played, a race or «al primo vada», to how many points, and what is done when the leaders are level); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.target -->
 
 ### Offences
 
 - The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others; while the trick is open, the card may be changed. *Documented: from the book, pp. 33-34.* <!-- rule: penalties.revoke -->
 - The offence «a wrong way of dealing» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 42.* <!-- rule: penalties.deal_other_way -->
-- The offence «misdeal» cannot happen at this table. By the book, the offender pays the stake of the game to each of the others; then the deal passes to the right. *Documented: from the book, pp. 18-19.* <!-- rule: penalties.misdeal -->
+- The offence «misdeal» cannot happen at this table. By the book, the offender pays the stake of the game to each of the others; then the deal passes to the right. *Partly printed (pp. 18-19), partly our reading.* <!-- rule: penalties.misdeal -->
 
 ## Not played yet
 
@@ -105,4 +105,4 @@ This step: *Documented: from the book, p. 35.*
 | Dummett (1980) | M. Dummett, The Game of Tarot, London, Duckworth, 1980; chapter XIII, pp. 258-279 | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/sedici_2.json`, rules revision 13. Do not edit: change the game file.
+Generated from `rulesets/sedici_2.json`, rules revision 14. Do not edit: change the game file.

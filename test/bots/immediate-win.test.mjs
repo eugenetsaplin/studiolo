@@ -42,7 +42,8 @@ function engineWins(h, v, seat) {
 }
 
 for (const [id, n, turn, lead, hand, wins, wrong] of [
-	['sedici_2', 14, 11, 'batons:5', ['coins:9', 'T7', 'T20'], ['T20'], 'T7'],
+	// revision 14: a plain card counts 1 at Sedici, the games run otherwise; the position is found anew (same kind: a trionfo that wins, a lower one that does not)
+	['sedici_2', 156, 11, 'T10', ['coins:10', 'T14', 'T20'], ['T20'], 'T14'],
 	['trentuno', 453, 27, 'coins:8', ['T1', 'T11', 'T17'], ['T1'], 'T11'],
 ]) {
 	test(`immediate win, position 26-tactics:${id}:${n}: the bot plays ${wins[0]}, not ${wrong}`, () => {

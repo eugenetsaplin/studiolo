@@ -1,6 +1,6 @@
 # Twenty-five cards for three (Venticinque)
 
-3 players. In the book of 1787: no chapter of its own. Status: taken from a later source: the 1787 book has no chapter on this game. Rules revision 12.
+3 players. In the book of 1787: no chapter of its own. Status: taken from a later source: the 1787 book has no chapter on this game. Rules revision 14.
 
 Venticinque for three persons. The Turin rulebook of 1787 names it in its list of games (p. 8: «A Venticinque carte in tre persone») but has no chapter on it. Torino [1846], part I, pp. 33-34, gives the discard (the trumps that may be put away), the count in threes, the three deals and the winner of the match (the greater total); Prammatica [1846], pp. 13-14, the line of 26. Dummett 1980, p. 260 (partial scan held), after the rules of 1830 (not held), gives the deal in rounds of 5, 10 and 10 with an a monte by consent, the running total less 26, and the «fuora» play. The general rules of the 1787 book fill the rest: the trionfi, the suits, the Fool, how to answer. The «fuora» play is played in part (revision 12): the player who is out leads a trionfo, else a king; the sure cards and the impartial giving of the tricks stay an intention. Marks: [D] documented, [R] our reading, [S] sources silent.
 
@@ -26,7 +26,7 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 
 - The whole pack of 78 is used: 22 trumps (the Fool is among them as number 0) and 14 cards in each of four suits. *Documented: from Dummett (1980), p. 260.* <!-- rule: cards.deck -->
 - Trumps rank by their numbers, but the Angel (XX) takes the World (XXI). *Documented: from Dummett (1980), pp. 259-260.* <!-- rule: cards.trump_order -->
-- In swords and batons the larger number is higher; in cups and coins it is the other way: the ace takes the two, up to the ten, and the king takes the queen, the knight and the jack. *Documented: from the book, pp. 11-13.* <!-- rule: cards.suit_order -->
+- In swords and batons the larger number is higher; in cups and coins it is the other way: the ace takes the two, up to the ten, and the king takes the queen, the knight and the jack. *Partly printed (pp. 11-13), partly our reading.* <!-- rule: cards.suit_order -->
 - Kings, the Angel, the Bagatto and the Fool are worth 5, queens 4, knights 3, jacks 2, every other card 1. *Documented: from Dummett (1980), p. 259.* <!-- rule: cards.card_points -->
 - The set «honours»: the kings, Trump 20 — Angel, Fool, Trump 1 — Magician. *Documented: from Dummett (1980), p. 259.* <!-- rule: cards.sets.honours -->
 - The Fool takes nothing and is taken by nothing: it is shown in place of a card. *Documented: from Torino [1846], part I, p. 33.* <!-- rule: cards.fool -->
@@ -58,8 +58,9 @@ This step: *Documented: from Dummett (1980), p. 260.*
 - Cards put away: 3. *Documented: from Torino [1846], part I, p. 33.* <!-- rule: hand.discard.count -->
 - Honours may not be put away. *Documented: from Torino [1846], part I, p. 33.* <!-- rule: hand.discard.discard_honours_barred -->
 - These may not be put away: the trumps. *Documented: from Torino [1846], part I, p. 33.* Other reading: These may not be put away: Trump 17 — Star, Trump 18 — Moon, Trump 19 — Sun, Trump 21 — World. <!-- rule: hand.discard.barred -->
-- There are exceptions to the ban, they depend on the hand. *Documented: from Torino [1846], part I, p. 33.* Other reading: . <!-- rule: hand.discard.allowed_exceptions -->
+- There are exceptions to the ban, they depend on the hand. *Partly printed (Torino [1846], part I, p. 33), partly our reading.* Other reading: There are no exceptions to the ban. <!-- rule: hand.discard.allowed_exceptions -->
 - The discard is announced with «ho scartato» and is final. *Documented: from Dummett (1980), p. 259.* <!-- rule: hand.discard.announce -->
+- The discard counts for the player who put it away. *Our reading: Torino [1846], part I, p. 34.* Other reading: The discard counts for its owner if he took at least one trick. Question 1 of the list: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
 
 ### The tricks
 
@@ -68,7 +69,7 @@ This step: *Documented: from Dummett (1980), p. 260.*
 - You must follow suit if you can. *Our reading: Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.follow_suit -->
 - With no card of the suit you must trump. *Our reading: Torino [1846], part I, p. 36.* <!-- rule: hand.tricks.must_trump -->
 - A trump must be answered with a trump, but you need not beat it. *Our reading: book, p. 49.* <!-- rule: hand.tricks.must_overtrump -->
-- A player who cannot lose the match any more leads a trump in the last deal (the Fool does not count), and with no trump a king. *Documented: from Torino [1846], part I, p. 34.* Other reading: Any card may be led. <!-- rule: hand.tricks.out_leads -->
+- A player who cannot lose the match any more leads a trump in the last deal (the Fool does not count), and with no trump a king. *Partly printed (Torino [1846], part I, p. 34), partly our reading and our decision.* Other reading: Any card may be led. <!-- rule: hand.tricks.out_leads -->
 
 ### The count
 
@@ -76,11 +77,11 @@ This step: *Documented: from Dummett (1980), p. 260.*
 - Cards are counted in threes: a three is worth its three values less two points. So each card is worth its value less two thirds of a point. *Our reading: Dummett (1980), p. 260.* <!-- rule: hand.count.count_unit -->
 - There are no multipliers for tricks. *Our reading: book.* <!-- rule: hand.count.trick_multipliers -->
 - The last trick earns nothing extra. *Our reading: book.* <!-- rule: hand.count.last_trick_bonus -->
-- A single card counts as a short group. *Sources silent, our decision, after Torino [1846], part I, p. 34.* <!-- rule: hand.count.odd_card -->
+- A single card counts as a short group. *Our reading: Torino [1846], part I, p. 34.* <!-- rule: hand.count.odd_card -->
 
 ### The result of a hand
 
-- Whoever reaches the threshold wins. *Our reading: Dummett (1980), p. 260.* <!-- rule: hand.result.winner -->
+- No hand has a winner of its own: each player's points above or below the line are added to his running total, and the totals decide at the end of the match. *Our reading: Dummett (1980), p. 260.* <!-- rule: hand.result.winner -->
 - The threshold is 26 points. *Documented: from Prammatica [1846], p. 14.* <!-- rule: hand.result.target -->
 - A hand gives no game points. *Documented: from Dummett (1980), p. 260.* <!-- rule: hand.result.game_points -->
 
@@ -89,11 +90,11 @@ This step: *Documented: from Dummett (1980), p. 260.*
 - Match points add up in a running total. *Documented: from Torino [1846], part I, p. 34.* <!-- rule: match.kind -->
 - A round is played to 26 points. *Documented: from Prammatica [1846], p. 14.* <!-- rule: match.round_target -->
 - A match is 3 rounds. *Documented: from Torino [1846], part I, p. 34.* <!-- rule: match.rounds -->
-- The stake is not paid hand by hand but once, at the end of the match. One player pays: the one with the lowest total of the match; if several are level on the lowest, they all pay. *Our reading: Torino [1846], part I, p. 34.* Open question 3: could be settled by a document in which the rule is printed or a mathematical analysis (the payment for a match of three deals); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.payout -->
+- The stake is not paid hand by hand but once, at the end of the match. One player pays: the one with the lowest total of the match; if several are level on the lowest, they all pay. *Partly our reading (Torino [1846], part I, p. 34), partly our decision.* <!-- rule: match.payout -->
 
 ### Offences
 
-- The offence «a lead of a player who is out, not a trump or a king» cannot happen at this table. By the book, the offender pays 5 points to each of the others. *Documented: from Prammatica [1846], p. 14.* <!-- rule: penalties.out_lead -->
+- The offence «a lead of a player who is out, not a trump or a king» cannot happen at this table. By the book, the offender pays 5 points to each of the others. *Partly printed (Prammatica [1846], p. 14), partly our reading.* <!-- rule: penalties.out_lead -->
 
 ## Not played yet
 
@@ -111,4 +112,4 @@ This step: *Documented: from Dummett (1980), p. 260.*
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
 
-Generated from `rulesets/venticinque_3.json`, rules revision 12. Do not edit: change the game file.
+Generated from `rulesets/venticinque_3.json`, rules revision 14. Do not edit: change the game file.

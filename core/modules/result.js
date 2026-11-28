@@ -142,7 +142,10 @@ export function enter(h) {
 	if (winner === 'first_out' && set.game_points !== 'none') {
 		const f = s.m.fuora;
 		for (const c of (f && f.claims) || []) {
-			if (c.valid || !c.stake || c.ends) continue; // a claim that ended the hand is paid by the lost game itself
+			if (c.valid || !c.stake) continue;
+			// a claim that ended the hand is paid by the lost game itself, in one row: the race points follow that row
+			// (they replace the one point of the win), as the money does
+			if (c.ends) { for (let q = 0; q < s.n; q++) if (q !== c.seat) gamePoints[q] = falseClaimPoints(c.stake); continue; }
 			for (let q = 0; q < s.n; q++) if (q !== c.seat) gamePoints[q] += falseClaimPoints(c.stake);
 		}
 	}
@@ -154,6 +157,8 @@ export function enter(h) {
 	if (order) s.result.order = order;
 	if (s.contract !== null) { s.result.contract = s.contract; s.result.declarer = s.declarer; }
 	if (band) s.result.band = band;
+	// a vola (every trick taken by one side) decided the hand, whatever the points say
+	if (vola) s.result.vola = true;
 	return { events: [{ e: 'result', outcome, winners: [...winners] }], done: true };
 }
 

@@ -1,8 +1,8 @@
 # Partita for four (Partita)
 
-4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 13.
+4 players. In the book of 1787: pp. 88-90. Status: playable, with decisions of ours where the book is silent. Rules revision 14.
 
-Partita, two against two (Torino 1787, «Del giuocare in Partita», pp. 88-90), the game the book calls the proper one of four players: two fixed pairs, partners sit face to face, the cards are cut, dealt and discarded as in Permesso for four (19 cards to each, the dealer puts two away), no one may ever go alone («andar a solo mai e poi mai»), the two partners' points are one heap and the part with more points wins, even by a single unpaired card (pp. 88-90). The Bagatto and the kings may not be put away, the Fool is shown (p. 90). Each winner collects the agreed sum from one of the opponents (p. 90). The sum, the count by four or by two, the lead and who deals first («Chi coppa meglio») are our readings. Marks: [D] documented, [R] our reading, [S] sources silent.
+Partita, two against two (Torino 1787, «Del giuocare in Partita», pp. 88-90), the game the book calls the proper one of four players: two fixed pairs, partners sit face to face, the cards are cut, dealt and discarded as in Permesso for four (19 cards to each, the dealer puts two away), no one may ever go alone («andar a solo mai e poi mai»), the two partners' points are one heap and the part with more points wins, even by a single unpaired card (pp. 88-90). The Bagatto and the kings may not be put away, the Fool is shown (p. 90). Each winner collects the agreed sum from one of the opponents (p. 90). The sum, the count by four or by two and the lead are our readings; who deals first («Chi coppa meglio») is the book's (p. 89). Marks: [D] documented, [R] our reading, [S] sources silent.
 
 ## How to read the marks
 
@@ -35,13 +35,17 @@ Each rule is marked by where it comes from. **Documented** [D]: printed in the n
 - Whoever plays the Fool keeps it and gives another card in its place. *Our reading: book, p. 52.* Other reading: Nothing is given for the Fool. <!-- rule: cards.fool_exchange -->
 - The owner of the Fool picks the card he gives. *Our reading: book, p. 52.* <!-- rule: cards.fool_exchange_card -->
 - The card for the Fool goes to the winner of the trick. *Our reading: Torino [1846], part I, p. 33.* Other reading: The card for the Fool goes to the opponent. <!-- rule: cards.fool_exchange_to -->
-- A player who took no trick gives nothing for the Fool. *Sources silent, our decision.* Other reading: A player who took no trick gives up the Fool itself. Open question 2: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
+- A player who took no trick gives nothing for the Fool. *Our reading: book, p. 21.* Other reading: A player who took no trick gives up the Fool itself. Question 2 of the list: could be settled by the opinion of an expert or statistics of games played by bots (the Fool of a player who won no trick: kept or given up); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: cards.fool_no_tricks -->
 
 ### By agreement / Variants
 
 - counting, cards in a group: a choice of 2 or 4; by default 2. *Our reading: book, p. 89.* <!-- rule: options.group -->
 - Stake: a choice of 1, 2, 5 or 10 units; by default 1 unit. *Documented: from the book, p. 90.* <!-- rule: options.stake -->
-- variant: Four deals: one payment at the end, to the pair with the larger total. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: variants.four_deals -->
+- Variant: Four deals: one payment at the end, to the pair with the larger total. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: variants.four_deals -->
+- In this variant: The match is a fixed number of hands. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: variants.four_deals.match.kind -->
+- In this variant: A match is 4 hands. *Documented: from Torino [1846], part I, p. 36.* <!-- rule: variants.four_deals.match.hands -->
+- In this variant: If the hands are tied, whoever has more card points over all the hands wins. *Our reading: Torino [1846], part I, pp. 35-36.* <!-- rule: variants.four_deals.match.tiebreak -->
+- In this variant: The stake is not paid hand by hand but once, at the end of the match: each player of the pair with the smaller total pays a stake to one player of the pair with the larger total. If the totals are equal, nobody pays. *Partly printed (Torino [1846], part I, pp. 35-36), partly our decision.* <!-- rule: variants.four_deals.match.payout -->
 
 ### The deal
 
@@ -61,8 +65,8 @@ This step: *Documented: from the book, p. 89.*
 - Exactly that many are put away. *Documented: from Torino [1846], part I, pp. 36, 40-41.* <!-- rule: hand.discard.count_mode -->
 - Honours may not be put away. *Our reading: book, p. 90.* Other reading: Any card may be put away. <!-- rule: hand.discard.discard_honours_barred -->
 - These may not be put away: Trump 1 — Magician, the kings. *Documented: from the book, p. 90.* <!-- rule: hand.discard.barred -->
-- There are exceptions to the ban, they depend on the hand. *Our reading: book, p. 34.* Other reading: . <!-- rule: hand.discard.allowed_exceptions -->
-- The discard counts for the player who put it away. *Sources silent, our decision.* Other reading: The discard counts for its owner if he took at least one trick. Open question 1: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
+- There are exceptions to the ban, they depend on the hand. *Our reading: book, p. 34.* Other reading: There are no exceptions to the ban. <!-- rule: hand.discard.allowed_exceptions -->
+- The discard counts for the player who put it away. *Our reading: book, p. 21.* Other reading: The discard counts for its owner if he took at least one trick. Question 1 of the list: could be settled by the opinion of an expert, a document in which the rule is printed or statistics of games played by bots (the discard of a player who won no trick: kept or lost); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: hand.discard.counts_for -->
 - The discard is announced with «ho scartato» and is final. *Our reading: book, p. 60.* <!-- rule: hand.discard.announce -->
 
 ### The tricks
@@ -78,15 +82,15 @@ This step: *Documented: from the book, p. 89.*
 
 - Cards are counted in pairs: a pair is worth its two values less one point. So each card is worth its value less half a point. *Our reading: book, pp. 88-90.* <!-- rule: hand.count.count_unit -->
 - Cards are counted in groups of 2: a group is worth the sum of its values less one point for each extra card. *Documented: from the book, p. 89.* <!-- rule: hand.count.group -->
-- A card left without a pair is worth its value less half a point, as in a pair. *Documented: from the book, p. 90.* <!-- rule: hand.count.odd_card -->
-- The card given for the Fool is part of the count. *Our reading: Turin 1880, p. 8.* <!-- rule: hand.count.fool_card -->
+- A card left without a pair is worth its value less half a point, as in a pair. *Partly our reading (p. 261), partly printed.* <!-- rule: hand.count.odd_card -->
+- The Fool's card is part of the count. *Our reading: Turin 1880, p. 8.* <!-- rule: hand.count.fool_card -->
 
 ### Counting in fours (when chosen: counting, cards in a group = 4)
 
 - Cards are counted by fours, as the next rules say. *Our reading: book, pp. 88-90.* <!-- rule: hand.count_fours.count_unit -->
 - Cards are counted in groups of 4: a group is worth the sum of its values less one point for each extra card. *Documented: from the book, p. 89.* <!-- rule: hand.count_fours.group -->
 - A single card counts as a short group. *Our reading: Dummett (1980), p. 261.* Other reading: A card left without its four is worth its value less three quarters of a point, as in a four. <!-- rule: hand.count_fours.odd_card -->
-- The card given for the Fool is part of the count. *Our reading: Turin 1880, p. 8.* <!-- rule: hand.count_fours.fool_card -->
+- The Fool's card is part of the count. *Our reading: Turin 1880, p. 8.* <!-- rule: hand.count_fours.fool_card -->
 
 ### The result of a hand
 
@@ -102,13 +106,13 @@ This step: *Documented: from the book, p. 89.*
 
 ### The match
 
-- The match is kept as a ledger of hands. *Our reading: book, p. 90.* Open question 24: could be settled by a document in which the rule is printed or a trial with live players (one stake at the end of the partita, or the marche after every deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.kind -->
-- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Documented: from Torino [1846], part I, pp. 35-36.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. <!-- rule: match.dealer_rounds -->
+- The match is kept as a ledger of hands. *Our reading: book, p. 90.* Question 24 of the list: could be settled by a document in which the rule is printed or a trial with live players (one stake at the end of the partita, or the marche after every deal); see [the open questions](../rulesets/OPEN_QUESTIONS.md). <!-- rule: match.kind -->
+- A match lasts 1 round of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. *Partly printed (Torino [1846], part I, pp. 35-36), partly our decision.* Other reading: A match lasts 2 rounds of dealers: every player deals in turn, going to the right. Every deal is settled as soon as it ends; at the end the greatest balance wins, and equal greatest balances are a draw. A hand thrown in or drawn counts as dealt: nobody pays and the next player deals. <!-- rule: match.dealer_rounds -->
 
 ### Offences
 
-- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 90.* <!-- rule: penalties.revoke -->
-- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Documented: from the book, p. 73.* <!-- rule: penalties.signal -->
+- The offence «revoke» cannot happen at this table. By the book, the offender pays the simple stake to each of the others. *Partly printed (p. 90), partly our decision.* <!-- rule: penalties.revoke -->
+- This table does not charge the offence «a signal to the partner»: the penalty stands in the text of the rules only. By the book, the offender pays the simple stake to each of the others. *Partly printed (p. 73), partly our reading.* <!-- rule: penalties.signal -->
 
 ## Not played yet
 
@@ -123,10 +127,10 @@ This step: *Documented: from the book, p. 89.*
 | Source | Full citation | Held |
 |---|---|---|
 | Torino 1787 | Primi elementi e regole del giuoco de' tarocchi, Torino, Soffietti, 1787 | held |
+| Nice 1930 (Cason) | F. Cason, «Les jeux de cartes à Nice», Armanac Nissart, Nice, 1930, pp. 277-290 | held |
 | Dummett (1980) | Michael Dummett, The Game of Tarot, London: Duckworth, 1980, chapter XIII «Tarocco in Piedmont and Lombardy», pp. 258-279 | held |
 | Torino [1846], part I | L. B., Il giuocatore di tarocchi al tavoliere, part I (Grammatica del giuocatore), Torino, Serra, [1846] | held |
 | Prammatica [1846] | L. B., Prammatica del giuocatore di tarocchi ossia regole indispensabili per gli amatori di simile passatempo, Torino, Serra, [1846] | held |
-| Milan 1794 | Per chi tarocca. Almanacco critico-istruttivo per l'anno 1794, Milano, Luigi Veladini [1793/94]; Biblioteca Trivulziana, Triv M 1542 | held |
 | Turin 1880 | C. C. Tarocaire, La partia a taroch an quatr. Regolament e caprissi, Turin, Stamperia Leteraria, 1880 | held |
 
-Generated from `rulesets/partita_4.json`, rules revision 13. Do not edit: change the game file.
+Generated from `rulesets/partita_4.json`, rules revision 14. Do not edit: change the game file.
